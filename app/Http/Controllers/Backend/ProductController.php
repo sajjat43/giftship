@@ -1,0 +1,60 @@
+<?php
+
+namespace App\Http\Controllers\Backend;
+
+use App\Models\Product;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+class ProductController extends Controller
+{
+    public function product_view()
+    {
+        $product=Product::all();
+        return view('admin.pages.product',compact('product'));
+    }
+    public function product_create()
+    {
+        return view('admin.pages.product_create');
+    }
+
+
+   public function product_store(Request $request)
+    {
+
+
+        $image_name=null;
+        if($request->hasfile('product_image'))
+        {
+            $image_name=date('Ymdhis').'.'.$request->file('product_image')->getClientOriginalExtension();
+            $request->file('product_image')->storeAs('/uploads/product',$image_name);
+
+        }
+        //dd($request->all());
+        Product::create([
+            'name'=>$request->name,
+            'price'=>$request->price,
+            'description'=>$request->description,
+            'image'=>$image_name,
+        ]);
+        // Product::create([
+        //     'name'=>$request->name,
+        //     'price'=>$request->price,
+        //     'description'=>$request->description,
+        //      'image'=>$image_name,
+
+        return redirect()->back()->with('succeess', 'Product has been Created Successfully');
+
+    }
+    public function ProductViewDetails($product_id)
+    {
+        $product= Product::find($product_id);
+
+        return view('admin.pages.product_view', compact('product'));
+    }
+    public function DeleteProduct($product_id)
+    {
+        Product::find($product_id)->delete();
+        return redirect()->back()->with('sucecess', 'Product has beeen Deleted Successfully');
+    }
+}

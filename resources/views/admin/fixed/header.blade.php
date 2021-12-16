@@ -1,6 +1,6 @@
 <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
     <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-      <a class="navbar-brand brand-logo" href="index.html">Gift Ship</a>
+      <a class="navbar-brand brand-logo" href="index.html">Ofdem</a>
       <a class="navbar-brand brand-logo-mini" href="index.html"></a>
     </div>
     <div class="navbar-menu-wrapper d-flex align-items-center justify-content-end">
@@ -21,7 +21,7 @@
       </ul>
       <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item dropdown d-lg-flex d-none">
-              <a href="{{url('/form/signup')}}"><button type="button" class="btn btn-info font-weight-bold">+ Create New</button></a>
+              <a href="{{url('/form/login')}}"><button type="button" class="btn btn-info font-weight-bold">Login</button></a>
           </li>
         <li class="nav-item dropdown d-flex">
           <a class="nav-link count-indicator dropdown-toggle d-flex justify-content-center align-items-center" id="messageDropdown" href="#" data-toggle="dropdown">

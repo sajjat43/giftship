@@ -5,7 +5,7 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>Gift Ship</title>
+  <title>OFDEM</title>
   <!-- base:css -->
   <link rel="stylesheet" href="{{url('Backend/vendors/mdi/css/materialdesignicons.min.css')}}">
   <link rel="stylesheet" href="{{url('Backend/vendors/feather/feather.css')}}">
@@ -212,9 +212,19 @@
           <div class="row">
             <div class="col-sm-12 mb-4 mb-xl-0">
               <h4 class="font-weight-bold text-dark">Hi, welcome back!</h4>
-              <p class="font-weight-normal mb-2 text-muted">APRIL 1, 2019</p>
+              <p class="font-weight-normal mb-2 text-muted">
+                <p>Date/Time: <span id="datetime"></span></p>
+
+              <script>
+                var dt = new Date();
+               document.getElementById("datetime").innerHTML = dt.toLocaleString();
+                </script>
+              </p>
             </div>
           </div>
+
+
+          {{-- @include('admin.pages.login') --}}
           {{-- <div class="row mt-3">
             <div class="col-xl-3 flex-column d-flex grid-margin stretch-card">
               <div class="row flex-grow">

@@ -1,7 +1,9 @@
 <?php
 
-use App\Http\Controllers\AdminController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\ProductController;
+use App\Http\Controllers\Backend\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,4 +22,13 @@ Route::get('/', function () {
 
 
 //for admin controller
-Route::get('/form/signup', [AdminController::class, 'Signup']);
+Route::match(['get','post'],"/form/login",[AdminController::class,'login']);
+//login route
+// Route::match(['get','post'],"/login",[UserController::class,'login'])->name('login.view');
+
+//product route
+Route::get('/product/view',[ProductController::class,'product_view'])->name('product.view');
+Route::get('/product/create',[ProductController::class,'product_create'])->name('product.create');
+Route::post('/product/store',[ProductController::class,'product_store'])->name('product.store');
+Route::get('/product/viewdetails/{product_id}', [ProductController::class, 'ProductViewDetails'])->name('product.view.details');
+Route::get('/product/DeleteProduct/{product_id}', [ProductController::class, 'DeleteProduct'])->name('product.delete');
