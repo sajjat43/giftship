@@ -25,6 +25,10 @@
 
     </div>
     <div class="form-group">
+        <label for="">Product catagory</label>
+        <input type="text" class="form-control" id="exampleInputEmail1" name="product_category" placeholder="Enter your product catagory name">
+      </div>
+    <div class="form-group">
       <label for="">Price</label>
       <input type="number" class="form-control" id="exampleInputPassword1" name="price" placeholder="price">
     </div>
@@ -35,7 +39,7 @@
       </div>
       <div class="form-group">
         <label for="">image</label>
-        <input  type="file" class="form-control", name="product_image" placeholder="insert image">
+        <input  type="file" class="form-control", name="image" placeholder="insert image">
       </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>

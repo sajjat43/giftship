@@ -31,14 +31,27 @@
         </div>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="pages/forms/basic_elements.html">
-          <i class="icon-file menu-icon"></i>
-          <span class="menu-title">Product</span>
+        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+          <i class="icon-disc menu-icon"></i>
+          <span class="menu-title">Oder</span>
+          <i class="menu-arrow"></i>
         </a>
         <div class="collapse" id="ui-basic">
-            <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="">product view</a></li>
-              <li class="nav-item"> <a class="nav-link" href="">Order List</a></li>
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{{route('Employee.login')}}">Employee Login</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('Employee.regestation')}}">Employee Regestation</a></li>
+          </ul>
+        </div>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="">
+          <i class="icon-file menu-icon"></i>
+          <span class="menu-title">Customer</span>
+        </a>
+        <div class="collapse" id="ui-basic">
+             <ul class="nav flex-column sub-menu">
+              <li class="nav-item"> <a class="nav-link" href="{{route('Employee.view')}}">Employee View</a></li>
+              <li class="nav-item"> <a class="nav-link" href="">Order status</a></li>
             </ul>
           </div>
       </li>

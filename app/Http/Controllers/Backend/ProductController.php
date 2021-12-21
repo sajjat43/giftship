@@ -21,18 +21,16 @@ class ProductController extends Controller
 
    public function product_store(Request $request)
     {
-
-
         $image_name=null;
-        if($request->hasfile('product_image'))
+        if($request->hasfile('image'))
         {
-            $image_name=date('Ymdhis').'.'.$request->file('product_image')->getClientOriginalExtension();
-            $request->file('product_image')->storeAs('/uploads/product',$image_name);
-
+            $image_name=date('Ymdhis').'.'.$request->file('image')->getClientOriginalExtension();
+            $request->file('image')->storeAs('/uploads/product',$image_name);
         }
-        //dd($request->all());
+        // dd($request->all());
         Product::create([
             'name'=>$request->name,
+            'Product_category'=>$request->product_category,
             'price'=>$request->price,
             'description'=>$request->description,
             'image'=>$image_name,
@@ -43,7 +41,7 @@ class ProductController extends Controller
         //     'description'=>$request->description,
         //      'image'=>$image_name,
 
-        return redirect()->back()->with('succeess', 'Product has been Created Successfully');
+        return redirect()->back()->with('success', 'Product has been Created Successfully');
 
     }
     public function ProductViewDetails($product_id)
@@ -55,6 +53,6 @@ class ProductController extends Controller
     public function DeleteProduct($product_id)
     {
         Product::find($product_id)->delete();
-        return redirect()->back()->with('sucecess', 'Product has beeen Deleted Successfully');
+        return redirect()->back()->with('success', 'Product has beeen Deleted Successfully');
     }
 }
