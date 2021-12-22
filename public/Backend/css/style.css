@@ -8664,7 +8664,7 @@
     --gray-lighter: #e8eff4;
     --gray-lightest: #e6e9ed;
     --black: #000000;
-    --primary: #ec37fc;
+    --primary: #44bd32;
     --secondary: #e4e6f6;
     --success: #51c81c;
     --info: #3794fc;
@@ -11268,43 +11268,43 @@ fieldset:disabled .ajax-upload-dragdrop a.ajax-file-upload,
 
 .btn-primary {
     color: #fff;
-    background-color: #ec37fc;
-    border-color: #ec37fc;
+    background-color: #44bd32;
+    border-color: #44bd32;
 }
 
 .btn-primary:hover {
     color: #fff;
-    background-color: #e811fb;
-    border-color: #e705fb;
+    background-color: #44bd32;
+    border-color: #44bd32;
 }
 
 .btn-primary:focus,
 .btn-primary.focus {
     color: #fff;
-    background-color: #e811fb;
-    border-color: #e705fb;
-    box-shadow: 0 0 0 0.2rem rgba(239, 85, 252, 0.5);
+    background-color: #44bd32;
+    border-color: #44bd32;
+    box-shadow: 0 0 0 0.2rem rgba(18, 241, 37, 0.5);
 }
 
 .btn-primary.disabled,
 .btn-primary:disabled {
     color: #fff;
-    background-color: #ec37fc;
-    border-color: #ec37fc;
+    background-color: #44bd32;
+    border-color: #44bd32;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active,
 .btn-primary:not(:disabled):not(.disabled).active,
 .show>.btn-primary.dropdown-toggle {
     color: #fff;
-    background-color: #e705fb;
-    border-color: #dc04f0;
+    background-color: #44bd32;
+    border-color: #44bd32;
 }
 
 .btn-primary:not(:disabled):not(.disabled):active:focus,
 .btn-primary:not(:disabled):not(.disabled).active:focus,
 .show>.btn-primary.dropdown-toggle:focus {
-    box-shadow: 0 0 0 0.2rem rgba(239, 85, 252, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(5, 197, 46, 0.5);
 }
 
 .btn-secondary {
@@ -11595,24 +11595,24 @@ fieldset:disabled .ajax-upload-dragdrop a.ajax-file-upload,
 }
 
 .btn-outline-primary {
-    color: #ec37fc;
-    border-color: #ec37fc;
+    color: #44bd32;
+    border-color: #44bd32;
 }
 
 .btn-outline-primary:hover {
     color: #fff;
-    background-color: #ec37fc;
-    border-color: #ec37fc;
+    background-color: #44bd32;
+    border-color: #44bd32;
 }
 
 .btn-outline-primary:focus,
 .btn-outline-primary.focus {
-    box-shadow: 0 0 0 0.2rem rgba(236, 55, 252, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(8, 236, 65, 0.5);
 }
 
 .btn-outline-primary.disabled,
 .btn-outline-primary:disabled {
-    color: #ec37fc;
+    color: #44bd32;
     background-color: transparent;
 }
 
@@ -11620,14 +11620,14 @@ fieldset:disabled .ajax-upload-dragdrop a.ajax-file-upload,
 .btn-outline-primary:not(:disabled):not(.disabled).active,
 .show>.btn-outline-primary.dropdown-toggle {
     color: #fff;
-    background-color: #ec37fc;
-    border-color: #ec37fc;
+    background-color: #44bd32;
+    border-color: #44bd32;
 }
 
 .btn-outline-primary:not(:disabled):not(.disabled):active:focus,
 .btn-outline-primary:not(:disabled):not(.disabled).active:focus,
 .show>.btn-outline-primary.dropdown-toggle:focus {
-    box-shadow: 0 0 0 0.2rem rgba(236, 55, 252, 0.5);
+    box-shadow: 0 0 0 0.2rem rgba(6, 223, 60, 0.5);
 }
 
 .btn-outline-secondary {
@@ -15762,7 +15762,7 @@ button.bg-dark:focus {
 }
 
 .border-primary {
-    border-color: #ec37fc !important;
+    border-color: #44bd32 !important;
 }
 
 .border-secondary {
@@ -19504,11 +19504,11 @@ address p {
 }
 
 .blockquote-primary {
-    border-color: #ec37fc;
+    border-color: #44bd32;
 }
 
 .blockquote-primary .blockquote-footer {
-    color: #ec37fc;
+    color: #44bd32;
 }
 
 .blockquote-secondary {
@@ -20365,8 +20365,8 @@ code {
 
 .btn-inverse-primary:hover {
     color: #ffffff;
-    background-color: #ec37fc;
-    border-color: #ec37fc;
+    background-color: #44bd32;
+    border-color: #44bd32;
 }
 
 .btn-inverse-primary.focus,
@@ -21135,7 +21135,7 @@ code {
 }
 
 .form-check .form-check-label input[type="radio"]:checked+.input-helper:before {
-    background: #ec37fc;
+    background: #44bd32;
     border-width: 0;
 }
 
@@ -22661,7 +22661,7 @@ dl li {
 
 .sidebar {
     min-height: calc(100vh - 60px);
-    background: #ec37fc;
+    background: #686de0;
     font-family: "Karla", sans-serif;
     font-weight: normal;
     padding: 0;
@@ -22817,7 +22817,7 @@ dl li {
 }
 
 .sidebar .nav .nav-item:first-child .nav-link {
-    border-top: 1px solid #ec37fc;
+    border-top: 1px solid #ffffff;
 }
 
 .sidebar .nav:not(.sub-menu) {
@@ -22957,7 +22957,7 @@ dl li {
 }
 
 .navbar .navbar-brand-wrapper {
-    background: #ec37fc;
+    background: #686de0;
     transition: width 0.25s ease, background 0.25s ease;
     -webkit-transition: width 0.25s ease, background 0.25s ease;
     -moz-transition: width 0.25s ease, background 0.25s ease;

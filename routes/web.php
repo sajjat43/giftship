@@ -16,6 +16,8 @@ use App\Http\Controllers\Fontend\EmployeeController;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// Route::group(['prefix'=>'Admin'], function(){
+    Route::match(['get','post'],"/form/login",[AdminController::class,'login']);
 
 Route::get('/', function () {
     return view('master');
@@ -33,6 +35,11 @@ Route::get('/product/create',[ProductController::class,'product_create'])->name(
 Route::post('/product/store',[ProductController::class,'product_store'])->name('product.store');
 Route::get('/product/viewdetails/{product_id}', [ProductController::class, 'ProductViewDetails'])->name('product.view.details');
 Route::get('/product/DeleteProduct/{product_id}', [ProductController::class, 'DeleteProduct'])->name('product.delete');
+// product category
+Route::get('/product/category/create',[ProductController::class,'Category'])->name('product.category');
+Route::post('/product/category/store',[ProductController::class,'Category_store'])->name('product.category.store');
+Route::get('/product/category/view',[ProductController::class,'Category_view'])->name('product.category.view');
+// Route::get('/product/deletecategory/{category_id}',[ProductController::class,'Category_delete'])->name('product.category.delete');
 
 
 
@@ -42,3 +49,5 @@ Route::get('/product/DeleteProduct/{product_id}', [ProductController::class, 'De
  Route::get('/Employee/regestation',[EmployeeController::class,'EmployeeRegestation'])->name('Employee.regestation');
  Route::post('/Employee/regestation/store',[EmployeeController::class,'EmployeeRegestationstore'])->name('Employee.regestation.store');
 Route::get('/Employee/view',[EmployeeController::class,'EmployeeView'])->name('Employee.view');
+
+// });

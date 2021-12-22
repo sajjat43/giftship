@@ -25,7 +25,7 @@
             <form action="login" method="POST">
                 @csrf
                 <div class="mb-3">
-x                  <label for="exampleInputEmail1" class="form-label">Email address</label>
+                  <label for="exampleInputEmail1" class="form-label">Email address</label>
                   <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 
                 </div>
