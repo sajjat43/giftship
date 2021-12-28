@@ -41,7 +41,7 @@
             <td><img src="{{url('/uploads/uploads/product/'.$data->image)}}" style="border-radius:4px" width="100px" alt="product image"></td>
             <td>
             <a href="{{route('product.view.details', $data->id)}}" class="btn btn-info">View</a>
-            <a href="" class="btn btn-success">Update</a>
+            <a href="{{route('product.edit', $data->id)}}" class="btn btn-success">Update</a>
             <a href="{{route('product.delete', $data->id)}}" class="btn btn-danger">Delete</a>
             </td>
           </tr>

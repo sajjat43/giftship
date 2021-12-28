@@ -38,8 +38,8 @@
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="{{route('Employee.login')}}">Employee Login</a></li>
-            <li class="nav-item"> <a class="nav-link" href="{{route('Employee.regestation')}}">Employee Regestation</a></li>
+            {{-- <li class="nav-item"> <a class="nav-link" href="{{route('Employee.login')}}">Employee Login</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('Employee.regestation')}}">Employee Regestation</a></li> --}}
           </ul>
         </div>
       </li>
@@ -50,7 +50,7 @@
         </a>
         <div class="collapse" id="ui-basic">
              <ul class="nav flex-column sub-menu">
-              <li class="nav-item"> <a class="nav-link" href="{{route('Employee.view')}}">Employee View</a></li>
+              {{-- <li class="nav-item"> <a class="nav-link" href="{{route('Employee.view')}}">Employee View</a></li> --}}
               <li class="nav-item"> <a class="nav-link" href="{{route('product.category')}}">Category</a></li>
               <li class="nav-item"> <a class="nav-link" href="{{route('product.category.view')}}">Category view</a></li>
             </ul>

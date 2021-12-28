@@ -21,7 +21,7 @@
       </ul>
       <ul class="navbar-nav navbar-nav-right">
           <li class="nav-item dropdown d-lg-flex d-none">
-              <a href="{{url('/form/login')}}"><button type="button" class="btn btn-info font-weight-bold">Login</button></a>
+              <a href=""><button type="button" class="btn btn-info font-weight-bold">pending Oder</button></a>
           </li>
       <li class="nav-item dropdown d-lg-flex d-none">
         <a class="bi bi-cart" ></a>
@@ -82,7 +82,7 @@
             <a class="dropdown-item preview-item">
                 <i class="icon-head"></i> Profile
             </a>
-            <a class="dropdown-item preview-item">
+            <a href="{{route('admin.logout')}}" class="dropdown-item preview-item">
                 <i class="icon-inbox"></i> Logout
             </a>
           </div>

@@ -1,43 +1,60 @@
-@extends('master')
-@section("content")
 
-@if (session()->has('success'))
-<p class="alert alert-success">
-  {{session()->get('success')}}
-  </p>
-@endif
 
-@if ($errors->any())
-    <div class="alert alert-danger">
-      <ul>
-        @foreach ($errors->all() as $error)
-          <li>
-            {{$error}}
-          </li>
-        @endforeach
-      </ul>
-    </div>
-  @endif
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-<div class="container Customer-login">
+
+
+<!------ Include the above in your HEAD tag ---------->
+<form id="login-form" class="form" action="{{route('login.view')}}" method="post">
+
+@csrf
+<div class="simple-login-container">
+    <h2>Admin Login</h2>
     <div class="row">
-        <div class="col-sm-4 col-sm-offset-4">
-            <form action="login" method="POST">
-                @csrf
-                <div class="mb-3">
-                  <label for="exampleInputEmail1" class="form-label">Email address</label>
-                  <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-
-                </div>
-                <div class="mb-3">
-                  <label for="exampleInputPassword1" class="form-label">password</label>
-                  <input type="password" name="password" class="form-control" id="exampleInputPassword1">
-                </div>
-
-                <button type="submit"  class="btn btn-primary">Submit</button>
-              </form>
+        <div class="col-md-12 form-group">
+            <input type="email" class="form-control" name="email" placeholder="Enter your email">
         </div>
     </div>
-</div>
-@endsection
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <input type="password" name="password" placeholder="Enter your Password"  class="form-control">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 form-group">
+            <input type="submit" class="btn btn-block btn-login" placeholder="Enter your Password" >
+        </div>
+    </div>
+</from>
 
+</div>
+
+
+
+<style type="text/css">
+body{
+    background-color:#5286F3;
+    font-size:14px;
+    color:#fff;
+}
+.simple-login-container{
+    width:300px;
+    max-width:100%;
+    margin:50px auto;
+}
+.simple-login-container h2{
+    text-align:center;
+    font-size:20px;
+}
+
+.simple-login-container .btn-login{
+    background-color:#FF5964;
+    color:#fff;
+}
+a{
+    color:#fff;
+}
+
+</style>

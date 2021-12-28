@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\DB;
-use Illuminate\Support\Facades\Hash;
 use Symfony\Contracts\Service\Attribute\Required;
 class UserSeeder extends Seeder
 {
@@ -18,7 +17,7 @@ class UserSeeder extends Seeder
         DB::table('users')-> insert([
             'name'=>'sajjat',
             'email'=>'sajjat@gmail.com',
-            'password'=>Hash::make('12345')
+            'password'=>bcrypt('12345')
         ]);
     }
 }
