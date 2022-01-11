@@ -27,6 +27,7 @@
         <th scope="col">Mobile</th>
         <th scope="col">Gender</th>
 
+
         <th scope="col">Action</th>
       </tr>
     </thead>
@@ -38,8 +39,12 @@
             <td>{{$data->email}} </td>
             <td>{{$data->mobile}} </td>
             <td>{{$data->gender}} </td>
+            {{-- <td>
+                <td><img src="{{url('/uploads/uploads/product/'.$data->image)}}" style="border-radius:4px" width="100px" alt="employee image"></td>
+            <td> --}}
+            </td>
              <td>
-            <a href="" class="btn btn-info">View</a>
+            <a href="{{route('Employee.single.details',$data->id)}}" class="btn btn-info">View</a>
             <a href="" class="btn btn-success">Update</a>
             <a href="" class="btn btn-danger">Delete</a>
             </td>

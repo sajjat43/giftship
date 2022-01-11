@@ -1,4 +1,4 @@
-@extends('master')
+@extends('website.master')
 @section("content")
 @if(session()->has('success'))
     <p class="alert alert-success">
@@ -17,17 +17,11 @@
                 </ul>
               </div>
   @endif
-<a href="{{route('product.create')}}" class="btn btn-primary"> Add product</a>
-<form action="{{route('product.view')}}" method="GET">
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
-            <input type="text" value="" placeholder="search....." name="search" class="form-control">
-        </div>
-        <button type="submit" class="btn btn-success">Search</button>
-</form>
-
-</div>
+{{-- <a href="{{route('product.create')}}" class="btn btn-primary"> Add product</a> --}}
+<div class="form">
+    <label for="">Search</label>
+    <input  type="text" class="form-control" id="exampleInputEmail1" name="search" placeholder="search product">
+  </div>
 <table class=" table table-light" style="width: 100%">
     <thead>
       <tr>
@@ -49,11 +43,7 @@
             <td>{{$data->description}} </td>
             <td>{{$data->price}} </td>
             <td><img src="{{url('/uploads/uploads/product/'.$data->image)}}" style="border-radius:4px" width="100px" alt="product image"></td>
-            <td>
-            <a href="{{route('product.view.details', $data->id)}}" class="btn btn-info">View</a>
-            <a href="{{route('product.edit', $data->id)}}" class="btn btn-success">Update</a>
-            <a href="{{route('product.delete', $data->id)}}" class="btn btn-danger">Delete</a>
-            </td>
+
           </tr>
         @endforeach
 

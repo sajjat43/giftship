@@ -1,4 +1,4 @@
-@extends('master')
+@extends('website.master')
 @section('content')
 <div class="container">
 
@@ -16,6 +16,9 @@
 
 
     <button type="submit" class="btn btn-primary">Submit</button>
+    <div class=""><a>You need to regestation first.</a></div>
+<div class=""> <a type="button" class="btn btn-primary" href="{{route('Employee.regestation')}}" > Resestation</a></div>
+
   </form>
 </div>
 @endsection

@@ -18,6 +18,7 @@
               </div>
   @endif
 <form action="{{route('product.update',$product->id)}}" method="POST" enctype="multipart/form-data">
+    <input type="text">
     @csrf
     <div class="form-group">
       <label for="">Name:</label>
