@@ -5,7 +5,7 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\UserController;
-use App\Http\Controllers\Frontend\HomeController;
+use App\Http\Controllers\Fontend\HomeController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Fontend\EmployeeController;
 
@@ -23,11 +23,12 @@ use App\Http\Controllers\Fontend\EmployeeController;
 
 
 Route::get('/', [HomeController::class, 'Home'])->name('manage.home');
+
 Route::group(['prefix' => 'user'], function () {
     Route::get('/', function () {
         return view('website.master');
     })->name('website');
-
+    Route::get('/shop/category/', [HomeController::class, 'shop_category'])->name('shop.catagory');
     Route::get('/user/login', [HomeController::class, 'userLogin'])->name('website.user.login');
 
     Route::get('/product/font/view', [HomeController::class, 'product_font_view'])->name('product.font.view');
@@ -42,13 +43,15 @@ Route::group(['prefix' => 'user'], function () {
 });
 
 
-Route::match(['get', 'post'], "/form/login", [AdminController::class, 'login_view'])->name('admin.login');
-Route::match(['get', 'post'], "/login", [AdminController::class, 'login'])->name('login.view');
+Route::get("/form/login", [AdminController::class, 'login_view'])->name('admin.login');
+Route::post("/login", [AdminController::class, 'login'])->name('login.view');
 
 
 
 // Route::post('/admin/do-login',[AdminUserController::class,'doLogin'])->name('admin.doLogin');
 //for admin controller
+
+// ---------------------all backend--------------------
 
 Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
     Route::get('/', function () {

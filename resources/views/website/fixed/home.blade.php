@@ -1,230 +1,6 @@
 @extends('website.master')
 @section('content')
-{{-- <style>
-@primary: #4a4a4a;
-@secondary: #ffffff;
-@tertiary: #000000;
-@arrow-size: 12px;
-@arrow-distance: 20px;
-@vertical-space: 10px;
 
-body {
-	margin: 0;
-	padding: 10px;
-	width: 100%;
-	height: 100%;
-	box-sizing: border-box;
-}
-
-.product-carousel-header {
-  background: @primary;
-	color: @secondary;
-  box-sizing: border-box;
-	font-family: "Open Sans", sans-serif;
-	padding: 10px 14px;
-	width: 100%;
-}
-
-.product-carousel {
-  background: @secondary;
-  border: 1px solid @primary;
-  box-sizing: border-box;
-	font-family: "Open Sans", sans-serif;
-	padding: 20px 40px;
-	width: 100%;
-}
-
-.product-carousel .product {
-	box-sizing: border-box;
-	margin: 0 10px;
-	text-align: center;
-	display: flex;
-	flex-flow: column;
-	align-content: space-between;
-}
-
-.product-carousel .product-top {
-	width: 100%;
-}
-
-.product-carousel p, .product-carousel .product-image, .product-carousel img.review-stars {
-	margin: 0 0 @vertical-space 0;
-}
-
-.product-carousel .product-image {
-	align-self: flex-start;
-	width: 100%;
-}
-
-img.review-stars {
-	width: 100px;
-	display: inline-block;
-
-}
-
-.product-carousel .product-name {
-	font-weight: bold;
-	display: flex;
-	flex-flow: column wrap;
-	justify-content: flex-start;
-	width: 100%;
-}
-
-.product-carousel .product-bottom {
-	margin-top: auto;
-	align-items: flex-end;
-}
-
-.product-carousel .product-prices {
-	display: flex;
-	flex-flow: row wrap;
-	flex: 1 0 100%;
-	align-self: center;
-}
-
-.product-carousel .product-prices span {
-	width: 100%;
-}
-
-.product-carousel .product-prices span.price-was {
-	color: #a2a2a2;
-	text-decoration: line-through;
-	&:before {
-		content: 'Was ';
-	}
-}
-
-.product-carousel .product-prices span.price-save {
-	color: red;
-	&:before {
-		content: 'Save ';
-	}
-}
-
-.product-carousel .product-prices span.price-now {
-	font-weight: bold;
-	&:before {
-		content: 'Now ';
-	}
-}
-
-.product-carousel button.shop-now {
-  border:none;
-  background-image:none;
-  background-color:@primary;
-	color: @secondary;
-  box-shadow: none;
-  	-webkit-box-shadow: none;
-  	-moz-box-shadow: none;
-	font-size: 16px;
-	padding: 8px 10px;
-	align-self: center;
-}
-
-/** ARROWS **/
-i {
-  border: solid @tertiary;
-  border-width: 0 2px 2px 0;
-  display: inline-block;
-  padding: @arrow-size;
-	position: absolute;
-	top: calc(50% - @arrow-size/2);
-	cursor: pointer;
-}
-
-.right {
-	right: @arrow-distance;
-  transform: rotate(-45deg);
-    -webkit-transform: rotate(-45deg);
-}
-
-.left {
-	left: @arrow-distance;
-  transform: rotate(135deg);
-    -webkit-transform: rotate(135deg);
-}
-
-/** SLICK SLIDER CSS **/
-/* Slider */
-.slick-slider
-{
-  position: relative;
-  -moz-box-sizing: border-box;
-       box-sizing: border-box;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-      -ms-user-select: none;
-          user-select: none;
-  -webkit-touch-callout: none;
-  -khtml-user-select: none;
-  -ms-touch-action: pan-y;
-      touch-action: pan-y;
-  -webkit-tap-highlight-color: transparent;
-}
-
-.slick-list
-{
-  position: relative;
-  overflow: hidden;
-  margin: 0;
-  padding: 0;
-}
-.slick-list:focus
-{
-  outline: none;
-}
-.slick-list.dragging
-{
-  cursor: pointer;
-  cursor: hand;
-}
-
-.slick-slider .slick-track,
-.slick-slider .slick-list
-{
-  -webkit-transform: translate3d(0, 0, 0);
-     -moz-transform: translate3d(0, 0, 0);
-      -ms-transform: translate3d(0, 0, 0);
-       -o-transform: translate3d(0, 0, 0);
-          transform: translate3d(0, 0, 0);
-}
-
-.slick-track
-{
-	display: flex;
-  position: relative;
-  top: 0;
-  left: 0;
-}
-.slick-loading .slick-track
-{
-  visibility: hidden;
-}
-[dir='rtl'] .slick-slide
-{
-  float: right;
-}
-.slick-slide.slick-loading img
-{
-  display: none;
-}
-.slick-slide.dragging img
-{
-  pointer-events: none;
-}
-.slick-loading .slick-slide
-{
-  visibility: hidden;
-}
-.slick-vertical .slick-slide
-{
-  height: auto;
-  border: 1px solid transparent;
-}
-.slick-arrow.slick-hidden {
-  display: none;
-}
-</style> --}}
 <main>
 
     <div class="slider-area ">
@@ -276,9 +52,10 @@ i {
             </div>
         </div>
     </div>
+{{-- category css  --}}
 
 
-    <section class="category-area section-padding30">
+  <section class="category-area section-padding30">
         <div class="container-fluid">
 
             <div class="row">
@@ -289,7 +66,45 @@ i {
                 </div>
             </div>
             <div class="row">
-                <div class="col-xl-4 col-lg-6">
+
+
+
+
+{{-- cateogry --}}
+<div class="row special-list">
+
+
+    @foreach ($categories as $key=>$data )
+<div class="col-lg-3 col-md-6 special-grid best-seller">
+    <div class="products-single fix">
+        <div class="box-img-hover">
+            <div class="type-lb">
+
+            </div>
+            <img style="height: 200px" src="{{url('uploads/uploads/category/',$data->Cimage)}}" class="img-fluid" alt="Image">
+            <div class="mask-icon">
+                <ul>
+                    <li><a href="{{route('shop.catagory',$data->Cid)}}" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="why-text">
+            <h4>{{$data->Cname}}</h4>
+            <h5> {{$data->Cdescription}}</h5>
+        </div>
+    </div>
+</div>
+    @endforeach
+
+
+</div>
+</div>
+</div>
+
+
+                {{-- <div class="col-xl-4 col-lg-6">
                     <div class="single-category mb-30">
                         <div class="category-img">
                             <img src="{{url('Frontend/assets/img/categori/xcat1.jpg.pagespeed.ic.O08VptWAEH.jpg')}}" alt="">
@@ -300,8 +115,8 @@ i {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-4 col-lg-6">
+                </div> --}}
+                {{-- <div class="col-xl-4 col-lg-6">
                     <div class="single-category mb-30">
                         <div class="category-img text-center">
                             <img src="{{url('Frontend/assets/img/categori/xcat2.jpg.pagespeed.ic.C7_93LfgY4.jpg')}}" alt="">
@@ -312,8 +127,8 @@ i {
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-xl-4 col-lg-6">
+                </div> --}}
+                {{-- <div class="col-xl-4 col-lg-6">
                     <div class="single-category mb-30">
                         <div class="category-img">
                             <img src="{{url('Frontend/assets/img/categori/xcat3.jpg.pagespeed.ic.kefuyYjmzI.jpg')}}" alt="">
@@ -324,9 +139,9 @@ i {
                             </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
+                </div> --}}
+            {{-- </div>
+        </div> --}}
     </section>
 
 
@@ -374,6 +189,18 @@ i {
         @endforeach
     </div>
 </div> --}}
+<style>
+.best-seller{
+    box-shadow: 43px;
+}
+.detailscart{
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+</style>
+
+
 <div class="row special-list">
 
 
@@ -388,13 +215,13 @@ i {
             <div class="mask-icon">
                 <ul>
                     <li><a href="{{route('crisis.view',$product->id)}}" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                    {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
                 </ul>
                 <a class="cart" href="">Add to Cart</a>
             </div>
         </div>
-        <div class="why-text">
+        <div class="why-text detailscart">
             <h4>{{$product->name}}</h4>
             <h5>BDT: {{$product->price}}</h5>
             <h5> {{$product->description}}</h5>

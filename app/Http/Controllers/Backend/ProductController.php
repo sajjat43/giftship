@@ -9,6 +9,9 @@ use App\Http\Controllers\Controller;
 
 class ProductController extends Controller
 {
+
+
+    //   --------------------------  product list and search method here------------------
     public function product_view()
     {
         $key = null;
@@ -23,11 +26,14 @@ class ProductController extends Controller
         $product = Product::all();
         return view('admin.pages.product', compact('product'));
     }
+
+
     public function product_create()
     {
         return view('admin.pages.product_create');
     }
 
+    // ---------product store--------------
 
     public function product_store(Request $request)
     {
@@ -44,29 +50,35 @@ class ProductController extends Controller
             'description' => $request->description,
             'image' => $image_name,
         ]);
-        // Product::create([
-        //     'name'=>$request->name,
-        //     'price'=>$request->price,
-        //     'description'=>$request->description,
-        //      'image'=>$image_name,
+
 
         return redirect()->back()->with('success', 'Product has been Created Successfully');
     }
+
+    // ---------product single view------------------
+
     public function ProductViewDetails($product_id)
     {
         $product = Product::find($product_id);
 
         return view('admin.pages.product_view', compact('product'));
     }
+    // -------------- product delete-------------------
+
     public function DeleteProduct($product_id)
     {
         Product::find($product_id)->delete();
         return redirect()->back()->with('success', 'Product has beeen Deleted Successfully');
     }
+
+    // ---------------category view---------------
+
     public function Category()
     {
         return view('admin.pages.Category');
     }
+    // ------------category table-------------------
+
     public function Category_store(Request $request)
     {
         // dd($request->all());
@@ -83,6 +95,8 @@ class ProductController extends Controller
         ]);
         return redirect()->back()->with('success', 'Category has been Created Successfully');
     }
+    // ----------------categoey view--------------------------
+
     public function Category_view()
     {
         $category = Category::all();
@@ -94,6 +108,8 @@ class ProductController extends Controller
     //     Category::find($category_id)->delete();
     //     return redirect()->back()->with('success', 'Product has beeen Deleted Successfully');
     // }
+
+    // -------------------update product-------------------------------
 
     public function product_update(Request $request, $product_id)
     {
@@ -112,6 +128,7 @@ class ProductController extends Controller
         ]);
         return redirect()->route('product.view')->with('success', 'Product has been update Successfully');
     }
+    // ----------------update view----------------
     public function product_edit($product_id)
     {
         $product = Product::find($product_id);

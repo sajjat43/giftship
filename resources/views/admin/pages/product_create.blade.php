@@ -27,7 +27,8 @@
     <div class="form-group">
         <label for="">Product catagory</label>
         <input type="text" class="form-control" id="category" name="product_category" placeholder="Enter your product catagory name">
-      </div>
+    <option value=""></option>
+    </div>
     <div class="form-group">
       <label for="">Price</label>
       <input type="number" class="form-control" id="e" name="price" placeholder="price">

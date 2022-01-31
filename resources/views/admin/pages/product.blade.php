@@ -45,7 +45,7 @@
         <tr>
             <th scope="row">{{$key+1}}</th>
             <td>{{$data->name}} </td>
-            <td>{{$data->product_category}} </td>
+            <td>{{$data->Cname}} </td>
             <td>{{$data->description}} </td>
             <td>{{$data->price}} </td>
             <td><img src="{{url('/uploads/uploads/product/'.$data->image)}}" style="border-radius:4px" width="100px" alt="product image"></td>

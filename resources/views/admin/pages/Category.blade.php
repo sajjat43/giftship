@@ -22,18 +22,18 @@
 
     <div class="form-group">
       <label for="">Category Name</label>
-      <input type="text" class="form-control" id="exampleInputEmail1" name="Cname" placeholder="Enter your product name">
+      <input type="text" class="form-control" id="Cname" name="Cname" placeholder="Enter your product name">
 
     </div>
     <div class="form-group">
         <label for="">Category ID</label>
-        <input type="Number" class="form-control" id="exampleInputEmail1" name="Cid" placeholder="Enter your product catagory name">
+        <input type="Number" class="form-control" id="Cid" name="Cid" placeholder="Enter your product catagory name">
       </div>
 
 
       <div class="form-group">
         <label for="" >description</label>
-        <input type="text" class="form-control" id="exampleInputPassword1" name="Cdescription" placeholder="Short description">
+        <input type="text" class="form-control" id="Cdescription" name="Cdescription" placeholder="Short description">
       </div>
       <div class="form-group">
         <label for="">image</label>

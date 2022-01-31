@@ -61,10 +61,14 @@
                                                 <li><a href="single-product.html"> Product Details</a></li>
                                             </ul>
                                         </li>
-                                        <li><a href="blog.html">Blog</a>
+                                        {{-- ====================category===================== --}}
+                                        <li><a href="blog.html">Category</a>
                                             <ul class="submenu">
-                                                <li><a href="blog.html">Blog</a></li>
-                                                <li><a href="single-blog.html">Blog Details</a></li>
+                                                @foreach ($categories as $category )
+                                                <li><a href="">{{$category->Cname}}</a></li>
+                                                @endforeach
+
+
                                             </ul>
                                         </li>
                                         <li><a href="#">Pages</a>

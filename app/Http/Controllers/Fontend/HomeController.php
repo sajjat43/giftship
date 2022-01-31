@@ -1,16 +1,18 @@
 <?php
 
-namespace App\Http\Controllers\Frontend;
+namespace App\Http\Controllers\Fontend;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 
 class HomeController extends Controller
 {
     public function Home()
     {
         $product = Product::all();
+
         return view('website.fixed.home', compact('product'));
     }
     public function userLogin()
@@ -35,5 +37,10 @@ class HomeController extends Controller
     {
         $product = Product::find($product_id);
         return view('website.pages.cause_details', compact('product'));
+    }
+    public function shop_category()
+    {
+        $categorylist = Category::all();
+        return view('website.fixed.home', compact('categorylist'));
     }
 }

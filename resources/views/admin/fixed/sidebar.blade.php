@@ -27,6 +27,8 @@
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{route('product.create')}}">Create Product</a></li>
             <li class="nav-item"> <a class="nav-link" href="{{route('product.view')}}">Product List</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{route('product.category')}}">Create Category</a></li>
+              <li class="nav-item"> <a class="nav-link" href="{{route('product.category.view')}}">Category view</a></li>
           </ul>
         </div>
       </li>
@@ -51,8 +53,7 @@
         <div class="collapse" id="ui-basic">
              <ul class="nav flex-column sub-menu">
               <li class="nav-item"> <a class="nav-link" href="{{route('Employee.view')}}">Employee View</a></li>
-              <li class="nav-item"> <a class="nav-link" href="{{route('product.category')}}">Category</a></li>
-              <li class="nav-item"> <a class="nav-link" href="{{route('product.category.view')}}">Category view</a></li>
+
             </ul>
           </div>
       </li>

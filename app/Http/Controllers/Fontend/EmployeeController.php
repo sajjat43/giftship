@@ -8,16 +8,20 @@ use App\Http\Controllers\Controller;
 
 class EmployeeController extends Controller
 {
+    // ----------------employee login-----------------------
+
     public function EmployeeLogin()
     {
         return view('website.pages.Employee_login');
     }
+    // ---------------------employee registation--------------------
 
     public function EmployeeRegestation()
     {
         //
         return view('website.pages.Employee_regestation');
     }
+    // -----------------employee table------------------
     public function EmployeeRegestationstore(Request $request)
     {
         // dd($request->all());
@@ -31,11 +35,15 @@ class EmployeeController extends Controller
         ]);
         return redirect()->route('Employee.login')->with('success', 'Employee regestaion Successfully');
     }
+    // employee view-------------------------
+
     public function EmployeeView()
     {
         $Employee = Employee::all();
         return view('admin/pages/Employee_list', compact('Employee'));
     }
+    // -------------employee single view---------------
+
     public function Employee_single_View($employee_id)
     {
         $employee = employee::find($employee_id);
