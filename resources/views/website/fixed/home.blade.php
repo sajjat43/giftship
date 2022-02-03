@@ -190,12 +190,27 @@
     </div>
 </div> --}}
 <style>
+    /* body{
+        background-color: gainsboro;
+    } */
 .best-seller{
-    box-shadow: 43px;
+    box-shadow: 43px !important;
 }
-.detailscart{
-    font-size: 30px;
+.detailscart h4{
+    font-size: 25px !important;
     font-family: Arial, Helvetica, sans-serif;
+}
+.detailscart h5{
+    font-size: 17px !important;
+}
+.shedo{
+    border: 2px solid seashell;
+    margin: 10px;
+    box-shadow: 10px 10px 5px rgb(192, 183, 183) ;
+    width: 100%;
+    display: flex;
+    width: 100%;
+
 }
 
 </style>
@@ -205,7 +220,7 @@
 
 
     @foreach ($product as $product )
-<div class="col-lg-3 col-md-6 special-grid best-seller">
+<div class="col-lg-3 col-md-6 special-grid best-seller shedo">
     <div class="products-single fix">
         <div class="box-img-hover">
             <div class="type-lb">
