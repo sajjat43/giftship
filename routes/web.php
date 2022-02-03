@@ -40,6 +40,8 @@ Route::group(['prefix' => 'user'], function () {
 
     //cerisol
     Route::get('/product/crisis/{product_id}', [ProductController::class, 'crisis'])->name('crisis.view');
+    // ================cart view=======================
+    Route::get('/cart/view', [ProductController::class, 'cartview'])->name('cart.view');
 });
 
 

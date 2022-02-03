@@ -71,11 +71,18 @@
 
 
 {{-- cateogry --}}
-<div class="row special-list">
+<style>
+.ca{
+    width: 100%;
+    margin-left: 30px;
+}
+
+</style>
+<div class="row special-list ca">
 
 
     @foreach ($categories as $key=>$data )
-<div class="col-lg-3 col-md-6 special-grid best-seller">
+<div class="col-lg-3 col-md-6 special-grid best-seller shedo ca  ">
     <div class="products-single fix">
         <div class="box-img-hover">
             <div class="type-lb">
@@ -212,6 +219,10 @@
     width: 100%;
 
 }
+.detailscart a{
+    padding: 20px 41px;
+    border-radius: 10px;
+}
 
 </style>
 
@@ -220,7 +231,7 @@
 
 
     @foreach ($product as $product )
-<div class="col-lg-3 col-md-6 special-grid best-seller shedo">
+<div class="col-lg-3 col-md-6 special-grid best-seller shedo ">
     <div class="products-single fix">
         <div class="box-img-hover">
             <div class="type-lb">
@@ -240,6 +251,7 @@
             <h4>{{$product->name}}</h4>
             <h5>BDT: {{$product->price}}</h5>
             <h5> {{$product->description}}</h5>
+            <a href="" class="btn btn-primary">add </a>
         </div>
     </div>
 </div>

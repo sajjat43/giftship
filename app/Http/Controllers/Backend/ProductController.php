@@ -135,5 +135,10 @@ class ProductController extends Controller
 
         return view('admin.pages.product_update', compact('product'));
     }
-    // Searching Product
+    // ADD to cart-------------------------------
+
+    public function cartview()
+    {
+        return view('website.pages.cart');
+    }
 }

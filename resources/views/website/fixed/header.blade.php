@@ -74,11 +74,11 @@
                                         <li><a href="#">Pages</a>
                                             <ul class="submenu">
                                                 <li><a href="">Login</a></li>
-                                                <li><a href="cart.html">Card</a></li>
+                                                <li><a href="">Card</a></li>
                                                 <li><a href="elements.html">Element</a></li>
                                                 <li><a href="about.html">About</a></li>
                                                 <li><a href="confirmation.html">Confirmation</a></li>
-                                                <li><a href="cart.html">Shopping Cart</a></li>
+                                                <li><a href="">Shopping Cart</a></li>
                                                 <li><a href="checkout.html">Product Checkout</a></li>
                                             </ul>
                                         </li>
@@ -104,7 +104,7 @@
                                 </li>
                                 <li>
                                     <div class="shopping-card">
-                                        <a href="cart.html"><i class="fas fa-shopping-cart"></i></a>
+                                        <a href="{{route('cart.view')}}"><i class="fas fa-shopping-cart"></i></a>
                                     </div>
                                 </li>
                                 <li class="d-none d-lg-block"> <a href="{{route('website.user.login')}}" class="btn header-btn">Sign in</a></li>
