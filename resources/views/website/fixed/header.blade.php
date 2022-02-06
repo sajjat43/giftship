@@ -54,7 +54,7 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a href="{{route('manage.home')}}">Home</a></li>
-                                        <li><a href="Catagori.html">Catagori</a></li>
+
                                         <li class="hot"><a href="#">Latest</a>
                                             <ul class="submenu">
                                                 <li><a href="{{route('product.font.view')}}"> Product list</a></li>
@@ -79,7 +79,7 @@
                                                 <li><a href="about.html">About</a></li>
                                                 <li><a href="confirmation.html">Confirmation</a></li>
                                                 <li><a href="">Shopping Cart</a></li>
-                                                <li><a href="checkout.html">Product Checkout</a></li>
+                                                <li><a href="">Product Checkout</a></li>
                                             </ul>
                                         </li>
                                         <li><a href="contact.html">Contact</a></li>

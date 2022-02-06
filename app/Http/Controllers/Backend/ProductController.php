@@ -27,10 +27,10 @@ class ProductController extends Controller
         return view('admin.pages.product', compact('product'));
     }
 
-
     public function product_create()
     {
-        return view('admin.pages.product_create');
+        $categories = Category::all();
+        return view('admin.pages.product_create', compact('categories'));
     }
 
     // ---------product store--------------
@@ -45,7 +45,7 @@ class ProductController extends Controller
         // dd($request->all());
         Product::create([
             'name' => $request->name,
-            'Product_category' => $request->product_category,
+            'Cname' => $request->Cname,
             'price' => $request->price,
             'description' => $request->description,
             'image' => $image_name,
@@ -89,7 +89,6 @@ class ProductController extends Controller
         }
         Category::create([
             'Cname' => $request->Cname,
-            'Cid' => $request->Cid,
             'Cdescription' => $request->Cdescription,
             'Cimage' => $image_Cname,
         ]);

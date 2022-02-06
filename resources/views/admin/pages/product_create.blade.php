@@ -25,10 +25,13 @@
 
     </div>
     <div class="form-group">
-        <label for="">Product catagory</label>
-        <input type="text" class="form-control" id="category" name="product_category" placeholder="Enter your product catagory name">
-    <option value=""></option>
-    </div>
+        <label for="exampleFormControlSelect1">asset Category</label>
+        <select name="Cname" class="form-control" id="exampleFormControlSelect1">
+          @foreach ($categories as $category)
+          <option value="{{$category->Cname}}">{{$category->Cname}}</option>
+       @endforeach
+        </select>
+      </div>
     <div class="form-group">
       <label for="">Price</label>
       <input type="number" class="form-control" id="e" name="price" placeholder="price">

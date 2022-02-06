@@ -209,18 +209,23 @@
 }
 .detailscart h5{
     font-size: 17px !important;
+
 }
 .shedo{
-    border: 2px solid seashell;
-    margin: 10px;
-    box-shadow: 10px 10px 5px rgb(192, 183, 183) ;
+
+    /* border: 2px solid seashell; */
+    margin: 45px;
+    box-shadow: 5px 5px 5px rgb(192, 183, 183) ;
     width: 100%;
     display: flex;
-    width: 100%;
+    /* justify-content: space-between; */
+    max-width: 300px !important;
+    margin-bottom: 30px;
+    padding: 10px;
 
 }
 .detailscart a{
-    padding: 20px 41px;
+    padding: 15px 20px;
     border-radius: 10px;
 }
 
@@ -231,7 +236,7 @@
 
 
     @foreach ($product as $product )
-<div class="col-lg-3 col-md-6 special-grid best-seller shedo ">
+<div class="col-lg-4 col-md-6 special-grid best-seller shedo gx-5 ">
     <div class="products-single fix">
         <div class="box-img-hover">
             <div class="type-lb">
@@ -262,8 +267,37 @@
 </div>
 </div>
 
+{{--
+<div class="container">
+    <div class="row">
+        @foreach ($product as $product )
+      <div class="col-12 col-sm-8 col-md-6 col-lg-3">
+
+        <div class="card">
+
+            <img style="height: 200px" src="{{url('/uploads/uploads/product/',$product->image)}}" class="img-fluid" alt="Image">
+          <div class="card-img-overlay d-flex justify-content-end">
+            <a href="#" class="card-link text-danger like">
+              <i class="fas fa-heart"></i>
+            </a>
+          </div>
+          <div class="card-body">
+            <h4 class="card-title">{{$product->name}}</h4>
+            <h5> {{$product->description}}</h5>
+            <div class="buy d-flex justify-content-between align-items-center">
+
+              <div class="price text-success"><h5 class="mt-4">BDT: {{$product->price}}</h5></div>
+               <a href="#" class="btn btn-danger mt-3"><i class="fas fa-shopping-cart"></i> Add to Cart</a>
+            </div>
+          </div>
+
+        </div>
 
 
+      </div>
+      @endforeach
+    </div>
+  </div> --}}
 
 {{-- careousal start  --}}
 

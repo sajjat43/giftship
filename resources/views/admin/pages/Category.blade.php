@@ -25,12 +25,6 @@
       <input type="text" class="form-control" id="Cname" name="Cname" placeholder="Enter your product name">
 
     </div>
-    <div class="form-group">
-        <label for="">Category ID</label>
-        <input type="Number" class="form-control" id="Cid" name="Cid" placeholder="Enter your product catagory name">
-      </div>
-
-
       <div class="form-group">
         <label for="" >description</label>
         <input type="text" class="form-control" id="Cdescription" name="Cdescription" placeholder="Short description">
