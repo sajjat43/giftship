@@ -72,9 +72,21 @@
 
 {{-- cateogry --}}
 <style>
-.ca{
+.caa{
     width: 100%;
     margin-left: 30px;
+}
+.shedoC{
+    margin: 20px;
+    box-shadow: 5px 5px 5px rgb(192 183 183);
+    width: 100%;
+    display: flex;
+    max-width: 158px !important;
+    margin-bottom: 30px;
+    padding: 10px;
+}
+.descc h4 h5 h6{
+    font-family: initial !important;
 }
 
 </style>
@@ -82,7 +94,7 @@
 
 
     @foreach ($categories as $key=>$data )
-<div class="col-lg-3 col-md-6 special-grid best-seller shedo ca  ">
+<div class="col-lg-3 col-md-6 special-grid best-seller shedoC caa  ">
     <div class="products-single fix">
         <div class="box-img-hover">
             <div class="type-lb">
@@ -97,7 +109,7 @@
                 </ul>
             </div>
         </div>
-        <div class="why-text">
+        <div class="why-text descc">
             <h4>{{$data->Cname}}</h4>
             <h5> {{$data->Cdescription}}</h5>
         </div>
