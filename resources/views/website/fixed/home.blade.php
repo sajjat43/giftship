@@ -208,6 +208,7 @@
         @endforeach
     </div>
 </div> --}}
+{{-- ------------------------product style --}}
 <style>
     /* body{
         background-color: gainsboro;
@@ -242,7 +243,7 @@
 }
 
 </style>
-
+{{-- ----------------product------------ --}}
 
 <div class="row special-list">
 
@@ -268,7 +269,7 @@
             <h4>{{$product->name}}</h4>
             <h5>BDT: {{$product->price}}</h5>
             <h5> {{$product->description}}</h5>
-            <a href="" class="btn btn-primary">add </a>
+            <a href="{{route('add.to.cart',$product->id)}}" class="btn btn-primary">add cart</a>
         </div>
     </div>
 </div>

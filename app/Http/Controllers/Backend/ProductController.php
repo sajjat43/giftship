@@ -134,10 +134,74 @@ class ProductController extends Controller
 
         return view('admin.pages.product_update', compact('product'));
     }
-    // -----------------------------ADD to cart-------------------------------
+    // -----------------------------view cart-------------------------------
 
     public function cartview()
     {
-        return view('website.pages.cart');
+        $carts = session()->get('cart');
+        return view('website.pages.cart', compact('carts'));
     }
+    // -----------add to cart--------------------
+
+    public function addToCart($id)
+    {
+
+
+        $product = Product::find($id);
+        if (!$product) {
+            return redirect()->back()->with('message', 'no product found');
+        }
+        // dd('$cartExit');
+        $cartExit = session()->get('cart');
+
+        if (!$cartExit) {
+            $cartData = [
+                $id => [
+                    'product_id' => $id,
+                    'product_name' => $product->name,
+                    'product_image' => array(
+                        'image' => $product->image,
+                    ),
+                    'product_price' => $product->price,
+                    'product_qty' => 1,
+                ]
+            ];
+            session()->put('cart', $cartData);
+            return redirect()->back()->with('message', 'product added to cart');
+        }
+
+        if (!isset($cartExit[$id])) {
+
+            $cartExit[$id] = [
+                'product_id' => $id,
+                'product_name' => $product->name,
+                'product_image' => array(
+                    'image' => $product->image,
+                ),
+                'product_price' => $product->price,
+                'product_qty' => 1,
+            ];
+            session()->put('cart', $cartExit);
+            return redirect()->back()->with('message', 'product added to cart');
+        }
+        $cartExit[$id]['product_qty'] = $cartExit[$id]['product_qty'] + 1;
+
+        session()->put('cart', $cartExit);
+        return redirect()->back()->with('success', 'product add');
+    }
+    // --------clear cart--------
+    public function clearCart()
+    {
+        session()->forget('cart');
+        return redirect()->back()->with('success', 'cart cleared successfully');
+    }
+    //-----------remove individual item--------
+    // public function removeCart(request $request)
+    // {
+    //     $cartExit::remove($request->id);
+    //     // session()->forget($request->id);
+    //     session()->forget('success', 'Item Cart Remove Successfully !');
+
+    //     return redirect()->back()->with('success', 'item cleared successfully');
+    // }
 }
