@@ -15,9 +15,9 @@
                                         <div class="select-itms">
                                             <select name="select" id="select1">
                                                 <option value="">Bangladesh</option>
-                                                <option value="">USA</option>
+                                                {{-- <option value="">USA</option>
                                                 <option value="">India</option>
-                                                <option value="">USD</option>
+                                                <option value="">USD</option> --}}
                                             </select>
                                         </div>
                                     </form>
@@ -57,15 +57,15 @@
 
                                         <li class="hot"><a href="#">Latest</a>
                                             <ul class="submenu">
-                                                <li><a href="{{route('product.font.view')}}"> Product list</a></li>
-                                                <li><a href="single-product.html"> Product Details</a></li>
+                                                {{-- <li><a href="{{route('product.font.view')}}"> Product list</a></li> --}}
+                                                {{-- <li><a href="single-product.html"> Product Details</a></li> --}}
                                             </ul>
                                         </li>
                                         {{-- ====================category===================== --}}
                                         <li><a href="blog.html">Category</a>
                                             <ul class="submenu">
                                                 @foreach ($categories as $category )
-                                                <li><a href="">{{$category->Cname}}</a></li>
+                                                <li><a href="{{route('product.under.catagory',$category->id)}}">{{$category->Cname}}</a></li>
                                                 @endforeach
 
 

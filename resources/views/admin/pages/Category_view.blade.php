@@ -23,7 +23,6 @@
       <tr>
         <th scope="col">ID</th>
         <th scope="col">Catagory name</th>
-        <th scope="col">Category ID</th>
         <th scope="col">Category description</th>
         <th scope="col">image</th>
         <th scope="col">Action</th>
@@ -34,7 +33,6 @@
         <tr>
             <th scope="row">{{$key+1}}</th>
             <td>{{$data->Cname}} </td>
-            <td>{{$data->Cid}} </td>
             <td>{{$data->Cdescription}} </td>
             <td><img src="{{url('uploads/uploads/category/'.$data->Cimage)}}" style="border-radius:4px" width="100px" alt="Category image"></td>
             <td>

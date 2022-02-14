@@ -28,7 +28,12 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/', function () {
         return view('website.master');
     })->name('website');
+    // ----------shop by category---------
+
     Route::get('/shop/category/', [HomeController::class, 'shop_category'])->name('shop.catagory');
+    Route::get('/product/under/category/{category_id}', [HomeController::class, 'productUnderCategory'])->name('product.under.catagory');
+
+    // ------------website login-------
     Route::get('/user/login', [HomeController::class, 'userLogin'])->name('website.user.login');
 
     Route::get('/product/font/view', [HomeController::class, 'product_font_view'])->name('product.font.view');

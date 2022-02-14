@@ -45,7 +45,8 @@ class ProductController extends Controller
         // dd($request->all());
         Product::create([
             'name' => $request->name,
-            'Cname' => $request->Cname,
+            'category_id' => $request->category,
+            // 'Cname' => $request->Cname,
             'price' => $request->price,
             'description' => $request->description,
             'image' => $image_name,
@@ -88,6 +89,7 @@ class ProductController extends Controller
             $request->file('Cimage')->storeAs('/uploads/category', $image_Cname);
         }
         Category::create([
+
             'Cname' => $request->Cname,
             'Cdescription' => $request->Cdescription,
             'Cimage' => $image_Cname,
@@ -101,6 +103,10 @@ class ProductController extends Controller
         $category = Category::all();
         return view('admin.pages.Category_view', compact('category'));
     }
+
+    // -------------product uder category----------------
+
+
 
     // public function Category_delete($category_id){
 

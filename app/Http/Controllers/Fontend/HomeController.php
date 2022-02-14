@@ -43,4 +43,10 @@ class HomeController extends Controller
         $categorylist = Category::all();
         return view('website.fixed.home', compact('categorylist'));
     }
+    public function productUnderCategory($Cid)
+    {
+        $product = Product::where('category_id', $Cid)->get();
+        // dd($product);
+        return view('website.pages.product_under_category', compact('product'));
+    }
 }

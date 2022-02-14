@@ -95,6 +95,7 @@
 
     @foreach ($categories as $key=>$data )
 <div class="col-lg-3 col-md-6 special-grid best-seller shedoC caa  ">
+    <a href="{{route('product.under.catagory',$data->id)}}">
     <div class="products-single fix">
         <div class="box-img-hover">
             <div class="type-lb">
@@ -114,6 +115,7 @@
             <h5> {{$data->Cdescription}}</h5>
         </div>
     </div>
+</a>
 </div>
     @endforeach
 
@@ -1463,7 +1465,7 @@
     </section>
 
 
-    <div class="best-product-area lf-padding">
+    {{-- <div class="best-product-area lf-padding">
         <div class="product-wrapper bg-height" style="background-image:url(assets/img/categori/xcard.png.pagespeed.ic.CivUEvexnp.png)">
             <div class="container position-relative">
                 <div class="row justify-content-between align-items-end">
@@ -1604,7 +1606,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> --}}
 
 
     <div class="gallery-wrapper lf-padding">

@@ -25,10 +25,10 @@
 
     </div>
     <div class="form-group">
-        <label for="exampleFormControlSelect1">asset Category</label>
-        <select name="Cname" class="form-control" id="exampleFormControlSelect1">
+        <label for="exampleFormControlSelect1">product Category</label>
+        <select name="category" class="form-control" id="exampleFormControlSelect1">
           @foreach ($categories as $category)
-          <option value="{{$category->Cname}}">{{$category->Cname}}</option>
+          <option value="{{$category->id}}">{{$category->Cname}}</option>
        @endforeach
         </select>
       </div>

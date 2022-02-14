@@ -7,7 +7,7 @@
                         <div class="single-footer-caption mb-30">
 
                             <div class="footer-logo">
-                                <a href="index-2.html"><img src="{{url('Frontend/assets/img/logo/xlogo2_footer.png.pagespeed.ic.sGRea8mlua.pn')}}g" alt=""></a>
+                                <a href="index-2.html"><img src="" alt=""></a>
                             </div>
                             <div class="footer-tittle">
                                 <div class="footer-pera">
