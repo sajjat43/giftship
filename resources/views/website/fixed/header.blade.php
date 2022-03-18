@@ -8,7 +8,8 @@
                         <div class="row d-flex justify-content-between align-items-center">
                             <div class="header-info-left d-flex">
                                 <div class="flag">
-                                    <img src="{{url('Frontend/assets/img/icon/Flag-of-Bangladesh-500x300.png')}}" alt="">
+                                    <img src="{{ url('Frontend/assets/img/icon/Flag-of-Bangladesh-500x300.png') }}"
+                                        alt="">
                                 </div>
                                 <div class="select-this">
                                     <form action="#">
@@ -28,7 +29,7 @@
                             </div>
                             <div class="header-info-right">
                                 <ul>
-                                    <li><a href="{{route('Employee.login')}}">My Account </a></li>
+                                    <li><a href="{{ route('User.regestation') }}">My Account </a></li>
                                     <li><a href="product_list.html">Wish List </a></li>
                                     <li><a href="cart.html">Shopping</a></li>
                                     <li><a href="cart.html">Cart</a></li>
@@ -45,7 +46,8 @@
 
                         <div class="col-xl-1 col-lg-1 col-md-1 col-sm-3">
                             <div class="logo">
-                                <a href="#"><img src="{{url('Frontend/assets/img/logo/logo_102x23.jpeg')}}" alt=""></a>
+                                <a href="#"><img src="{{ url('Frontend/assets/img/logo/logo_102x23.jpeg') }}"
+                                        alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-8 col-md-7 col-sm-5">
@@ -53,7 +55,7 @@
                             <div class="main-menu f-right d-none d-lg-block">
                                 <nav>
                                     <ul id="navigation">
-                                        <li><a href="{{route('manage.home')}}">Home</a></li>
+                                        <li><a href="{{ route('manage.home') }}">Home</a></li>
 
                                         <li class="hot"><a href="#">Latest</a>
                                             <ul class="submenu">
@@ -64,8 +66,10 @@
                                         {{-- ====================category===================== --}}
                                         <li><a href="blog.html">Category</a>
                                             <ul class="submenu">
-                                                @foreach ($categories as $category )
-                                                <li><a href="{{route('product.under.catagory',$category->id)}}">{{$category->Cname}}</a></li>
+                                                @foreach ($categories as $category)
+                                                    <li><a
+                                                            href="{{ route('product.under.catagory', $category->id) }}">{{ $category->Cname }}</a>
+                                                    </li>
                                                 @endforeach
 
 
@@ -73,7 +77,7 @@
                                         </li>
                                         <li><a href="#">Pages</a>
                                             <ul class="submenu">
-                                                <li><a href="">Login</a></li>
+                                                <li><a href="{{ route('website.user.login') }}">Login</a></li>
                                                 <li><a href="">Card</a></li>
                                                 <li><a href="elements.html">Element</a></li>
                                                 <li><a href="about.html">About</a></li>
@@ -87,6 +91,7 @@
                                 </nav>
                             </div>
                         </div>
+
                         <div class="col-xl-5 col-lg-3 col-md-3 col-sm-3 fix-card">
                             <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
                                 <li class="d-none d-xl-block">
@@ -104,10 +109,13 @@
                                 </li>
                                 <li>
                                     <div class="shopping-card">
-                                        <a href="{{route('cart.view')}}"><i class="fas fa-shopping-cart"></i></a>
+                                        <a href="{{ route('cart.view') }}"><i class="fas fa-shopping-cart"></i></a>
                                     </div>
                                 </li>
-                                <li class="d-none d-lg-block"> <a href="{{route('website.user.login')}}" class="btn header-btn">Sign in</a></li>
+                                {{-- @if (auth()->user()->role == 'user') --}}
+                                <li class="d-none d-lg-block"> <a href="{{ route('website.user.login') }}"
+                                        class="btn header-btn">Sign in</a></li>
+                                {{-- @endif --}}
                             </ul>
                         </div>
 

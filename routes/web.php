@@ -7,7 +7,8 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Fontend\HomeController;
 use App\Http\Controllers\Backend\ProductController;
-use App\Http\Controllers\Fontend\EmployeeController;
+
+use App\Http\Controllers\Fontend\UserLoginController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,12 +23,15 @@ use App\Http\Controllers\Fontend\EmployeeController;
 //
 
 
-Route::get('/', [HomeController::class, 'Home'])->name('manage.home');
 
-Route::group(['prefix' => 'user'], function () {
+
+Route::group(['prefix' => '/', 'middleware' => ['auth']], function () {
     Route::get('/', function () {
         return view('website.master');
     })->name('website');
+
+    Route::get('/', [HomeController::class, 'Home'])->name('manage.home');
+
     // ----------shop by category---------
 
     Route::get('/shop/category/', [HomeController::class, 'shop_category'])->name('shop.catagory');
@@ -37,11 +41,14 @@ Route::group(['prefix' => 'user'], function () {
     Route::get('/user/login', [HomeController::class, 'userLogin'])->name('website.user.login');
 
     Route::get('/product/font/view', [HomeController::class, 'product_font_view'])->name('product.font.view');
-    // For Employee Route
-    // Route::match(['get','post'],'Employee/login',[EmployeeController::class,'Employee_login'])->name('employee.login');
-    Route::get('/Employee/login', [EmployeeController::class, 'EmployeeLogin'])->name('Employee.login');
-    Route::get('/Employee/regestation', [EmployeeController::class, 'EmployeeRegestation'])->name('Employee.regestation');
-    Route::post('/Employee/regestation/store', [EmployeeController::class, 'EmployeeRegestationstore'])->name('Employee.regestation.store');
+    // For User Route ( login section)
+
+    // Route::get('/User/login', [UserController::class, 'UserLogin'])->name('User.login');
+
+    Route::get('/User/regestation', [UserController::class, 'UserRegestation'])->name('User.regestation');
+    Route::post('/User/regestation/store', [UserController::class, 'UserRegestationstore'])->name('User.regestation.store');
+    // ------ user login view--
+    Route::post('/User/login', [UserLoginController::class, 'loginView'])->name('user.login.view');
 
     //cerisol
     Route::get('/product/crisis/{product_id}', [ProductController::class, 'crisis'])->name('crisis.view');
@@ -63,7 +70,7 @@ Route::post("/login", [AdminController::class, 'login'])->name('login.view');
 
 // ---------------------all backend--------------------
 
-Route::group(['prefix' => 'admin', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', function () {
         return view('master');
     })->name('home');

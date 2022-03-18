@@ -23,7 +23,7 @@ class ProductController extends Controller
                 ->get();
             return view('admin.pages.product', compact('product', 'key'));
         }
-        $product = Product::all();
+        $product = Product::with('Category')->get();
         return view('admin.pages.product', compact('product'));
     }
 

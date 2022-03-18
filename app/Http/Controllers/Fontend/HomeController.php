@@ -17,7 +17,7 @@ class HomeController extends Controller
     }
     public function userLogin()
     {
-        return view('website.pages.login');
+        return view('website.pages.User_login');
     }
     public function product_font_view()
     {
