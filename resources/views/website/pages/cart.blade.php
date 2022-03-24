@@ -70,7 +70,7 @@
             </tbody>
         </table>
         <a href="{{ route('cart.clear') }}" class="btn btn-danger">Clear Cart</a>
-        <a href="" class="btn btn-success ">Buy Now</a>
+        <a href="{{ route('check.out') }}" class="btn btn-success ">Buy Now</a>
     </div>
 
     {{-- -----------------------new------------------ --}}

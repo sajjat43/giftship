@@ -57,6 +57,8 @@ Route::group(['prefix' => '/', 'middleware' => ['auth']], function () {
     route::get('/add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add.to.cart');
     Route::get('/clear-cart', [ProductController::class, 'clearCart'])->name('cart.clear');
     // Route::get('/remove-cart', [ProductController::class, 'removeCart'])->name('remove.cart');
+    // ------- cart request-----
+    route::get('/check-out', [ProductController::class, 'checkOut'])->name('check.out');
 });
 
 
@@ -99,7 +101,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 
     // Route::get('/product/deletecategory/{category_id}',[ProductController::class,'Category_delete'])->name('product.category.delete');
 
-
-
-
+    //cart request view
+    Route::get('product/request', [ProductController::class, 'requestList'])->name('request.list');
+    Route::get('product/invoice/{id}', [ProductController::class, 'requestInvoice'])->name('request.invoice');
 });

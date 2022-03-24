@@ -5,7 +5,9 @@ namespace App\Http\Controllers\Backend;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\RequestProduct;
 use App\Http\Controllers\Controller;
+use App\Models\RequestDetails;
 
 class ProductController extends Controller
 {
@@ -210,4 +212,40 @@ class ProductController extends Controller
 
     //     return redirect()->back()->with('success', 'item cleared successfully');
     // }
+
+    // -------------------cheak out-------------------
+
+    public function checkOut()
+    {
+        $carts = session()->get('cart');
+        if ($carts) {
+            $request = RequestProduct::create([
+                'user_id' => auth()->user()->id,
+
+            ]);
+            foreach ($carts as $cart) {
+                RequestDetails::create([
+                    'user_id' => auth()->user()->id,
+                    'request_id' => $request->id,
+                    'product_id' => $cart['product_id'],
+                    'quantity' => $cart['product_qty'],
+                    'product_price' => $cart['product_price'],
+                ]);
+            }
+            session()->forget('cart');
+            return redirect()->back()->with('message', 'request placed Successfully');
+        }
+        return redirect()->back()->with('message', 'No data found in cart');
+    }
+
+    public function requestList(Request $request)
+    {
+        $request = RequestProduct::with('user')->get();
+        return view('admin.request.requestList', compact('request'));
+    }
+    public function requestInvoice($id)
+    {
+        $request = RequestProduct::with('user', 'details')->where('id', $id)->first();
+        return view('admin.request.invoice', compact('request'));
+    }
 }
