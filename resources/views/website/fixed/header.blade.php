@@ -34,6 +34,11 @@
                                     <li><a href="cart.html">Shopping</a></li>
                                     <li><a href="cart.html">Cart</a></li>
                                     <li><a href="checkout.html">Checkout</a></li>
+                                    {{-- @if (auth()->user()->role == 'user')
+                                        <li><a href="{{ route('user.logout') }}">{{ auth()->user()->name }}
+                                                ({{ auth()->user()->role }}) | Log Out</a></li>
+                                    @endif --}}
+                                    <li><a href="{{ route('user.logout') }}">Log Out</a></li>
                                 </ul>
                             </div>
                         </div>

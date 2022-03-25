@@ -63,12 +63,18 @@ class UserLoginController extends Controller
         // dd(Auth::attempt(['email' => $req->email, 'password' => $req->password]));
         if (Auth::attempt(['email' => $req->email, 'password' => $req->password])) {
             // dd(Auth::user()->id);
-            if (Auth::user()->role == 'admin') {
-                return redirect()->route('home')->with('message', 'Logged In');
+            if (Auth::user()->role == 'user') {
+                return redirect()->route('manage.home')->with('message', 'Logged In');
             }
-            return redirect()->route('home')->with('message', 'Logged In');
+            return redirect()->route('manage.home')->with('message', 'Logged In');
         } else {
             return redirect()->back()->with('success', 'invalid user name and password');
         }
+    }
+    public function logOut()
+    {
+        $user = Auth::user();
+        Auth::logout($user);
+        return redirect()->route('manage.home')->with('message', 'Logged out successfully');
     }
 }

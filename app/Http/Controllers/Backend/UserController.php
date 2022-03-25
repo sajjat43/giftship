@@ -40,7 +40,7 @@ class UserController extends Controller
             'address' => $request->address,
             'gender' => $request->gender,
         ]);
-        return redirect()->route('User.login')->with('success', 'Employee regestaion Successfully');
+        return redirect()->route('website.user.login')->with('success', 'Employee regestaion Successfully');
     }
 
 

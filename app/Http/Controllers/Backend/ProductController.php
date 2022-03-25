@@ -229,7 +229,7 @@ class ProductController extends Controller
                     'request_id' => $request->id,
                     'product_id' => $cart['product_id'],
                     'quantity' => $cart['product_qty'],
-                    'product_price' => $cart['product_price'],
+                    'product_price' => $cart['product_price'] * $cart['product_qty'],
                 ]);
             }
             session()->forget('cart');
@@ -237,7 +237,7 @@ class ProductController extends Controller
         }
         return redirect()->back()->with('message', 'No data found in cart');
     }
-
+    //    product request list (admin view)
     public function requestList(Request $request)
     {
         $request = RequestProduct::with('user')->get();
@@ -247,5 +247,22 @@ class ProductController extends Controller
     {
         $request = RequestProduct::with('user', 'details')->where('id', $id)->first();
         return view('admin.request.invoice', compact('request'));
+    }
+    //  product approve and calcel
+    public function productApprove($id)
+    {
+        $request = RequestDetails::find($id);
+        $approved = $request->update([
+            'status' => 'approved'
+        ]);
+        return redirect()->back()->with('message', ' Product Approve');
+    }
+    public function productCancel($id)
+    {
+        $request = RequestDetails::find($id);
+        $request->update([
+            'status' => 'cancel'
+        ]);
+        return redirect()->back()->with('message', ' Product Cancel');
     }
 }

@@ -21,11 +21,30 @@ use App\Http\Controllers\Fontend\UserLoginController;
 |
 */
 //
+Route::get('/shop/category/', [HomeController::class, 'shop_category'])->name('shop.catagory');
+Route::get('/product/under/category/{category_id}', [HomeController::class, 'productUnderCategory'])->name('product.under.catagory');
+
+// ------------website login-------
+Route::get('/user/login', [HomeController::class, 'userLogin'])->name('website.user.login');
+Route::get('/User/regestation', [UserController::class, 'UserRegestation'])->name('User.regestation');
+Route::post('/User/regestation/store', [UserController::class, 'UserRegestationstore'])->name('User.regestation.store');
+
+// ------ user login + logout view--
+Route::post('/User/login', [UserLoginController::class, 'loginView'])->name('user.login.view');
+Route::get('/User/logout', [UserLoginController::class, 'logOut'])->name('user.logout');
+
+//cerisol
+Route::get('/product/crisis/{product_id}', [ProductController::class, 'crisis'])->name('crisis.view');
+
+// ================cart view=======================
+Route::get('/cart/view', [ProductController::class, 'cartview'])->name('cart.view');
+route::get('/add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add.to.cart');
+Route::get('/clear-cart', [ProductController::class, 'clearCart'])->name('cart.clear');
+// Route::get('/remove-cart', [ProductController::class, 'removeCart'])->name('remove.cart');
 
 
 
-
-Route::group(['prefix' => '/', 'middleware' => ['auth']], function () {
+Route::group(['prefix' => '/'], function () {
     Route::get('/', function () {
         return view('website.master');
     })->name('website');
@@ -34,29 +53,8 @@ Route::group(['prefix' => '/', 'middleware' => ['auth']], function () {
 
     // ----------shop by category---------
 
-    Route::get('/shop/category/', [HomeController::class, 'shop_category'])->name('shop.catagory');
-    Route::get('/product/under/category/{category_id}', [HomeController::class, 'productUnderCategory'])->name('product.under.catagory');
 
-    // ------------website login-------
-    Route::get('/user/login', [HomeController::class, 'userLogin'])->name('website.user.login');
 
-    Route::get('/product/font/view', [HomeController::class, 'product_font_view'])->name('product.font.view');
-    // For User Route ( login section)
-
-    // Route::get('/User/login', [UserController::class, 'UserLogin'])->name('User.login');
-
-    Route::get('/User/regestation', [UserController::class, 'UserRegestation'])->name('User.regestation');
-    Route::post('/User/regestation/store', [UserController::class, 'UserRegestationstore'])->name('User.regestation.store');
-    // ------ user login view--
-    Route::post('/User/login', [UserLoginController::class, 'loginView'])->name('user.login.view');
-
-    //cerisol
-    Route::get('/product/crisis/{product_id}', [ProductController::class, 'crisis'])->name('crisis.view');
-    // ================cart view=======================
-    Route::get('/cart/view', [ProductController::class, 'cartview'])->name('cart.view');
-    route::get('/add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add.to.cart');
-    Route::get('/clear-cart', [ProductController::class, 'clearCart'])->name('cart.clear');
-    // Route::get('/remove-cart', [ProductController::class, 'removeCart'])->name('remove.cart');
     // ------- cart request-----
     route::get('/check-out', [ProductController::class, 'checkOut'])->name('check.out');
 });
@@ -67,10 +65,8 @@ Route::post("/login", [AdminController::class, 'login'])->name('login.view');
 
 
 
-// Route::post('/admin/do-login',[AdminUserController::class,'doLogin'])->name('admin.doLogin');
-//for admin controller
 
-// ---------------------all backend--------------------
+// ---------------------all backend Start--------------------
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', function () {
@@ -104,4 +100,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     //cart request view
     Route::get('product/request', [ProductController::class, 'requestList'])->name('request.list');
     Route::get('product/invoice/{id}', [ProductController::class, 'requestInvoice'])->name('request.invoice');
+    // product approve and cancel
+    Route::get('product/approve/{id}', [ProductController::class, 'productApprove'])->name('product.approve');
+    Route::get('product/cancel/{id}', [ProductController::class, 'productCancel'])->name('product.cancel');
 });

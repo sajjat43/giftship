@@ -61,8 +61,8 @@
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('Employee.view') }}">Employee
-                            View</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('Employee.view') }}">Customer
+                            list</a></li>
 
                 </ul>
             </div>
