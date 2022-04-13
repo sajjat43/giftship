@@ -33,6 +33,14 @@
             </select>
         </div>
         <div class="form-group">
+            <label for="exampleFormControlSelect1">Brand Name</label>
+            <select name="brand" class="form-control" id="exampleFormControlSelect1">
+                @foreach ($brand as $brand)
+                    <option value="{{ $brand->id }}">{{ $brand->Bname }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
             <label for="">Price</label>
             <input type="number" class="form-control" id="e" name="price" placeholder="price">
         </div>

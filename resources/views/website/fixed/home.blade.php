@@ -1,131 +1,138 @@
 @extends('website.master')
 @section('content')
+    <main>
 
-<main>
+        <div class="slider-area ">
 
-    <div class="slider-area ">
+            <div class="slider-active">
+                <div class="single-slider slider-height" data-background="assets/img/hero/h1_hero.jpg">
+                    <div class="container">
+                        <div class="row d-flex align-items-center justify-content-between">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none d-md-block">
+                                <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
+                                    <img src="{{ url('Frontend/assets/img/hero/hero_man.png') }}" alt="">
+                                </div>
+                            </div>
+                            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-8">
+                                <div class="hero__caption">
+                                    <span data-animation="fadeInRight" data-delay=".4s">60% Discount</span>
+                                    <h1 data-animation="fadeInRight" data-delay=".6s">Winter <br> Collection</h1>
+                                    <p data-animation="fadeInRight" data-delay=".8s">Best Cloth Collection By 2020!</p>
 
-        <div class="slider-active">
-            <div class="single-slider slider-height" data-background="assets/img/hero/h1_hero.jpg">
-                <div class="container">
-                    <div class="row d-flex align-items-center justify-content-between">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none d-md-block">
-                            <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
-                                <img src="{{url('Frontend/assets/img/hero/hero_man.png')}}" alt="">
+                                    <div class="hero__btn" data-animation="fadeInRight" data-delay="1s">
+                                        <a href="industries.html" class="btn hero-btn">Shop Now</a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-8">
-                            <div class="hero__caption">
-                                <span data-animation="fadeInRight" data-delay=".4s">60% Discount</span>
-                                <h1 data-animation="fadeInRight" data-delay=".6s">Winter <br> Collection</h1>
-                                <p data-animation="fadeInRight" data-delay=".8s">Best Cloth Collection By 2020!</p>
+                    </div>
+                </div>
+                <div class="single-slider slider-height" data-background="assets/img/hero/h1_hero.jpg">
+                    <div class="container">
+                        <div class="row d-flex align-items-center justify-content-between">
+                            <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none d-md-block">
+                                <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
+                                    <img src="{{ url('Frontend/assets/img/hero/hero_man.png') }}" alt="">
+                                </div>
+                            </div>
+                            <div class="col-xl-5 col-lg-5 col-md-5 col-sm-8">
+                                <div class="hero__caption">
+                                    <span data-animation="fadeInRight" data-delay=".4s">60% Discount</span>
+                                    <h1 data-animation="fadeInRight" data-delay=".6s">Winter <br> Collection</h1>
+                                    <p data-animation="fadeInRight" data-delay=".8s">Best Cloth Collection By 2020!</p>
 
-                                <div class="hero__btn" data-animation="fadeInRight" data-delay="1s">
-                                    <a href="industries.html" class="btn hero-btn">Shop Now</a>
+                                    <div class="hero__btn" data-animation="fadeInRight" data-delay="1s">
+                                        <a href="industries.html" class="btn hero-btn">Shop Now</a>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="single-slider slider-height" data-background="assets/img/hero/h1_hero.jpg">
-                <div class="container">
-                    <div class="row d-flex align-items-center justify-content-between">
-                        <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none d-md-block">
-                            <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
-                                <img src="{{url('Frontend/assets/img/hero/hero_man.png')}}" alt="">
-                            </div>
-                        </div>
-                        <div class="col-xl-5 col-lg-5 col-md-5 col-sm-8">
-                            <div class="hero__caption">
-                                <span data-animation="fadeInRight" data-delay=".4s">60% Discount</span>
-                                <h1 data-animation="fadeInRight" data-delay=".6s">Winter <br> Collection</h1>
-                                <p data-animation="fadeInRight" data-delay=".8s">Best Cloth Collection By 2020!</p>
+        </div>
+        {{-- category css --}}
 
-                                <div class="hero__btn" data-animation="fadeInRight" data-delay="1s">
-                                    <a href="industries.html" class="btn hero-btn">Shop Now</a>
-                                </div>
-                            </div>
+
+        <section class="category-area section-padding30">
+            <div class="container-fluid">
+
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-tittle text-center mb-85">
+                            <h2>Shop by Category</h2>
                         </div>
                     </div>
                 </div>
-            </div>
-        </div>
-    </div>
-{{-- category css  --}}
+                <div class="row">
 
 
-  <section class="category-area section-padding30">
-        <div class="container-fluid">
 
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="section-tittle text-center mb-85">
-                        <h2>Shop by Category</h2>
+
+                    {{-- cateogry --}}
+                    <style>
+                        .caa {
+                            width: 100%;
+                            margin-left: 30px;
+                        }
+
+                        .shedoC {
+                            margin: 20px;
+                            box-shadow: 5px 5px 5px rgb(192 183 183);
+                            width: 100%;
+                            display: flex;
+                            max-width: 158px !important;
+                            margin-bottom: 30px;
+                            padding: 10px;
+                        }
+
+                        .descc h4 h5 h6 {
+                            font-family: initial !important;
+                        }
+
+                    </style>
+                    <div class="row special-list ca">
+
+
+                        @foreach ($categories as $key => $data)
+                            <div class="col-lg-3 col-md-6 special-grid best-seller shedoC caa  ">
+                                <a href="{{ route('product.under.catagory', $data->id) }}">
+                                    <div class="products-single fix">
+                                        <div class="box-img-hover">
+                                            <div class="type-lb">
+
+                                            </div>
+                                            <img style="height: 200px"
+                                                src="{{ url('uploads/uploads/category/', $data->Cimage) }}"
+                                                class="img-fluid" alt="Image">
+                                            <div class="mask-icon">
+                                                <ul>
+                                                    <li><a href="{{ route('shop.catagory', $data->Cid) }}"
+                                                            data-toggle="tooltip" data-placement="right" title="View"><i
+                                                                class="fas fa-eye"></i></a></li>
+                                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                                            title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                                            title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="why-text descc">
+                                            <h4>{{ $data->Cname }}</h4>
+                                            <h5> {{ $data->Cdescription }}</h5>
+                                        </div>
+                                    </div>
+                                </a>
+                            </div>
+                        @endforeach
+
+
                     </div>
                 </div>
             </div>
-            <div class="row">
 
 
-
-
-{{-- cateogry --}}
-<style>
-.caa{
-    width: 100%;
-    margin-left: 30px;
-}
-.shedoC{
-    margin: 20px;
-    box-shadow: 5px 5px 5px rgb(192 183 183);
-    width: 100%;
-    display: flex;
-    max-width: 158px !important;
-    margin-bottom: 30px;
-    padding: 10px;
-}
-.descc h4 h5 h6{
-    font-family: initial !important;
-}
-
-</style>
-<div class="row special-list ca">
-
-
-    @foreach ($categories as $key=>$data )
-<div class="col-lg-3 col-md-6 special-grid best-seller shedoC caa  ">
-    <a href="{{route('product.under.catagory',$data->id)}}">
-    <div class="products-single fix">
-        <div class="box-img-hover">
-            <div class="type-lb">
-
-            </div>
-            <img style="height: 200px" src="{{url('uploads/uploads/category/',$data->Cimage)}}" class="img-fluid" alt="Image">
-            <div class="mask-icon">
-                <ul>
-                    <li><a href="{{route('shop.catagory',$data->Cid)}}" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="why-text descc">
-            <h4>{{$data->Cname}}</h4>
-            <h5> {{$data->Cdescription}}</h5>
-        </div>
-    </div>
-</a>
-</div>
-    @endforeach
-
-
-</div>
-</div>
-</div>
-
-
-                {{-- <div class="col-xl-4 col-lg-6">
+            {{-- <div class="col-xl-4 col-lg-6">
                     <div class="single-category mb-30">
                         <div class="category-img">
                             <img src="{{url('Frontend/assets/img/categori/xcat1.jpg.pagespeed.ic.O08VptWAEH.jpg')}}" alt="">
@@ -137,7 +144,7 @@
                         </div>
                     </div>
                 </div> --}}
-                {{-- <div class="col-xl-4 col-lg-6">
+            {{-- <div class="col-xl-4 col-lg-6">
                     <div class="single-category mb-30">
                         <div class="category-img text-center">
                             <img src="{{url('Frontend/assets/img/categori/xcat2.jpg.pagespeed.ic.C7_93LfgY4.jpg')}}" alt="">
@@ -149,7 +156,7 @@
                         </div>
                     </div>
                 </div> --}}
-                {{-- <div class="col-xl-4 col-lg-6">
+            {{-- <div class="col-xl-4 col-lg-6">
                     <div class="single-category mb-30">
                         <div class="category-img">
                             <img src="{{url('Frontend/assets/img/categori/xcat3.jpg.pagespeed.ic.kefuyYjmzI.jpg')}}" alt="">
@@ -163,38 +170,42 @@
                 </div> --}}
             {{-- </div>
         </div> --}}
-    </section>
+        </section>
 
 
-    <section class="latest-product-area padding-bottom">
-        <div class="container">
-            <div class="row product-btn d-flex justify-content-end align-items-end">
+        <section class="latest-product-area padding-bottom">
+            <div class="container">
+                <div class="row product-btn d-flex justify-content-end align-items-end">
 
-                <div class="col-xl-4 col-lg-5 col-md-5">
-                    <div class="section-tittle mb-30">
-                        <h2>Latest Products</h2>
+                    <div class="col-xl-4 col-lg-5 col-md-5">
+                        <div class="section-tittle mb-30">
+                            <h2>Latest Products</h2>
+                        </div>
+                    </div>
+                    <div class="col-xl-8 col-lg-7 col-md-7">
+                        <div class="properties__button f-right">
+
+                            <nav>
+                                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                                    <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home"
+                                        role="tab" aria-controls="nav-home" aria-selected="true">All</a>
+                                    <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
+                                        role="tab" aria-controls="nav-profile" aria-selected="false">New</a>
+                                    <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact"
+                                        role="tab" aria-controls="nav-contact" aria-selected="false">Featured</a>
+                                    <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab" href="#nav-last"
+                                        role="tab" aria-controls="nav-contact" aria-selected="false">Offer</a>
+                                </div>
+                            </nav>
+
+                        </div>
                     </div>
                 </div>
-                <div class="col-xl-8 col-lg-7 col-md-7">
-                    <div class="properties__button f-right">
 
-                        <nav>
-                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">All</a>
-                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">New</a>
-                                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Featured</a>
-                                <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab" href="#nav-last" role="tab" aria-controls="nav-contact" aria-selected="false">Offer</a>
-                            </div>
-                        </nav>
-
-                    </div>
-                </div>
-            </div>
-
-{{-- text carousel --}}
-{{-- <div class="col-lg-3 col-md-6 special-grid top-featured">
+                {{-- text carousel --}}
+                {{-- <div class="col-lg-3 col-md-6 special-grid top-featured">
     <div class="products-single fix">
-        @foreach($product as $product)
+        @foreach ($product as $product)
         <a href="{{route('crisis.view', $product->id)}}">
             <img class="product-image" style="width: 150px; height: 150px" src="{{url('/uploads/uploads/product/'.$product->image)}}" alt="Item 1">
         <div class="box-img-hover">
@@ -210,82 +221,90 @@
         @endforeach
     </div>
 </div> --}}
-{{-- ------------------------product style --}}
-<style>
-    /* body{
-        background-color: gainsboro;
-    } */
-.best-seller{
-    box-shadow: 43px !important;
-}
-.detailscart h4{
-    font-size: 25px !important;
-    font-family: Arial, Helvetica, sans-serif;
-}
-.detailscart h5{
-    font-size: 17px !important;
+                {{-- ------------------------product style --}}
+                <style>
+                    /* body{
+                background-color: gainsboro;
+            } */
+                    .best-seller {
+                        box-shadow: 43px !important;
+                    }
 
-}
-.shedo{
+                    .detailscart h4 {
+                        font-size: 25px !important;
+                        font-family: Arial, Helvetica, sans-serif;
+                    }
 
-    /* border: 2px solid seashell; */
-    margin: 45px;
-    box-shadow: 5px 5px 5px rgb(192, 183, 183) ;
-    width: 100%;
-    display: flex;
-    /* justify-content: space-between; */
-    max-width: 300px !important;
-    margin-bottom: 30px;
-    padding: 10px;
+                    .detailscart h5 {
+                        font-size: 17px !important;
 
-}
-.detailscart a{
-    padding: 15px 20px;
-    border-radius: 10px;
-}
+                    }
 
-</style>
-{{-- ----------------product------------ --}}
+                    .shedo {
 
-<div class="row special-list">
+                        /* border: 2px solid seashell; */
+                        margin: 45px;
+                        box-shadow: 5px 5px 5px rgb(192, 183, 183);
+                        width: 100%;
+                        display: flex;
+                        /* justify-content: space-between; */
+                        max-width: 300px !important;
+                        margin-bottom: 30px;
+                        padding: 10px;
+
+                    }
+
+                    .detailscart a {
+                        padding: 15px 20px;
+                        border-radius: 10px;
+                    }
+
+                </style>
+                {{-- ----------------product------------ --}}
+
+                <div class="row special-list">
 
 
-    @foreach ($product as $product )
-<div class="col-lg-4 col-md-6 special-grid best-seller shedo gx-5 ">
-    <div class="products-single fix">
-        <div class="box-img-hover">
-            <div class="type-lb">
-                {{-- <p class="sale"></p> --}}
-            </div>
-            <img style="height: 200px" src="{{url('/uploads/uploads/product/',$product->image)}}" class="img-fluid" alt="Image">
-            <div class="mask-icon">
-                <ul>
-                    <li><a href="{{route('crisis.view',$product->id)}}" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
-                    {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                    @foreach ($product as $product)
+                        <div class="col-lg-4 col-md-6 special-grid best-seller shedo gx-5 ">
+                            <div class="products-single fix">
+                                <div class="box-img-hover">
+                                    <div class="type-lb">
+                                        {{-- <p class="sale"></p> --}}
+                                    </div>
+                                    <img style="height: 200px"
+                                        src="{{ url('/uploads/uploads/product/', $product->image) }}"
+                                        class="img-fluid" alt="Image">
+                                    <div class="mask-icon">
+                                        <ul>
+                                            <li><a href="{{ route('crisis.view', $product->id) }}" data-toggle="tooltip"
+                                                    data-placement="right" title="View"><i class="fas fa-eye"></i></a>
+                                            </li>
+                                            {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
-                </ul>
-                <a class="cart" href="">Add to Cart</a>
+                                        </ul>
+                                        <a class="cart" href="">Add to Cart</a>
+                                    </div>
+                                </div>
+                                <div class="why-text detailscart">
+                                    <h4>{{ $product->name }}</h4>
+                                    <h5>BDT: {{ $product->price }}</h5>
+                                    <h5> {{ $product->description }}</h5>
+                                    <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn-primary">add
+                                        cart</a>
+                                </div>
+                            </div>
+                        </div>
+                    @endforeach
+
+
+                </div>
             </div>
-        </div>
-        <div class="why-text detailscart">
-            <h4>{{$product->name}}</h4>
-            <h5>BDT: {{$product->price}}</h5>
-            <h5> {{$product->description}}</h5>
-            <a href="{{route('add.to.cart',$product->id)}}" class="btn btn-primary">add cart</a>
-        </div>
-    </div>
-</div>
-    @endforeach
+            </div>
 
-
-</div>
-</div>
-</div>
-
-{{--
-<div class="container">
+            {{-- <div class="container">
     <div class="row">
-        @foreach ($product as $product )
+        @foreach ($product as $product)
       <div class="col-12 col-sm-8 col-md-6 col-lg-3">
 
         <div class="card">
@@ -314,12 +333,12 @@
     </div>
   </div> --}}
 
-{{-- careousal start  --}}
+            {{-- careousal start --}}
 
             {{-- <div class="product-carousel">
                 <div class="product">
                   <div class="product-top">
-                    @foreach($product as $product)
+                    @foreach ($product as $product)
                     <a href="{{route('crisis.view', $product->id)}}">
                         <img class="product-image" style="width: 150px; height: 150px" src="{{url('/uploads/uploads/product/'.$product->image)}}" alt="Item 1">
 
@@ -342,8 +361,8 @@
 
 
 
-             <!-- Featured Starts Here -->
-    {{-- <div class="featured-items">
+            <!-- Featured Starts Here -->
+            {{-- <div class="featured-items">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -354,7 +373,7 @@
                 </div>
                 <div class="col-md-12">
                     <div class="owl-carousel owl-theme">
-                        @foreach($product as $product)
+                        @foreach ($product as $product)
                             <a href="{{route('crisis.view', $product->id)}}">
                                 <div class="featured-item" style="width: 250px;height: 300px;">
                                     <img style="width: 150px; height: 150px" src="{{url('/uploads/uploads/product/'.$product->image)}}" alt="Item 1">
@@ -369,8 +388,8 @@
             </div>
         </div>
     </div> --}}
-    <!-- Featred Ends Here -->
-{{-- <div class="container">
+            <!-- Featred Ends Here -->
+            {{-- <div class="container">
 	<div class="row">
 		<div class="col-md-12">
 			<h2>Trending <b>Products</b></h2>
@@ -660,7 +679,7 @@
 	</div>
 </div> --}}
 
-{{-- <div class="container">
+            {{-- <div class="container">
 	<div class="row">
 			<div class="well">
             <!-- Carousel
@@ -818,7 +837,7 @@
             {{-- <div class="row">
                 <div class="col-md-12" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
                     <div class="carousel-item">
-                        @foreach ($product as $key=>$item)
+                        @foreach ($product as $key => $item)
                         <div class="item">
                             <div class="causes-wrap">
                                 <a href="#" class="img d-flex align-items-end justify-content-center glightbox" style="background-image:url({{url('/uploads/uploads/product/'.$item->image)}}")">
@@ -1462,10 +1481,10 @@
             </div>
 
         </div> --}}
-    </section>
+        </section>
 
 
-    {{-- <div class="best-product-area lf-padding">
+        {{-- <div class="best-product-area lf-padding">
         <div class="product-wrapper bg-height" style="background-image:url(assets/img/categori/xcard.png.pagespeed.ic.CivUEvexnp.png)">
             <div class="container position-relative">
                 <div class="row justify-content-between align-items-end">
@@ -1609,66 +1628,69 @@
     </div> --}}
 
 
-    <div class="gallery-wrapper lf-padding">
-        <div class="gallery-area">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="gallery-items">
-                        <img src="{{url('Frontend/assets/img/gallery/xgallery1.jpg.pagespeed.ic.vLqzDjhJUZ.jpg')}}" alt="">
-                    </div>
-                    <div class="gallery-items">
-                        <img src="{{url('Frontend/assets/img/gallery/xgallery2.jpg.pagespeed.ic.L2xM7uh2Xk.jpg')}}" alt="">
-                    </div>
-                    <div class="gallery-items">
-                        <img src="{{url('Frontend/assets/img/gallery/xgallery3.jpg.pagespeed.ic.mB-kgLdr08.jpg')}}" alt="">
-                    </div>
-                    <div class="gallery-items">
-                        <img src="{{url('Frontend/assets/img/gallery/xgallery4.jpg.pagespeed.ic.QOWWARNbVe.jpg')}}" alt="">
-                    </div>
-                    <div class="gallery-items">
-                        <img src="{{url('Frontend/assets/img/gallery/xgallery5.jpg.pagespeed.ic.i5qoUrRGe1.jpg')}}" alt="">
+        <div class="gallery-wrapper lf-padding">
+            <div class="gallery-area">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="gallery-items">
+                            <img src="{{ url('Frontend/assets/img/gallery/xgallery1.jpg.pagespeed.ic.vLqzDjhJUZ.jpg') }}"
+                                alt="">
+                        </div>
+                        <div class="gallery-items">
+                            <img src="{{ url('Frontend/assets/img/gallery/xgallery2.jpg.pagespeed.ic.L2xM7uh2Xk.jpg') }}"
+                                alt="">
+                        </div>
+                        <div class="gallery-items">
+                            <img src="{{ url('Frontend/assets/img/gallery/xgallery3.jpg.pagespeed.ic.mB-kgLdr08.jpg') }}"
+                                alt="">
+                        </div>
+                        <div class="gallery-items">
+                            <img src="{{ url('Frontend/assets/img/gallery/xgallery4.jpg.pagespeed.ic.QOWWARNbVe.jpg') }}"
+                                alt="">
+                        </div>
+                        <div class="gallery-items">
+                            <img src="{{ url('Frontend/assets/img/gallery/xgallery5.jpg.pagespeed.ic.i5qoUrRGe1.jpg') }}"
+                                alt="">
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-</main>
-<script>
-    $('.product-carousel').slick({
-		lazyLoad: 'ondemand',
-		slidesToShow: 4,
-		slidesToScroll: 1,
-		nextArrow: '<i class="arrow right">',
-		prevArrow: '<i class="arrow left">',
-		infinite: true,
-		responsive: [
-			{
-				breakpoint: 1024,
-				settings: {
-					slidesToShow: 3,
-					slidesToScroll: 1,
-					infinite: true,
-				}
-			},
-			{
-				breakpoint: 600,
-				settings: {
-					slidesToShow: 2,
-					slidesToScroll: 1
-				}
-			},
-			{
-				breakpoint: 480,
-				settings: {
-					slidesToShow: 1,
-					slidesToScroll: 1
-				}
-			}
-			// You can unslick at a given breakpoint now by adding:
-			// settings: "unslick"
-			// instead of a settings object
-		]
-});
-</script>
-
+    </main>
+    <script>
+        $('.product-carousel').slick({
+            lazyLoad: 'ondemand',
+            slidesToShow: 4,
+            slidesToScroll: 1,
+            nextArrow: '<i class="arrow right">',
+            prevArrow: '<i class="arrow left">',
+            infinite: true,
+            responsive: [{
+                    breakpoint: 1024,
+                    settings: {
+                        slidesToShow: 3,
+                        slidesToScroll: 1,
+                        infinite: true,
+                    }
+                },
+                {
+                    breakpoint: 600,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 1
+                    }
+                },
+                {
+                    breakpoint: 480,
+                    settings: {
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                }
+                // You can unslick at a given breakpoint now by adding:
+                // settings: "unslick"
+                // instead of a settings object
+            ]
+        });
+    </script>
 @endsection

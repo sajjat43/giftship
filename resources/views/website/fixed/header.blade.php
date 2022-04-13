@@ -69,15 +69,26 @@
                                             </ul>
                                         </li>
                                         {{-- ====================category===================== --}}
-                                        <li><a href="blog.html">Category</a>
+                                        <li><a href="">Category</a>
                                             <ul class="submenu">
                                                 @foreach ($categories as $category)
-                                                    <li><a
+                                                    {{-- @dd($categories); --}}
+                                                    <li>
+                                                        <a
                                                             href="{{ route('product.under.catagory', $category->id) }}">{{ $category->Cname }}</a>
                                                     </li>
                                                 @endforeach
 
 
+                                            </ul>
+                                        <li><a href="">Brand</a>
+                                            <ul class="submenu">
+                                                {{-- @dd($brand); --}}
+                                                @foreach ($brand as $brand)
+                                                    <li><a
+                                                            href="{{ route('product.under.brand', $brand->id) }}">{{ $brand->Bname }}</a>
+                                                    </li>
+                                                @endforeach
                                             </ul>
                                         </li>
                                         <li><a href="#">Pages</a>

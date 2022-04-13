@@ -33,8 +33,12 @@
                     <li class="nav-item"> <a class="nav-link"
                             href="{{ route('product.category') }}">Create
                             Category</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('brand.create') }}">Create
+                            Brand</a></li>
                     <li class="nav-item"> <a class="nav-link"
                             href="{{ route('product.category.view') }}">Category view</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('brand.view') }}">Brand
+                            view</a></li>
                 </ul>
             </div>
         </li>

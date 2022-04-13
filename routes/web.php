@@ -22,7 +22,9 @@ use App\Http\Controllers\Fontend\UserLoginController;
 */
 //
 Route::get('/shop/category/', [HomeController::class, 'shop_category'])->name('shop.catagory');
+// Route::get('/shop/Brand/', [HomeController::class, 'shop_Brand'])->name('shop.brand');
 Route::get('/product/under/category/{category_id}', [HomeController::class, 'productUnderCategory'])->name('product.under.catagory');
+Route::get('/product/under/brand/{brand_id}', [HomeController::class, 'productUnderBrand'])->name('product.under.brand');
 
 // ------------website login-------
 Route::get('/user/login', [HomeController::class, 'userLogin'])->name('website.user.login');
@@ -103,4 +105,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     // product approve and cancel
     Route::get('product/approve/{id}', [ProductController::class, 'productApprove'])->name('product.approve');
     Route::get('product/cancel/{id}', [ProductController::class, 'productCancel'])->name('product.cancel');
+    // All brand
+    Route::get('brand/create', [ProductController::class, 'BrandCreate'])->name('brand.create');
+    Route::post('brand/store', [ProductController::class, 'BrandStore'])->name('brand.store');
+    Route::get('brand/view', [ProductController::class, 'BrandView'])->name('brand.view');
 });

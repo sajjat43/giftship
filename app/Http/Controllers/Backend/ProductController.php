@@ -2,12 +2,13 @@
 
 namespace App\Http\Controllers\Backend;
 
+use App\Models\Brand;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\RequestDetails;
 use App\Models\RequestProduct;
 use App\Http\Controllers\Controller;
-use App\Models\RequestDetails;
 
 class ProductController extends Controller
 {
@@ -32,7 +33,8 @@ class ProductController extends Controller
     public function product_create()
     {
         $categories = Category::all();
-        return view('admin.pages.product_create', compact('categories'));
+        $brand = Brand::all();
+        return view('admin.pages.product_create', compact('categories', 'brand'));
     }
 
     // ---------product store--------------
@@ -48,6 +50,7 @@ class ProductController extends Controller
         Product::create([
             'name' => $request->name,
             'category_id' => $request->category,
+            'brand_id' => $request->brand,
             // 'Cname' => $request->Cname,
             'price' => $request->price,
             'description' => $request->description,
@@ -264,5 +267,33 @@ class ProductController extends Controller
             'status' => 'cancel'
         ]);
         return redirect()->back()->with('message', ' Product Cancel');
+    }
+
+    // all brand
+    public function BrandCreate()
+    {
+        return view('admin.pages.create_Brand');
+    }
+
+    public function BrandStore(Request $request)
+    {
+        // dd($request->all());
+        $image_Bname = null;
+        if ($request->hasfile('Bimage')) {
+            $image_Bname = date('Ymdhis') . '.' . $request->file('Bimage')->getClientOriginalExtension();
+            $request->file('Bimage')->storeAs('/uploads/Brand', $image_Bname);
+        }
+        Brand::create([
+
+            'Bname' => $request->Bname,
+            'Bdescription' => $request->Bdescription,
+            'Bimage' => $image_Bname,
+        ]);
+        return redirect()->back()->with('success', 'Brand has been Created Successfully');
+    }
+    public function BrandView()
+    {
+        $brand = Brand::all();
+        return view('admin.pages.Brand_view', compact('brand'));
     }
 }
