@@ -82,7 +82,7 @@
 
 
                                             </ul>
-                                            {{-- <li><a href="">Brand</a>
+                                        <li><a href="">Brand</a>
                                             <ul class="submenu">
 
                                                 @foreach ($brand as $brand)
@@ -91,7 +91,7 @@
                                                     </li>
                                                 @endforeach
                                             </ul>
-                                        </li> --}}
+                                        </li>
                                         <li><a href="#">Pages</a>
                                             <ul class="submenu">
                                                 <li><a href="{{ route('website.user.login') }}">Login</a></li>

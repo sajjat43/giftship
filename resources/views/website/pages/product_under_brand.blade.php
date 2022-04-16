@@ -25,11 +25,11 @@
                                 class="img-fluid" alt="Image">
                             <div class="mask-icon">
                                 <ul>
-                                    <li><a href="{{ route('crisis.view', $product->id) }}" data-toggle="tooltip"
-                                            data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
+                                    {{-- <li><a href="{{ route('crisis.view', $product->id) }}" data-toggle="tooltip"
+                                            data-placement="right" title="View"><i class="fas fa-eye"></i></a></li> --}}
 
                                 </ul>
-                                <a class="cart" href="">Add to Cart</a>
+                                <a href="{{ route('product.single.view', $product->id) }}">view detials</a>
                             </div>
                         </div>
                         <div class="why-text detailscart">

@@ -224,8 +224,8 @@
                 {{-- ------------------------product style --}}
                 <style>
                     /* body{
-                                                                                                                                                                                        background-color: gainsboro;
-                                                                                                                                                                                    } */
+                                                                                                                                                                                                    background-color: gainsboro;
+                                                                                                                                                                                                } */
                     .best-seller {
                         box-shadow: 43px !important;
                     }
@@ -292,8 +292,9 @@
                                     </div>
                                     <div class="mask">
                                         <ul>
-                                            <li><a href="{{ route('crisis.view', $product->id) }}" data-toggle="tooltip"
-                                                    data-placement="right" title="View"><i class="fas fa-eye"></i></a>
+                                            <li><a href="{{ route('product.single.view', $product->id) }}"
+                                                    data-toggle="tooltip" data-placement="right" title="View"><i
+                                                        class="fas fa-eye"></i></a>
                                                 {{-- <li><a href="{{ route('product.single.view', $product->id) }}"
                                                     data-toggle="tooltip" data-placement="right" title="View">view<i
                                                         class="fas fa-eye"></i></a>
@@ -305,7 +306,7 @@
                                             <li><a href="#" data-toggle="tooltip" data-placement="right"
                                                     title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
                                         </ul>
-                                        <a class="cart" href="">Add to Cart</a>
+                                        <a href="{{ route('product.single.view', $product->id) }}">view detials</a>
                                     </div>
                                 </div>
                                 <div class="why-text detailscart">
@@ -314,7 +315,7 @@
                                     <h5> {{ $product->description }}</h5>
                                     <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn-primary">add
                                         cart</a>
-                                    <a href="{{ route('product.single.view', $product->id) }}">view</a>
+
                                 </div>
                             </div>
                         </div>

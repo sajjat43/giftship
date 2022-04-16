@@ -13,9 +13,9 @@ class HomeController extends Controller
     public function Home()
     {
         $product = Product::all();
-        $brand = Brand::all();
+
         // dd($brand);
-        return view('website.fixed.home', compact('product', 'brand'));
+        return view('website.fixed.home', compact('product'));
     }
     public function userLogin()
     {
@@ -24,6 +24,7 @@ class HomeController extends Controller
     public function product_font_view()
     {
         $product = Product::all();
+
         return view('admin.pages.product_view', compact('product'));
     }
 
@@ -45,6 +46,7 @@ class HomeController extends Controller
     {
 
         $categorylist = Category::all();
+
         return view('website.fixed.home', compact('categorylist'));
     }
     // public function shop_Brand()
@@ -59,19 +61,18 @@ class HomeController extends Controller
     public function productUnderCategory($Cid)
     {
         $product = Product::where('category_id', $Cid)->get();
-        $brand = Brand::all();
+
         // $products = Product::where('brand_id', $Bid)->get();
         // dd($product);
 
-        return view('website.pages.product_under_category', compact('product', 'brand'));
+        return view('website.pages.product_under_category', compact('product'));
     }
     // brand filter
     public function productUnderBrand($Bid)
     {
         $product = Product::where('brand_id', $Bid)->get();
-        $brand = Brand::all();
 
         // dd($product);
-        return view('website.pages.product_under_brand', compact('product', 'brand'));
+        return view('website.pages.product_under_brand', compact('product'));
     }
 }
