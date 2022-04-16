@@ -224,8 +224,8 @@
                 {{-- ------------------------product style --}}
                 <style>
                     /* body{
-                                                                                background-color: gainsboro;
-                                                                            } */
+                                                                                                                                                                                        background-color: gainsboro;
+                                                                                                                                                                                    } */
                     .best-seller {
                         box-shadow: 43px !important;
                     }
@@ -259,6 +259,15 @@
                         border-radius: 10px;
                     }
 
+                    .image:hover {
+                        transform: scale(1.5)
+                    }
+
+                    .detailscart h4,
+                    h5 {
+                        font-family: 'Font Awesome 5 Free';
+                    }
+
                 </style>
                 {{-- ----------------product------------ --}}
 
@@ -267,25 +276,34 @@
 
                     @foreach ($product as $product)
                         <div class="col-lg-4 col-md-6 special-grid best-seller shedo gx-5 ">
+
                             <div class="products-single fix">
+
                                 <div class="box-img-hover">
                                     <div class="type-lb">
                                         {{-- <p class="sale"></p> --}}
                                     </div>
-                                    <img style="height: 200px"
-                                        src="{{ url('/uploads/uploads/product/', $product->image) }}"
-                                        class="img-fluid" alt="Image">
-                                    <div class="mask-icon">
+                                    <div class="image">
+
+
+                                        <img style="height: 200px"
+                                            src="{{ url('/uploads/uploads/product/', $product->image) }}"
+                                            class="img-fluid" alt="Image">
+                                    </div>
+                                    <div class="mask">
                                         <ul>
-                                            {{-- <li><a href="{{ route('crisis.view', $product->id) }}" data-toggle="tooltip"
-                                                    data-placement="right" title="View"><i class="fas fa-eye"></i></a> --}}
-                                            <li><a href="{{ route('product.single.view', $product->id) }}"
+                                            <li><a href="{{ route('crisis.view', $product->id) }}" data-toggle="tooltip"
+                                                    data-placement="right" title="View"><i class="fas fa-eye"></i></a>
+                                                {{-- <li><a href="{{ route('product.single.view', $product->id) }}"
                                                     data-toggle="tooltip" data-placement="right" title="View">view<i
                                                         class="fas fa-eye"></i></a>
-                                            </li>
+                                            </li> --}}
 
-                                            {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                    <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
+                                                {{-- <li><a href="{{ route('product.single.view', $product->id) }}"
+                                                    data-toggle="tooltip" data-placement="right" title="Compare"><i
+                                                        class="fas fa-sync-alt"></i></a></li>
+                                            <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                                    title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
                                         </ul>
                                         <a class="cart" href="">Add to Cart</a>
                                     </div>
