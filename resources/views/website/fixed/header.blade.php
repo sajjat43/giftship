@@ -31,7 +31,8 @@
                                 <ul>
                                     <li><a href="{{ route('User.regestation') }}">My Account </a></li>
                                     <li><a href="product_list.html">Wish List </a></li>
-                                    <li><a href="cart.html">Shopping</a></li>
+                                    <li><a href="">Shopping</a>
+                                    </li>
                                     <li><a href="cart.html">Cart</a></li>
                                     <li><a href="checkout.html">Checkout</a></li>
                                     {{-- @if (auth()->user()->role == 'user')
@@ -81,16 +82,16 @@
 
 
                                             </ul>
-                                        <li><a href="">Brand</a>
+                                            {{-- <li><a href="">Brand</a>
                                             <ul class="submenu">
-                                                {{-- @dd($brand); --}}
+
                                                 @foreach ($brand as $brand)
                                                     <li><a
                                                             href="{{ route('product.under.brand', $brand->id) }}">{{ $brand->Bname }}</a>
                                                     </li>
                                                 @endforeach
                                             </ul>
-                                        </li>
+                                        </li> --}}
                                         <li><a href="#">Pages</a>
                                             <ul class="submenu">
                                                 <li><a href="{{ route('website.user.login') }}">Login</a></li>

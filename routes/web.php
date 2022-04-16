@@ -38,6 +38,10 @@ Route::get('/User/logout', [UserLoginController::class, 'logOut'])->name('user.l
 //cerisol
 Route::get('/product/crisis/{product_id}', [ProductController::class, 'crisis'])->name('crisis.view');
 
+// product single view
+Route::get('/product/single/view/{id}', [ProductController::class, 'product_single_view'])->name('product.single.view');
+
+
 // ================cart view=======================
 Route::get('/cart/view', [ProductController::class, 'cartview'])->name('cart.view');
 route::get('/add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add.to.cart');

@@ -60,7 +60,7 @@ class ProductController extends Controller
         return redirect()->back()->with('success', 'Product has been Created Successfully');
     }
 
-    // ---------product single view------------------
+    // ---------backend product single view------------------
 
     public function ProductViewDetails($product_id)
     {
@@ -137,7 +137,7 @@ class ProductController extends Controller
         ]);
         return redirect()->route('product.view')->with('success', 'Product has been update Successfully');
     }
-    // ----------------update view----------------
+    // ----------------update product view----------------
     public function product_edit($product_id)
     {
         $product = Product::find($product_id);
@@ -240,6 +240,7 @@ class ProductController extends Controller
         return redirect()->back()->with('message', 'No data found in cart');
     }
     //    product request list (admin view)
+
     public function requestList(Request $request)
     {
         $request = RequestProduct::with('user')->get();
@@ -294,5 +295,14 @@ class ProductController extends Controller
     {
         $brand = Brand::all();
         return view('admin.pages.Brand_view', compact('brand'));
+    }
+
+    // fontend product single view
+
+    public function product_single_view($id)
+    {
+        $product = Product::find($id);
+        // dd($product);
+        return view('website.pages.productSingleView', compact('product'));
     }
 }

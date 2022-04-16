@@ -110,10 +110,10 @@
                                                     <li><a href="{{ route('shop.catagory', $data->Cid) }}"
                                                             data-toggle="tooltip" data-placement="right" title="View"><i
                                                                 class="fas fa-eye"></i></a></li>
-                                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                                    {{-- <li><a href="#" data-toggle="tooltip" data-placement="right"
                                                             title="Compare"><i class="fas fa-sync-alt"></i></a></li>
                                                     <li><a href="#" data-toggle="tooltip" data-placement="right"
-                                                            title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
+                                                            title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
                                                 </ul>
                                             </div>
                                         </div>
@@ -224,8 +224,8 @@
                 {{-- ------------------------product style --}}
                 <style>
                     /* body{
-                background-color: gainsboro;
-            } */
+                                                                                background-color: gainsboro;
+                                                                            } */
                     .best-seller {
                         box-shadow: 43px !important;
                     }
@@ -277,9 +277,13 @@
                                         class="img-fluid" alt="Image">
                                     <div class="mask-icon">
                                         <ul>
-                                            <li><a href="{{ route('crisis.view', $product->id) }}" data-toggle="tooltip"
-                                                    data-placement="right" title="View"><i class="fas fa-eye"></i></a>
+                                            {{-- <li><a href="{{ route('crisis.view', $product->id) }}" data-toggle="tooltip"
+                                                    data-placement="right" title="View"><i class="fas fa-eye"></i></a> --}}
+                                            <li><a href="{{ route('product.single.view', $product->id) }}"
+                                                    data-toggle="tooltip" data-placement="right" title="View">view<i
+                                                        class="fas fa-eye"></i></a>
                                             </li>
+
                                             {{-- <li><a href="#" data-toggle="tooltip" data-placement="right" title="Compare"><i class="fas fa-sync-alt"></i></a></li>
                     <li><a href="#" data-toggle="tooltip" data-placement="right" title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
                                         </ul>
@@ -292,6 +296,7 @@
                                     <h5> {{ $product->description }}</h5>
                                     <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn-primary">add
                                         cart</a>
+                                    <a href="{{ route('product.single.view', $product->id) }}">view</a>
                                 </div>
                             </div>
                         </div>
