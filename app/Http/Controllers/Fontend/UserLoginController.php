@@ -17,44 +17,6 @@ class UserLoginController extends Controller
     {
         return view('website.pages.User_login');
     }
-    // ---------------------employee registation--------------------
-
-    // public function EmployeeRegestation()
-    // {
-    //     //
-    //     return view('website.pages.User_registration');
-    // }
-    // // -----------------employee table------------------
-    // public function UserRegestationstore(Request $request)
-    // {
-    // dd($request->all());
-    //     UserLogin::create([
-    //         'name' => $request->name,
-    //         'email' => $request->email,
-    //         'password' => $request->password,
-    //         // 're_password'=>$request,
-    //         'mobile' => $request->mobile,
-    //         'address' => $request->address,
-    //         'gender' => $request->gender,
-    //     ]);
-    //     return redirect()->route('Employee.login')->with('success', 'Employee regestaion Successfully');
-    // }
-    // employee view-------------------------
-
-    // public function UserView()
-    // {
-    //     $Userlogin = UserLogin::all();
-    //     return view('admin/pages/Employee_list', compact('Userlogin'));
-    // }
-    // -------------employee single view---------------
-
-    // public function Employee_single_View($User_id)
-    // {
-    //     $Userlogin = Userlogin::find($User_id);
-
-    //     return view('admin.pages.employe_single_view', compact('Userlogin'));
-    // }
-
 
 
     public function loginView(Request $req)

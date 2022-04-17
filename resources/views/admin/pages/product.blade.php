@@ -42,10 +42,11 @@
         </thead>
         <tbody>
             @foreach ($product as $key => $data)
+                {{-- @dd($product); --}}
                 <tr>
                     <th scope="row">{{ $key + 1 }}</th>
                     <td>{{ $data->name }} </td>
-                    <td>{{ $data->Cname }} </td>
+                    <td>{{ $data->category->Cname }} </td>
                     <td>{{ $data->description }} </td>
                     <td>{{ $data->price }} </td>
                     <td><img src="{{ url('/uploads/uploads/product/' . $data->image) }}" style="border-radius:4px"

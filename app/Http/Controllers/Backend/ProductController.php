@@ -144,6 +144,71 @@ class ProductController extends Controller
 
         return view('admin.pages.product_update', compact('product'));
     }
+    //    product request list (admin view)
+
+    public function requestList(Request $request)
+    {
+        $request = RequestProduct::with('user')->get();
+
+        return view('admin.request.requestList', compact('request'));
+    }
+    public function requestInvoice($id)
+    {
+        $request = RequestProduct::with('user', 'details')->where('id', $id)->first();
+        return view('admin.request.invoice', compact('request'));
+    }
+    //  product approve and calcel
+    public function productApprove($id)
+    {
+        $request = RequestDetails::find($id);
+        $approved = $request->update([
+            'status' => 'approved'
+        ]);
+        return redirect()->back()->with('message', ' Product Approve');
+    }
+    public function productCancel($id)
+    {
+        $request = RequestDetails::find($id);
+        $request->update([
+            'status' => 'cancel'
+        ]);
+        return redirect()->back()->with('message', ' Product Cancel');
+    }
+
+    // all brand
+    public function BrandCreate()
+    {
+        return view('admin.pages.create_Brand');
+    }
+
+    public function BrandStore(Request $request)
+    {
+        // dd($request->all());
+        $image_Bname = null;
+        if ($request->hasfile('Bimage')) {
+            $image_Bname = date('Ymdhis') . '.' . $request->file('Bimage')->getClientOriginalExtension();
+            $request->file('Bimage')->storeAs('/uploads/Brand', $image_Bname);
+        }
+        Brand::create([
+
+            'Bname' => $request->Bname,
+            'Bdescription' => $request->Bdescription,
+            'Bimage' => $image_Bname,
+        ]);
+        return redirect()->back()->with('success', 'Brand has been Created Successfully');
+    }
+    public function BrandView()
+    {
+        $brand = Brand::all();
+        return view('admin.pages.Brand_view', compact('brand'));
+    }
+
+
+
+    //                                =========================fondend start=======================
+
+
+
     // -----------------------------view cart-------------------------------
 
     public function cartview()
@@ -221,6 +286,7 @@ class ProductController extends Controller
     {
         $carts = session()->get('cart');
         if ($carts) {
+
             $request = RequestProduct::create([
                 'user_id' => auth()->user()->id,
 
@@ -239,63 +305,7 @@ class ProductController extends Controller
         }
         return redirect()->back()->with('message', 'No data found in cart');
     }
-    //    product request list (admin view)
 
-    public function requestList(Request $request)
-    {
-        $request = RequestProduct::with('user')->get();
-        return view('admin.request.requestList', compact('request'));
-    }
-    public function requestInvoice($id)
-    {
-        $request = RequestProduct::with('user', 'details')->where('id', $id)->first();
-        return view('admin.request.invoice', compact('request'));
-    }
-    //  product approve and calcel
-    public function productApprove($id)
-    {
-        $request = RequestDetails::find($id);
-        $approved = $request->update([
-            'status' => 'approved'
-        ]);
-        return redirect()->back()->with('message', ' Product Approve');
-    }
-    public function productCancel($id)
-    {
-        $request = RequestDetails::find($id);
-        $request->update([
-            'status' => 'cancel'
-        ]);
-        return redirect()->back()->with('message', ' Product Cancel');
-    }
-
-    // all brand
-    public function BrandCreate()
-    {
-        return view('admin.pages.create_Brand');
-    }
-
-    public function BrandStore(Request $request)
-    {
-        // dd($request->all());
-        $image_Bname = null;
-        if ($request->hasfile('Bimage')) {
-            $image_Bname = date('Ymdhis') . '.' . $request->file('Bimage')->getClientOriginalExtension();
-            $request->file('Bimage')->storeAs('/uploads/Brand', $image_Bname);
-        }
-        Brand::create([
-
-            'Bname' => $request->Bname,
-            'Bdescription' => $request->Bdescription,
-            'Bimage' => $image_Bname,
-        ]);
-        return redirect()->back()->with('success', 'Brand has been Created Successfully');
-    }
-    public function BrandView()
-    {
-        $brand = Brand::all();
-        return view('admin.pages.Brand_view', compact('brand'));
-    }
 
     // fontend product single view
 

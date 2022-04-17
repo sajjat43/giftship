@@ -3,6 +3,9 @@
 namespace App\Http\Middleware;
 
 use Illuminate\Auth\Middleware\Authenticate as Middleware;
+use Illuminate\Queue\RedisQueue;
+
+use function PHPUnit\Framework\returnSelf;
 
 class Authenticate extends Middleware
 {
@@ -16,6 +19,8 @@ class Authenticate extends Middleware
     {
         if (!$request->expectsJson()) {
             return route('admin.login');
+        } else {
+            return redirect()->route('manage.home');
         }
     }
 }

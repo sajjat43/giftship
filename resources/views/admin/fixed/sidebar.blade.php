@@ -1,3 +1,15 @@
+<style>
+    .nav-link {
+
+        color: antiquewhite !important;
+    }
+
+    .nav-link:hover {
+        color: rgb(95, 254, 71) !important;
+
+    }
+
+</style>
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="user-profile">
         <div class="user-image">

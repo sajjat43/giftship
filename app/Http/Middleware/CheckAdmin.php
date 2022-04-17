@@ -4,6 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CheckAdmin
 {
@@ -16,12 +17,13 @@ class CheckAdmin
      */
     public function handle(Request $request, Closure $next)
     {
+
         if (auth()->user()->role == 'admin') {
 
             return $next($request);
         } else {
 
-            return redirect()->route('home')->with('message', 'Permission denied');
+            return redirect()->route('manage.home')->with('message', 'login Successfully');
         }
     }
 }

@@ -28,20 +28,7 @@ class HomeController extends Controller
         return view('admin.pages.product_view', compact('product'));
     }
 
-    // public function crisis()
-    // {
-    //     $product=Product::all();
-    //     // dd($crisislist);
-    //     // $volunteerlist=Product::all();
-    //     // dd($volunteerlist);
-    //     return view('website.fixed.home',compact('product'));
-    // }
-    // public function crisis($product_id)
-    // {
-    //     $product = Product::find($product_id);
-    //     return view('website.pages.cause_details', compact('product'));
-    // }
-    // category filter
+
     public function shop_category()
     {
 
@@ -49,12 +36,7 @@ class HomeController extends Controller
 
         return view('website.fixed.home', compact('categorylist'));
     }
-    // public function shop_Brand()
-    // {
-    //     $brand = Brand::all();
 
-    //     return view('website.fixed.home', compact('brand'));
-    // }
 
 
 
@@ -62,7 +44,7 @@ class HomeController extends Controller
     {
         $product = Product::where('category_id', $Cid)->get();
 
-        // $products = Product::where('brand_id', $Bid)->get();
+
         // dd($product);
 
         return view('website.pages.product_under_category', compact('product'));

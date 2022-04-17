@@ -35,11 +35,6 @@
                                     </li>
                                     <li><a href="cart.html">Cart</a></li>
                                     <li><a href="checkout.html">Checkout</a></li>
-                                    {{-- @if (auth()->user()->role == 'user')
-                                        <li><a href="{{ route('user.logout') }}">{{ auth()->user()->name }}
-                                                ({{ auth()->user()->role }}) | Log Out</a></li>
-                                    @endif --}}
-                                    <li><a href="{{ route('user.logout') }}">Log Out</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -52,8 +47,8 @@
 
                         <div class="col-xl-1 col-lg-1 col-md-1 col-sm-3">
                             <div class="logo">
-                                <a href="#"><img src="{{ url('Frontend/assets/img/logo/logo_102x23.jpeg') }}"
-                                        alt=""></a>
+                                <a href="{{ route('manage.home') }}"><img
+                                        src="{{ url('Frontend/assets/img/logo/logo_102x23.jpeg') }}" alt=""></a>
                             </div>
                         </div>
                         <div class="col-xl-6 col-lg-8 col-md-7 col-sm-5">
@@ -130,8 +125,14 @@
                                     </div>
                                 </li>
                                 {{-- @if (auth()->user()->role == 'user') --}}
-                                <li class="d-none d-lg-block"> <a href="{{ route('website.user.login') }}"
-                                        class="btn header-btn">Sign in</a></li>
+                                @if (!auth()->user())
+                                    <li class="d-none d-lg-block"> <a href="{{ route('website.user.login') }}"
+                                            class="btn header-btn">Sign in</a></li>
+                                @else
+                                    <li class="d-none d-lg-block"> <a href="{{ route('user.logout') }}"
+                                            class="btn header-btn">{{ auth()->user()->name }}/Sign out</a></li>
+                                @endif
+
                                 {{-- @endif --}}
                             </ul>
                         </div>

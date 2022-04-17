@@ -1,5 +1,22 @@
 @extends('website.master')
 @section('content')
+    @if (session()->has('message'))
+        <p class="alert alert-success">
+            {{ session()->get('message') }}
+        </p>
+    @endif
+
+    @if ($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>
+                        {{ $error }}
+                    </li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <main>
 
         <div class="slider-area ">
@@ -224,8 +241,8 @@
                 {{-- ------------------------product style --}}
                 <style>
                     /* body{
-                                                                                                                                                                                                    background-color: gainsboro;
-                                                                                                                                                                                                } */
+                                                                                                                                                                                                                                                                        background-color: gainsboro;
+                                                                                                                                                                                                                                                                    } */
                     .best-seller {
                         box-shadow: 43px !important;
                     }
@@ -325,6 +342,10 @@
                 </div>
             </div>
             </div>
+
+
+
+
 
             {{-- <div class="container">
     <div class="row">
