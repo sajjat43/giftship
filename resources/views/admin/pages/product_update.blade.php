@@ -30,8 +30,8 @@
 
         <div class="form-group">
             <label for="">Product catagory</label>
-            <input value="{{ $product->Cname }}" type="text" class="form-control" id="exampleInputEmail1"
-                name="product_category" placeholder="Enter your product catagory name">
+            <input value="{{ $product->category->Cname }}" type="text" class="form-control" id="exampleInputEmail1"
+                name="category_id" placeholder="Enter your product catagory name">
         </div>
         <div class="form-group">
             <label for="">Price</label>

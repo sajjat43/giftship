@@ -9,6 +9,7 @@ use App\Http\Controllers\Fontend\HomeController;
 use App\Http\Controllers\Backend\ProductController;
 
 use App\Http\Controllers\Fontend\UserLoginController;
+use App\Http\Controllers\SslCommerzPaymentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,8 +59,24 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
 
 
 
+    // SSLCOMMERZ Start
+
+
+    Route::post('/pay', [SslCommerzPaymentController::class, 'index'])->name('pay.now');
+
+
+    Route::post('/success', [SslCommerzPaymentController::class, 'success']);
+    Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
+    Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);
+
+
+    //SSLCOMMERZ END
     // ------- cart request-----
-    route::get('/check-out', [ProductController::class, 'checkOut'])->name('check.out');
+    route::post('/check-out', [ProductController::class, 'checkOut'])->name('check.out');
+    route::get('/check-out/form', [ProductController::class, 'checkOut_form'])->name('check.out.form');
+    route::post('/check-out/form/store', [ProductController::class, 'checkOut_store'])->name('check.out.store');
+    // ---------- payment method--------
+
 });
 
 
@@ -97,6 +114,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('/product/category/create', [ProductController::class, 'Category'])->name('product.category');
     Route::post('/product/category/store', [ProductController::class, 'Category_store'])->name('product.category.store');
     Route::get('/product/category/view', [ProductController::class, 'Category_view'])->name('product.category.view');
+
+    // route::get('/product/category/edit/{id}', [ProductController::class, 'category_edit'])->name('product.category.edit');
+    route::post('/product/category/update/{id}', [ProductController::class, 'category_update'])->name('product.category.update');
+    route::get('/product/category/update/view/{id}', [ProductController::class, 'category_update_view'])->name('product.category.update.view');
+    Route::get('Delete/category/{id}', [ProductController::class, 'DeleteCategory'])->name('category.delete');
 
     // Route::get('/product/deletecategory/{category_id}',[ProductController::class,'Category_delete'])->name('product.category.delete');
 

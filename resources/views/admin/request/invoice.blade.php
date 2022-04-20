@@ -50,6 +50,7 @@
                                             <th>Product Name</th>
                                             <th>Quantity</th>
                                             <th>Price</th>
+                                            <th>Total Price</th>
                                             <th>Status</th>
 
 
@@ -62,6 +63,7 @@
 
                                                 <td>{{ $request->quantity }}</td>
                                                 <td>{{ $request->product_price }}</td>
+                                                <td>{{ $request->total_price }}</td>
                                                 <td>
 
                                                     {{ $request->status }}
@@ -82,6 +84,7 @@
                                                 </td>
                                             </tr>
                                         @endforeach
+
                                     </tbody>
                                 </table>
                             </div>

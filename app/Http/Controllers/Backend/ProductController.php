@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Brand;
+use App\Models\order;
 use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
@@ -107,6 +108,42 @@ class ProductController extends Controller
         $category = Category::all();
         return view('admin.pages.Category_view', compact('category'));
     }
+    //---------------- category update-------------
+    // public function category_edit($category_id)
+    // {
+    //     $category = Category::find($category_id);
+
+    //     return view('admin.pages.categoryUpdate', compact('category'));
+    // }
+    public function category_update_view($category_id)
+    {
+        $category = Category::find($category_id);
+        return view('admin.pages.categoryUpdate', compact('category'));
+    }
+    // category database update
+    public function category_update(Request $request, $category_id)
+    {
+        $image_Cname = null;
+        if ($request->hasfile('Cimage')) {
+            $image_Cname = date('Ymdhis') . '.' . $request->file('Cimage')->getClientOriginalExtension();
+            $request->file('Cimage')->storeAs('/uploads/category', $image_Cname);
+        }
+        // dd($request->all());
+
+        Category::find($category_id)->update([
+            'Cname' => $request->Cname,
+            'Cdescription' => $request->Cdescription,
+            'Cimage' => $image_Cname,
+        ]);
+        return redirect()->route('product.category.view')->with('success', 'category has been update Successfully');
+    }
+    // delete category
+    public function DeleteCategory($category_id)
+    {
+        Category::find($category_id)->delete();
+        $product = product::where('category_id', $category_id)->delete();
+        return redirect()->back()->with('success', 'Product has beeen Deleted Successfully');
+    }
 
     // -------------product uder category----------------
 
@@ -128,9 +165,10 @@ class ProductController extends Controller
             $request->file('image')->storeAs('/uploads/product', $image_name);
         }
         // dd($request->all());
+
         Product::find($product_id)->update([
             'name' => $request->name,
-            'Product_category' => $request->product_category,
+            'category_id' => $request->category,
             'price' => $request->price,
             'description' => $request->description,
             'image' => $image_name,
@@ -138,12 +176,14 @@ class ProductController extends Controller
         return redirect()->route('product.view')->with('success', 'Product has been update Successfully');
     }
     // ----------------update product view----------------
+
     public function product_edit($product_id)
     {
         $product = Product::find($product_id);
 
         return view('admin.pages.product_update', compact('product'));
     }
+
     //    product request list (admin view)
 
     public function requestList(Request $request)
@@ -205,7 +245,7 @@ class ProductController extends Controller
 
 
 
-    //                                =========================fondend start=======================
+    //                                =========================forentend start=======================
 
 
 
@@ -280,13 +320,21 @@ class ProductController extends Controller
     //     return redirect()->back()->with('success', 'item cleared successfully');
     // }
 
-    // -------------------cheak out-------------------
+    // -------------------cheak out / oder-------------------
 
-    public function checkOut()
+    public function checkOut(request $request)
     {
+        order::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'mobile' => $request->mobile,
+            'Address' => $request->Address,
+
+        ]);
+
         $carts = session()->get('cart');
         if ($carts) {
-
+            $total = 0;
             $request = RequestProduct::create([
                 'user_id' => auth()->user()->id,
 
@@ -298,16 +346,37 @@ class ProductController extends Controller
                     'product_id' => $cart['product_id'],
                     'quantity' => $cart['product_qty'],
                     'product_price' => $cart['product_price'] * $cart['product_qty'],
+                    'total_price' => $total += $cart['product_price'] * $cart['product_qty'],
                 ]);
             }
             session()->forget('cart');
-            return redirect()->back()->with('message', 'request placed Successfully');
+            return redirect(route('manage.home'))->with('message', 'request placed Successfully');
         }
         return redirect()->back()->with('message', 'No data found in cart');
     }
+    // check out form
+
+    public function checkOut_form()
+    {
+        return view('website.pages.checkOut');
+    }
+    public function checkOut_store(Request $request)
+    {
+        order::create([
+            'name' => $request->name,
+            'email' => $request->email,
+            'mobile' => $request->mobile,
+            'Address' => $request->Address,
+
+        ]);
 
 
-    // fontend product single view
+        return redirect()->back()->with('success', 'Product has been Created Successfully');
+    }
+
+
+
+    // forentend product single view
 
     public function product_single_view($id)
     {

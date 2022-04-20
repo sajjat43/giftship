@@ -91,7 +91,7 @@
                                             <ul class="submenu">
                                                 <li><a href="{{ route('website.user.login') }}">Login</a></li>
                                                 <li><a href="">Card</a></li>
-                                                <li><a href="elements.html">Element</a></li>
+                                                <li><a href="">Element</a></li>
                                                 <li><a href="about.html">About</a></li>
                                                 <li><a href="confirmation.html">Confirmation</a></li>
                                                 <li><a href="">Shopping Cart</a></li>

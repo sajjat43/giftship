@@ -64,7 +64,7 @@
             <tbody>
                 {{-- @dd($carts) --}}
                 @if ($carts)
-
+                    @php $total = 0; @endphp
                     @foreach ($carts as $key => $data)
                         <tr>
                             <th scope="row">{{ $key }}</th>
@@ -72,22 +72,43 @@
                             <td>{{ $data['product_price'] }}</td>
                             <td>{{ $data['product_qty'] }}</td>
                             <td>{{ $data['product_price'] * $data['product_qty'] }}</td>
+                            <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                <form action="" method="GET">
+                                    @csrf
+                                    <div class="col-md-4"></div>
+                                    <div class="col-md-4"><input type="number" name="tor_mayre_chudi"
+                                            placeholder="tor khalare dail"></div>
+                                    <div class="col-md-4"><button type="submit" class="btn btn-success"></button>
+                                    </div>
+
+
+                                </form>
+                            </div>
+                            @php $total += $data['product_price'] * $data['product_qty'] ; @endphp
+
                             {{-- <td class="hidden text-right md:table-cell">
                 <form action="{{ route('remove.cart') }}" method="GET">
-                  @csrf
-                  <input type="hidden" value="" name="id">
-                  <button style="background-color: red" class="px-4 py-2 text-white bg-red-600">x</button>
-              </form>
+                    @csrf
+                    <input type="hidden" value="" name="id">
+                    <button style="background-color: red" class="px-4 py-2 text-white bg-red-600">x</button>
+                    </form>
 
-              </td> --}}
+                    </td> --}}
                         </tr>
                     @endforeach
+                    <td>Total Price: {{ $total }}</td>
                 @endif
 
             </tbody>
+
         </table>
+        <div class="card-footer">
+
+        </div>
         <a href="{{ route('cart.clear') }}" class="btn btn-danger">Clear Cart</a>
-        <a href="{{ route('check.out') }}" class="btn btn-success ">Buy Now</a>
+        {{-- <a href="{{ route('check.out') }}" class="btn btn-success ">Buy Now</a> --}}
+        <a href="{{ route('check.out.form') }}" class="btn btn-success ">Buy Now</a>
+
     </div>
 
     {{-- -----------------------new------------------ --}}
@@ -163,19 +184,17 @@
                                                     </div>
 
                                                     <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                                                        <button class="btn btn-link px-2"
-                                                            onclick="this.parentNode.querySelector('input[type=number]').stepDown()">
-                                                            <i class="fas fa-minus"></i>
-                                                        </button>
+                                                        <form action="" method="GET">
+                                                            @csrf
+                                                            <div class="col-md-4"></div>
+                                                            <div class="col-md-4"><input type="number"
+                                                                    name="tor_mayre_chudi"
+                                                                    placeholder="tor khalare dail"></div>
+                                                            <div class="col-md-4"><button type="submit"
+                                                                    class="btn btn-success">Update</button></div>
 
-                                                        <input id="form1" min="0" name="quantity"
-                                                            value="{{ $data['product_qty'] }}" type="number"
-                                                            class="form-control form-control-sm" />
 
-                                                        <button class="btn btn-link px-2"
-                                                            onclick="this.parentNode.querySelector('input[type=number]').stepUp()">
-                                                            <i class="fas fa-plus"></i>
-                                                        </button>
+                                                        </form>
                                                     </div>
                                                     <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                                                         <h6 class="mb-0">{{ $data['product_price'] }}</h6>
@@ -187,7 +206,7 @@
                                                     </div>
                                                     {{-- <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                         <h6 class="mb-0">{{$data['product_price'] * $data['product_qty']}}</h6>
-                      </div> --}}
+                                        </div> --}}
                                                 </div>
                                             @endforeach
                                         @endif

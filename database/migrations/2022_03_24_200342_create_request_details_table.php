@@ -17,9 +17,11 @@ class CreateRequestDetailsTable extends Migration
             $table->id();
             $table->integer('request_id');
             $table->integer('product_id');
+            $table->string('tran_id');
             $table->integer('user_id');
             $table->integer('quantity');
             $table->integer('product_price');
+            $table->integer('total_price');
             $table->string('status')->default('pending');
             $table->timestamps();
         });
