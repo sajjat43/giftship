@@ -14,6 +14,7 @@ class HomeController extends Controller
     {
         $product = Product::all();
 
+
         // dd($brand);
         return view('website.fixed.home', compact('product'));
     }

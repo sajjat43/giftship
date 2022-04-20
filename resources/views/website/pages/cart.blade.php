@@ -69,22 +69,31 @@
                         <tr>
                             <th scope="row">{{ $key }}</th>
                             <td>{{ $data['product_name'] }}</td>
+
                             <td>{{ $data['product_price'] }}</td>
-                            <td>{{ $data['product_qty'] }}</td>
+                            <td>
+                                <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                    <form action="{{ route('cart.qty.update', $key) }}" method="GET">
+                                        @csrf
+                                        <div class="col-md"></div>
+                                        <div class="col-md"><input type="number" name="product_qty"
+                                                placeholder="">
+                                        </div>
+                                        <div class="col-md-4"><button type="submit"
+                                                class="btn btn-success">Update</button>
+                                        </div>
+                                        <div class="col-md-2"></div>
+
+
+                                    </form>
+                                </div>
+                            </td>
+
                             <td>{{ $data['product_price'] * $data['product_qty'] }}</td>
-                            <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                                <form action="" method="GET">
-                                    @csrf
-                                    <div class="col-md-4"></div>
-                                    <div class="col-md-4"><input type="number" name="tor_mayre_chudi"
-                                            placeholder="tor khalare dail"></div>
-                                    <div class="col-md-4"><button type="submit" class="btn btn-success"></button>
-                                    </div>
+
+                            @php $total += $data['sub_total'] + $data['sub_total'] ; @endphp
 
 
-                                </form>
-                            </div>
-                            @php $total += $data['product_price'] * $data['product_qty'] ; @endphp
 
                             {{-- <td class="hidden text-right md:table-cell">
                 <form action="{{ route('remove.cart') }}" method="GET">
@@ -160,112 +169,88 @@
                             <div class="row g-0">
                                 <div class="col-lg-8">
                                     <div class="p-5">
+
                                         <div class="d-flex justify-content-between align-items-center mb-5">
                                             <h1 class="fw-bold mb-0 text-black">Shopping Cart</h1>
+
+
                                             <h6 class="mb-0 text-muted">
                                                 ({{ session()->has('cart') ? count(session()->get('cart')) : 0 }})
                                                 items
                                             </h6>
                                         </div>
-                                        <hr class="my-4">
-                                        @if ($carts)
 
-                                            @foreach ($carts as $key => $data)
-                                                <div class="row mb-4 d-flex justify-content-between align-items-center">
-                                                    <div class="col-md-2 col-lg-2 col-xl-2">
-                                                        <img {{-- src="{{url('/uploads/uploads/product/',$data->image)}}" --}} class="img-fluid rounded-3" alt="">
-                                                    </div>
+                                        <tbody>
+                                            <hr class="my-4">
+                                            @if ($carts)
 
-                                                    <div class="col-md-3 col-lg-3 col-xl-3">
+                                                @foreach ($carts as $key => $data)
+                                                    <div
+                                                        class="row mb-4 d-flex justify-content-between align-items-center">
+                                                        {{-- <div class="col-md-2 col-lg-2 col-xl-2">
+                                                        <img src="{{url('/uploads/uploads/product/',$data->image)}}" class="img-fluid rounded-3" alt="">
+                                                    </div> --}}
 
-                                                        <h6 class="text-muted">{{ $data['product_name'] }}</h6>
+                                                        <div class="col-md-3 col-lg-3 col-xl-3">
 
-                                                        <h6 class="text-black mb-0"></h6>
-                                                    </div>
+                                                            <h6 class="text-muted">
+                                                                {{ $data['product_name'] }}</h6>
 
-                                                    <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                                                        <form action="" method="GET">
-                                                            @csrf
-                                                            <div class="col-md-4"></div>
-                                                            <div class="col-md-4"><input type="number"
-                                                                    name="tor_mayre_chudi"
-                                                                    placeholder="tor khalare dail"></div>
-                                                            <div class="col-md-4"><button type="submit"
-                                                                    class="btn btn-success">Update</button></div>
+                                                            <h6 class="text-black mb-0"></h6>
+                                                        </div>
+
+                                                        <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
+                                                            <form action="{{ route('cart.qty.update', $key) }}"
+                                                                method="GET">
+                                                                @csrf
+                                                                <div class="col-md"></div>
+                                                                <div class="col-md"><input type="number"
+                                                                        name="product_qty" placeholder="">
+                                                                </div>
+                                                                <div class="col-md-4"><button type="submit"
+                                                                        class="btn btn-success">Update</button>
+                                                                </div>
+                                                                <div class="col-md-2"></div>
 
 
-                                                        </form>
-                                                    </div>
-                                                    <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                                                        <h6 class="mb-0">{{ $data['product_price'] }}</h6>
-                                                    </div>
+                                                            </form>
+                                                        </div>
+                                                        <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                                            <h6 class="mb-0">
+                                                                {{ $data['product_price'] }}</h6>
+                                                        </div>
 
-                                                    <div class="col-md-1 col-lg-1 col-xl-1 text-end">
-                                                        <a href="#!" class="text-muted"><i
-                                                                class="fas fa-times"></i></a>
-                                                    </div>
-                                                    {{-- <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
+                                                        <div class="col-md-1 col-lg-1 col-xl-1 text-end">
+                                                            <a href="#!" class="text-muted"><i
+                                                                    class="fas fa-times"></i></a>
+                                                        </div>
+                                                        {{-- <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
                         <h6 class="mb-0">{{$data['product_price'] * $data['product_qty']}}</h6>
                                         </div> --}}
-                                                </div>
-                                            @endforeach
-                                        @endif
-                                        <hr class="my-4">
+                                                    </div>
+                                                @endforeach
+                                            @endif
+                                            <hr class="my-4">
 
 
 
-                                        <hr class="my-4">
+                                            <hr class="my-4">
 
-                                        <div class="pt-5">
-                                            <h6 class="mb-0"><a href="#!" class="text-body"><i
-                                                        class="fas fa-long-arrow-alt-left me-2"></i>Back to shop</a>
-                                            </h6>
-                                        </div>
+                                            <div class="pt-5">
+                                                <h6 class="mb-0"><a href="#!" class="text-body"><i
+                                                            class="fas fa-long-arrow-alt-left me-2"></i>Back to
+                                                        shop</a>
+                                                </h6>
+                                            </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-4 bg-grey">
                                     <div class="p-5">
-                                        <h3 class="fw-bold mb-5 mt-2 pt-1">Summary</h3>
-                                        <hr class="my-4">
-
                                         <div class="d-flex justify-content-between mb-4">
                                             <h5 class="text-uppercase">items
                                                 ({{ session()->has('cart') ? count(session()->get('cart')) : 0 }})
                                             </h5>
-                                            <h5></h5>
                                         </div>
-
-                                        {{-- <h5 class="text-uppercase mb-3">Shipping</h5>
-
-                    <div class="mb-4 pb-2">
-                      <select class="select">
-                        <option value="1">Standard-Delivery- €5.00</option>
-                        <option value="2">Two</option>
-                        <option value="3">Three</option>
-                        <option value="4">Four</option>
-                      </select>
-                    </div>
-
-                    <h5 class="text-uppercase mb-3">Give code</h5>
-
-                    <div class="mb-5">
-                      <div class="form-outline">
-                        <input type="text" id="form3Examplea2" class="form-control form-control-lg" />
-                        <label class="form-label" for="form3Examplea2">Enter your code</label>
-                      </div>
-                    </div>
-
-                    <hr class="my-4">
-
-                    <div class="d-flex justify-content-between mb-5">
-                      <h5 class="text-uppercase">Total price</h5>
-                      <h5>€ 137.00</h5>
-                    </div>
-
-                    <button type="button" class="btn btn-dark btn-block btn-lg"
-                      data-mdb-ripple-color="dark">Register</button>
-
-                  </div> --}}
                                     </div>
                                 </div>
                             </div>

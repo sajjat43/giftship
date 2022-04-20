@@ -11,6 +11,7 @@
                 <p><b>Product Price: {{ $product->price }}</b></p>
                 <p><b>Product Description: {{ $product->description }}</b></p>
 
+
             </div>
         </div>
     </div>

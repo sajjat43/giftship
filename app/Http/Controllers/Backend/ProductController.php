@@ -169,10 +169,15 @@ class ProductController extends Controller
         Product::find($product_id)->update([
             'name' => $request->name,
             'category_id' => $request->category,
+            'brand_id' => $request->brand,
             'price' => $request->price,
             'description' => $request->description,
             'image' => $image_name,
+            'featured' => $request->featured,
         ]);
+
+
+
         return redirect()->route('product.view')->with('success', 'Product has been update Successfully');
     }
     // ----------------update product view----------------
@@ -278,6 +283,7 @@ class ProductController extends Controller
                         'image' => $product->image,
                     ),
                     'product_price' => $product->price,
+                    'sub_total' => $product->price,
                     'product_qty' => 1,
                 ]
             ];
@@ -294,6 +300,7 @@ class ProductController extends Controller
                     'image' => $product->image,
                 ),
                 'product_price' => $product->price,
+                'sub_total' => $product->price,
                 'product_qty' => 1,
             ];
             session()->put('cart', $cartExit);
@@ -310,6 +317,28 @@ class ProductController extends Controller
         session()->forget('cart');
         return redirect()->back()->with('success', 'cart cleared successfully');
     }
+    // card qty update
+    public function cartQty_update(request $request, $product_id)
+    {
+        $carts = session()->get('cart');
+        $product = Product::find($product_id);
+
+
+
+        // if($product->available_quantity>=$request->quantity)
+        // {
+        $carts[$product_id]['product_qty'] = $request->product_qty;
+        $carts[$product_id]['sub_total'] = $request->product_qty * $carts[$product_id]['sub_total'];
+
+
+        session()->put('cart', $carts);
+        return redirect()->back()->with('message', 'Quantity update');
+        // }
+        // Toastr::error('Stock Out', 'Sorry !!!');
+        // return redirect()->back();
+    }
+
+
     //-----------remove individual item--------
     // public function removeCart(request $request)
     // {
@@ -383,5 +412,13 @@ class ProductController extends Controller
         $product = Product::find($id);
         // dd($product);
         return view('website.pages.productSingleView', compact('product'));
+    }
+
+    // featured product slider
+
+    public function featured_product()
+    {
+        $product = Product::where('featured', '1')->take(10)->get();
+        return view('website.pages.featured.featuredProduct', compact('product'));
     }
 }

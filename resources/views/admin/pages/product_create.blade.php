@@ -54,6 +54,7 @@
             <input type="file" class="form-control" , name="image" placeholder="insert image">
         </div>
 
+
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     {{-- <a class="nav-link" href="{{ url('product_view') }}"></a> --}}

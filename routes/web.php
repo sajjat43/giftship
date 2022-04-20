@@ -39,6 +39,10 @@ Route::get('/User/logout', [UserLoginController::class, 'logOut'])->name('user.l
 //cerisol
 Route::get('/product/crisis/{product_id}', [ProductController::class, 'crisis'])->name('crisis.view');
 
+// featured product
+Route::get('/product/featured/slider', [ProductController::class, 'featured_product'])->name('featured.product');
+
+
 // product single view
 Route::get('/product/single/view/{id}', [ProductController::class, 'product_single_view'])->name('product.single.view');
 
@@ -47,6 +51,8 @@ Route::get('/cart/view', [ProductController::class, 'cartview'])->name('cart.vie
 route::get('/add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add.to.cart');
 Route::get('/clear-cart', [ProductController::class, 'clearCart'])->name('cart.clear');
 
+// card qty update
+Route::get('/cart/qty/update/{id}', [ProductController::class, 'cartQty_update'])->name('cart.qty.update');
 // Route::get('/remove-cart', [ProductController::class, 'removeCart'])->name('remove.cart');
 
 

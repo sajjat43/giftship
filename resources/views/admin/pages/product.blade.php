@@ -32,11 +32,12 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">name</th>
-                <th scope="col">products Catacory</th>
-                <th scope="col">description</th>
-                <th scope="col">price</th>
-                <th scope="col">image</th>
+                <th scope="col">Name</th>
+                <th scope="col">Products Catacory</th>
+                <th scope="col">Description</th>
+                <th scope="col">Price</th>
+                <th scope="col">Featured Product</th>
+                <th scope="col">Image</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -49,6 +50,7 @@
                     <td>{{ $data->category->Cname }} </td>
                     <td>{{ $data->description }} </td>
                     <td>{{ $data->price }} </td>
+                    <td>{{ $data->featured }} </td>
                     <td><img src="{{ url('/uploads/uploads/product/' . $data->image) }}" style="border-radius:4px"
                             width="100px" alt="product image"></td>
                     <td>

@@ -28,10 +28,26 @@
         </div>
 
 
-        <div class="form-group">
+        {{-- <div class="form-group">
             <label for="">Product catagory</label>
             <input value="{{ $product->category->Cname }}" type="text" class="form-control" id="exampleInputEmail1"
                 name="category_id" placeholder="Enter your product catagory name">
+        </div> --}}
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">product Category</label>
+            <select name="category" class="form-control" id="exampleFormControlSelect1">
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->Cname }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlSelect1">Brand Name</label>
+            <select name="brand" class="form-control" id="exampleFormControlSelect1">
+                @foreach ($brand as $brand)
+                    <option value="{{ $brand->id }}">{{ $brand->Bname }}</option>
+                @endforeach
+            </select>
         </div>
         <div class="form-group">
             <label for="">Price</label>
@@ -49,6 +65,24 @@
             <input value="{{ url('/uploads/uploads/product/' . $product->image) }}" type="file" class="form-control" ,
                 name="image" placeholder="insert image">
         </div>
+        <fieldset class="row mb-3">
+            <legend class="col-form-label col-sm-2 pt-0" style="font-size:20px;"><b>featured product</legend></b>
+            <div class="col-sm-10">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="featured" id="gender" value="1">
+                    <label class="form-check-label" for="featured">
+                        Yes
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="featured" id="gender" value="0">
+                    <label class="form-check-label" for="featured">
+                        NO
+                    </label>
+                </div>
+
+            </div>
+        </fieldset>
 
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>
