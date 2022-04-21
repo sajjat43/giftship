@@ -75,13 +75,13 @@
             <div class="container">
                 <div class="row">
                     <h2>Featured Product</h2>
-                    {{-- <div class="owl-carousel owl-theme"> --}}
-                    <div class="row">
+                    <div class="owl-carousel  owl-theme">
+
 
                         @foreach ($product as $item)
                             {{-- @dd($data) --}}
                             <div class="item">
-                                <div class="card">
+                                <div class="card mx-auto">
                                     <img src="{{ url('/uploads/uploads/product/', $item->image) }}"
                                         style="border-radius:4px" margin-left="20%" height="200px" width="200px"
                                         alt="product image">
@@ -95,6 +95,7 @@
                                 </div>
                             </div>
                         @endforeach
+
 
                     </div>
                 </div>
@@ -277,8 +278,8 @@
                 {{-- ------------------------product style --}}
                 <style>
                     /* body{
-                                                                                                                                                                                                                                                                                                                                                                                            background-color: gainsboro;
-                                                                                                                                                                                                                                                                                                                                                                                        } */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                    background-color: gainsboro;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                } */
                     .best-seller {
                         box-shadow: 43px !important;
                     }
