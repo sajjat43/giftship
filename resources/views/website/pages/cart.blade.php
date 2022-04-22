@@ -64,7 +64,7 @@
             <tbody>
                 {{-- @dd($carts) --}}
                 @if ($carts)
-                    @php $total = 0; @endphp
+
                     @foreach ($carts as $key => $data)
                         <tr>
                             <th scope="row">{{ $key }}</th>
@@ -72,40 +72,21 @@
 
                             <td>{{ $data['product_price'] }}</td>
                             <td>
-                                <div class="col-md-3 col-lg-3 col-xl-2 d-flex">
-                                    <form action="{{ route('cart.qty.update', $key) }}" method="GET">
+                                <div class="col-md-6">
+                                    <form action="{{ route('cart.qty.update', $key) }}" method="get">
                                         @csrf
-                                        <div class="col-md"></div>
-                                        <div class="col-md"><input type="number" name="product_qty"
-                                                placeholder="">
-                                        </div>
-                                        <div class="col-md-4"><button type="submit"
-                                                class="btn btn-success">Update</button>
-                                        </div>
-                                        <div class="col-md-2"></div>
-
-
+                                        <input type="number" class="form-control" value="{{ $data['product_qty'] }}"
+                                            name="quantity" required>
+                                        <button class="btn btn-primary" type="submit">
+                                            <i class="fa fa-refresh"></i></button>
                                     </form>
                                 </div>
                             </td>
-
-                            <td>{{ $data['product_price'] * $data['product_qty'] }}</td>
-
-                            @php $total += $data['sub_total'] + $data['sub_total'] ; @endphp
-
-
-
-                            {{-- <td class="hidden text-right md:table-cell">
-                <form action="{{ route('remove.cart') }}" method="GET">
-                    @csrf
-                    <input type="hidden" value="" name="id">
-                    <button style="background-color: red" class="px-4 py-2 text-white bg-red-600">x</button>
-                    </form>
-
-                    </td> --}}
+                            <td class="cart__total">{{ $data['subtotal'] }}
                         </tr>
                     @endforeach
-                    <td>Total Price: {{ $total }}</td>
+                    <td>Total Price: <span>{{ array_sum(array_column($carts, 'subtotal')) + 50 }}
+                    </td>
                 @endif
 
             </tbody>
@@ -122,7 +103,7 @@
 
     {{-- -----------------------new------------------ --}}
 
-    <style>
+    {{-- <style>
         @media (min-width: 1025px) {
             .h-custom {
                 height: 100vh !important;
@@ -187,9 +168,7 @@
                                                 @foreach ($carts as $key => $data)
                                                     <div
                                                         class="row mb-4 d-flex justify-content-between align-items-center">
-                                                        {{-- <div class="col-md-2 col-lg-2 col-xl-2">
-                                                        <img src="{{url('/uploads/uploads/product/',$data->image)}}" class="img-fluid rounded-3" alt="">
-                                                    </div> --}}
+
 
                                                         <div class="col-md-3 col-lg-3 col-xl-3">
 
@@ -224,9 +203,7 @@
                                                             <a href="#!" class="text-muted"><i
                                                                     class="fas fa-times"></i></a>
                                                         </div>
-                                                        {{-- <div class="col-md-3 col-lg-2 col-xl-2 offset-lg-1">
-                        <h6 class="mb-0">{{$data['product_price'] * $data['product_qty']}}</h6>
-                                        </div> --}}
+
                                                     </div>
                                                 @endforeach
                                             @endif
@@ -258,7 +235,7 @@
                     </div>
                 </div>
             </div>
-    </section>
+    </section> --}}
 
 
 

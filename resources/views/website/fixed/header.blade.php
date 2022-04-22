@@ -1,5 +1,4 @@
 <header>
-
     <div class="header-area">
         <div class="main-header ">
             <div class="header-top top-bg d-none d-lg-block">
@@ -16,9 +15,7 @@
                                         <div class="select-itms">
                                             <select name="select" id="select1">
                                                 <option value="">Bangladesh</option>
-                                                {{-- <option value="">USA</option>
-                                                <option value="">India</option>
-                                                <option value="">USD</option> --}}
+
                                             </select>
                                         </div>
                                     </form>
@@ -26,27 +23,31 @@
                                 <ul class="contact-now">
                                     <li>0187000000</li>
                                 </ul>
-                            </div>
-                            <div class="header-info-right">
-                                <ul>
-                                    <li><a href="{{ route('User.regestation') }}">My Account </a></li>
-                                    <li><a href="product_list.html">Wish List </a></li>
-                                    <li><a href="">Shopping</a>
-                                    </li>
-                                    <li><a href="cart.html">Cart</a></li>
-                                    @if (!auth()->user())
-                                        <li><a href="{{ route('website.user.login') }}">Sign in</a></li>
-                                    @else
-                                        <li><a href="{{ route('user.logout') }}">({{ auth()->user()->name }})/Sign
-                                                out</a></li>
-                                    @endif
 
-                                </ul>
+
+                                <div class="header-info-right ">
+                                    <ul>
+                                        <li><a href="{{ route('User.regestation') }}">My Account </a></li>
+                                        <li><a href="product_list.html">Wish List </a></li>
+                                        <li><a href="">Shopping</a>
+                                        </li>
+                                        @if (!auth()->user())
+                                            <li><a href="{{ route('website.user.login') }}">Sign in</a></li>
+                                        @else
+                                            <li><a href="{{ route('user.logout') }}">({{ auth()->user()->name }})/Sign
+                                                    out</a></li>
+                                        @endif
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
+
+
+
             <div class="header-bottom  header-sticky">
                 <div class="container-fluid">
                     <div class="row align-items-center">
@@ -66,7 +67,8 @@
 
                                         <li class="hot"><a href="#">Latest</a>
                                             <ul class="submenu">
-                                                {{-- <li><a href="{{route('product.font.view')}}"> Product list</a></li> --}}
+                                                {{-- <li><a href="{{route('product.font.view')}}"> Product list</a>
+                                        </li> --}}
                                                 {{-- <li><a href="single-product.html"> Product Details</a></li> --}}
                                             </ul>
                                         </li>
@@ -132,11 +134,11 @@
                                 </li>
                                 {{-- @if (auth()->user()->role == 'user') --}}
                                 {{-- @if (!auth()->user())
-                                    <li class="d-none d-lg-block"> <a href="{{ route('website.user.login') }}"
-                                            class="btn header-btn">Sign in</a></li>
+                                                <li class="d-none d-lg-block"> <a href="{{ route('website.user.login') }}"
+                                class="btn header-btn">Sign in</a></li>
                                 @else
-                                    <li class="d-none d-lg-block"> <a href="{{ route('user.logout') }}"
-                                            class="btn header-btn">{{ auth()->user()->name }}/Sign out</a></li>
+                                <li class="d-none d-lg-block"> <a href="{{ route('user.logout') }}"
+                                        class="btn header-btn">{{ auth()->user()->name }}/Sign out</a></li>
                                 @endif --}}
 
                                 {{-- @endif --}}

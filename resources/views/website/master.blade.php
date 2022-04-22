@@ -157,6 +157,25 @@
                 loader);
         })(window, document);
     </script>
+    <script>
+        $('.featured-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            dots: false,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 5
+                }
+            }
+        })
+    </script>
 
     <script src="jquery.min.js"></script>
     <script src="owlcarousel/owl.carousel.min.js"></script>
