@@ -4,12 +4,14 @@ use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Fontend\HomeController;
 use App\Http\Controllers\Backend\ProductController;
 
 use App\Http\Controllers\Fontend\UserLoginController;
 use App\Http\Controllers\SslCommerzPaymentController;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -96,7 +98,7 @@ Route::post("/login", [AdminController::class, 'login'])->name('login.view');
 
 Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function () {
     Route::get('/', function () {
-        return view('master');
+        return view('admin/Dashboard/Dashboard');
     })->name('home');
 
     Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
@@ -139,4 +141,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('brand/create', [ProductController::class, 'BrandCreate'])->name('brand.create');
     Route::post('brand/store', [ProductController::class, 'BrandStore'])->name('brand.store');
     Route::get('brand/view', [ProductController::class, 'BrandView'])->name('brand.view');
+
+    // dashboard------------------
+    route::get('dashboard/view', [DashboardController::class, 'dashboardView'])->name('dashboard.view');
 });

@@ -99,6 +99,7 @@
         {{-- <a href="{{ route('check.out') }}" class="btn btn-success ">Buy Now</a> --}}
         <a href="{{ route('check.out.form') }}" class="btn btn-success ">Buy Now</a>
 
+
     </div>
 
     {{-- -----------------------new------------------ --}}

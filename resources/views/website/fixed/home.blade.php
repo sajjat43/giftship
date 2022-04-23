@@ -179,6 +179,51 @@
                 </div>
             </div>
 
+            {{-- =============================== shop by category ================================== --}}
+
+            <section class="categories">
+
+                <div class="container">
+                    <div class="container-fluid">
+                        <div class="row">
+                            @foreach ($categories as $key => $data)
+                                <div class="col-md-1"></div>
+                                <div class=" col-md-4  p-0">
+
+                                    <div class="categories__item set-bg gx-5" data-setbg="">
+                                        <img src="{{ url('uploads/uploads/category/', $data->Cimage) }}"
+                                            class="img-fluid" alt="category image">
+                                        <div class="categories__text">
+                                            <h4>{{ $data->Cname }}</h4>
+                                            <p>{{ $data->Cdescription }}</p>
+                                            {{-- <a href="{{ route('shop.catagory', $data->Cid) }}"
+                                                        class="btn btn-primary">Shop now</a> --}}
+                                            <a href="{{ route('product.under.catagory', $data->id) }}"
+                                                class="btn btn-primary shop">Shop now</a>
+                                        </div>
+                                    </div>
+
+                                </div>
+                                <div class="col-md-1"></div>
+                            @endforeach
+
+                        </div>
+                    </div>
+                </div>
+
+            </section>
+
+
+
+
+
+
+
+
+
+
+
+
 
             {{-- <div class="col-xl-4 col-lg-6">
                     <div class="single-category mb-30">
@@ -272,8 +317,8 @@
                 {{-- ------------------------product style --}}
                 <style>
                     /* body{
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        background-color: gainsboro;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    } */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                background-color: gainsboro;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            } */
                     .best-seller {
                         box-shadow: 43px !important;
                     }

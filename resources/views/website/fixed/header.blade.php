@@ -72,7 +72,12 @@
                                                 {{-- <li><a href="single-product.html"> Product Details</a></li> --}}
                                             </ul>
                                         </li>
+
+
+
                                         {{-- ====================category===================== --}}
+
+
                                         <li><a href="">Category</a>
                                             <ul class="submenu">
                                                 @foreach ($categories as $category)
@@ -129,7 +134,7 @@
                                 </li>
                                 <li>
                                     <div class="shopping-card">
-                                        <a href="{{ route('cart.view') }}"><i class="fas fa-shopping-cart"></i></a>
+                                        <a href="{{ route('cart.view') }}"><i class="fas fa-shopping-cart"> </i></a>
                                     </div>
                                 </li>
                                 {{-- @if (auth()->user()->role == 'user') --}}

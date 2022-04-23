@@ -250,7 +250,7 @@ class ProductController extends Controller
 
 
 
-    //                                =========================forentend start=======================
+    //   =========================forentend start=======================
 
 
 
@@ -265,60 +265,54 @@ class ProductController extends Controller
 
     public function addToCart($id)
     {
-        $product=Product::find($id);
-        if(!$product)
-        {
+        $product = Product::find($id);
+        if (!$product) {
             return redirect()->back();
         }
 
-        $cartExist=session()->get('cart');
+        $cartExist = session()->get('cart');
 
-        if(!$cartExist) {
+        if (!$cartExist) {
             //case 01: cart is empty.
             //  action: add product to cart
 
-                $cartData = [
-                    $id => [
-                        'product_id' => $id,
-                        'product_name' => $product->name,
-                        'product_price' => $product->price,
-                        'product_qty' => 1,
-                        'subtotal'=>$product->price ,
-                    ]
-                ];
-                session()->put('cart', $cartData);
-
-        }
-
-        //case 02: cart is not empty. but product does not exist into the cart
-        //action: add different product with quantity 1
-        if(!isset($cartExist[$id]))
-        {
-
-                $cartExist[$id] = [
+            $cartData = [
+                $id => [
                     'product_id' => $id,
                     'product_name' => $product->name,
                     'product_price' => $product->price,
                     'product_qty' => 1,
-                    'subtotal'=>$product->price ,
-                ];
+                    'subtotal' => $product->price,
+                ]
+            ];
+            session()->put('cart', $cartData);
+        }
 
-                session()->put('cart', $cartExist);
-                return redirect()->back();
+        //case 02: cart is not empty. but product does not exist into the cart
+        //action: add different product with quantity 1
+        if (!isset($cartExist[$id])) {
 
+            $cartExist[$id] = [
+                'product_id' => $id,
+                'product_name' => $product->name,
+                'product_price' => $product->price,
+                'product_qty' => 1,
+                'subtotal' => $product->price,
+            ];
 
+            session()->put('cart', $cartExist);
+            return redirect()->back();
         }
 
 
         //case 03: product exist into cart
         //action: increase product quantity (quantity+1)
 
-            $cartExist[$id]['product_qty']=$cartExist[$id]['product_qty']+1;
-            # for updating the subtotal
-            $cartExist[$id]['subtotal'] = $cartExist[$id]['product_price'] * $cartExist[$id]['product_qty'];
+        $cartExist[$id]['product_qty'] = $cartExist[$id]['product_qty'] + 1;
+        # for updating the subtotal
+        $cartExist[$id]['subtotal'] = $cartExist[$id]['product_price'] * $cartExist[$id]['product_qty'];
 
-            session()->put('cart', $cartExist);
-
+        session()->put('cart', $cartExist);
     }
     // --------clear cart--------
     public function clearCart()
@@ -334,10 +328,10 @@ class ProductController extends Controller
 
         // if($product->available_quantity>=$request->quantity)
         // {
-            $carts[$product_id]['product_qty']+=$request->quantity;
-            $carts[$product_id]['subtotal']=$request->quantity *$carts[$product_id]['product_price'];
+        $carts[$product_id]['product_qty'] = $request->quantity;
+        $carts[$product_id]['subtotal'] = $request->quantity * $carts[$product_id]['product_price'];
 
-            session()->put('cart',$carts);
+        session()->put('cart', $carts);
         return redirect()->back()->with('message', 'Quantity update');
     }
 
@@ -390,7 +384,7 @@ class ProductController extends Controller
         ]);
 
 
-        return redirect()->back()->with('success', 'Product has been Created Successfully');
+        return redirect()->back()->with('success', 'request placed Successfully');
     }
 
 
