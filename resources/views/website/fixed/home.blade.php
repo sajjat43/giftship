@@ -68,6 +68,71 @@
                 </div>
             </div>
         </div>
+        {{-- latest---------------------------------------- / --}}
+        {{-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+
+                <div class="item active">
+                    @foreach ($latestProduct as $latest)
+                        <img src="{{ url('/uploads/uploads/product/', $latest->image) }}" alt="product image">
+                    @endforeach
+                </div>
+
+            </div>
+
+            <!-- Left and right controls -->
+            <a class="left carousel-control" href="#myCarousel" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#myCarousel" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div> --}}
+
+
+
+
+        <div class="py-5">
+            <div class="container">
+                <div class="row">
+                    <h2>Latest Product</h2>
+                    <div class="owl-carousel featured-carousel owl-theme">
+                        @foreach ($latestProduct as $latest)
+                            {{-- @dd($data) --}}
+                            <div class="item ">
+                                <div class="card  py-2">
+                                    <img src="{{ url('/uploads/uploads/product/', $latest->image) }}" alt="product image">
+                                    <div class="card-body">
+                                        <h5>Name: {{ $latest->name }}</h5>
+                                        <span class="float-start">Price: {{ $latest->price }} .BDT</span>
+                                        <a href="{{ route('add.to.cart', $latest->id) }}" class="btn btn-info">add
+                                            cart</a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <style>
+            .card {
+                height: 400px;
+            }
+
+        </style>
+
 
         {{-- ------------------------------------- feature product ----------------------- --}}
 
@@ -76,14 +141,16 @@
                 <div class="row">
                     <h2>Featured Product</h2>
                     <div class="owl-carousel featured-carousel owl-theme">
-                        @foreach ($product as $item)
+                        @foreach ($featuredProduct as $item)
                             {{-- @dd($data) --}}
-                            <div class="item">
-                                <div class="card py-2">
+                            <div class="item ">
+                                <div class="card  py-2">
                                     <img src="{{ url('/uploads/uploads/product/', $item->image) }}" alt="product image">
                                     <div class="card-body">
                                         <h5>Name: {{ $item->name }}</h5>
-                                        <span class="float-start">Price: {{ $item->price }}</span>
+                                        <span class="float-start">Price: {{ $item->price }} .BDT</span>
+                                        <a href="{{ route('add.to.cart', $item->id) }}" class="btn btn-info">add
+                                            cart</a>
                                     </div>
                                 </div>
                             </div>
@@ -139,49 +206,51 @@
                         }
 
                     </style>
-                    <div class="row special-list ca">
+                    <div class="container">
+                        <div class="row special-list ca">
 
 
-                        @foreach ($categories as $key => $data)
-                            <div class="col-lg-3 col-md-6 special-grid best-seller shedoC caa  ">
-                                <a href="{{ route('product.under.catagory', $data->id) }}">
-                                    <div class="products-single fix">
-                                        <div class="box-img-hover">
-                                            <div class="type-lb">
+                            @foreach ($categories as $key => $data)
+                                <div class="col-lg-3 col-md-6 special-grid best-seller shedoC caa  ">
+                                    <a href="{{ route('product.under.catagory', $data->id) }}">
+                                        <div class="products-single fix">
+                                            <div class="box-img-hover">
+                                                <div class="type-lb">
 
+                                                </div>
+                                                <img style="height: 200px"
+                                                    src="{{ url('uploads/uploads/category/', $data->Cimage) }}"
+                                                    class="img-fluid" alt="Image">
+                                                <div class="mask-icon">
+                                                    <ul>
+                                                        <li><a href="{{ route('shop.catagory', $data->Cid) }}"
+                                                                data-toggle="tooltip" data-placement="right" title="View"><i
+                                                                    class="fas fa-eye"></i></a></li>
+                                                        {{-- <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                                                title="Compare"><i class="fas fa-sync-alt"></i></a></li>
+                                                        <li><a href="#" data-toggle="tooltip" data-placement="right"
+                                                                title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
+                                                    </ul>
+                                                </div>
                                             </div>
-                                            <img style="height: 200px"
-                                                src="{{ url('uploads/uploads/category/', $data->Cimage) }}"
-                                                class="img-fluid" alt="Image">
-                                            <div class="mask-icon">
-                                                <ul>
-                                                    <li><a href="{{ route('shop.catagory', $data->Cid) }}"
-                                                            data-toggle="tooltip" data-placement="right" title="View"><i
-                                                                class="fas fa-eye"></i></a></li>
-                                                    {{-- <li><a href="#" data-toggle="tooltip" data-placement="right"
-                                                            title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                                    <li><a href="#" data-toggle="tooltip" data-placement="right"
-                                                            title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
-                                                </ul>
+                                            <div class="why-text descc">
+                                                <h4>{{ $data->Cname }}</h4>
+                                                <h5> {{ $data->Cdescription }}</h5>
                                             </div>
                                         </div>
-                                        <div class="why-text descc">
-                                            <h4>{{ $data->Cname }}</h4>
-                                            <h5> {{ $data->Cdescription }}</h5>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-                        @endforeach
+                                    </a>
+                                </div>
+                            @endforeach
 
 
+                        </div>
                     </div>
                 </div>
             </div>
 
             {{-- =============================== shop by category ================================== --}}
 
-            <section class="categories">
+            {{-- <section class="categories">
 
                 <div class="container">
                     <div class="container-fluid">
@@ -195,10 +264,10 @@
                                             class="img-fluid" alt="category image">
                                         <div class="categories__text">
                                             <h4>{{ $data->Cname }}</h4>
-                                            <p>{{ $data->Cdescription }}</p>
-                                            {{-- <a href="{{ route('shop.catagory', $data->Cid) }}"
+                                            <p>{{ $data->Cdescription }}</p> --}}
+            {{-- <a href="{{ route('shop.catagory', $data->Cid) }}"
                                                         class="btn btn-primary">Shop now</a> --}}
-                                            <a href="{{ route('product.under.catagory', $data->id) }}"
+            {{-- <a href="{{ route('product.under.catagory', $data->id) }}"
                                                 class="btn btn-primary shop">Shop now</a>
                                         </div>
                                     </div>
@@ -211,9 +280,7 @@
                     </div>
                 </div>
 
-            </section>
-
-
+            </section> --}}
 
 
 
@@ -272,7 +339,7 @@
 
                     <div class="col-xl-4 col-lg-5 col-md-5">
                         <div class="section-tittle mb-30">
-                            <h2>Latest Products</h2>
+                            <h2>ALL Products</h2>
                         </div>
                     </div>
                     <div class="col-xl-8 col-lg-7 col-md-7">
@@ -317,8 +384,8 @@
                 {{-- ------------------------product style --}}
                 <style>
                     /* body{
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                background-color: gainsboro;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            } */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    background-color: gainsboro;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                } */
                     .best-seller {
                         box-shadow: 43px !important;
                     }
@@ -369,48 +436,49 @@
 
                     @foreach ($product as $product)
                         <div class="col-lg-4 col-md-6 special-grid best-seller shedo gx-5 ">
+                            <a href="{{ route('product.single.view', $product->id) }}">
+                                <div class="products-single fix">
 
-                            <div class="products-single fix">
-
-                                <div class="box-img-hover">
-                                    <div class="type-lb">
-                                        {{-- <p class="sale"></p> --}}
-                                    </div>
-                                    <div class="image">
+                                    <div class="box-img-hover">
+                                        <div class="type-lb">
+                                            {{-- <p class="sale"></p> --}}
+                                        </div>
+                                        <div class="image">
 
 
-                                        <img style="height: 200px"
-                                            src="{{ url('/uploads/uploads/product/', $product->image) }}"
-                                            class="img-fluid" alt="Image">
-                                    </div>
-                                    <div class="mask">
-                                        <ul>
-                                            <li><a href="{{ route('product.single.view', $product->id) }}"
-                                                    data-toggle="tooltip" data-placement="right" title="View"><i
-                                                        class="fas fa-eye"></i></a>
-                                                {{-- <li><a href="{{ route('product.single.view', $product->id) }}"
+                                            <img style="height: 200px"
+                                                src="{{ url('/uploads/uploads/product/', $product->image) }}"
+                                                class="img-fluid" alt="Image">
+                                        </div>
+                                        <div class="mask">
+                                            <ul>
+                                                <li><a href="{{ route('product.single.view', $product->id) }}"
+                                                        data-toggle="tooltip" data-placement="right" title="View"><i
+                                                            class="fas fa-eye"></i></a>
+                                                    {{-- <li><a href="{{ route('product.single.view', $product->id) }}"
                                                     data-toggle="tooltip" data-placement="right" title="View">view<i
                                                         class="fas fa-eye"></i></a>
                                             </li> --}}
 
-                                                {{-- <li><a href="{{ route('product.single.view', $product->id) }}"
+                                                    {{-- <li><a href="{{ route('product.single.view', $product->id) }}"
                                                     data-toggle="tooltip" data-placement="right" title="Compare"><i
                                                         class="fas fa-sync-alt"></i></a></li>
                                             <li><a href="#" data-toggle="tooltip" data-placement="right"
                                                     title="Add to Wishlist"><i class="far fa-heart"></i></a></li> --}}
-                                        </ul>
-                                        <a href="{{ route('product.single.view', $product->id) }}">view detials</a>
+                                            </ul>
+                                            <a href="{{ route('product.single.view', $product->id) }}">view detials</a>
+                                        </div>
+                                    </div>
+                                    <div class="why-text detailscart">
+                                        <h4>{{ $product->name }}</h4>
+                                        <h5>BDT: {{ $product->price }}</h5>
+                                        <h5> {{ $product->description }}</h5>
+                                        <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn-primary">add
+                                            cart</a>
+
                                     </div>
                                 </div>
-                                <div class="why-text detailscart">
-                                    <h4>{{ $product->name }}</h4>
-                                    <h5>BDT: {{ $product->price }}</h5>
-                                    <h5> {{ $product->description }}</h5>
-                                    <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn-primary">add
-                                        cart</a>
-
-                                </div>
-                            </div>
+                            </a>
                         </div>
                     @endforeach
 

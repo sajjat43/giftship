@@ -76,11 +76,8 @@
 
 
                 </div>
-
-
-
                 <div class="col-lg-6 col-md-12 col-12">
-                    <h6>home/show</h6>
+                    <h6>product/single/view </h6>
                     <h3 class="py-4">{{ $product->name }}</h3>
                     <h2>BDT: {{ $product->price }}</h2>
                     <select class="my-3 nice">

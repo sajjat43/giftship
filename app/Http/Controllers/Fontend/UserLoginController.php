@@ -6,6 +6,7 @@ use App\Models\Employee;
 use App\Models\UserLogin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 // use App\Http\Controllers\Fontend\UserLoginController;
 
@@ -38,5 +39,13 @@ class UserLoginController extends Controller
         $user = Auth::user();
         Auth::logout($user);
         return redirect()->route('manage.home')->with('message', 'Logged out successfully');
+    }
+
+    // customer profile
+
+    public function customer_profile()
+    {
+        $customer = User::all();
+        return view('website.pages.customer.customer_profile', compact('customer'));
     }
 }

@@ -71,27 +71,26 @@
             aria-controls="ui-basic">
             <i class="icon-disc menu-icon"></i>
             <span class="menu-title">Oder</span>
-            <a class="nav-link" href="{{ route('request.list') }}">Customer Request </a>
-            {{-- <span class="customer"> {{ $customer }}</span> --}}
-    </li>
-    <i class="menu-arrow"></i>
-    </a>
-    <div class="collapse" id="ui-basic">
-        <ul class="nav flex-column sub-menu">
-            {{-- <li class="nav-item"> <a class="nav-link" href="{{route('Employee.login')}}">Employee Login</a></li>
-            <li class="nav-item"> <a class="nav-link" href="{{route('Employee.regestation')}}">Employee Regestation</a></li> --}}
-        </ul>
-    </div>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" href="">
-            <i class="icon-file menu-icon"></i>
-            <span class="menu-title">Customer</span>
+            <i class="menu-arrow"></i>
         </a>
         <div class="collapse" id="ui-basic">
             <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route('Employee.view') }}">Customer
-                        list</a></li>
+                <a class="nav-link" href="{{ route('request.list') }}">Oder
+                    Request
+                </a>
+            </ul>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link">
+            <i class="icon-head menu-icon"></i>
+            <span class="menu-title">Customer</span>
+            <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="ui-basic">
+            <ul class="nav flex-column sub-menu">
+                <a class="nav-link" href="{{ route('customer.view') }}">Customer
+                    list</a>
 
             </ul>
         </div>

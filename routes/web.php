@@ -4,6 +4,7 @@ use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Fontend\HomeController;
@@ -67,7 +68,7 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
 
 
 
-    // SSLCOMMERZ Start
+    // SSLCOMMERZ payment Start
 
 
     Route::post('/pay', [SslCommerzPaymentController::class, 'index'])->name('pay.now');
@@ -83,8 +84,11 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
     route::post('/check-out', [ProductController::class, 'checkOut'])->name('check.out');
     route::get('/check-out/form', [ProductController::class, 'checkOut_form'])->name('check.out.form');
     route::post('/check-out/form/store', [ProductController::class, 'checkOut_store'])->name('check.out.store');
-    // ---------- payment method--------
 
+
+    // ---------- customer profile--------
+
+    route::get('customer/profile', [UserLoginController::class, 'customer_profile'])->name('customer.profile');
 });
 
 
@@ -105,8 +109,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     // Route::match(['get','post'],"/login",[AdminController::class,'login'])->name('login.view');
     // Route::match(['get','post'],"/form/login",[AdminController::class,'login']);
     //login route
-    Route::get('/Employee/view', [EmployeeController::class, 'EmployeeView'])->name('Employee.view');
-    Route::get('/employee/details/{employee_id}', [EmployeeController::class, 'Employee_single_View'])->name('Employee.single.details');
+
+
+    // customer list
+    Route::get('/customer/view', [CustomerController::class, 'customerView'])->name('customer.view');
+    Route::get('/customer/details', [CustomerController::class, 'customer_single_View'])->name('customer.single.details');
     //
 
     //product route

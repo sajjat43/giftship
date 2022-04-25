@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\Fontend;
 
+use App\Models\Brand;
 use App\Models\Product;
+use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Models\Brand;
-use App\Models\Category;
+use Illuminate\Foundation\Auth\User;
 
 class HomeController extends Controller
 {
@@ -14,9 +15,12 @@ class HomeController extends Controller
     {
         $product = Product::all();
 
+        $latestProduct = Product::orderBy('created_at', 'desc')->get()->take(5);
+        $featuredProduct = Product::where('featured', '1')->take(10)->get();
 
-        // dd($brand);
-        return view('website.fixed.home', compact('product'));
+
+        // dd($latestProduct);
+        return view('website.fixed.home', compact('product', 'latestProduct', 'featuredProduct'));
     }
     public function userLogin()
     {

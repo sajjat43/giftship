@@ -1099,6 +1099,7 @@ input:focus {
 
 .header-bottom .header-right .shopping-card::before {
     position: absolute;
+    content: 1;
     width: 25px;
     height: 25px;
     background: #00b1ff;

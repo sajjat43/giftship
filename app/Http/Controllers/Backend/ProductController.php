@@ -145,15 +145,6 @@ class ProductController extends Controller
         return redirect()->back()->with('success', 'Product has beeen Deleted Successfully');
     }
 
-    // -------------product uder category----------------
-
-
-
-    // public function Category_delete($category_id){
-
-    //     Category::find($category_id)->delete();
-    //     return redirect()->back()->with('success', 'Product has beeen Deleted Successfully');
-    // }
 
     // -------------------update product-------------------------------
 
@@ -402,7 +393,7 @@ class ProductController extends Controller
 
     public function featured_product()
     {
-        $product = Product::where('featured', '1')->take(3)->get();
+        $product = Product::where('featured', '1')->take(5)->get();
         return view('website.pages.featured.featuredProduct', compact('product'));
     }
 }

@@ -27,7 +27,9 @@
 
                                 <div class="header-info-right ">
                                     <ul>
-                                        <li><a href="{{ route('User.regestation') }}">My Account </a></li>
+                                        <li><a href="{{ route('customer.profile') }}">My
+                                                Account </a>
+                                        </li>
                                         <li><a href="product_list.html">Wish List </a></li>
                                         <li><a href="">Shopping</a>
                                         </li>
@@ -134,9 +136,13 @@
                                 </li>
                                 <li>
                                     <div class="shopping-card">
-                                        <a href="{{ route('cart.view') }}"><i class="fas fa-shopping-cart"> </i></a>
+                                        <a href="{{ route('cart.view') }}"><i class="fas fa-shopping-cart ">
+                                                {{ session()->has('cart') ? count(session()->get('cart')) : 0 }}
+                                            </i></a>
                                     </div>
+
                                 </li>
+
                                 {{-- @if (auth()->user()->role == 'user') --}}
                                 {{-- @if (!auth()->user())
                                                 <li class="d-none d-lg-block"> <a href="{{ route('website.user.login') }}"
@@ -149,6 +155,54 @@
                                 {{-- @endif --}}
                             </ul>
                         </div>
+                        {{-- cart count  ----------------------------- --}}
+                        {{-- <style>
+                        .header-bottom .header-right .shopping-card {
+                            position: relative
+                        }
+
+                        .header-bottom .header-right .shopping-card::before {
+                            position: absolute;
+                            content: "{{ session()->has('cart') ? count(session()->get('cart')) : 0 }}";
+                            width: 25px;
+                            height: 25px;
+                            background: #00b1ff;
+                            color: #fff;
+                            line-height: 25px;
+                            text-align: center;
+                            border-radius: 30px;
+                            font-size: 12px;
+                            top: 0;
+                            right: -6px;
+                            -webkit-transition: all .2s ease-out 0s;
+                            -moz-transition: all .2s ease-out 0s;
+                            -ms-transition: all .2s ease-out 0s;
+                            -o-transition: all .2s ease-out 0s;
+                            transition: all .2s ease-out 0s;
+                            box-shadow: 0 2px 5px rgba(0, 0, 0, .3)
+                        }
+
+                        .header-bottom .header-right .shopping-card i {
+                            width: 50px;
+                            height: 50px;
+                            line-height: 50px;
+                            text-align: center;
+                            border-radius: 50%;
+                            border: 1px solid #eee;
+                            color: #4e4e4e;
+                            font-size: 14px;
+                            cursor: pointer
+                        }
+
+                        @media (max-width:767px) {
+                            .header-bottom .fix-card {
+                                position: absolute;
+                                top: 12px;
+                                right: 85px
+                            }
+                        }
+
+                    </style> --}}
 
                         <div class="col-12">
                             <div class="mobile_menu d-block d-lg-none"></div>

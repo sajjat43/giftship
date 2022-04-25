@@ -33,17 +33,18 @@ class AppServiceProvider extends ServiceProvider
         $categories = Category::all();
         $brand = Brand::all();
         $product = Product::where('featured', '1')->get();
-
+        $latestProduct = Product::where('created_at', 'DESC')->get()->take(7);
         view::share('categories',  $categories);
         view::share('brand',  $brand);
         view::share('product', $product);
+        view::share('latestProduct', $latestProduct);
 
 
 
         $order = RequestProduct::all()->count();
         view::share('order', $order);
 
-        $customer = User::all()->count();
+        $customer = User::where('role', 'user')->count();
         view::share('customer', $customer);
         $category = Category::all()->count();
         view::share('category', $category);
