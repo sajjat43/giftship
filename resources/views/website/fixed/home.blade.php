@@ -115,14 +115,20 @@
                                     <div class="card-body">
                                         <h5>Name: {{ $latest->name }}</h5>
                                         <span class="float-start">Price: {{ $latest->price }} .BDT</span>
-
                                     </div>
-                                    <div class="latest "> <a href="{{ route('add.to.cart', $latest->id) }}"
-                                            class="btn btn-info col-md-6 text-center">add
-                                            cart</a>
+                                    @if ($latest->qty > 0)
+                                        <label class="badge bg-success text-center" style="width: 80px">In Stock</label>
+                                        <div class="latest "> <a href="{{ route('add.to.cart', $latest->id) }}"
+                                                class="btn btn-info col-md-6 text-center">add
+                                                cart</a>
+                                            <a href="{{ route('add.to.wishlist', $latest->id) }}"><i
+                                                    class="far fa-heart"></i></a>
+                                        </div>
+                                    @else
+                                        <label class="badge bg-danger">Stock Out</label>
                                         <a href="{{ route('add.to.wishlist', $latest->id) }}"><i
                                                 class="far fa-heart"></i></a>
-                                    </div>
+                                    @endif
                                 </div>
                             </div>
                         @endforeach
@@ -168,12 +174,20 @@
                                     <div class="card-body">
                                         <h5>Name: {{ $item->name }}</h5>
                                         <span class="float-start">Price: {{ $item->price }} .BDT</span>
-                                        <div class="container "> <a href="{{ route('add.to.cart', $item->id) }}"
-                                                class="btn btn-info col-md-6 text-center">add
-                                                cart</a>
+                                        @if ($item->qty > 0)
+                                            <label class="badge bg-success text-center" style="width: 80px">In Stock</label>
+                                            <div class="container "> <a href="{{ route('add.to.cart', $item->id) }}"
+                                                    class="btn btn-info col-md-6 text-center">add
+                                                    cart</a>
+                                                <a href="{{ route('add.to.wishlist', $item->id) }}"><i
+                                                        class="far fa-heart"></i></a>
+                                            </div>
+                                        @else
+                                            <label class="badge bg-success text-center" style="width: 80px">Stock
+                                                Out</label>
                                             <a href="{{ route('add.to.wishlist', $item->id) }}"><i
                                                     class="far fa-heart"></i></a>
-                                        </div>
+                                        @endif
                                     </div>
                                 </div>
                             </div>
@@ -407,8 +421,8 @@
                 {{-- ------------------------product style --}}
                 <style>
                     /* body{
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    background-color: gainsboro;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                } */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        background-color: gainsboro;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    } */
                     .best-seller {
                         box-shadow: 43px !important;
                     }
@@ -426,7 +440,7 @@
                     .shedo {
 
                         /* border: 2px solid seashell; */
-                        margin: 45px;
+                        margin: 40px;
                         box-shadow: 5px 5px 5px rgb(192, 183, 183);
                         width: 100%;
                         display: flex;
@@ -459,6 +473,10 @@
                     .fa-heart:hover {
                         color: black;
 
+                    }
+
+                    .container {
+                        margin-top: 25px !important;
                     }
 
                 </style>
@@ -501,11 +519,22 @@
                                         <h4>{{ $product->name }}</h4>
                                         <h5>BDT: {{ $product->price }}</h5>
                                         <h5> {{ $product->description }}</h5>
-                                        <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn-primary">add
-                                            cart</a>
-                                        <a href="{{ route('add.to.wishlist', $product->id) }}" type="button"><i
-                                                class="far fa-heart"></i></a>
-
+                                        @if ($product->qty > 0)
+                                            <div class="container">
+                                                <label class="badge bg-success text-center" style="width: 80px">In
+                                                    Stock</label>
+                                                <a href="{{ route('add.to.cart', $product->id) }}"
+                                                    class="btn btn-primary">add
+                                                    cart</a>
+                                                <a href="{{ route('add.to.wishlist', $product->id) }}" type="button"><i
+                                                        class="far fa-heart"></i></a>
+                                            </div>
+                                        @else
+                                            <label class="badge bg-success text-center" style="width: 80px">Stock
+                                                Out</label>
+                                            <a href="{{ route('add.to.wishlist', $product->id) }}" type="button"><i
+                                                    class="far fa-heart"></i></a>
+                                        @endif
                                     </div>
                                 </div>
                             </a>
