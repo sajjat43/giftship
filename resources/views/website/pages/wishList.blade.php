@@ -8,6 +8,9 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -46,9 +49,9 @@
     <div class='cart'>
         {{-- ------------------------------------- --}}
         <a class="homeButton" href="{{ route('manage.home') }}">Home</a>
-        <h1 style="padding-top: 100px;">You have({{ session()->has('cart') ? count(session()->get('cart')) : 0 }})
+        {{-- <h1 style="padding-top: 100px;">You have({{ session()->has('cart') ? count(session()->get('cart')) : 0 }})
             product
-        </h1>
+        </h1> --}}
         {{-- @dd(session()->has('cart')) --}}
         <table class="table">
             <thead>
@@ -56,36 +59,25 @@
                     <th scope="col">#</th>
                     <th scope="col">Product Name</th>
                     <th scope="col">Price</th>
-                    <th scope="col">Quantity</th>
-                    <th scope="col">Sub Total</th>
+                    <th scope="col">Action</th>
                     {{-- <th scope="col">remove</th> --}}
                 </tr>
             </thead>
             <tbody>
                 {{-- @dd($carts) --}}
-                @if ($carts)
+                @if ($wishList)
 
-                    @foreach ($carts as $key => $data)
+                    @foreach ($wishList as $key => $item)
+                        {{-- @dd($wishList) --}}
                         <tr>
                             <th scope="row">{{ $key }}</th>
-                            <td>{{ $data['product_name'] }}</td>
+                            <td>{{ $item['product_name'] }}</td>
 
-                            <td>{{ $data['product_price'] }}</td>
-                            <td>
-                                <div class="col-md-6">
-                                    <form action="{{ route('cart.qty.update', $key) }}" method="get">
-                                        @csrf
-                                        <input type="number" class="form-control" value="{{ $data['product_qty'] }}"
-                                            name="quantity" required>
-                                        <button class="btn btn-primary" type="submit">
-                                            <i class="fa fa-refresh"></i></button>
-                                    </form>
-                                </div>
-                            </td>
-                            <td class="cart__total">{{ $data['subtotal'] }}
+                            <td>{{ $item['product_price'] }}</td>
+                            <td><a href="" type="button"><i class="fa-solid fa-trash-can"></i></a></td>
                         </tr>
                     @endforeach
-                    <td>Total Price: <span>{{ array_sum(array_column($carts, 'subtotal')) + 50 }}
+
                     </td>
                 @endif
 
@@ -95,9 +87,9 @@
         <div class="card-footer">
 
         </div>
-        <a href="{{ route('cart.clear') }}" class="btn btn-danger">Clear Cart</a>
+        <a href="{{ route('clear.wishlist') }}" class="btn btn-danger">Clear Cart</a>
         {{-- <a href="{{ route('check.out') }}" class="btn btn-success ">Buy Now</a> --}}
-        <a href="{{ route('check.out.form') }}" class="btn btn-success ">Buy Now</a>
+
 
 
     </div>

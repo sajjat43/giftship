@@ -54,6 +54,11 @@
             <input value="{{ $product->price }}" type="number" class="form-control" id="exampleInputPassword1"
                 name="price" placeholder="price">
         </div>
+        <div class="form-group">
+            <label for="">Quantity</label>
+            <input value="{{ $product->qty }}" type="number" class="form-control" id="exampleInputPassword1"
+                name="qty" placeholder="Quantity">
+        </div>
 
         <div class="form-group">
             <label for="">description</label>

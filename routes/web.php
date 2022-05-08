@@ -4,15 +4,16 @@ use GuzzleHttp\Middleware;
 use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Backend\CustomerController;
-use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Fontend\HomeController;
+use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\Backend\ProductController;
-
+use App\Http\Controllers\Backend\CustomerController;
+use App\Http\Controllers\backend\DashboardController;
 use App\Http\Controllers\Fontend\UserLoginController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use App\Http\Controllers\Backend\wishList\wishListController;
 
 /*
 |--------------------------------------------------------------------------
@@ -31,7 +32,7 @@ Route::get('/product/under/category/{category_id}', [HomeController::class, 'pro
 Route::get('/product/under/brand/{brand_id}', [HomeController::class, 'productUnderBrand'])->name('product.under.brand');
 
 // ------------website login-------
-Route::get('/user/login', [HomeController::class, 'userLogin'])->name('website.user.login');
+Route::get('/user/login/website', [HomeController::class, 'userLogin'])->name('website.user.login');
 Route::get('/User/regestation', [UserController::class, 'UserRegestation'])->name('User.regestation');
 Route::post('/User/regestation/store', [UserController::class, 'UserRegestationstore'])->name('User.regestation.store');
 
@@ -53,12 +54,20 @@ Route::get('/product/single/view/{id}', [ProductController::class, 'product_sing
 Route::get('/cart/view', [ProductController::class, 'cartview'])->name('cart.view');
 route::get('/add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add.to.cart');
 Route::get('/clear-cart', [ProductController::class, 'clearCart'])->name('cart.clear');
+// =====================wish List==================
+route::get('/wishlist/view', [wishListController::class, 'wishListView'])->name('wishlist.view');
+route::get('/Add_to_wishlist/{id}', [wishListController::class, 'add_to_wishlist'])->name('add.to.wishlist');
+route::get('/clear_wishlist', [wishListController::class, 'wishlistclear'])->name('clear.wishlist');
 
 // card qty update
 Route::get('/cart/qty/update/{id}', [ProductController::class, 'cartQty_update'])->name('cart.qty.update');
 // Route::get('/remove-cart', [ProductController::class, 'removeCart'])->name('remove.cart');
 
-
+// password forget ======
+Route::get('forget-password', [ForgotPasswordController::class, 'showForgetPasswordForm'])->name('forget.password.get');
+Route::post('forget-password', [ForgotPasswordController::class, 'submitForgetPasswordForm'])->name('forget.password.post');
+Route::get('reset-password/{token}', [ForgotPasswordController::class, 'showResetPasswordForm'])->name('reset.password.get');
+Route::post('reset-password', [ForgotPasswordController::class, 'submitResetPasswordForm'])->name('reset.password.post');
 
 Route::get('/', function () {
     return view('website.master');
@@ -113,7 +122,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 
     // customer list
     Route::get('/customer/view', [CustomerController::class, 'customerView'])->name('customer.view');
-    Route::get('/customer/details', [CustomerController::class, 'customer_single_View'])->name('customer.single.details');
+    Route::get('/customer/details/{id}', [CustomerController::class, 'customer_single_View'])->name('customer.single.details');
     //
 
     //product route

@@ -92,6 +92,7 @@
 
 
                                             </ul>
+                                        </li>
                                         <li><a href="">Brand</a>
                                             <ul class="submenu">
 
@@ -131,7 +132,7 @@
                                 </li>
                                 <li class=" d-none d-xl-block">
                                     <div class="favorit-items">
-                                        <i class="far fa-heart"></i>
+                                        <a href="{{ route('wishlist.view') }}"><i class="far fa-heart"></i></a>
                                     </div>
                                 </li>
                                 <li>

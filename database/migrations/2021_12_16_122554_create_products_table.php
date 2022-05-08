@@ -19,6 +19,7 @@ class CreateProductsTable extends Migration
             $table->string('category_id');
             $table->string('brand_id');
             $table->double('price');
+            $table->double('qty');
             $table->string('description')->nullable();
             $table->string('image')->nullable();
             $table->string('featured')->default(0);

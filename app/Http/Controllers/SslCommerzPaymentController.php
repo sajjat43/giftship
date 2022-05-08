@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Models\order;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\RequestDetails;
 use App\Models\RequestProduct;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 use App\Library\SslCommerz\SslCommerzNotification;
 
 class SslCommerzPaymentController extends Controller
@@ -93,7 +95,11 @@ class SslCommerzPaymentController extends Controller
 
 
         ]);
-
+        $token = Str::random(64);
+        Mail::send('website.email.orderConfirm', ['token' => $token], function ($message) use ($request) {
+            $message->to(auth()->user()->email);
+            $message->subject('order confirem');
+        });
         $carts = session()->get('cart');
         if ($carts) {
             $total = 0;

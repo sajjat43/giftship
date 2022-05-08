@@ -9,6 +9,7 @@
                 <p><b>Product Name: {{ $product->name }}</b></p>
                 <p><b>Product Catagory Name: {{ $product->category->Cname }}</b></p>
                 <p><b>Product Price: {{ $product->price }}</b></p>
+                <p><b>Product Quantity: {{ $product->qty }}</b></p>
                 <p><b>Product Description: {{ $product->description }}</b></p>
 
 

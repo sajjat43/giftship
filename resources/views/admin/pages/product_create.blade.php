@@ -44,6 +44,10 @@
             <label for="">Price</label>
             <input type="number" class="form-control" id="e" name="price" placeholder="price">
         </div>
+        <div class="form-group">
+            <label for="">Quantity</label>
+            <input type="number" class="form-control" id="e" name="qty" placeholder="quentity">
+        </div>
 
         <div class="form-group">
             <label for="">description</label>

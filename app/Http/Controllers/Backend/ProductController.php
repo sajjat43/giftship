@@ -53,6 +53,7 @@ class ProductController extends Controller
             'category_id' => $request->category,
             'brand_id' => $request->brand,
             'price' => $request->price,
+            'qty' => $request->qty,
             'description' => $request->description,
             'image' => $image_name,
         ]);
