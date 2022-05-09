@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\order;
+use App\Models\Product;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\RequestDetails;
@@ -95,6 +96,7 @@ class SslCommerzPaymentController extends Controller
 
 
         ]);
+
         $token = Str::random(64);
         Mail::send('website.email.orderConfirm', ['token' => $token], function ($message) use ($request) {
             $message->to(auth()->user()->email);
@@ -108,7 +110,7 @@ class SslCommerzPaymentController extends Controller
 
 
             ]);
-            foreach ($carts as $cart) {
+            foreach ($carts as $key => $cart) {
                 RequestDetails::create([
 
                     'user_id' => auth()->user()->id,
@@ -119,6 +121,8 @@ class SslCommerzPaymentController extends Controller
                     'product_price' => $cart['product_price'] * $cart['product_qty'],
                     'total_price' => $total += $cart['product_price'] * $cart['product_qty'],
                 ]);
+                $product = Product::find($key);
+                $product->decrement('qty', $cart['product_qty']);
             }
             session()->forget('cart');
             // return redirect(route('manage.home'))->with('message', 'request placed Successfully');

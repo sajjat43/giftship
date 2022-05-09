@@ -313,22 +313,30 @@ class ProductController extends Controller
         return redirect()->back()->with('success', 'cart cleared successfully');
     }
     // card qty update
-    public function cartQty_update(request $request, $product_id)
+    public function cartQty_update(Request $request, $product_id)
     {
+        // dd($request);
         $carts = session()->get('cart');
         $product = Product::find($product_id);
+        // dd($product);
 
-        // if($product->available_quantity>=$request->quantity)
-        // {
-        $carts[$product_id]['product_qty'] = $request->quantity;
-        $carts[$product_id]['subtotal'] = $request->quantity * $carts[$product_id]['product_price'];
+        if ($product->qty >= $request->quantity) {
 
-        session()->put('cart', $carts);
-        return redirect()->back()->with('message', 'Quantity update');
+            if ($request->quantity > 0) {
+                $carts[$product_id]['product_qty'] = $request->quantity;
+                $carts[$product_id]['subtotal'] = $request->quantity * $carts[$product_id]['product_price'];
+
+                session()->put('cart', $carts);
+                return redirect()->back()->with('message', 'Quantity update');
+            }
+            return redirect()->back()->with('message', 'Negative Quantity Not possible');
+        }
+        return redirect()->back()->with('message', 'Sorry Quantity is not abliable');
     }
 
     public function checkOut(request $request)
     {
+        // dd($request);
         order::create([
             'name' => $request->name,
             'email' => $request->email,
@@ -344,7 +352,7 @@ class ProductController extends Controller
                 'user_id' => auth()->user()->id,
 
             ]);
-            foreach ($carts as $cart) {
+            foreach ($carts as $key => $cart) {
                 RequestDetails::create([
                     'user_id' => auth()->user()->id,
                     'request_id' => $request->id,
@@ -353,7 +361,10 @@ class ProductController extends Controller
                     'product_price' => $cart['product_price'] * $cart['product_qty'],
                     'total_price' => $total += $cart['product_price'] * $cart['product_qty'],
                 ]);
+                $product = Product::find($key);
+                $product->decrement('qty', $cart['product_qty']);
             }
+
             session()->forget('cart');
             return redirect(route('manage.home'))->with('message', 'request placed Successfully');
         }
