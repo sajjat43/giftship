@@ -183,7 +183,7 @@
                                                         class="far fa-heart"></i></a>
                                             </div>
                                         @else
-                                            <label class="badge bg-success text-center" style="width: 80px">Stock
+                                            <label class="badge bg-danger text-center" style="width: 80px">Stock
                                                 Out</label>
                                             <a href="{{ route('add.to.wishlist', $item->id) }}"><i
                                                     class="far fa-heart"></i></a>
@@ -530,7 +530,7 @@
                                                         class="far fa-heart"></i></a>
                                             </div>
                                         @else
-                                            <label class="badge bg-success text-center" style="width: 80px">Stock
+                                            <label class="badge bg-danger text-center" style="width: 80px">Stock
                                                 Out</label>
                                             <a href="{{ route('add.to.wishlist', $product->id) }}" type="button"><i
                                                     class="far fa-heart"></i></a>

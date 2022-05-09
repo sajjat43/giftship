@@ -119,17 +119,30 @@
                                 </nav>
                             </div>
                         </div>
+                        <style>
+                            .search-icon button {
+                                border: transparent;
+
+                            }
+
+                        </style>
 
                         <div class="col-xl-5 col-lg-3 col-md-3 col-sm-3 fix-card">
                             <ul class="header-right f-right d-none d-lg-block d-flex justify-content-between">
-                                <li class="d-none d-xl-block">
-                                    <div class="form-box f-right ">
-                                        <input type="text" name="Search" placeholder="Search products">
-                                        <div class="search-icon">
-                                            <i class="fas fa-search special-tag"></i>
+                                <form action="{{ route('product.search.view') }}" method="GET">
+
+                                    <li class="d-none d-xl-block">
+                                        <div class="form-box f-right ">
+                                            <input class="srch" type="text" name="search"
+                                                placeholder="Search products">
+                                            <div class="search-icon">
+                                                <button type="submit">
+                                                    <i class=" fas fa-search special-tag"></i>
+                                                </button>
+                                            </div>
                                         </div>
-                                    </div>
-                                </li>
+                                    </li>
+                                </form>
                                 <li class=" d-none d-xl-block">
                                     <div class="favorit-items">
                                         <a href="{{ route('wishlist.view') }}"><i class="far fa-heart"></i></a>

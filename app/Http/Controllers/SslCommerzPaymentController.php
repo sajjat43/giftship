@@ -163,7 +163,7 @@ class SslCommerzPaymentController extends Controller
                 Here you can also sent sms or email for successfull transaction to customer
                 */
                 $order_details->update([
-                    'status' => 'success'
+                    'payment_status' => 'success'
                 ]);
             } else {
                 /*
@@ -171,7 +171,7 @@ class SslCommerzPaymentController extends Controller
                 Here you need to update order status as Failed in order table.
                 */
                 $order_details->update([
-                    'status' => 'failed'
+                    'payment_status' => 'failed'
                 ]);
             }
         }
@@ -186,7 +186,7 @@ class SslCommerzPaymentController extends Controller
         $order_details = RequestDetails::where('tran_id', $tran_id)->first();
         if ($order_details->status == 'pending') {
             $order_details->update([
-                'status' => 'failed'
+                'payment_status' => 'failed'
             ]);
         }
 
@@ -200,7 +200,7 @@ class SslCommerzPaymentController extends Controller
         $order_details = RequestDetails::where('tran_id', $tran_id)->first();
         if ($order_details->status == 'pending') {
             $order_details->update([
-                'status' => 'cancel'
+                'payment_status' => 'cancel'
             ]);
         }
 

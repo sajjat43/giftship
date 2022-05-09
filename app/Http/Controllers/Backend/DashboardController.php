@@ -13,8 +13,7 @@ class DashboardController extends Controller
 {
     public function dashboardView()
     {
-
-
-        return view('admin.Dashboard.Dashboard');
+        $stockOut = Product::where('qty', 0)->count();
+        return view('admin.Dashboard.Dashboard', compact('stockOut'));
     }
 }

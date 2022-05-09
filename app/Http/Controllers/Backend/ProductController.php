@@ -248,6 +248,28 @@ class ProductController extends Controller
 
     // -----------------------------view cart-------------------------------
 
+    // product search
+    public function productSearchView()
+    {
+        $key = null;
+        // dd(request()->search);
+        if (request()->search) {
+            $key = request()->search;
+            $product = Product::where('name', 'LIKE', '%' . $key . '%')
+                ->orWhere('price', 'LIKE', '%' . $key . '%')
+                ->orWhere('category_id', 'LIKE', '%' . $key . '%')
+                ->get();
+            return view('website.pages.search_product', compact('product', 'key'));
+        }
+
+        $product = Product::all();
+        return view('website.pages.search_product', compact('product'));
+    }
+
+
+
+
+
     public function cartview()
     {
         $carts = session()->get('cart');

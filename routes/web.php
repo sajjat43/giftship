@@ -161,3 +161,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     // dashboard------------------
     route::get('dashboard/view', [DashboardController::class, 'dashboardView'])->name('dashboard.view');
 });
+
+
+// product search
+
+route::get('product/search/view', [ProductController::class, 'productSearchView'])->name('product.search.view');

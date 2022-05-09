@@ -153,12 +153,12 @@
                     <div class="card-statistic-3 p-4">
                         <div class="card-icon card-icon-large"><i class=""></i></div>
                         <div class="mb-4">
-                            <h5 class="card-title mb-0">All Brand</h5>
+                            <h5 class="card-title mb-0">Stock Out Product</h5>
                         </div>
                         <div class="row align-items-center mb-2 d-flex">
                             <div class="col-8">
                                 <h2 class="d-flex align-items-center mb-0">
-                                    {{-- {{ $brand }} --}}
+                                    {{ $stockOut }}
                                 </h2>
                             </div>
                             <div class="col-4 text-right">
