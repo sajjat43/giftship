@@ -10,6 +10,7 @@ use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\backend\DashboardController;
+use App\Http\Controllers\Backend\pdfController;
 use App\Http\Controllers\Fontend\UserLoginController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -160,6 +161,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 
     // dashboard------------------
     route::get('dashboard/view', [DashboardController::class, 'dashboardView'])->name('dashboard.view');
+    // route::get('create/pdf', [pdfController::class, 'create_pdf'])->name('create.pdf');
 });
 
 

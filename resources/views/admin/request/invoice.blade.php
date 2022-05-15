@@ -29,6 +29,7 @@
             {!! session('error') !!}
         </div>
     @endif
+    {{-- <a href="{{ route('create.pdf') }}" class="btn btn-success">PDF</a> --}}
 
     <body oncontextmenu='return false' class='snippet-body'>
         <div class="container mt-5">

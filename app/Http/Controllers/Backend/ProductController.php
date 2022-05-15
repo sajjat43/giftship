@@ -257,7 +257,6 @@ class ProductController extends Controller
             $key = request()->search;
             $product = Product::where('name', 'LIKE', '%' . $key . '%')
                 ->orWhere('price', 'LIKE', '%' . $key . '%')
-                ->orWhere('category_id', 'LIKE', '%' . $key . '%')
                 ->get();
             return view('website.pages.search_product', compact('product', 'key'));
         }

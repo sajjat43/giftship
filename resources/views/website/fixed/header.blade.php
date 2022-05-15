@@ -122,6 +122,7 @@
                         <style>
                             .search-icon button {
                                 border: transparent;
+                                background-color: #eee;
 
                             }
 

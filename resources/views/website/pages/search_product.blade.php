@@ -1,11 +1,11 @@
 {{-- ----------------product------------ --}}
 @extends('website.master')
 @section('content')
-    <div class="row special-list">
+    <div class="container">
+        <div class="row special-list">
 
 
-        @foreach ($product as $product)
-            <div class="container">
+            @foreach ($product as $product)
                 <div class="col-lg-4 col-md-6 special-grid best-seller shedo gx-5 ">
                     <a href="{{ route('product.single.view', $product->id) }}">
                         <div class="products-single fix">
@@ -27,9 +27,9 @@
                                                 data-toggle="tooltip" data-placement="right" title="View"><i
                                                     class="fas fa-eye"></i></a>
                                             {{-- <li><a href="{{ route('product.single.view', $product->id) }}"
-                                    data-toggle="tooltip" data-placement="right" title="View">view<i
-                                        class="fas fa-eye"></i></a>
-                            </li> --}}
+                                        data-toggle="tooltip" data-placement="right" title="View">view<i
+                                            class="fas fa-eye"></i></a>
+                                </li> --}}
 
                                     </ul>
                                     <a href="{{ route('product.single.view', $product->id) }}">view detials</a>
@@ -58,15 +58,15 @@
                         </div>
                     </a>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
 
 
+        </div>
     </div>
     <style>
         /* body{
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                background-color: gainsboro;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            } */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                background-color: gainsboro;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            } */
         .best-seller {
             box-shadow: 43px !important;
         }
