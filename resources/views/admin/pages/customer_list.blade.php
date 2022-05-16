@@ -27,6 +27,7 @@
                 <th scope="col">Mobile</th>
                 <th scope="col">Address</th>
                 <th scope="col">Gender</th>
+                <th scope="col">Image</th>
 
 
                 <th scope="col">Action</th>
@@ -41,8 +42,9 @@
                     <td>{{ $data->mobile }} </td>
                     <td>{{ $data->address }} </td>
                     <td>{{ $data->gender }} </td>
-
-                    </td>
+                    <td><img src="{{ url('/uploads/uploads/users/' . $data->image) }}" style="border-radius:4px"
+                            width="100px" alt="product image"></td>
+                    <td>
                     <td>
                         <a href="{{ route('customer.single.details', $data->id) }}" class="btn btn-info">View</a>
                         <a href="" class="btn btn-success">Update</a>
