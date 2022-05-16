@@ -53,41 +53,45 @@
             product
         </h1> --}}
         {{-- @dd(session()->has('cart')) --}}
-        <table class="table">
-            <thead>
-                <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Product Name</th>
-                    <th scope="col">Price</th>
-                    <th scope="col">Action</th>
-                    {{-- <th scope="col">remove</th> --}}
-                </tr>
-            </thead>
-            <tbody>
-                {{-- @dd($carts) --}}
-                @if ($wishList)
+        <div class="container py-5">
+            <table class="table">
+                <thead>
+                    <tr>
+                        {{-- <th scope="col">#</th> --}}
+                        <th scope="col">Product Name</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Action</th>
+                        {{-- <th scope="col">remove</th> --}}
+                    </tr>
+                </thead>
+                <tbody>
+                    {{-- @dd($carts) --}}
+                    @if ($wishList)
 
-                    @foreach ($wishList as $key => $item)
-                        {{-- @dd($wishList) --}}
-                        <tr>
-                            <th scope="row">{{ $key }}</th>
-                            <td>{{ $item['product_name'] }}</td>
+                        @foreach ($wishList as $key => $item)
+                            {{-- @dd($wishList) --}}
+                            <tr>
+                                {{-- <th scope="row">{{ $item['product_name'] }}</th> --}}
+                                <td>{{ $item['product_name'] }}</td>
 
-                            <td>{{ $item['product_price'] }}</td>
-                            <td><a href="" type="button"><i class="fa-solid fa-trash-can"></i></a></td>
-                        </tr>
-                    @endforeach
+                                <td>{{ $item['product_price'] }}</td>
+                                <td><a href="" type="button"><i class="fa-solid fa-trash-can"></i></a></td>
 
-                    </td>
-                @endif
+                            </tr>
+                        @endforeach
 
-            </tbody>
+                        </td>
+                    @endif
 
-        </table>
-        <div class="card-footer">
+                </tbody>
 
+            </table>
+            <a href="{{ route('clear.wishlist') }}" class="btn btn-danger">Clear Cart</a>
         </div>
-        <a href="{{ route('clear.wishlist') }}" class="btn btn-danger">Clear Cart</a>
+        {{-- <div class="card-footer">
+
+        </div> --}}
+
         {{-- <a href="{{ route('check.out') }}" class="btn btn-success ">Buy Now</a> --}}
 
 

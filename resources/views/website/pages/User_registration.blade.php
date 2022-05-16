@@ -51,6 +51,10 @@
                 <input type="text" class="form-control" id="exampleInputPassword1" name="address"
                     placeholder="Enter your Current Address">
             </div>
+            <div class="form-group">
+                <label for="">image</label>
+                <input type="file" class="form-control" , name="image" placeholder="insert image">
+            </div>
             <fieldset class="row mb-3">
                 <legend class="col-form-label col-sm-2 pt-0" style="font-size:20px;"><b>Gender</legend></b>
                 <div class="col-sm-10">

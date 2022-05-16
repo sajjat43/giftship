@@ -8,9 +8,14 @@
                         <div class="row m-l-6 m-r-6">
                             <div class="col-sm-12 bg-c-lite-green user-profile">
                                 <div class="card-block text-center  text-white">
-                                    <div class="m-b-25"> <img
-                                            src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius"
-                                            alt="User-Profile-Image"> </div>
+                                    <div class="m-b-25">
+                                        @if (Auth()->user()->image == null)
+                                            <img src="https://img.icons8.com/bubbles/100/000000/user.png"
+                                                class="img-radius" alt="User-Profile-Image">
+                                        @else<img src="{{ url('/uploads/uploads/users/', Auth()->user()->image) }}"
+                                                class="img-radius" alt="User-Profile-Image">
+                                        @endif
+                                    </div>
                                     <h6 class="f-w-600"> {{ Auth()->user()->name }}</h6>
                                     <p>Premiem Customer</p> <i
                                         class=" mdi mdi-square-edit-outline feather icon-edit m-t-10 f-16"></i>

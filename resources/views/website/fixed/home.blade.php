@@ -111,7 +111,8 @@
                             {{-- @dd($data) --}}
                             <div class="item ">
                                 <div class="card  py-2">
-                                    <img src="{{ url('/uploads/uploads/product/', $latest->image) }}" alt="product image">
+                                    <img style="height: 219px; width: 215px;"
+                                        src="{{ url('/uploads/uploads/product/', $latest->image) }}" alt="product image">
                                     <div class="card-body">
                                         <h5>Name: {{ $latest->name }}</h5>
                                         <span class="float-start">Price: {{ $latest->price }} .BDT</span>
@@ -170,7 +171,8 @@
                             {{-- @dd($data) --}}
                             <div class="item ">
                                 <div class="card  py-2">
-                                    <img src="{{ url('/uploads/uploads/product/', $item->image) }}" alt="product image">
+                                    <img style="height: 219px; width: 215px;"
+                                        src="{{ url('/uploads/uploads/product/', $item->image) }}" alt="product image">
                                     <div class="card-body">
                                         <h5>Name: {{ $item->name }}</h5>
                                         <span class="float-start">Price: {{ $item->price }} .BDT</span>
@@ -421,8 +423,8 @@
                 {{-- ------------------------product style --}}
                 <style>
                     /* body{
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        background-color: gainsboro;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    } */
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    background-color: gainsboro;
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                } */
                     .best-seller {
                         box-shadow: 43px !important;
                     }

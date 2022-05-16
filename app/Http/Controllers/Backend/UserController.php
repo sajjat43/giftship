@@ -25,15 +25,22 @@ class UserController extends Controller
     public function UserRegestationstore(Request $request)
     {
 
+
+        $image_name = null;
+        if ($request->hasfile('image')) {
+            $image_name = date('Ymdhis') . '.' . $request->file('image')->getClientOriginalExtension();
+            $request->file('image')->storeAs('/uploads/users/', $image_name);
+        }
         // dd($request->all());
         User::create([
             'name' => $request->name,
             'email' => $request->email,
             'password' => bcrypt($request->password),
-            // 're_password'=>$request,
             'mobile' => $request->mobile,
             'address' => $request->address,
             'gender' => $request->gender,
+            'image' => $image_name,
+
         ]);
         return redirect()->route('website.user.login')->with('success', 'Employee regestaion Successfully');
     }

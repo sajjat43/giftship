@@ -124,7 +124,8 @@ class ProductController extends Controller
     // category database update
     public function category_update(Request $request, $category_id)
     {
-        $image_Cname = null;
+        $category = Category::find($category_id);
+        $image_Cname = $category->Cimage;
         if ($request->hasfile('Cimage')) {
             $image_Cname = date('Ymdhis') . '.' . $request->file('Cimage')->getClientOriginalExtension();
             $request->file('Cimage')->storeAs('/uploads/category', $image_Cname);
@@ -151,7 +152,8 @@ class ProductController extends Controller
 
     public function product_update(Request $request, $product_id)
     {
-        $image_name = null;
+        $product = Product::find($product_id);
+        $image_name = $product->image;
         if ($request->hasfile('image')) {
             $image_name = date('Ymdhis') . '.' . $request->file('image')->getClientOriginalExtension();
             $request->file('image')->storeAs('/uploads/product', $image_name);
