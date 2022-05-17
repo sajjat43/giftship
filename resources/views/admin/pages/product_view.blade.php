@@ -28,6 +28,7 @@
                         margin-left="20%" height="200px" width="200px" alt="product image">
                     <p><b>Product Name: {{ $product->name }}</b></p>
                     <p><b>Product Catagory Name: {{ $product->category->Cname }}</b></p>
+                    <p><b>Product subCatagory: {{ $product->subcategory->subname }}</b></p>
                     <p><b>Product Price: {{ $product->price }}</b></p>
                     <p><b>Product Quantity: {{ $product->qty }}</b></p>
                     <p><b>Product Description: {{ $product->description }}</b></p>

@@ -44,7 +44,8 @@
 
                         <td>
 
-                            <a href="{{ route('request.invoice', $request->id) }}" class="btn btn-success">View</a>
+                            <a href="{{ route('request.invoice', $request->id) }}" class="btn btn-success"><i
+                                    class="fa-solid fa-eye"></i></a>
                         </td>
                     </tr>
                 @endforeach

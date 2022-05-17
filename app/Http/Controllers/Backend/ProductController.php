@@ -52,6 +52,7 @@ class ProductController extends Controller
         Product::create([
             'name' => $request->name,
             'category_id' => $request->category,
+            'subcategory_id' => $request->subcategory,
             'brand_id' => $request->brand,
             'price' => $request->price,
             'qty' => $request->qty,
@@ -188,6 +189,7 @@ class ProductController extends Controller
         Product::find($product_id)->update([
             'name' => $request->name,
             'category_id' => $request->category,
+            'subcategory_id' => $request->subcategory,
             'brand_id' => $request->brand,
             'price' => $request->price,
             'description' => $request->description,

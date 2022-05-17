@@ -31,7 +31,8 @@
     @endif
     {{-- <a href="{{ route('create.pdf') }}" class="btn btn-success">PDF</a> --}}
     <div class="container">
-        <a class="nav-link btn btn-primary" style="width:90px" href="{{ route('request.list') }}">Back
+        <a class="nav-link btn btn-primary" style="width:90px" href="{{ route('request.list') }}"><i
+                class="fa-solid fa-arrow-left"></i>
         </a>
     </div>
 
@@ -80,11 +81,12 @@
 
                                                     @if ($request->status == 'pending')
                                                         <a href="{{ route('product.cancel', $request->id) }}"
-                                                            class="btn btn-danger">Cancel</a>
+                                                            class="btn btn-danger"><i
+                                                                class="fa-solid fa-rectangle-xmark"></i></a>
                                                     @endif
                                                     @if ($request->status == 'pending')
                                                         <a href="{{ route('product.approve', $request->id) }}"
-                                                            class="btn btn-success">Approve</a>
+                                                            class="btn btn-success"><i class="fa-solid fa-check"></i></a>
                                                     @endif
 
                                                 </td>

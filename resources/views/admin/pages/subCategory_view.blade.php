@@ -23,7 +23,8 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
     {{-- <a href="{{route('product.create')}}" class="btn btn-primary"> Add product</a> --}}
-    <table class=" table table-light" style="width: 100%">
+    <table class=" table table-light " style="width: 100%">
+        <h1 class="py-5">All SubCategory List</h1>
         <thead>
             <tr>
                 <th scope="col">ID</th>

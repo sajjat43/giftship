@@ -42,6 +42,14 @@
             </select>
         </div>
         <div class="form-group">
+            <label for="exampleFormControlSelect1">product subCategory</label>
+            <select name="subcategory" class="form-control" id="exampleFormControlSelect1">
+                @foreach ($subcategory as $subcategory)
+                    <option value="{{ $subcategory->id }}">{{ $subcategory->subname }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
             <label for="exampleFormControlSelect1">Brand Name</label>
             <select name="brand" class="form-control" id="exampleFormControlSelect1">
                 @foreach ($brand as $brand)
@@ -54,10 +62,11 @@
             <input value="{{ $product->price }}" type="number" class="form-control" id="exampleInputPassword1"
                 name="price" placeholder="price">
         </div>
+
         <div class="form-group">
             <label for="">Quantity</label>
-            <input value="{{ $product->qty }}" type="number" class="form-control" id="exampleInputPassword1"
-                name="qty" placeholder="Quantity">
+            <input value="{{ $product->qty }}" type="number" class="form-control" id="exampleInputPassword1" name="qty"
+                placeholder="Quantity">
         </div>
 
         <div class="form-group">

@@ -19,6 +19,7 @@
     @endif
     {{-- <a href="{{route('product.create')}}" class="btn btn-primary"> Add product</a> --}}
     <table class=" table table-light" style="width: 100%">
+        <h1 class="text-center py-3">All Brand List</h1>
         <thead>
             <tr>
                 <th scope="col">ID</th>
