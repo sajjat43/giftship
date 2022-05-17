@@ -10,6 +10,7 @@ use Illuminate\Http\Request;
 use App\Models\RequestDetails;
 use App\Models\RequestProduct;
 use App\Http\Controllers\Controller;
+use App\Models\subCategory;
 
 class ProductController extends Controller
 {
@@ -78,7 +79,7 @@ class ProductController extends Controller
         return redirect()->back()->with('success', 'Product has beeen Deleted Successfully');
     }
 
-    // ---------------category view---------------
+    // ---------------category all ---------------
 
     public function Category()
     {
@@ -100,6 +101,7 @@ class ProductController extends Controller
             'Cdescription' => $request->Cdescription,
             'Cimage' => $image_Cname,
         ]);
+        // Category::create($request->all());
         return redirect()->back()->with('success', 'Category has been Created Successfully');
     }
     // ----------------categoey view--------------------------
@@ -109,13 +111,7 @@ class ProductController extends Controller
         $category = Category::all();
         return view('admin.pages.Category_view', compact('category'));
     }
-    //---------------- category update-------------
-    // public function category_edit($category_id)
-    // {
-    //     $category = Category::find($category_id);
 
-    //     return view('admin.pages.categoryUpdate', compact('category'));
-    // }
     public function category_update_view($category_id)
     {
         $category = Category::find($category_id);
@@ -145,6 +141,35 @@ class ProductController extends Controller
         Category::find($category_id)->delete();
         $product = product::where('category_id', $category_id)->delete();
         return redirect()->back()->with('success', 'Product has beeen Deleted Successfully');
+    }
+    //subCategory
+
+    public function subCategoryCreate()
+    {
+        return view('admin.pages.subCategory');
+    }
+    public function subCategoryStore(Request $request)
+    {
+        // dd($request->all());
+        $image_subname = null;
+        if ($request->hasfile('subimage')) {
+            $image_subname = date('Ymdhis') . '.' . $request->file('subimage')->getClientOriginalExtension();
+            $request->file('subimage')->storeAs('/uploads/subcategory/', $image_subname);
+        }
+        subCategory::create([
+
+            'subname' => $request->subname,
+            'subdescription' => $request->subdescription,
+            'subimage' => $image_subname,
+        ]);
+        // Category::create($request->all());
+        return redirect()->back()->with('success', 'subCategory has been Created Successfully');
+    }
+    // subcategory view
+    public function subCategoryView()
+    {
+        $subcategory = subCategory::all();
+        return view('admin.pages.subCategory_view', compact('subcategory'));
     }
 
 

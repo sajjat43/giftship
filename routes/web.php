@@ -135,29 +135,37 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::post('/product/update/{product_id}', [ProductController::class, 'product_update'])->name('product.update');
     Route::get('/product/edit/{product_id}', [ProductController::class, 'product_edit'])->name('product.edit');
 
-    // product category
+
+    // product category and sub category
     Route::get('/product/category/create', [ProductController::class, 'Category'])->name('product.category');
     Route::post('/product/category/store', [ProductController::class, 'Category_store'])->name('product.category.store');
     Route::get('/product/category/view', [ProductController::class, 'Category_view'])->name('product.category.view');
-
-    // route::get('/product/category/edit/{id}', [ProductController::class, 'category_edit'])->name('product.category.edit');
     route::post('/product/category/update/{id}', [ProductController::class, 'category_update'])->name('product.category.update');
     route::get('/product/category/update/view/{id}', [ProductController::class, 'category_update_view'])->name('product.category.update.view');
     Route::get('Delete/category/{id}', [ProductController::class, 'DeleteCategory'])->name('category.delete');
 
-    // Route::get('/product/deletecategory/{category_id}',[ProductController::class,'Category_delete'])->name('product.category.delete');
+
+    //  subCategory
+    Route::get('/product/subCategory/create', [ProductController::class, 'subCategoryCreate'])->name('product.subCategory.create');
+    Route::post('/product/subCategory/store', [ProductController::class, 'subCategoryStore'])->name('product.subCategory.store');
+    Route::get('/product/subCategory/view', [ProductController::class, 'subCategoryView'])->name('product.subCategory.view');
+
+
+    // All brand
+    Route::get('brand/create', [ProductController::class, 'BrandCreate'])->name('brand.create');
+    Route::post('brand/store', [ProductController::class, 'BrandStore'])->name('brand.store');
+    Route::get('brand/view', [ProductController::class, 'BrandView'])->name('brand.view');
+
 
     //cart request view
     Route::get('product/request', [ProductController::class, 'requestList'])->name('request.list');
     Route::get('product/invoice/{id}', [ProductController::class, 'requestInvoice'])->name('request.invoice');
 
+
     // product approve and cancel
     Route::get('product/approve/{id}', [ProductController::class, 'productApprove'])->name('product.approve');
     Route::get('product/cancel/{id}', [ProductController::class, 'productCancel'])->name('product.cancel');
-    // All brand
-    Route::get('brand/create', [ProductController::class, 'BrandCreate'])->name('brand.create');
-    Route::post('brand/store', [ProductController::class, 'BrandStore'])->name('brand.store');
-    Route::get('brand/view', [ProductController::class, 'BrandView'])->name('brand.view');
+
 
     // dashboard------------------
     route::get('dashboard/view', [DashboardController::class, 'dashboardView'])->name('dashboard.view');

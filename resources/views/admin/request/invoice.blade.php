@@ -30,8 +30,13 @@
         </div>
     @endif
     {{-- <a href="{{ route('create.pdf') }}" class="btn btn-success">PDF</a> --}}
+    <div class="container">
+        <a class="nav-link btn btn-primary" style="width:90px" href="{{ route('request.list') }}">Back
+        </a>
+    </div>
 
     <body oncontextmenu='return false' class='snippet-body'>
+
         <div class="container mt-5">
             <div class="d-flex justify-content-center row">
                 <div class="col-md-8">

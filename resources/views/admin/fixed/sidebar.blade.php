@@ -57,6 +57,12 @@
                         List</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('product.category') }}">Create
                         Category</a></li>
+                <li class="nav-item"> <a class="nav-link"
+                        href="{{ route('product.subCategory.create') }}">Create
+                        SubCategory</a></li>
+                <li class="nav-item"> <a class="nav-link"
+                        href="{{ route('product.subCategory.view') }}">view
+                        SubCategory</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('brand.create') }}">Create
                         Brand</a></li>
                 <li class="nav-item"> <a class="nav-link"

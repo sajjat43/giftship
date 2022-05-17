@@ -27,25 +27,25 @@
         <thead>
             <tr>
                 <th scope="col">ID</th>
-                <th scope="col">Catagory name</th>
-                <th scope="col">Category description</th>
+                <th scope="col">subCatagory name</th>
+                <th scope="col">subCategory description</th>
                 <th scope="col">image</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
         <tbody>
-            @foreach ($category as $key => $data)
+            @foreach ($subcategory as $key => $data)
                 <tr>
                     <th scope="row">{{ $key + 1 }}</th>
-                    <td>{{ $data->Cname }} </td>
-                    <td>{{ $data->Cdescription }} </td>
-                    <td><img src="{{ url('uploads/uploads/category/' . $data->Cimage) }}" style="border-radius:4px"
+                    <td>{{ $data->subname }} </td>
+                    <td>{{ $data->subdescription }} </td>
+                    <td><img src="{{ url('uploads/uploads/subcategory/' . $data->subimage) }}" style="border-radius:4px"
                             width="100px" alt="Category image"></td>
                     <td>
-                        <a href="{{ route('product.category.update.view', $data->id) }}" class="btn btn-info">Update</a>
-                        
+                        {{-- <a href="{{ route('product.category.update.view', $data->id) }}" class="btn btn-info">Update</a> --}}
 
-                        <a href="{{ route('category.delete', $data->id) }}" class="btn btn-success">Delete</a>
+
+                        {{-- <a href="{{ route('category.delete', $data->id) }}" class="btn btn-success">Delete</a> --}}
                         {{-- <a href="{{route('product.category.delete', $data->Cid)}}" class="btn btn-danger">Delete</a> --}}
                     </td>
                 </tr>

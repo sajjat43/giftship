@@ -113,7 +113,7 @@
                                 </h2>
                             </div>
                             <div class="col-4 text-right">
-                                <span>12.5% <i class="fa fa-arrow-up"></i></span>
+                                <a href="{{ route('request.list') }}">view</a>
                             </div>
                         </div>
                         <div class="progress mt-1 " data-height="8" style="height: 8px;">
@@ -186,7 +186,7 @@
                                 </h2>
                             </div>
                             <div class="col-4 text-right">
-                                <span>2.5% <i class="fa fa-arrow-up"></i></span>
+                                <a href="{{ route('product.category.view') }}">view</a>
                             </div>
                         </div>
                         <div class="progress mt-1 " data-height="8" style="height: 8px;">

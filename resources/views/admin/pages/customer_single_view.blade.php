@@ -22,6 +22,7 @@
     <div class="container-xl">
         <div class="card" style="width: 30rem; margin-left: 25%">
             <div class="card-body">
+                <a href="{{ route('customer.view') }} " class="btn btn-primary">Back</a>
                 <div class="container">
                     <h1 class="card-title">Customer Details</h1>
                     <img src="{{ url('/uploads/uploads/users/' . $customer->image) }}" style="border-radius:4px"
