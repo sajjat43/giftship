@@ -86,12 +86,13 @@ class UserLoginController extends Controller
     {
         $user = Socialite::driver('github')->user();
         $this->_registerOrLoginUser($user);
-        return redirect()->route('website');
+        return redirect()->route('manage.home');
     }
 
     protected function _registerorLoginUser($data)
     {
-        $users = User::where('email', '', $data->email)->first();
+        $users = User::where('email', '=', $data->email)->first();
+        // dd($users);
         if (!$users) {
             $users = new User();
             $users->name = $data->name;
@@ -100,8 +101,6 @@ class UserLoginController extends Controller
             $users->avatar = $data->avatar;
             $users->save();
         }
-        // dd($user);
         Auth::Login($users);
     }
-    
 }
