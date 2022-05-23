@@ -58,26 +58,26 @@ class UserLoginController extends Controller
     {
         return Socialite::driver('google')->redirect();
     }
-    // // Google callback
+    // Google callback
     public function handleGoogleCallback()
     {
         $users = Socialite::driver('google')->user();
         //$user->token;
-        $this->_registerorLoginUserGoogle($users);
-        return redirect()->route('website');
+        $this->_registerorLoginUser($users);
+        return redirect()->route('manage.home');
     }
-    // // Facebook login
+    // Facebook login
     // public function redirectToFacebook()
     // {
     //     return Socialite::driver('facebook')->redirect();
     // }
-    // // Facebook callback
+    // Facebook callback
     // public function handleFacebookCallback()
     // {
     //     $users = Socialite::driver('facebook')->user();
     //     //$user->token;
     // }
-    // github login
+    // // github login
     public function redirectTOProvider()
     {
         return Socialite::driver('github')->redirect();
