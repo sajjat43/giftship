@@ -48,13 +48,24 @@
                 <a type="button" class="btn btn-primary" href="{{ route('User.regestation') }}">
                     Resestation</a>
             </div>
+            <div class="container text-center "><strong>OR,</strong></div>
+            <div class="form-group row container p-3">
+                <div class="col-md-6offset-md-3 text-center">
+                    <a href="{{ route('Login.google') }}" class="btn btn-primary btn-block"><i
+                            class="fa-brands fa-google"></i></a>
+                    <a href="{{ route('Login.facebook') }}" class="btn btn-primary btn-block"><i
+                            class="fa-brands fa-facebook-square"></i></a>
+                    <a href="{{ route('Login.github') }}" class="btn btn-primary btn-block"> <i
+                            class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
 
         </form>
     </div>
     <style>
         .btn-primary {
             padding: 18px !important;
-            background: gray;
+            /* background: gray; */
             border-radius: 8px !important;
             margin-right: 30px;
         }

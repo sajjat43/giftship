@@ -15,6 +15,7 @@ use App\Http\Controllers\Fontend\UserLoginController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Controllers\Backend\wishList\wishListController;
+use Laravel\Socialite\Facades\Socialite;
 
 /*
 |--------------------------------------------------------------------------
@@ -40,6 +41,19 @@ Route::post('/User/regestation/store', [UserController::class, 'UserRegestations
 // ------ user login + logout view--
 Route::post('/User/login', [UserLoginController::class, 'loginView'])->name('user.login.view');
 Route::get('/User/logout', [UserLoginController::class, 'logOut'])->name('user.logout');
+
+// ------------------ Socialite login google,facebook,github-----------------
+
+// Google
+Route::get('Login/google', [UserLoginController::class, 'redirectToGoogle'])->name('Login.google');
+Route::get('Login/google/callback', [UserLoginController::class, 'handleGoogleCallback']);
+// facebook
+Route::get('Login/facebook', [UserLoginController::class, 'redirectToFacebook'])->name('Login.facebook');
+Route::get('Login/facebook/callback', [UserLoginController::class, 'handleFacebookCallback']);
+// Github
+Route::get('Login/github', [UserLoginController::class, 'redirectTOProvider'])->name('Login.github');
+Route::get('Login/github/callback', [UserLoginController::class, 'handleProviderCallback']);
+
 
 //cerisol
 Route::get('/product/crisis/{product_id}', [ProductController::class, 'crisis'])->name('crisis.view');
