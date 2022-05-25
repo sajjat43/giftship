@@ -32,6 +32,16 @@ class UserController extends Controller
             $request->file('image')->storeAs('/uploads/users/', $image_name);
         }
         // dd($request->all());
+        $request->validate([
+
+            'name' => 'required',
+            'email' => 'required|unique:users',
+            'password' => 'required',
+            'mobile' => 'required',
+            'address' => 'required',
+            'gender' => 'required',
+
+        ]);
         User::create([
             'name' => $request->name,
             'email' => $request->email,

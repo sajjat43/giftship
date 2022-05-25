@@ -190,3 +190,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 // product search
 
 route::get('product/search/view', [ProductController::class, 'productSearchView'])->name('product.search.view');
+
+
+
+

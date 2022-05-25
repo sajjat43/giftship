@@ -49,6 +49,14 @@ class ProductController extends Controller
             $request->file('image')->storeAs('/uploads/product', $image_name);
         }
         // dd($request->all());
+        $request->validate([
+
+            'name' => 'required',
+            'price' => 'required',
+            'qty' => 'required',
+            'description' => 'required',
+
+        ]);
         Product::create([
             'name' => $request->name,
             'category_id' => $request->category,
@@ -96,6 +104,14 @@ class ProductController extends Controller
             $image_Cname = date('Ymdhis') . '.' . $request->file('Cimage')->getClientOriginalExtension();
             $request->file('Cimage')->storeAs('/uploads/category', $image_Cname);
         }
+        $request->validate([
+
+            'Cname' => 'required',
+            'Cdescription' => 'required',
+            'Cimage' => 'required',
+
+
+        ]);
         Category::create([
 
             'Cname' => $request->Cname,
@@ -157,6 +173,15 @@ class ProductController extends Controller
             $image_subname = date('Ymdhis') . '.' . $request->file('subimage')->getClientOriginalExtension();
             $request->file('subimage')->storeAs('/uploads/subcategory/', $image_subname);
         }
+        $request->validate([
+
+            'subname' => 'required',
+            'subdescription' => 'required',
+            'subimage' => 'required',
+
+
+        ]);
+
         subCategory::create([
 
             'subname' => $request->subname,
@@ -255,6 +280,15 @@ class ProductController extends Controller
             $image_Bname = date('Ymdhis') . '.' . $request->file('Bimage')->getClientOriginalExtension();
             $request->file('Bimage')->storeAs('/uploads/Brand', $image_Bname);
         }
+        $request->validate([
+
+            'Bname' => 'required',
+            'Bdescription' => 'required',
+            'Bimage' => 'required',
+
+
+        ]);
+
         Brand::create([
 
             'Bname' => $request->Bname,
@@ -387,6 +421,7 @@ class ProductController extends Controller
     public function checkOut(request $request)
     {
         // dd($request);
+        
         order::create([
             'name' => $request->name,
             'email' => $request->email,
