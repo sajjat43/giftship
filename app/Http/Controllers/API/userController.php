@@ -6,7 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 
-class apiController extends Controller
+class userController extends Controller
 {
     public function userCreate(Request $request)
     {
@@ -23,6 +23,16 @@ class apiController extends Controller
 
         ]);
         // dd($user);
+        return response([
+
+            'status' => 'true',
+            'data' => $user,
+            'message' => '200'
+        ]);
+    }
+    public function userView()
+    {
+        $user = User::all();
         return response([
 
             'status' => 'true',

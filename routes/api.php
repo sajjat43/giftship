@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\API\apiController;
+use App\Http\Controllers\API\userController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -19,4 +20,5 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::post('user/create', [apiController::class, 'userCreate']);
+Route::post('user/create', [userController::class, 'userCreate']);
+Route::get('user/view', [userController::class, 'userView']);
