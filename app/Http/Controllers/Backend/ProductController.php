@@ -55,6 +55,7 @@ class ProductController extends Controller
             'price' => 'required',
             'qty' => 'required',
             'description' => 'required',
+            'image' => 'required',
 
         ]);
         Product::create([
@@ -421,7 +422,7 @@ class ProductController extends Controller
     public function checkOut(request $request)
     {
         // dd($request);
-        
+
         order::create([
             'name' => $request->name,
             'email' => $request->email,

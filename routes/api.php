@@ -1,9 +1,10 @@
 <?php
 
-use App\Http\Controllers\API\apiController;
-use App\Http\Controllers\API\userController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\API\apiController;
+use App\Http\Controllers\API\apiProductController;
+use App\Http\Controllers\API\apiUserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,5 +21,11 @@ use Illuminate\Support\Facades\Route;
 //     return $request->user();
 // });
 
-Route::post('user/create', [userController::class, 'userCreate']);
-Route::get('user/view', [userController::class, 'userView']);
+// ---------for user data
+
+Route::post('user/create', [apiUserController::class, 'userCreate']);
+Route::get('user/view', [apiUserController::class, 'userView']);
+
+// -----------for product
+
+// Route::post('product/create', [apiProductController::class, 'productCreate']);
