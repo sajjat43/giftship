@@ -24,6 +24,7 @@
     <link rel="stylesheet" href="{{ url('Backend/css/style.css') }}">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{ url('Backend/images/favicon.png') }}" />
+    <link rel="stylesheet" href="http://cdn.bootcss.com/toastr.js/latest/css/toastr.min.css">
 </head>
 
 <body>
@@ -836,6 +837,9 @@
     <!-- Custom js for this page-->
     <script src="{{ url('Backend/js/dashboard.js') }}"></script>
     <!-- End custom js for this page-->
+    <script src="http://cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
+    <script src="http://cdn.bootcss.com/toastr.js/latest/js/toastr.min.js"></script>
+    {!! Toastr::message() !!}
 </body>
 
 </html>

@@ -21,16 +21,16 @@ class apiProductController extends Controller
         // if ($validate->fails()) {
         //     return $this->responseWithError($validate->getMessageBag());
         // }
-        // $product = Product::create([
-        //     'name' => $request->name,
-        //     'category_id' => $request->category,
-        //     'subcategory_id' => $request->subcategory,
-        //     'brand_id' => $request->brand,
-        //     'price' => $request->price,
-        //     'qty' => $request->qty,
-        //     'description' => $request->description,
+        $product = Product::create([
+            'name' => $request->name,
+            'category_id' => $request->category,
+            'subcategory_id' => $request->subcategory,
+            'brand_id' => $request->brand,
+            'price' => $request->price,
+            'qty' => $request->qty,
+            'description' => $request->description,
 
-        // ]);
-        // return $this->responseWithSuccess($product, 'product Created successfully');
+        ]);
+        return $this->responseWithSuccess($product, 'product Created successfully');
     }
 }

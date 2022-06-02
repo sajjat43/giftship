@@ -6,11 +6,12 @@ use App\Models\Brand;
 use App\Models\order;
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\subCategory;
 use Illuminate\Http\Request;
 use App\Models\RequestDetails;
 use App\Models\RequestProduct;
 use App\Http\Controllers\Controller;
-use App\Models\subCategory;
+use Brian2694\Toastr\Facades\Toastr;
 
 class ProductController extends Controller
 {
@@ -120,7 +121,8 @@ class ProductController extends Controller
             'Cimage' => $image_Cname,
         ]);
         // Category::create($request->all());
-        return redirect()->back()->with('success', 'Category has been Created Successfully');
+        Toastr::success('Category created successfully', 'success');
+        return redirect()->back();
     }
     // ----------------categoey view--------------------------
 

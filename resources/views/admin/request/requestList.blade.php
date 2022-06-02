@@ -29,7 +29,6 @@
                 <tr>
                     <th scope="col">ID</th>
                     <th scope="col">User Name</th>
-
                     <th scope="col">Status</th>
 
                 </tr>
