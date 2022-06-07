@@ -18,7 +18,6 @@ class CreateRequestProductsTable extends Migration
             $table->integer('user_id');
             $table->string('stutas')->default('pending');
 
-
             $table->timestamps();
         });
     }

@@ -28,4 +28,4 @@ Route::get('user/view', [apiUserController::class, 'userView']);
 
 // -----------for product
 
-// Route::post('product/create', [apiProductController::class, 'productCreate']);
+Route::post('/product/create', [apiProductController::class, 'productCreate']);

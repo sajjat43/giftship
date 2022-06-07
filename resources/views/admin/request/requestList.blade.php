@@ -39,6 +39,7 @@
                     <tr>
                         <th scope="row">{{ $key + 1 }}</th>
                         <td>{{ $request->user->name }}</td>
+                        <!-- <td>{{$request->status}}</td> -->
 
 
                         <td>

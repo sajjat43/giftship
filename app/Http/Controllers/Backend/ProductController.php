@@ -53,8 +53,8 @@ class ProductController extends Controller
         $request->validate([
 
             'name' => 'required',
-            'price' => 'required',
-            'qty' => 'required',
+            'price' => 'required|numeric|gt:0',
+            'qty' => 'required|numeric|gt:0',
             'description' => 'required',
             'image' => 'required',
 
@@ -212,6 +212,15 @@ class ProductController extends Controller
             $image_name = date('Ymdhis') . '.' . $request->file('image')->getClientOriginalExtension();
             $request->file('image')->storeAs('/uploads/product', $image_name);
         }
+        $request->validate([
+
+            'name' => 'required',
+            'price' => 'required|numeric|gt:0',
+            'qty' => 'required|numeric|gt:0',
+            'description' => 'required',
+            
+
+        ]);
         // dd($request->all());
 
         Product::find($product_id)->update([
@@ -496,4 +505,7 @@ class ProductController extends Controller
         $product = Product::where('featured', '1')->take(5)->get();
         return view('website.pages.featured.featuredProduct', compact('product'));
     }
+    // public function dashboardView(){
+    //     return view('admin.Dashboard.Dashboard');
+    // }
 }

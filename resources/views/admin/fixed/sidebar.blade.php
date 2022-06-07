@@ -17,7 +17,6 @@
         border-radius: 7px;
         color: black;
     }
-
 </style>
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="user-profile">
@@ -43,8 +42,7 @@
     </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
-            aria-controls="ui-basic">
+        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
             <i class="icon-disc menu-icon"></i>
             <span class="menu-title">Product</span>
             <i class="menu-arrow"></i>
@@ -57,24 +55,21 @@
                         List</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('product.category') }}">Create
                         Category</a></li>
-                <li class="nav-item"> <a class="nav-link"
-                        href="{{ route('product.subCategory.create') }}">Create
+                <li class="nav-item"> <a class="nav-link" href="{{ route('product.subCategory.create') }}">Create
                         SubCategory</a></li>
-                <li class="nav-item"> <a class="nav-link"
-                        href="{{ route('product.subCategory.view') }}">view
+                <li class="nav-item"> <a class="nav-link" href="{{ route('product.subCategory.view') }}">view
                         SubCategory</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('brand.create') }}">Create
                         Brand</a></li>
-                <li class="nav-item"> <a class="nav-link"
-                        href="{{ route('product.category.view') }}">Category view</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('product.category.view') }}">Category view</a>
+                </li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('brand.view') }}">Brand
                         view</a></li>
             </ul>
         </div>
     </li>
     <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false"
-            aria-controls="ui-basic">
+        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
             <i class="icon-disc menu-icon"></i>
             <span class="menu-title">Oder</span>
             <i class="menu-arrow"></i>
@@ -102,7 +97,7 @@
         </div>
     </li>
     <li class="nav-item">
-        <a class="nav-link" href="pages/charts/chartjs.html">
+        <a class="nav-link" href="">
             <i class="icon-pie-graph menu-icon"></i>
             <span class="menu-title">Charts</span>
         </a>

@@ -11,16 +11,16 @@ class apiProductController extends Controller
 {
     public function productCreate(Request $request)
     {
-        // $validate = Validator::make($request->all(), [
-        //     'name' => 'required',
-        //     'price' => 'required',
-        //     'qty' => 'required',
-        //     'description' => 'required',
+        $validate = Validator::make($request->all(), [
+            'name' => 'required',
+            'price' => 'required',
+            'qty' => 'required',
+            'description' => 'required',
 
-        // ]);
-        // if ($validate->fails()) {
-        //     return $this->responseWithError($validate->getMessageBag());
-        // }
+        ]);
+        if ($validate->fails()) {
+            return $this->responseWithError($validate->getMessageBag());
+        }
         $product = Product::create([
             'name' => $request->name,
             'category_id' => $request->category,
