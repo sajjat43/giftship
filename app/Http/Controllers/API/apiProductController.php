@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\API;
 
 use App\Http\Controllers\Controller;
+use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
@@ -33,4 +34,24 @@ class apiProductController extends Controller
         ]);
         return $this->responseWithSuccess($product, 'product Created successfully');
     }
+
+ public function createCategory(Request $request){
+    $validate = Validator::make($request->all(), [
+        'Cname' => 'required',
+        'Cdescription' => 'required',
+        
+
+    ]);
+    if ($validate->fails()) {
+        return $this->responseWithError($validate->getMessageBag());
+    }
+    $category = Category::create([
+        'Cname' => $request->Cname,
+        'Cdescription' => $request->Cdescription,
+        
+    ]);
+    return $this->responseWithSuccess($category, 'Category Created successfully');
+}
+ 
+
 }
