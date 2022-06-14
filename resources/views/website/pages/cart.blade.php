@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,21 +13,21 @@
 
 <body>
     @if (session()->has('message'))
-        <p class="alert alert-success">
-            {{ session()->get('message') }}
-        </p>
+    <p class="alert alert-success">
+        {{ session()->get('message') }}
+    </p>
     @endif
 
     @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>
-                        {{ $error }}
-                    </li>
-                @endforeach
-            </ul>
-        </div>
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>
+                {{ $error }}
+            </li>
+            @endforeach
+        </ul>
+    </div>
     @endif
     <style>
         .cart {
@@ -41,7 +42,6 @@
             color: black;
             border-radius: 8px;
         }
-
     </style>
     <div class='cart'>
         {{-- ------------------------------------- --}}
@@ -65,28 +65,28 @@
                 {{-- @dd($carts) --}}
                 @if ($carts)
 
-                    @foreach ($carts as $key => $data)
-                        <tr>
-                            <th scope="row">{{ $key }}</th>
-                            <td>{{ $data['product_name'] }}</td>
+                @foreach ($carts as $key => $data)
+                <tr>
+                    <th scope="row">{{ $key }}</th>
+                    <td>{{ $data['product_name'] }}</td>
 
-                            <td>{{ $data['product_price'] }}</td>
-                            <td>
-                                <div class="col-md-6">
-                                    <form action="{{ route('cart.qty.update', $key) }}" method="get">
-                                        @csrf
-                                        <input type="number" class="form-control" value="{{ $data['product_qty'] }}"
-                                            name="quantity" required>
-                                        <button class="btn btn-primary" type="submit">
-                                            <i class="fa fa-refresh"></i></button>
-                                    </form>
-                                </div>
-                            </td>
-                            <td class="cart__total">{{ $data['subtotal'] }}
-                        </tr>
-                    @endforeach
-                    <td>Total Price: <span>{{ array_sum(array_column($carts, 'subtotal')) + 50 }}
+                    <td>{{ $data['product_price'] }}</td>
+                    <td>
+                        <div class="col-md-6">
+                            <form action="{{ route('cart.qty.update', $key) }}" method="get">
+                                @csrf
+                                <input type="number" class="form-control" value="{{ $data['product_qty'] }}"
+                                    name="quantity" required>
+                                <button class="btn btn-primary" type="submit">
+                                    <i class="fa fa-refresh"></i></button>
+                            </form>
+                        </div>
                     </td>
+                    <td class="cart__total">{{ $data['subtotal'] }}
+                </tr>
+                @endforeach
+                <td>Total Price: <span>{{ array_sum(array_column($carts, 'subtotal')) + 50 }}
+                </td>
                 @endif
 
             </tbody>
