@@ -17,10 +17,16 @@ class apiProductController extends Controller
             'price' => 'required',
             'qty' => 'required',
             'description' => 'required',
+            'image' => 'required',
 
         ]);
         if ($validate->fails()) {
             return $this->responseWithError($validate->getMessageBag());
+        }
+        $image_name = null;
+        if ($request->hasfile('image')) {
+            $image_name = date('Ymdhis') . '.' . $request->file('image')->getClientOriginalExtension();
+            $request->file('image')->storeAs('/uploads/product', $image_name);
         }
         $product = Product::create([
             'name' => $request->name,
@@ -30,6 +36,7 @@ class apiProductController extends Controller
             'price' => $request->price,
             'qty' => $request->qty,
             'description' => $request->description,
+            'image' => $image_name,
 
         ]);
         return $this->responseWithSuccess($product, 'product Created successfully');
@@ -39,15 +46,23 @@ class apiProductController extends Controller
     $validate = Validator::make($request->all(), [
         'Cname' => 'required',
         'Cdescription' => 'required',
+        'Cimage' =>'requerd',
         
 
     ]);
     if ($validate->fails()) {
         return $this->responseWithError($validate->getMessageBag());
     }
+    $image_Cname = null;
+        if ($request->hasfile('Cimage')) {
+            $image_Cname = date('Ymdhis') . '.' . $request->file('Cimage')->getClientOriginalExtension();
+            $request->file('Cimage')->storeAs('/uploads/category', $image_Cname);
+        }
     $category = Category::create([
         'Cname' => $request->Cname,
         'Cdescription' => $request->Cdescription,
+        'Cimage' => $image_Cname,
+        
         
     ]);
     return $this->responseWithSuccess($category, 'Category Created successfully');
