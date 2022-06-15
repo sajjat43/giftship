@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Http\Controllers\Controller;
-use App\Models\Category;
 use App\Models\Product;
-use Illuminate\Support\Facades\Validator;
+use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use App\Http\Resources\userResource;
+use Illuminate\Support\Facades\Validator;
 
 class apiProductController extends Controller
 {
@@ -41,6 +42,12 @@ class apiProductController extends Controller
         ]);
         return $this->responseWithSuccess($product, 'product Created successfully');
     }
+    public function viewProduct(){
+        $product=Product::all();
+        
+        return $this->responseWithSuccess($product,'product list loaded');
+     }
+// ======================category====================
 
  public function createCategory(Request $request){
     $validate = Validator::make($request->all(), [
@@ -66,7 +73,12 @@ class apiProductController extends Controller
         
     ]);
     return $this->responseWithSuccess($category, 'Category Created successfully');
-}
+ }
+ public function viewCategory(){
+    $category=Category::all();
+    
+    return $this->responseWithSuccess($category,'category list loaded');
+ }
  
 
 }

@@ -29,4 +29,7 @@ Route::get('user/view', [apiUserController::class, 'userView']);
 // -----------for product
 
 Route::post('/product/create', [apiProductController::class, 'productCreate']);
+Route::get('product/view',[apiProductController::class,'viewProduct']);
+// ----category 
 Route::post('category/create',[apiProductController::class,'createCategory']);
+Route::get('category/view',[apiProductController::class,'viewCategory']);
