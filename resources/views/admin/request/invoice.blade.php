@@ -53,6 +53,7 @@
                                         <th>Status</th>
 
 
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -68,7 +69,6 @@
                                             {{ $request->status }}
 
                                         </td>
-
                                         <td>
 
                                             @if ($request->status == 'pending')

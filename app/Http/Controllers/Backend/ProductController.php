@@ -251,7 +251,7 @@ class ProductController extends Controller
 
     public function requestList(Request $request)
     {
-        $request = RequestProduct::with('user')->get();
+        $request = RequestProduct::with('user','RequestDetails')->get();
 
         return view('admin.request.requestList', compact('request'));
     }
@@ -401,7 +401,10 @@ class ProductController extends Controller
         $cartExist[$id]['subtotal'] = $cartExist[$id]['product_price'] * $cartExist[$id]['product_qty'];
 
         session()->put('cart', $cartExist);
+        return redirect()->back();
     }
+
+
     // --------clear cart--------
     public function clearCart()
     {

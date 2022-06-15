@@ -17,6 +17,11 @@ class RequestProduct extends Model
     {
         return $this->belongsTo(User::class);
     }
+    public function  RequestDetails()
+    {
+        return $this->belongsTo(RequestDetails::class);
+    }
+
 
     public function details()
     {

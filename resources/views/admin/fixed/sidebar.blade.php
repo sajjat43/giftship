@@ -76,7 +76,7 @@
         </a>
         <div class="collapse" id="ui-basic">
             <ul class="nav flex-column sub-menu">
-                <a class="nav-link" href="{{ route('request.list') }}">Oder
+                <a class="nav-link" href="{{ route('request.list',) }}">Oder
                     Request
                 </a>
             </ul>
