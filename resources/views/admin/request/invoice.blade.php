@@ -30,69 +30,91 @@
 
 <body oncontextmenu='return false' class='snippet-body'>
 
-    <div class="container mt-5">
-        <div class="d-flex justify-content-center row">
-            <div class="col-md-8">
-                <div class="p-3 bg-white rounded">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h3 class="text-uppercase">{{ $request->user->name }}</h3>
+    <div class="col-xl-3 float-end">
+        <button class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"
+            onclick="printDiv('printableArea')"><i class="fas fa-print text-primary"></i> Print</button>
+    </div>
+    <div class="card" id="printableArea">
+        <div class="container mt-5">
+            <div class="d-flex justify-content-center row">
+                <div class="col-md-8">
+                    <div class="p-3 bg-white rounded">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h3 class="text-uppercase">{{ $request->user->name }}</h3>
 
+                            </div>
                         </div>
-                    </div>
-                    <div class="mt-3">
-                        <div class="table-responsive">
-                            <table class="table">
+                        <div class="mt-3">
+                            <div class="table-responsive">
+                                <table class="table">
 
-                                <thead>
-                                    <tr>
-                                        <th>Product Name</th>
-                                        <th>Quantity</th>
-                                        <th>Price</th>
-                                        <th>Total Price</th>
-                                        <th>Status</th>
+                                    <thead>
+                                        <tr>
+                                            <th>Product Name</th>
+                                            <th>Quantity</th>
+                                            <th>Price</th>
+                                            <th>sub total</th>
+                                            <th>cart total</th>
+                                            <th>Status</th>
 
 
 
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    @foreach ($request->details as $key => $request)
-                                    <tr>
-                                        <td>{{ $request->product->name }}</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach ($request->details as $key => $request)
+                                        <tr>
+                                            <td>{{ $request->product->name }}</td>
 
-                                        <td>{{ $request->quantity }}</td>
-                                        <td>{{ $request->product_price }}</td>
-                                        <td>{{ $request->total_price }}</td>
-                                        <td>
+                                            <td>{{ $request->quantity }}</td>
+                                            <td>{{ $request->price }}</td>
+                                            <td>{{ $request->sub_total }}</td>
+                                            <td>{{ $request->total_price }}</td>
+                                            <td>
 
-                                            {{ $request->status }}
+                                                {{ $request->status }}
 
-                                        </td>
-                                        <td>
+                                            </td>
+                                            <td>
 
-                                            @if ($request->status == 'pending')
-                                            <a href="{{ route('product.cancel', $request->id) }}"
-                                                class="btn btn-danger"><i class="fa-solid fa-rectangle-xmark"></i></a>
-                                            @endif
-                                            @if ($request->status == 'pending')
-                                            <a href="{{ route('product.approve', $request->id) }}"
-                                                class="btn btn-success"><i class="fa-solid fa-check"></i></a>
-                                            @endif
+                                                @if ($request->status == 'pending')
+                                                <a href="{{ route('product.cancel', $request->id) }}"
+                                                    class="btn btn-danger"><i
+                                                        class="fa-solid fa-rectangle-xmark"></i></a>
+                                                @endif
+                                                @if ($request->status == 'pending')
+                                                <a href="{{ route('product.approve', $request->id) }}"
+                                                    class="btn btn-success"><i class="fa-solid fa-check"></i></a>
+                                                @endif
 
-                                        </td>
-                                    </tr>
-                                    @endforeach
+                                            </td>
+                                        </tr>
+                                        @endforeach
 
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
+                        {{-- <div class="text-right mb-3"><button class="btn btn-danger btn-sm mr-5"
+                                type="button"></button>
+                        </div> --}}
                     </div>
-                    {{-- <div class="text-right mb-3"><button class="btn btn-danger btn-sm mr-5" type="button"></button>
-                    </div> --}}
                 </div>
             </div>
         </div>
     </div>
+    <script>
+        function printDiv(printableArea) {
+            var printContents = document.getElementById(printableArea).innerHTML;
+            var originalContents = document.body.innerHTML;
+
+            document.body.innerHTML = printContents;
+
+            window.print();
+
+            document.body.innerHTML = originalContents;
+        }
+    </script>
 
     @endsection

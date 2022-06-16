@@ -119,8 +119,9 @@ class SslCommerzPaymentController extends Controller
                     'tran_id' => $post_data['tran_id'],
                     'product_id' => $cart['product_id'],
                     'quantity' => $cart['product_qty'],
-                    'product_price' => $cart['product_price'] * $cart['product_qty'],
-                    'total_price' => $total += $cart['product_price'] * $cart['product_qty'],
+                    'price' =>$cart['product_price'],
+                    'sub_total' => $cart['product_price'] * $cart['product_qty'],
+                    // 'total_price' => $total += $cart['product_price'] * $cart['product_qty'],
                 ]);
                 $product = Product::find($key);
                 $product->decrement('qty', $cart['product_qty']);
