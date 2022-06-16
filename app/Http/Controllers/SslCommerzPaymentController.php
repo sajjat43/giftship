@@ -88,12 +88,13 @@ class SslCommerzPaymentController extends Controller
 
 
         order::create([
-
+            'user_id' => auth()->user()->id,
+            'tran_id' => $post_data['tran_id'],
             'name' => $request->name,
             'email' => $request->email,
             'mobile' => $request->mobile,
             'Address' => $request->Address,
-
+            'total' =>array_sum(array_column(session()->get('cart'),'subtotal')),
 
         ]);
 

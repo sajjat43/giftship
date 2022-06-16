@@ -251,13 +251,13 @@ class ProductController extends Controller
 
     public function requestList(Request $request)
     {
-        $request = RequestProduct::with('user','RequestDetails')->get();
+        $request = order::with('user','RequestDetails')->get();
 
         return view('admin.request.requestList', compact('request'));
     }
     public function requestInvoice($id)
     {
-        $request = RequestProduct::with('user', 'details')->where('id', $id)->first();
+        $request = RequestProduct::with('user', 'details')->where('user_id', $id)->first();
         return view('admin.request.invoice', compact('request'));
     }
     //  product approve and calcel

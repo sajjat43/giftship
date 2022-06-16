@@ -16,6 +16,7 @@ class CreateRequestProductsTable extends Migration
         Schema::create('request_products', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id');
+            
             $table->string('stutas')->default('pending');
 
             $table->timestamps();

@@ -55,7 +55,7 @@
                                             <th>Quantity</th>
                                             <th>Price</th>
                                             <th>sub total</th>
-                                            <th>cart total</th>
+
                                             <th>Status</th>
 
 
@@ -70,7 +70,7 @@
                                             <td>{{ $request->quantity }}</td>
                                             <td>{{ $request->price }}</td>
                                             <td>{{ $request->sub_total }}</td>
-                                            <td>{{ $request->total_price }}</td>
+
                                             <td>
 
                                                 {{ $request->status }}

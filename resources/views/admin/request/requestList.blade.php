@@ -28,7 +28,7 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">User Name</th>
-                <th scope="col">payment Status</th>
+                <th scope="col">total price</th>
 
             </tr>
         </thead>
@@ -40,13 +40,13 @@
                 <td>{{ $request->user->name }}</td>
 
                     <td>
-                        {{ $request->payment_status }}
+                        TK {{ $request->total }}
                     </td>
 
 
                 <td>
 
-                    <a href="{{ route('request.invoice', $request->id) }}" class="btn btn-success"><i
+                    <a href="{{ route('request.invoice', $request->user->id) }}" class="btn btn-success"><i
                             class="fa-solid fa-eye"></i></a>
                 </td>
             </tr>
