@@ -22,6 +22,8 @@ class CreateOrdersTable extends Migration
             $table->string('mobile');
             $table->string('Address');
             $table->string('total');
+            $table->string('status')->default('pending');
+            $table->string('payment_status')->default('pending');
 
             $table->timestamps();
         });

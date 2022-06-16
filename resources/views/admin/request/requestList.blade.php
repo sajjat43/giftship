@@ -28,7 +28,9 @@
             <tr>
                 <th scope="col">ID</th>
                 <th scope="col">User Name</th>
-                <th scope="col">total price</th>
+                <th scope="col">Total price</th>
+                <th scope="col">Payment Status</th>
+
 
             </tr>
         </thead>
@@ -41,6 +43,9 @@
 
                     <td>
                         TK {{ $request->total }}
+                    </td>
+                    <td>
+                        {{ $request->payment_status }}
                     </td>
 
 

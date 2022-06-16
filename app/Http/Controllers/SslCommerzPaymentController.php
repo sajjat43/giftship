@@ -154,7 +154,7 @@ class SslCommerzPaymentController extends Controller
         $sslc = new SslCommerzNotification();
 
         #Check order status in order tabel against the transaction id or order id.
-        $order_details = RequestDetails::where('tran_id', $tran_id)->first();
+        $order_details = order::where('tran_id', $tran_id)->first();
 
         if ($order_details->status == 'pending') {
             $validation = $sslc->orderValidate($request->all(), $tran_id, $amount, $currency);

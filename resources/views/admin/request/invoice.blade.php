@@ -30,11 +30,11 @@
 
 <body oncontextmenu='return false' class='snippet-body'>
 
-    <div class="col-xl-3 float-end">
+    <div class="col-xl-3 float-right mt-3">
         <button class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"
             onclick="printDiv('printableArea')"><i class="fas fa-print text-primary"></i> Print</button>
     </div>
-    <div class="card" id="printableArea">
+    <div class="card mt-5" id="printableArea">
         <div class="container mt-5">
             <div class="d-flex justify-content-center row">
                 <div class="col-md-8">
