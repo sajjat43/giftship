@@ -38,6 +38,7 @@ Route::get('/user/login/website', [HomeController::class, 'userLogin'])->name('w
 Route::get('/User/regestation', [UserController::class, 'UserRegestation'])->name('User.regestation');
 Route::post('/User/regestation/store', [UserController::class, 'UserRegestationstore'])->name('User.regestation.store');
 
+
 // ------ user login + logout view--
 Route::post('/User/login', [UserLoginController::class, 'loginView'])->name('user.login.view');
 Route::get('/User/logout', [UserLoginController::class, 'logOut'])->name('user.logout');

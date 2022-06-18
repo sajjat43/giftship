@@ -119,14 +119,23 @@
                             </div>
                             @if ($latest->qty > 0)
                             <label class="badge bg-success text-center" style="width: 80px">In Stock</label>
-                            <div class="latest "> <a href="{{ route('add.to.cart', $latest->id) }}"
+                            <div class="latest ">
+                                <a href="{{ route('add.to.cart', $latest->id) }}"
                                     class="btn btn-info col-md-6 text-center">add
                                     cart</a>
-                                <a href="{{ route('add.to.wishlist', $latest->id) }}"><i class="far fa-heart"></i></a>
+                                <div>
+                                    <a  href="{{ route('add.to.wishlist', $latest->id) }}"
+                                        type="button"><i class="far fa-heart"></i>
+                                        
+                                    </a>
+                                </div>
                             </div>
                             @else
                             <label class="badge bg-danger">Stock Out</label>
-                            <a href="{{ route('add.to.wishlist', $latest->id) }}"><i class="far fa-heart"></i></a>
+                            <a  href="{{ route('add.to.wishlist', $latest->id) }}" type="button"><i
+                                    class="far fa-heart"></i>
+                                
+                            </a>
                             @endif
                         </div>
                     </div>
@@ -139,6 +148,11 @@
     <style>
         .card {
             height: 451px;
+        }
+
+        .card img {
+            height: 219px;
+            width: 215px;
         }
 
         .btn-info {
@@ -178,12 +192,18 @@
                                 <div class="container "> <a href="{{ route('add.to.cart', $item->id) }}"
                                         class="btn btn-info col-md-6 text-center">add
                                         cart</a>
-                                    <a href="{{ route('add.to.wishlist', $item->id) }}"><i class="far fa-heart"></i></a>
+                                    <a  href="{{ route('add.to.wishlist', $item->id) }}" type="button"><i
+                                            class="far fa-heart"></i>
+                                       
+                                    </a>
                                 </div>
                                 @else
                                 <label class="badge bg-danger text-center" style="width: 80px">Stock
                                     Out</label>
-                                <a href="{{ route('add.to.wishlist', $item->id) }}"><i class="far fa-heart"></i></a>
+                                <a  href="{{ route('add.to.wishlist', $item->id) }}" type="button"><i
+                                        class="far fa-heart"></i>
+                                    
+                                </a>
                                 @endif
                             </div>
                         </div>
@@ -420,9 +440,6 @@
             </div> --}}
             {{-- ------------------------product style --}}
             <style>
-                /* body{
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                            background-color: gainsboro;
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        } */
                 .best-seller {
                     box-shadow: 43px !important;
                 }
@@ -483,6 +500,21 @@
                 .container {
                     margin-top: 25px !important;
                 }
+
+                .addwish h5 {
+                    opacity: 0;
+                    padding: 10px;
+                    background-color: red;
+
+                }
+
+                .addwish:hover h5 {
+                    opacity: 1;
+                    display: contents;
+                    padding: 10px;
+                    background-color: red;
+                    color: rgb(255, 0, 0);
+                }
             </style>
             {{-- ----------------product------------ --}}
 
@@ -530,14 +562,19 @@
                                         Stock</label>
                                     <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn-primary">add
                                         cart</a>
-                                    <a href="{{ route('add.to.wishlist', $product->id) }}" type="button"><i
-                                            class="far fa-heart"></i></a>
+                                    <a class="addwish" href="{{ route('add.to.wishlist', $product->id) }}"
+                                        type="button"><i class="far fa-heart"></i>
+                                        <h5 class="wish">Add to wishlist</h5>
+                                    </a>
+
                                 </div>
                                 @else
                                 <label class="badge bg-danger text-center" style="width: 80px">Stock
                                     Out</label>
-                                <a href="{{ route('add.to.wishlist', $product->id) }}" type="button"><i
-                                        class="far fa-heart"></i></a>
+                                <a class="addwish" href="{{ route('add.to.wishlist', $product->id) }}" type="button"><i
+                                        class="far fa-heart"></i>
+                                    <h5 class="wish">Add to wishlist</h5>
+                                </a>
                                 @endif
                             </div>
                         </div>

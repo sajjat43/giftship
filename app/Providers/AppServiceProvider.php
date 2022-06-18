@@ -56,5 +56,6 @@ class AppServiceProvider extends ServiceProvider
         
         $stockOut = Product::where('qty', 0)->count();
         view::share('stockOut', $stockOut);
+        
     }
 }

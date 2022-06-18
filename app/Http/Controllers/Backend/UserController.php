@@ -54,4 +54,5 @@ class UserController extends Controller
         ]);
         return redirect()->route('website.user.login')->with('success', 'Employee regestaion Successfully');
     }
+   
 }

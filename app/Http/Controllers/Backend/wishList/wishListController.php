@@ -12,6 +12,7 @@ class wishListController extends Controller
     public function wishListView()
     {
         $wishList = session()->get('wishlist');
+       
         return view('website.pages.wishList', compact('wishList'));
     }
 

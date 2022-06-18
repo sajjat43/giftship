@@ -75,7 +75,8 @@
                                 <td>{{ $item['product_name'] }}</td>
 
                                 <td>{{ $item['product_price'] }}</td>
-                                <td><a href="" type="button"><i class="fa-solid fa-trash-can"></i></a></td>
+                                {{-- <td><a href="{{ route('add.to.cart', $item->product->id) }}" class="btn btn-primary">add
+                                    cart</a></td> --}}
 
                             </tr>
                         @endforeach
