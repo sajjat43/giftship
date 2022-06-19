@@ -7,6 +7,7 @@ use App\Models\Employee;
 use App\Models\UserLogin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\RequestDetails;
 use Illuminate\Support\Facades\Auth;
 use Laravel\Socialite\Facades\Socialite;
 // use App\Http\Controllers\Fontend\UserLoginController;
@@ -106,4 +107,14 @@ class UserLoginController extends Controller
         }
         Auth::Login($users);
     }
+
+// order list show 
+
+public function CustomerOrderList($id){
+    $request=RequestDetails::where('user_id',$id)->get();
+    // dd($request);
+    return view('website.pages.customer.customer_order_list',compact('request'));
+}
+
+
 }

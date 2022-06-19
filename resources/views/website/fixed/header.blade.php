@@ -31,13 +31,17 @@
                                                 Account </a>
                                         </li>
                                         <li><a href="product_list.html">Wish List </a></li>
-                                        <li><a href="">Shopping</a>
-                                        </li>
                                         @if (!auth()->user())
-                                            <li><a href="{{ route('website.user.login') }}">Sign in</a></li>
+                                        
                                         @else
-                                            <li><a href="{{ route('user.logout') }}">({{ auth()->user()->name }})/Sign
-                                                    out</a></li>
+                                        <a href="{{route('customer.order.list.view',auth()->user()->id)}}">order
+                                            list</a>
+                                        @endif
+                                        @if (!auth()->user())
+                                        <li><a href="{{ route('website.user.login') }}">Sign in</a></li>
+                                        @else
+                                        <li><a href="{{ route('user.logout') }}">({{ auth()->user()->name }})/Sign
+                                                out</a></li>
                                         @endif
                                     </ul>
                                 </div>
@@ -70,7 +74,7 @@
                                         <li class="hot"><a href="#">Latest</a>
                                             <ul class="submenu">
                                                 {{-- <li><a href="{{route('product.font.view')}}"> Product list</a>
-                                        </li> --}}
+                                                </li> --}}
                                                 {{-- <li><a href="single-product.html"> Product Details</a></li> --}}
                                             </ul>
                                         </li>
@@ -83,11 +87,11 @@
                                         <li><a href="">Category</a>
                                             <ul class="submenu">
                                                 @foreach ($categories as $category)
-                                                    {{-- @dd($categories); --}}
-                                                    <li>
-                                                        <a
-                                                            href="{{ route('product.under.catagory', $category->id) }}">{{ $category->Cname }}</a>
-                                                    </li>
+                                                {{-- @dd($categories); --}}
+                                                <li>
+                                                    <a href="{{ route('product.under.catagory', $category->id) }}">{{
+                                                        $category->Cname }}</a>
+                                                </li>
                                                 @endforeach
 
 
@@ -97,9 +101,9 @@
                                             <ul class="submenu">
 
                                                 @foreach ($brand as $brand)
-                                                    <li><a
-                                                            href="{{ route('product.under.brand', $brand->id) }}">{{ $brand->Bname }}</a>
-                                                    </li>
+                                                <li><a href="{{ route('product.under.brand', $brand->id) }}">{{
+                                                        $brand->Bname }}</a>
+                                                </li>
                                                 @endforeach
                                             </ul>
                                         </li>
@@ -125,7 +129,6 @@
                                 background-color: #eee;
 
                             }
-
                         </style>
 
                         <div class="col-xl-5 col-lg-3 col-md-3 col-sm-3 fix-card">
@@ -134,8 +137,7 @@
 
                                     <li class="d-none d-xl-block">
                                         <div class="form-box f-right ">
-                                            <input class="srch" type="text" name="search"
-                                                placeholder="Search products">
+                                            <input class="srch" type="text" name="search" placeholder="Search products">
                                             <div class="search-icon">
                                                 <button type="submit">
                                                     <i class=" fas fa-search special-tag"></i>
@@ -146,8 +148,8 @@
                                 </form>
                                 <li class=" d-none d-xl-block">
                                     <div class="favorit-items">
-                                        <a href="{{ route('wishlist.view') }}"><i
-                                                class="far fa-heart"></i>{{ session()->has('wishList') ? count(session()->get('wishList')) : 0 }}</a>
+                                        <a href="{{ route('wishlist.view') }}"><i class="far fa-heart"></i>{{
+                                            session()->has('wishList') ? count(session()->get('wishList')) : 0 }}</a>
                                     </div>
                                 </li>
                                 <li>
@@ -161,8 +163,8 @@
 
                                 {{-- @if (auth()->user()->role == 'user') --}}
                                 {{-- @if (!auth()->user())
-                                                <li class="d-none d-lg-block"> <a href="{{ route('website.user.login') }}"
-                                class="btn header-btn">Sign in</a></li>
+                                <li class="d-none d-lg-block"> <a href="{{ route('website.user.login') }}"
+                                        class="btn header-btn">Sign in</a></li>
                                 @else
                                 <li class="d-none d-lg-block"> <a href="{{ route('user.logout') }}"
                                         class="btn header-btn">{{ auth()->user()->name }}/Sign out</a></li>
@@ -171,54 +173,53 @@
                                 {{-- @endif --}}
                             </ul>
                         </div>
-                        {{-- cart count  ----------------------------- --}}
+                        {{-- cart count ----------------------------- --}}
                         {{-- <style>
-                        .header-bottom .header-right .shopping-card {
-                            position: relative
-                        }
-
-                        .header-bottom .header-right .shopping-card::before {
-                            position: absolute;
-                            content: "{{ session()->has('cart') ? count(session()->get('cart')) : 0 }}";
-                            width: 25px;
-                            height: 25px;
-                            background: #00b1ff;
-                            color: #fff;
-                            line-height: 25px;
-                            text-align: center;
-                            border-radius: 30px;
-                            font-size: 12px;
-                            top: 0;
-                            right: -6px;
-                            -webkit-transition: all .2s ease-out 0s;
-                            -moz-transition: all .2s ease-out 0s;
-                            -ms-transition: all .2s ease-out 0s;
-                            -o-transition: all .2s ease-out 0s;
-                            transition: all .2s ease-out 0s;
-                            box-shadow: 0 2px 5px rgba(0, 0, 0, .3)
-                        }
-
-                        .header-bottom .header-right .shopping-card i {
-                            width: 50px;
-                            height: 50px;
-                            line-height: 50px;
-                            text-align: center;
-                            border-radius: 50%;
-                            border: 1px solid #eee;
-                            color: #4e4e4e;
-                            font-size: 14px;
-                            cursor: pointer
-                        }
-
-                        @media (max-width:767px) {
-                            .header-bottom .fix-card {
-                                position: absolute;
-                                top: 12px;
-                                right: 85px
+                            .header-bottom .header-right .shopping-card {
+                                position: relative
                             }
-                        }
 
-                    </style> --}}
+                            .header-bottom .header-right .shopping-card::before {
+                                position: absolute;
+                                content: "{{ session()->has('cart') ? count(session()->get('cart')) : 0 }}";
+                                width: 25px;
+                                height: 25px;
+                                background: #00b1ff;
+                                color: #fff;
+                                line-height: 25px;
+                                text-align: center;
+                                border-radius: 30px;
+                                font-size: 12px;
+                                top: 0;
+                                right: -6px;
+                                -webkit-transition: all .2s ease-out 0s;
+                                -moz-transition: all .2s ease-out 0s;
+                                -ms-transition: all .2s ease-out 0s;
+                                -o-transition: all .2s ease-out 0s;
+                                transition: all .2s ease-out 0s;
+                                box-shadow: 0 2px 5px rgba(0, 0, 0, .3)
+                            }
+
+                            .header-bottom .header-right .shopping-card i {
+                                width: 50px;
+                                height: 50px;
+                                line-height: 50px;
+                                text-align: center;
+                                border-radius: 50%;
+                                border: 1px solid #eee;
+                                color: #4e4e4e;
+                                font-size: 14px;
+                                cursor: pointer
+                            }
+
+                            @media (max-width:767px) {
+                                .header-bottom .fix-card {
+                                    position: absolute;
+                                    top: 12px;
+                                    right: 85px
+                                }
+                            }
+                        </style> --}}
 
                         <div class="col-12">
                             <div class="mobile_menu d-block d-lg-none"></div>

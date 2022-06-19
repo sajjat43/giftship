@@ -114,6 +114,8 @@ Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
     // ---------- customer profile--------
 
     route::get('customer/profile', [UserLoginController::class, 'customer_profile'])->name('customer.profile');
+    route::get('customer/order/list/view/{id}', [UserLoginController::class, 'CustomerOrderList'])->name('customer.order.list.view');
+
 });
 
 
