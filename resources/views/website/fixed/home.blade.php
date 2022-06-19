@@ -503,7 +503,8 @@
 
                 .addwish h5 {
                     opacity: 0;
-                    padding: 10px;
+                    padding: 0;
+                    margin: 0;
                     background-color: red;
 
                 }
