@@ -33,3 +33,7 @@ Route::get('product/view',[apiProductController::class,'viewProduct']);
 // ----category 
 Route::post('category/create',[apiProductController::class,'createCategory']);
 Route::get('category/view',[apiProductController::class,'viewCategory']);
+//subCategory-------
+
+Route::post('sub/category/create',[apiProductController::class,'subcreateSubCategory']);
+Route::get('sub/category/view',[apiProductController::class,'viewSubCategory']);

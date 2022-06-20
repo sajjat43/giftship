@@ -34,8 +34,8 @@
                                         @if (!auth()->user())
                                         
                                         @else
-                                        <a href="{{route('customer.order.list.view',auth()->user()->id)}}">order
-                                            list</a>
+                                        <li><a href="{{route('customer.order.list.view',auth()->user()->id)}}">order
+                                            list</a></li>
                                         @endif
                                         @if (!auth()->user())
                                         <li><a href="{{ route('website.user.login') }}">Sign in</a></li>

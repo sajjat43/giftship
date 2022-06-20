@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\userResource;
+use App\Models\subCategory;
 use Illuminate\Support\Facades\Validator;
 
 class apiProductController extends Controller
@@ -81,4 +82,41 @@ class apiProductController extends Controller
  }
  
 
+//  subcategory=====================
+public function subcreateSubCategory(Request $request){
+// dd($request);
+    $validate = Validator::make($request->all(), [
+        'subname' => 'required',
+        'subdescription' => 'required',
+         'subimage' => 'required',
+        
+
+    ]);
+    if ($validate->fails()) {
+        return $this->responseWithError($validate->getMessageBag());
+    }
+    $image_subname = null;
+        if ($request->hasfile('subimage')) {
+            $image_subname = date('Ymdhis') . '.' . $request->file('subimage')->getClientOriginalExtension();
+            $request->file('subimage')->storeAs('/uploads/subcategory/', $image_subname);
+        }
+
+    $subcategory = subCategory::create([
+
+         'subname' => $request->subname,
+            'subdescription' => $request->subdescription,
+            'subimage' => $image_subname,
+        
+        
+    ]);
+    return $this->responseWithSuccess($subcategory, 'SubCategory Created successfully');
+ }
+
+ public function viewSubCategory(){
+    $subcategory=subCategory::all();
+    
+    return $this->responseWithSuccess($subcategory,'subCategory list loaded');
+ }
 }
+
+
