@@ -7,6 +7,7 @@ use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\userResource;
+use App\Models\Brand;
 use App\Models\subCategory;
 use Illuminate\Support\Facades\Validator;
 
@@ -117,6 +118,42 @@ public function subcreateSubCategory(Request $request){
     
     return $this->responseWithSuccess($subcategory,'subCategory list loaded');
  }
+
+// brand 
+public function BrandCreate(Request $request){
+    $validate = Validator::make($request->all(), [
+        'Bname' => 'required',
+            'Bdescription' => 'required',
+            'Bimage' => 'required',
+        
+
+    ]);
+    if ($validate->fails()) {
+        return $this->responseWithError($validate->getMessageBag());
+    }
+    $image_subname = null;
+    if ($request->hasfile('Bimage')) {
+        $image_Bname = date('Ymdhis') . '.' . $request->file('Bimage')->getClientOriginalExtension();
+        $request->file('Bimage')->storeAs('/uploads/Brand', $image_Bname);
+    }
+
+    $brand = Brand::create([
+
+        'Bname' => $request->Bname,
+            'Bdescription' => $request->Bdescription,
+            'Bimage' => $image_Bname,
+        
+        
+    ]);
+    return $this->responseWithSuccess($brand, 'Brand Created successfully');
+}
+
+public function BrandView(){
+    $brand=Brand::all();
+    
+    return $this->responseWithSuccess($brand,'Brand list loaded');
+}
+
 }
 
 

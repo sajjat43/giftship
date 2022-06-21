@@ -37,3 +37,7 @@ Route::get('category/view',[apiProductController::class,'viewCategory']);
 
 Route::post('sub/category/create',[apiProductController::class,'subcreateSubCategory']);
 Route::get('sub/category/view',[apiProductController::class,'viewSubCategory']);
+
+// All brand
+Route::post('brand/create', [apiProductController::class, 'BrandCreate'])->name('brand.create');
+Route::get('brand/view', [apiProductController::class, 'BrandView'])->name('brand.store');
