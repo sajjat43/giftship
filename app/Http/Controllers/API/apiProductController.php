@@ -85,7 +85,7 @@ class apiProductController extends Controller
 
 //  subcategory=====================
 public function subcreateSubCategory(Request $request){
-// dd($request);
+
     $validate = Validator::make($request->all(), [
         'subname' => 'required',
         'subdescription' => 'required',

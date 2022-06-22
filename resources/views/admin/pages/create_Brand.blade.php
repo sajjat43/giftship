@@ -17,6 +17,7 @@
             </ul>
         </div>
     @endif
+    
     <form action="{{ route('brand.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 

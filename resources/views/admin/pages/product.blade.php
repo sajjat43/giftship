@@ -17,7 +17,12 @@
     </ul>
 </div>
 @endif
-<a href="{{ route('product.create') }}" class="btn btn-primary"> Add product</a>
+
+<div class="col-xl-3 float-end">
+    <a href="{{ route('product.create') }}" class="btn btn-primary"> Add product</a>
+    <button class="btn btn-info  text-capitalize border-0" data-mdb-ripple-color="dark"
+        onclick="printDiv('printableArea')"><i class="fas fa-print text-primary"></i> Print</button>
+</div>
 <h1 class="text-center py-2">Product List</h1>
 <form action="{{ route('product.view') }}" method="GET">
     <div class="row">
@@ -29,10 +34,7 @@
 </form>
 
 </div>
-<div class="col-xl-3 float-end">
-    <button class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"
-        onclick="printDiv('printableArea')"><i class="fas fa-print text-primary"></i> Print</button>
-</div>
+
 <div class="card" id="printableArea">
     <div class="card-body">
         <div>
@@ -55,7 +57,6 @@
                 </thead>
                 <tbody>
                     @foreach ($product as $key => $data)
-                    {{-- @dd($product); --}}
                     <tr>
                         <th scope="row">{{ $key + 1 }}</th>
                         <td>{{ $data->name }} </td>
