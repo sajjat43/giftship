@@ -16,7 +16,8 @@
                                     @if (Auth()->user()->image == null)
                                     <img src="https://img.icons8.com/bubbles/100/000000/user.png" class="img-radius"
                                         alt="User-Profile-Image">
-                                    @else<img src="{{ url('/uploads/uploads/users/', Auth()->user()->image) }}"
+                                    @else<img class="userProfile"
+                                        src="{{ url('/uploads/uploads/users/', Auth()->user()->image) }}"
                                         class="img-radius" alt="User-Profile-Image">
                                     @endif
                                 </div>
@@ -80,6 +81,11 @@
 
     .padding {
         padding: 3rem !important
+    }
+
+    .userProfile {
+        width: 116px;
+        border-radius: 50%;
     }
 
     .user-card-full {

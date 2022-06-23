@@ -50,7 +50,7 @@
         </div>
         <div class="form-group">
             <label for="">image</label>
-            <input type="file" class="form-control" , name="avatar" placeholder="insert image">
+            <input type="file" class="form-control" , name="image" placeholder="insert image">
         </div>
         <fieldset class="row mb-3">
             <legend class="col-form-label col-sm-2 pt-0" style="font-size:20px;"><b>Gender</legend></b>

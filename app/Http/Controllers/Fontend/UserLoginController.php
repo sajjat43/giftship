@@ -125,11 +125,11 @@ public function customerUpdate($id){
 
 public function customerUpdateStore(Request $request,$id){
     $user =auth()->user()->id;
-        $image_name = auth()->user()->avatar;
-        if ($request->hasfile('avatar')) {
-            $image_name = date('Ymdhis') . '.' . $request->file('avatar')->getClientOriginalExtension();
-            $request->file('avatar')->storeAs('/uploads/users/', $image_name);
-        }
+    $image_name = null;
+    if ($request->hasfile('image')) {
+        $image_name = date('Ymdhis') . '.' . $request->file('image')->getClientOriginalExtension();
+        $request->file('image')->storeAs('/uploads/users/', $image_name);
+    }
         $request->validate([
 
             'name' => 'required',
@@ -148,7 +148,7 @@ public function customerUpdateStore(Request $request,$id){
             'mobile' => $request->mobile,
             'address' => $request->address,
             'gender' => $request->gender,
-            'avatar' => $image_name,
+            'image' => $image_name,
         ]);
        
         return redirect()->route('customer.profile')->with('success', 'Profile has been update Successfully');
