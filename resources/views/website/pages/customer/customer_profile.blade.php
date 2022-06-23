@@ -1,12 +1,15 @@
 @extends('website.master')
 @section('content')
+
 <div class="page-content " id="page-content">
     <div class="padding">
+
         <div class="container  ">
             <div class="col-xl-12 col-md-12">
                 <div class="card user-card-full">
                     <div class="row m-l-6 m-r-6">
-                        
+                        <a href="{{route('customer.profile.update',auth()->user()->id)}}" class="btn btn-success">update
+                            Your Profile</a>
                         <div class="col-sm-12 bg-c-lite-green user-profile">
                             <div class="card-block text-center  text-white">
                                 <div class="m-b-25">

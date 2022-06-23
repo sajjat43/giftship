@@ -32,10 +32,11 @@
                                         </li>
                                         <li><a href="product_list.html">Wish List </a></li>
                                         @if (!auth()->user())
-                                        
+
                                         @else
                                         <li><a href="{{route('customer.order.list.view',auth()->user()->id)}}">order
-                                            list</a></li>
+                                                list</a></li>
+
                                         @endif
                                         @if (!auth()->user())
                                         <li><a href="{{ route('website.user.login') }}">Sign in</a></li>

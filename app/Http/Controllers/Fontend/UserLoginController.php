@@ -117,4 +117,42 @@ public function CustomerOrderList($id){
 }
 
 
+public function customerUpdate($id){
+        
+    $user=auth()->user()->id;
+    return view('website.pages.customer.customerUpdate',compact('user'));
+}
+
+public function customerUpdateStore(Request $request,$id){
+    $user =auth()->user()->id;
+        $image_name = auth()->user()->avatar;
+        if ($request->hasfile('avatar')) {
+            $image_name = date('Ymdhis') . '.' . $request->file('avatar')->getClientOriginalExtension();
+            $request->file('avatar')->storeAs('/uploads/users/', $image_name);
+        }
+        $request->validate([
+
+            'name' => 'required',
+            'email' => 'required',
+            'mobile' => 'required',
+            'address' => 'required',
+            'gender' => 'required',
+            
+
+        ]);
+        // dd($request->all());
+
+        User::find($id)->update([
+            'name' => $request->name,
+            'email' => $request->email,
+            'mobile' => $request->mobile,
+            'address' => $request->address,
+            'gender' => $request->gender,
+            'avatar' => $image_name,
+        ]);
+       
+        return redirect()->route('customer.profile')->with('success', 'Profile has been update Successfully');
+
+}
+
 }

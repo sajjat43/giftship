@@ -18,7 +18,6 @@
         </div>
     @endif
     <form action="{{ route('product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
-        {{-- <input type="text"> --}}
         @csrf
         <div class="form-group">
             <label for="">Name:</label>
@@ -26,13 +25,6 @@
                 placeholder="Enter your product name">
 
         </div>
-
-
-        {{-- <div class="form-group">
-            <label for="">Product catagory</label>
-            <input value="{{ $product->category->Cname }}" type="text" class="form-control" id="exampleInputEmail1"
-                name="category_id" placeholder="Enter your product catagory name">
-        </div> --}}
         <div class="form-group">
             <label for="exampleFormControlSelect1">product Category</label>
             <select name="category" class="form-control" id="exampleFormControlSelect1">
