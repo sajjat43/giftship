@@ -4,7 +4,7 @@
 <div class="page-content " id="page-content">
     <div class="padding">
 
-        <div class="container  ">
+        <div class="container">
             <div class="col-xl-12 col-md-12">
                 <div class="card user-card-full">
                     <div class="row m-l-6 m-r-6">
