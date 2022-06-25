@@ -169,6 +169,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('/product/subCategory/create', [ProductController::class, 'subCategoryCreate'])->name('product.subCategory.create');
     Route::post('/product/subCategory/store', [ProductController::class, 'subCategoryStore'])->name('product.subCategory.store');
     Route::get('/product/subCategory/view', [ProductController::class, 'subCategoryView'])->name('product.subCategory.view');
+    Route::get('subcategory/update/form/{id}',[ProductController::class,'updateForm'])->name('update.subCategory');
+    Route::post('subcategory/update/store/{id}',[ProductController::class,'subCategoryUpdate'])->name('update.store.subCategory');
 
 
     // All brand

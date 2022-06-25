@@ -39,7 +39,7 @@
                     <td><img src="{{ url('uploads/uploads/subcategory/' . $data->subimage) }}" style="border-radius:4px"
                             width="100px" alt="Category image"></td>
                     <td>
-                        {{-- <a href="{{ route('product.category.update.view', $data->id) }}" class="btn btn-info">Update</a> --}}
+                        <a href="{{ route('update.subCategory', $data->id) }}" class="btn btn-info">Update</a>
 
 
                         {{-- <a href="{{ route('category.delete', $data->id) }}" class="btn btn-success">Delete</a> --}}

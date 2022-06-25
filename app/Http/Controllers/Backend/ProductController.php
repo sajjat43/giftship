@@ -200,6 +200,27 @@ class ProductController extends Controller
         $subcategory = subCategory::all();
         return view('admin.pages.subCategory_view', compact('subcategory'));
     }
+    public function updateForm($id){
+        $subcategory=subCategory::find($id);
+        return view('admin.pages.sub_category.sub_categoryUpdate',compact('subcategory'));
+    }
+    public function subCategoryUpdate(Request $request, $id){
+        $subcategory = subCategory::find($id);
+        $image_subname = $subcategory->subimage;
+        if ($request->hasfile('subimage')) {
+            $image_subname = date('Ymdhis') . '.' . $request->file('subimage')->getClientOriginalExtension();
+            $request->file('subimage')->storeAs('/uploads/subcategory/', $image_subname);
+        }
+        // dd($request->all());
+
+        subCategory::find($id)->update([
+            'subname' => $request->subname,
+            'subdescription' => $request->subdescription,
+            'subimage' => $image_subname,
+        ]);
+        
+        return redirect()->route('product.subCategory.view')->with('success', 'Subcategory has been update Successfully');
+    }
 
 
     // -------------------update product-------------------------------

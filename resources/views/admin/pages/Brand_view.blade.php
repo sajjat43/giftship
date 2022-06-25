@@ -46,7 +46,8 @@
                                 width="100px" alt="Brand image"></td>
                         <td>
                             <a href="" class="btn btn-info">View</a>
-                            <a href="" class="btn btn-success">Update</a>
+                            <a href="" class="btn btn-success"><i
+                                class="fa-solid fa-pen-to-square"></i></a>
                             {{-- <a href="{{route('product.category.delete', $data->Cid)}}"
                                 class="btn btn-danger">Delete</a> --}}
                         </td>
