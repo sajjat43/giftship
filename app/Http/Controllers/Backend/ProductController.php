@@ -166,7 +166,7 @@ class ProductController extends Controller
 
     public function subCategoryCreate()
     {
-        return view('admin.pages.subCategory');
+        return view('admin.pages.sub_category.subCategory');
     }
     public function subCategoryStore(Request $request)
     {
@@ -198,7 +198,7 @@ class ProductController extends Controller
     public function subCategoryView()
     {
         $subcategory = subCategory::all();
-        return view('admin.pages.subCategory_view', compact('subcategory'));
+        return view('admin.pages.sub_category.subCategory_view', compact('subcategory'));
     }
     public function updateForm($id){
         $subcategory=subCategory::find($id);
