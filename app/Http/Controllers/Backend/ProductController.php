@@ -30,14 +30,14 @@ class ProductController extends Controller
             return view('admin.pages.product', compact('product', 'key'));
         }
         $product = Product::with('Category')->get();
-        return view('admin.pages.product', compact('product'));
+        return view('admin.pages.product.product', compact('product'));
     }
 
     public function product_create()
     {
         $categories = Category::all();
         $brand = Brand::all();
-        return view('admin.pages.product_create', compact('categories', 'brand'));
+        return view('admin.pages.product.product_create', compact('categories', 'brand'));
     }
 
     // ---------product store--------------
@@ -80,7 +80,7 @@ class ProductController extends Controller
     {
         $product = Product::find($product_id);
 
-        return view('admin.pages.product_view', compact('product'));
+        return view('admin.pages.product.product_view', compact('product'));
     }
     // -------------- product delete-------------------
 
@@ -89,12 +89,55 @@ class ProductController extends Controller
         Product::find($product_id)->delete();
         return redirect()->back()->with('success', 'Product has beeen Deleted Successfully');
     }
+ // -------------------update product-------------------------------
 
+ public function product_update(Request $request, $product_id)
+ {
+     $product = Product::find($product_id);
+     $image_name = $product->image;
+     if ($request->hasfile('image')) {
+         $image_name = date('Ymdhis') . '.' . $request->file('image')->getClientOriginalExtension();
+         $request->file('image')->storeAs('/uploads/product', $image_name);
+     }
+     $request->validate([
+
+         'name' => 'required',
+         'price' => 'required|numeric|gt:0',
+         'qty' => 'required|numeric|gt:0',
+         'description' => 'required',
+         
+
+     ]);
+     // dd($request->all());
+
+     Product::find($product_id)->update([
+         'name' => $request->name,
+         'category_id' => $request->category,
+         'subcategory_id' => $request->subcategory,
+         'brand_id' => $request->brand,
+         'price' => $request->price,
+         'description' => $request->description,
+         'image' => $image_name,
+         'featured' => $request->featured,
+     ]);
+
+
+
+     return redirect()->route('product.view')->with('success', 'Product has been update Successfully');
+ }
+ // ----------------update product view----------------
+
+ public function product_edit($product_id)
+ {
+     $product = Product::find($product_id);
+
+     return view('admin.pages.product.product_update', compact('product'));
+ }
     // ---------------category all ---------------
 
     public function Category()
     {
-        return view('admin.pages.Category');
+        return view('admin.pages.category.Category');
     }
     // ------------category table-------------------
 
@@ -129,13 +172,13 @@ class ProductController extends Controller
     public function Category_view()
     {
         $category = Category::all();
-        return view('admin.pages.Category_view', compact('category'));
+        return view('admin.pages.category.Category_view', compact('category'));
     }
 
     public function category_update_view($category_id)
     {
         $category = Category::find($category_id);
-        return view('admin.pages.categoryUpdate', compact('category'));
+        return view('admin.pages.category.categoryUpdate', compact('category'));
     }
     // category database update
     public function category_update(Request $request, $category_id)
@@ -223,50 +266,7 @@ class ProductController extends Controller
     }
 
 
-    // -------------------update product-------------------------------
-
-    public function product_update(Request $request, $product_id)
-    {
-        $product = Product::find($product_id);
-        $image_name = $product->image;
-        if ($request->hasfile('image')) {
-            $image_name = date('Ymdhis') . '.' . $request->file('image')->getClientOriginalExtension();
-            $request->file('image')->storeAs('/uploads/product', $image_name);
-        }
-        $request->validate([
-
-            'name' => 'required',
-            'price' => 'required|numeric|gt:0',
-            'qty' => 'required|numeric|gt:0',
-            'description' => 'required',
-            
-
-        ]);
-        // dd($request->all());
-
-        Product::find($product_id)->update([
-            'name' => $request->name,
-            'category_id' => $request->category,
-            'subcategory_id' => $request->subcategory,
-            'brand_id' => $request->brand,
-            'price' => $request->price,
-            'description' => $request->description,
-            'image' => $image_name,
-            'featured' => $request->featured,
-        ]);
-
-
-
-        return redirect()->route('product.view')->with('success', 'Product has been update Successfully');
-    }
-    // ----------------update product view----------------
-
-    public function product_edit($product_id)
-    {
-        $product = Product::find($product_id);
-
-        return view('admin.pages.product_update', compact('product'));
-    }
+   
 
     //    product request list (admin view)
 
@@ -302,7 +302,7 @@ class ProductController extends Controller
     // all brand
     public function BrandCreate()
     {
-        return view('admin.pages.create_Brand');
+        return view('admin.pages.brand.create_Brand');
     }
 
     public function BrandStore(Request $request)
@@ -333,7 +333,7 @@ class ProductController extends Controller
     public function BrandView()
     {
         $brand = Brand::all();
-        return view('admin.pages.Brand_view', compact('brand'));
+        return view('admin.pages.brand.Brand_view', compact('brand'));
     }
 
 

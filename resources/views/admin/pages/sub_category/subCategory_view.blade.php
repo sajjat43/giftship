@@ -41,8 +41,6 @@
             <td>
                 <a href="{{ route('update.subCategory', $data->id) }}" class="btn btn-info"><i
                         class="fa-solid fa-pen-to-square"></i></a></a>
-
-
                 {{-- <a href="{{ route('category.delete', $data->id) }}" class="btn btn-success">Delete</a> --}}
                 {{-- <a href="{{route('product.category.delete', $data->Cid)}}" class="btn btn-danger">Delete</a> --}}
             </td>
