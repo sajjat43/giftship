@@ -42,60 +42,106 @@
     </a>
     </li>
     <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+        <a class="nav-link" data-toggle="collapse" href="#ui-product" aria-expanded="false" aria-controls="ui-basic">
             <i class="icon-disc menu-icon"></i>
             <span class="menu-title">Product</span>
             <i class="menu-arrow"></i>
         </a>
-        <div class="collapse" id="ui-basic">
+        <div class="collapse" id="ui-product">
             <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('product.create') }}">Create
                         Product</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('product.view') }}">Product
                         List</a></li>
+            </ul>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#ui-category" aria-expanded="false" aria-controls="ui-basic">
+            <i class="icon-disc menu-icon"></i>
+            <span class="menu-title">category</span>
+            <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="ui-category">
+            <ul class="nav flex-column sub-menu">
+
                 <li class="nav-item"> <a class="nav-link" href="{{ route('product.category') }}">Create
                         Category</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('product.subCategory.create') }}">Create
-                        SubCategory</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('product.subCategory.view') }}">view
-                        SubCategory</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('brand.create') }}">Create
-                        Brand</a></li>
+
                 <li class="nav-item"> <a class="nav-link" href="{{ route('product.category.view') }}">Category view</a>
                 </li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('brand.view') }}">Brand
-                        view</a></li>
-            </ul>
-        </div>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
-            <i class="icon-disc menu-icon"></i>
-            <span class="menu-title">Oder</span>
-            <i class="menu-arrow"></i>
-        </a>
-        <div class="collapse" id="ui-basic">
-            <ul class="nav flex-column sub-menu">
-                <a class="nav-link" href="{{ route('request.list',) }}">Oder
-                    Request
-                </a>
-            </ul>
-        </div>
-    </li>
-    <li class="nav-item">
-        <a class="nav-link">
-            <i class="icon-head menu-icon"></i>
-            <span class="menu-title">Customer</span>
-            <i class="menu-arrow"></i>
-        </a>
-        <div class="collapse" id="ui-basic">
-            <ul class="nav flex-column sub-menu">
-                <a class="nav-link" href="{{ route('customer.view') }}">Customer
-                    list</a>
 
             </ul>
         </div>
     </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#ui-brand" aria-expanded="false" aria-controls="ui-basic">
+            <i class="icon-disc menu-icon"></i>
+            <span class="menu-title">Brand</span>
+            <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="ui-brand">
+            <ul class="nav flex-column sub-menu">
+
+                <li class="nav-item"> <a class="nav-link" href="{{ route('brand.create') }}">Create
+                        Brand</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('brand.view') }}">Brand
+                        view</a></li>
+
+            </ul>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#ui-subCategory" aria-expanded="false"
+            aria-controls="ui-basic">
+            <i class="icon-disc menu-icon"></i>
+            <span class="menu-title">SubCategory</span>
+            <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="ui-subCategory">
+            <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ route('product.subCategory.create') }}">Create
+                        SubCategory</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('product.subCategory.view') }}">view
+                        SubCategory</a></li>
+
+
+            </ul>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#ui-order" aria-expanded="false" aria-controls="ui-basic">
+            <i class="icon-disc menu-icon"></i>
+            <span class="menu-title">Order</span>
+            <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="ui-order">
+            <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="{{ route('request.list',) }}">Oder
+                        Request
+                    </a></li>
+
+
+            </ul>
+        </div>
+    </li>
+
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#ui-customer" aria-expanded="false" aria-controls="ui-basic">
+            <i class="icon-disc menu-icon"></i>
+            <span class="menu-title">Customer</span>
+            <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="ui-customer">
+            <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="{{ route('customer.view') }}">Customer
+                        list</a></li>
+
+            </ul>
+        </div>
+    </li>
+
     <li class="nav-item">
         <a class="nav-link" href="">
             <i class="icon-pie-graph menu-icon"></i>

@@ -27,7 +27,7 @@ class ProductController extends Controller
             $product = Product::where('name', 'LIKE', '%' . $key . '%')
                 ->orWhere('price', 'LIKE', '%' . $key . '%')
                 ->get();
-            return view('admin.pages.product', compact('product', 'key'));
+            return view('admin.pages.product.product', compact('product', 'key'));
         }
         $product = Product::with('Category')->get();
         return view('admin.pages.product.product', compact('product'));
