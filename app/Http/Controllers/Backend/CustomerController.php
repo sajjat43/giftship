@@ -18,8 +18,6 @@ class CustomerController extends Controller
     public function customer_single_View($customer_id)
     {
         $customer = User::find($customer_id);
-
-
         return view('admin.pages.customer_single_view', compact('customer'));
     }
 

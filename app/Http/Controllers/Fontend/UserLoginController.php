@@ -112,7 +112,7 @@ class UserLoginController extends Controller
 
 public function CustomerOrderList($id){
     $request=RequestDetails::where('user_id',$id)->get();
-    // dd($request);
+    
     return view('website.pages.customer.customer_order_list',compact('request'));
 }
 
