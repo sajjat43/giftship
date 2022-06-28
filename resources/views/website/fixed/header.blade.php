@@ -4,7 +4,7 @@
             <div class="header-top top-bg d-none d-lg-block">
                 <div class="container-fluid">
                     <div class="col-xl-12">
-                        <div class="row d-flex justify-content-between align-items-center">
+                        <div class="d-flex justify-content-between align-items-center">
                             <div class="header-info-left d-flex">
                                 <div class="flag">
                                     <img src="{{ url('Frontend/assets/img/icon/Flag-of-Bangladesh-500x300.png') }}"
@@ -25,27 +25,28 @@
                                 </ul>
 
 
-                                <div class="header-info-right ">
-                                    <ul>
-                                        <li><a href="{{ route('customer.profile') }}">My
-                                                Account </a>
-                                        </li>
-                                        <li><a href="">Wish List </a></li>
-                                        @if (!auth()->user())
 
-                                        @else
-                                        <li><a href="{{route('customer.order.list.view',auth()->user()->id)}}">order
-                                                list</a></li>
+                            </div>
+                            <div class="header-info-right">
+                                <ul>
+                                    <li><a href="{{ route('customer.profile') }}">My
+                                            Account </a>
+                                    </li>
 
-                                        @endif
-                                        @if (!auth()->user())
-                                        <li><a href="{{ route('website.user.login') }}">Sign in</a></li>
-                                        @else
-                                        <li><a href="{{ route('user.logout') }}">({{ auth()->user()->name }})/Sign
-                                                out</a></li>
-                                        @endif
-                                    </ul>
-                                </div>
+                                    @if (!auth()->user())
+
+                                    @else
+                                    <li><a href="{{route('customer.order.list.view',auth()->user()->id)}}">order
+                                            list</a></li>
+
+                                    @endif
+                                    @if (!auth()->user())
+                                    <li><a href="{{ route('website.user.login') }}">Sign in</a></li>
+                                    @else
+                                    <li><a href="{{ route('user.logout') }}">({{ auth()->user()->name }})/Sign
+                                            out</a></li>
+                                    @endif
+                                </ul>
                             </div>
                         </div>
                     </div>
