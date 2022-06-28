@@ -30,7 +30,7 @@
                                         <li><a href="{{ route('customer.profile') }}">My
                                                 Account </a>
                                         </li>
-                                        <li><a href="product_list.html">Wish List </a></li>
+                                        <li><a href="">Wish List </a></li>
                                         @if (!auth()->user())
 
                                         @else

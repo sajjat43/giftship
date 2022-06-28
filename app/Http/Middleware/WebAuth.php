@@ -20,6 +20,6 @@ class WebAuth
 
             return $next($request);
         }
-        return redirect()->back()->with('message', 'please login first');
+        return redirect()->route('website.user.login')->with('success', 'please login first');
     }
 }

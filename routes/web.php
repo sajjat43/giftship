@@ -89,7 +89,7 @@ Route::get('/', function () {
     return view('website.master');
 })->name('website');
 Route::get('/', [HomeController::class, 'Home'])->name('manage.home');
-Route::group(['prefix' => '/', 'middleware' => 'auth'], function () {
+Route::group(['prefix' => '/', 'middleware' => 'web_auth'], function () {
 
 
 
