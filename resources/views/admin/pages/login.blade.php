@@ -25,42 +25,34 @@
                 <input type="submit" class="btn btn-block btn-login" placeholder="Enter your Password">
             </div>
         </div>
-        <div class="">
-            <h5>You need to regestation first.</h5>
-        </div>
-        <div class=""> <a type="button" class="btn btn-success" href="{{ route('User.regestation') }}">
-                Resestation</a></div>
-        </from>
-
     </div>
+</form>
 
 
+<style type="text/css">
+    body {
+        background-color: #5286F3;
+        font-size: 14px;
+        color: #fff;
+    }
 
-    <style type="text/css">
-        body {
-            background-color: #5286F3;
-            font-size: 14px;
-            color: #fff;
-        }
+    .simple-login-container {
+        width: 300px;
+        max-width: 100%;
+        margin: 50px auto;
+    }
 
-        .simple-login-container {
-            width: 300px;
-            max-width: 100%;
-            margin: 50px auto;
-        }
+    .simple-login-container h2 {
+        text-align: center;
+        font-size: 20px;
+    }
 
-        .simple-login-container h2 {
-            text-align: center;
-            font-size: 20px;
-        }
+    .simple-login-container .btn-login {
+        background-color: #FF5964;
+        color: #fff;
+    }
 
-        .simple-login-container .btn-login {
-            background-color: #FF5964;
-            color: #fff;
-        }
-
-        a {
-            color: #fff;
-        }
-
-    </style>
+    a {
+        color: #fff;
+    }
+</style>

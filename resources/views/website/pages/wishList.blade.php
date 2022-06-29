@@ -15,21 +15,21 @@
 
 <body>
     @if (session()->has('message'))
-        <p class="alert alert-success">
-            {{ session()->get('message') }}
-        </p>
+    <p class="alert alert-success">
+        {{ session()->get('message') }}
+    </p>
     @endif
 
     @if ($errors->any())
-        <div class="alert alert-danger">
-            <ul>
-                @foreach ($errors->all() as $error)
-                    <li>
-                        {{ $error }}
-                    </li>
-                @endforeach
-            </ul>
-        </div>
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>
+                {{ $error }}
+            </li>
+            @endforeach
+        </ul>
+    </div>
     @endif
     <style>
         .cart {
@@ -44,7 +44,6 @@
             color: black;
             border-radius: 8px;
         }
-
     </style>
     <div class='cart'>
         {{-- ------------------------------------- --}}
@@ -68,20 +67,20 @@
                     {{-- @dd($carts) --}}
                     @if ($wishList)
 
-                        @foreach ($wishList as $key => $item)
-                            {{-- @dd($wishList) --}}
-                            <tr>
-                                {{-- <th scope="row">{{ $item['product_name'] }}</th> --}}
-                                <td>{{ $item['product_name'] }}</td>
+                    @foreach ($wishList as $key => $item)
+                    {{-- @dd($wishList) --}}
+                    <tr>
+                        {{-- <th scope="row">{{ $item['product_name'] }}</th> --}}
+                        <td>{{ $item['product_name'] }}</td>
 
-                                <td>{{ $item['product_price'] }}</td>
-                                {{-- <td><a href="{{ route('add.to.cart', $item->product->id) }}" class="btn btn-primary">add
-                                    cart</a></td> --}}
+                        <td>{{ $item['product_price'] }}</td>
+                        {{-- <td><a href="{{ route('add.to.cart', $item->product->id) }}" class="btn btn-primary">add
+                                cart</a></td> --}}
 
-                            </tr>
-                        @endforeach
+                    </tr>
+                    @endforeach
 
-                        </td>
+                    </td>
                     @endif
 
                 </tbody>
@@ -109,5 +108,6 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
 </body>
+
 
 </html>
