@@ -124,17 +124,17 @@
                                     class="btn btn-info col-md-6 text-center">add
                                     cart</a>
                                 <div>
-                                    <a  href="{{ route('add.to.wishlist', $latest->id) }}"
-                                        type="button"><i class="far fa-heart"></i>
-                                        
+                                    <a href="{{ route('add.to.wishlist', $latest->id) }}" type="button"><i
+                                            class="far fa-heart"></i>
+
                                     </a>
                                 </div>
                             </div>
                             @else
                             <label class="badge bg-danger">Stock Out</label>
-                            <a  href="{{ route('add.to.wishlist', $latest->id) }}" type="button"><i
+                            <a href="{{ route('add.to.wishlist', $latest->id) }}" type="button"><i
                                     class="far fa-heart"></i>
-                                
+
                             </a>
                             @endif
                         </div>
@@ -192,17 +192,17 @@
                                 <div class="container "> <a href="{{ route('add.to.cart', $item->id) }}"
                                         class="btn btn-info col-md-6 text-center">add
                                         cart</a>
-                                    <a  href="{{ route('add.to.wishlist', $item->id) }}" type="button"><i
+                                    <a href="{{ route('add.to.wishlist', $item->id) }}" type="button"><i
                                             class="far fa-heart"></i>
-                                       
+
                                     </a>
                                 </div>
                                 @else
                                 <label class="badge bg-danger text-center" style="width: 80px">Stock
                                     Out</label>
-                                <a  href="{{ route('add.to.wishlist', $item->id) }}" type="button"><i
+                                <a href="{{ route('add.to.wishlist', $item->id) }}" type="button"><i
                                         class="far fa-heart"></i>
-                                    
+
                                 </a>
                                 @endif
                             </div>
@@ -540,15 +540,12 @@
                                 </div>
                                 <div class="mask">
                                     <ul>
-                                        <li><a href="{{ route('product.single.view', $product->id) }}"
+                                        <li>
+                                            <a href="{{ route('product.single.view', $product->id) }}"
                                                 data-toggle="tooltip" data-placement="right" title="View"><i
-                                                    class="fas fa-eye"></i></a>
-                                            {{--
-                                        <li><a href="{{ route('product.single.view', $product->id) }}"
-                                                data-toggle="tooltip" data-placement="right" title="View">view<i
-                                                    class="fas fa-eye"></i></a>
-                                        </li> --}}
-
+                                                    class="fas fa-eye"></i>
+                                            </a>
+                                        </li>
                                     </ul>
                                     <a href="{{ route('product.single.view', $product->id) }}">view detials</a>
                                 </div>

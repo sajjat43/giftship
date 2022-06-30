@@ -45,7 +45,6 @@
                         <td><img src="{{ url('uploads/uploads/Brand/' . $data->Bimage) }}" style="border-radius:4px"
                                 width="100px" alt="Brand image"></td>
                         <td>
-                            <a href="" class="btn btn-info">View</a>
                             <a href="" class="btn btn-success"><i
                                 class="fa-solid fa-pen-to-square"></i></a>
                             {{-- <a href="{{route('product.category.delete', $data->Cid)}}"

@@ -55,18 +55,15 @@
                                             <th>Quantity</th>
                                             <th>Price</th>
                                             <th>sub total</th>
-
                                             <th>Status</th>
-
-
 
                                         </tr>
                                     </thead>
                                     <tbody>
+                                        {{-- @dd($request) --}}
                                         @foreach ($request->details as $key => $request)
                                         <tr>
                                             <td>{{ $request->product->name }}</td>
-
                                             <td>{{ $request->quantity }}</td>
                                             <td>{{ $request->price }}</td>
                                             <td>{{ $request->sub_total }}</td>

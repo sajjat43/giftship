@@ -41,21 +41,7 @@
     </ul>
     </a>
     </li>
-    <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" href="#ui-product" aria-expanded="false" aria-controls="ui-basic">
-            <i class="icon-disc menu-icon"></i>
-            <span class="menu-title">Product</span>
-            <i class="menu-arrow"></i>
-        </a>
-        <div class="collapse" id="ui-product">
-            <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route('product.create') }}">Create
-                        Product</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('product.view') }}">Product
-                        List</a></li>
-            </ul>
-        </div>
-    </li>
+
     <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#ui-category" aria-expanded="false" aria-controls="ui-basic">
             <i class="icon-disc menu-icon"></i>
@@ -70,6 +56,23 @@
 
                 <li class="nav-item"> <a class="nav-link" href="{{ route('product.category.view') }}">Category view</a>
                 </li>
+            </ul>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#ui-subCategory" aria-expanded="false"
+            aria-controls="ui-basic">
+            <i class="icon-disc menu-icon"></i>
+            <span class="menu-title">SubCategory</span>
+            <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="ui-subCategory">
+            <ul class="nav flex-column sub-menu">
+                <li class="nav-item"> <a class="nav-link" href="{{ route('product.subCategory.create') }}">Create
+                        SubCategory</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('product.subCategory.view') }}">view
+                        SubCategory</a></li>
+
 
             </ul>
         </div>
@@ -92,20 +95,17 @@
         </div>
     </li>
     <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" href="#ui-subCategory" aria-expanded="false"
-            aria-controls="ui-basic">
+        <a class="nav-link" data-toggle="collapse" href="#ui-product" aria-expanded="false" aria-controls="ui-basic">
             <i class="icon-disc menu-icon"></i>
-            <span class="menu-title">SubCategory</span>
+            <span class="menu-title">Product</span>
             <i class="menu-arrow"></i>
         </a>
-        <div class="collapse" id="ui-subCategory">
+        <div class="collapse" id="ui-product">
             <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route('product.subCategory.create') }}">Create
-                        SubCategory</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('product.subCategory.view') }}">view
-                        SubCategory</a></li>
-
-
+                <li class="nav-item"> <a class="nav-link" href="{{ route('product.create') }}">Create
+                        Product</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('product.view') }}">Product
+                        List</a></li>
             </ul>
         </div>
     </li>
@@ -121,8 +121,6 @@
                 <li class="nav-item"><a class="nav-link" href="{{ route('request.list',) }}">Oder
                         Request
                     </a></li>
-
-
             </ul>
         </div>
     </li>

@@ -136,7 +136,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     })->name('home');
 
     Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
-    // Route::match(['get','post'],"/login",[AdminController::class,'login'])->name('login.view');
+    // Route::match(['get','post'],"/login",[AdminContrwisholler::class,'login'])->name('login.view');
     // Route::match(['get','post'],"/form/login",[AdminController::class,'login']);
     //login route
 
