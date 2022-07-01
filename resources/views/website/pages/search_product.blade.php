@@ -4,7 +4,6 @@
 <div class="container">
     <div class="row special-list">
 
-
         @foreach ($product as $product)
         <div class="col-lg-4 col-md-6 special-grid best-seller shedo gx-5 ">
             <a href="{{ route('product.single.view', $product->id) }}">
@@ -15,8 +14,6 @@
                             {{-- <p class="sale"></p> --}}
                         </div>
                         <div class="image">
-
-
                             <img style="height: 200px" src="{{ url('/uploads/uploads/product/', $product->image) }}"
                                 class="img-fluid" alt="Image">
                         </div>

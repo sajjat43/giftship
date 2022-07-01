@@ -150,8 +150,9 @@
                                 </form>
                                 <li class=" d-none d-xl-block">
                                     <div class="favorit-items">
-                                        <a href="{{ route('wishlist.view') }}"><i class="far fa-heart"></i>{{
-                                            session()->has('wishList') ? count(session()->get('wishList')) : 0 }}</a>
+                                        <a href="{{ route('wishlist.view') }}"><i
+                                                class="far fa-heart">{{session()->has('wishlist') ?
+                                                count(session()->get('wishlist')) : 0 }}</i></a>
                                     </div>
                                 </li>
                                 <li>

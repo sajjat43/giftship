@@ -35,8 +35,9 @@
         .cart {
             margin: 60px;
 
-        }    
-            .homeButton {
+        }
+
+        .homeButton {
             padding: 20px;
             text-decoration: none;
             background-color: #c5b8b8;
@@ -47,15 +48,16 @@
     <div class='cart'>
         {{-- ------------------------------------- --}}
         <a class="homeButton" href="{{ route('manage.home') }}">Home</a>
-        <h1 style="padding-top: 100px;">You have({{ session()->has('cart') ? count(session()->get('cart')) : 0 }})
+        <h1 style="padding-top: 100px;">You have ({{session()->has('wishlist') ? count(session()->get('wishlist')) : 0 }})
             product
         </h1>
         {{-- @dd(session()->has('cart')) --}}
         <div class="container py-5">
+
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        {{-- <th scope="col">#</th> --}}
                         <th scope="col">Product Name</th>
                         <th scope="col">Price</th>
                         <th scope="col">Action</th>
@@ -68,7 +70,7 @@
 
                     @foreach ($wishList as $key => $item)
                     <tr>
-                        {{-- <th scope="row">{{ $key+1 }}</th> --}}
+                        {{-- <th scope="row">{{ $item['id'] }}</th> --}}
                         <td>{{ $item['product_name'] }}</td>
                         <td>{{ $item['product_price'] }}</td>
                     </tr>

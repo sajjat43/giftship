@@ -12,7 +12,9 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/fontawesome.min.css"
+        integrity="sha512-xX2rYBFJSj86W54Fyv1de80DWBq7zYLn2z0I9bIhQG+rxIF6XVJUpdGnsNHWRa6AvP89vtFupEPDP8eZAtu9qA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet"
         href="{{ url('Frontend/assets/css/bootstrap.min.css%2bowl.carousel.min.css%2bflaticon.css%2bslicknav.css%2banimate.min.css%2bmagnific-popup.css%2bfontawesome-all.min.css%2bthemify-icons.css%2bslick.css') }}" />
     <link rel="stylesheet" href="owlcarousel/owl.carousel.min.css">
@@ -57,7 +59,8 @@
             </div>
         </div> --}}
     </div {{-- header goes here --}} @include('website.fixed.header') @yield('content') {{-- footer goes here --}}
-        @include('website.fixed.footer') <script src="{{ url('Frontend/assets/js/vendor/modernizr-3.5.0.min.js') }}"></script>
+        @include('website.fixed.footer') <script src="{{ url('Frontend/assets/js/vendor/modernizr-3.5.0.min.js') }}">
+    </script>
 
     <script src="{{ url('Frontend/assets/js/vendor/jquery-1.12.4.min.js') }}"></script>
     <script
@@ -144,7 +147,8 @@
 
         gtag('config', 'UA-23581568-13');
     </script>
-    <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194"
+    <script defer
+        src="https://static.cloudflareinsights.com/beacon.min.js/v652eace1692a40cfa3763df669d7439c1639079717194"
         integrity="sha512-Gi7xpJR8tSkrpF7aordPZQlW2DLtzUlZcumS8dMQjwDHEnw9I7ZLyiOj/6tZStRBGtGgN6ceN6cMH8z7etPGlw=="
         data-cf-beacon='{"rayId":"6c488e9a3f32e9a7","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2021.12.0","si":100}'
         crossorigin="anonymous"></script>
