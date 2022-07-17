@@ -66,14 +66,11 @@
                         <img src="{{ url('/uploads/uploads/product/', $product->image) }}" width="100%"
                             class="small-img" alt="">
                     </div>
-
                     <div class="small-img-col">
                         <img src="{{ url('/uploads/uploads/product/', $product->image) }}" width="100%"
                             class="small-img" alt="">
                     </div>
                 </div>
-
-
             </div>
             <div class="col-lg-6 col-md-12 col-12">
                 <h6>product/single/view </h6>

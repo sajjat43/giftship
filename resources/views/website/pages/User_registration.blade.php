@@ -37,10 +37,7 @@
                 <input type="password" class="form-control" id="exampleInputPassword1" name="password"
                     placeholder="Password">
             </div>
-            {{-- <div class="form-group">
-        <label for="exampleInputPassword1">Password</label>
-        <input type="password" class="form-control" id="exampleInputPassword1" name="re_password" placeholder="Enter your Password again">
-      </div> --}}
+          
             <div class="form-group">
                 <label for="exampleInputPassword1">Mobile</label>
                 <input type="number" class="form-control" id="exampleInputPassword1" name="mobile"
@@ -78,7 +75,6 @@
                     </div>
                 </div>
             </fieldset>
-
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>
     </div>

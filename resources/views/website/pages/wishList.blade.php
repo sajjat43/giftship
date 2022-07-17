@@ -46,12 +46,12 @@
         }
     </style>
     <div class='cart'>
-        {{-- ------------------------------------- --}}
+       
         <a class="homeButton" href="{{ route('manage.home') }}">Home</a>
         <h1 style="padding-top: 100px;">You have ({{session()->has('wishlist') ? count(session()->get('wishlist')) : 0 }})
             product
         </h1>
-        {{-- @dd(session()->has('cart')) --}}
+      
         <div class="container py-5">
 
             <table class="table">
@@ -61,11 +61,11 @@
                         <th scope="col">Product Name</th>
                         <th scope="col">Price</th>
                         <th scope="col">Action</th>
-                        {{-- <th scope="col">remove</th> --}}
+                        
                     </tr>
                 </thead>
                 <tbody>
-                    {{-- @dd($carts) --}}
+                   
                     @if ($wishList)
 
                     @foreach ($wishList as $key => $item)
@@ -84,10 +84,7 @@
             </table>
             <a href="{{ route('clear.wishlist') }}" class="btn btn-danger">Clear Cart</a>
         </div>
-        {{-- <div class="card-footer">
-
-        </div> --}}
-
+        
         {{-- <a href="{{ route('check.out') }}" class="btn btn-success ">Buy Now</a> --}}
 
 
