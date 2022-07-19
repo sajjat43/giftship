@@ -125,7 +125,7 @@ public function customerUpdate($id){
 
 public function customerUpdateStore(Request $request,$id){
     $user =auth()->user()->id;
-    $image_name = null;
+    $image_name = auth()->user()->image;
     if ($request->hasfile('image')) {
         $image_name = date('Ymdhis') . '.' . $request->file('image')->getClientOriginalExtension();
         $request->file('image')->storeAs('/uploads/users/', $image_name);
@@ -136,7 +136,7 @@ public function customerUpdateStore(Request $request,$id){
             'email' => 'required',
             'mobile' => 'required',
             'address' => 'required',
-            'gender' => 'required',
+            
             
 
         ]);
