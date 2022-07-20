@@ -32,12 +32,6 @@
                 aria-describedby="emailHelp" placeholder="Enter email">
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
         </div>
-
-        {{-- <div class="form-group">
-            <label for="exampleInputPassword1">Password</label>
-            <input type="password" class="form-control" id="exampleInputPassword1" name="re_password"
-                placeholder="Enter your Password again">
-        </div> --}}
         <div class="form-group">
             <label for="exampleInputPassword1">Mobile</label>
             <input type="number" value="{{ auth()->user()->mobile }}" class="form-control" id="exampleInputPassword1"
