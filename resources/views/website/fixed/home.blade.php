@@ -68,36 +68,7 @@
             </div>
         </div>
     </div>
-    {{-- latest---------------------------------------- / --}}
-    {{-- <div id="myCarousel" class="carousel slide" data-ride="carousel">
-        <!-- Indicators -->
-        <ol class="carousel-indicators">
-            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-            <li data-target="#myCarousel" data-slide-to="1"></li>
-            <li data-target="#myCarousel" data-slide-to="2"></li>
-        </ol>
-
-        <!-- Wrapper for slides -->
-        <div class="carousel-inner">
-
-            <div class="item active">
-                @foreach ($latestProduct as $latest)
-                <img src="{{ url('/uploads/uploads/product/', $latest->image) }}" alt="product image">
-                @endforeach
-            </div>
-
-        </div>
-
-        <!-- Left and right controls -->
-        <a class="left carousel-control" href="#myCarousel" data-slide="prev">
-            <span class="glyphicon glyphicon-chevron-left"></span>
-            <span class="sr-only">Previous</span>
-        </a>
-        <a class="right carousel-control" href="#myCarousel" data-slide="next">
-            <span class="glyphicon glyphicon-chevron-right"></span>
-            <span class="sr-only">Next</span>
-        </a>
-    </div> --}}
+    
 
 
     {{-- latest product start --}}
@@ -241,7 +212,7 @@
             <div class="row">
 
 
-
+{{-- =============================== shop by category ================================== --}}
 
                 {{-- cateogry --}}
                 <style>
@@ -309,39 +280,9 @@
             </div>
         </div>
 
-        {{-- =============================== shop by category ================================== --}}
+        
 
-        {{-- <section class="categories">
-
-            <div class="container">
-                <div class="container-fluid">
-                    <div class="row">
-                        @foreach ($categories as $key => $data)
-                        <div class="col-md-1"></div>
-                        <div class=" col-md-4  p-0">
-
-                            <div class="categories__item set-bg gx-5" data-setbg="">
-                                <img src="{{ url('uploads/uploads/category/', $data->Cimage) }}" class="img-fluid"
-                                    alt="category image">
-                                <div class="categories__text">
-                                    <h4>{{ $data->Cname }}</h4>
-                                    <p>{{ $data->Cdescription }}</p> --}}
-                                    {{-- <a href="{{ route('shop.catagory', $data->Cid) }}" class="btn btn-primary">Shop
-                                        now</a> --}}
-                                    {{-- <a href="{{ route('product.under.catagory', $data->id) }}"
-                                        class="btn btn-primary shop">Shop now</a>
-                                </div>
-                            </div>
-
-                        </div>
-                        <div class="col-md-1"></div>
-                        @endforeach
-
-                    </div>
-                </div>
-            </div>
-
-        </section> --}}
+    
 
 
 
@@ -352,45 +293,6 @@
 
 
 
-
-        {{-- <div class="col-xl-4 col-lg-6">
-            <div class="single-category mb-30">
-                <div class="category-img">
-                    <img src="{{url('Frontend/assets/img/categori/xcat1.jpg.pagespeed.ic.O08VptWAEH.jpg')}}" alt="">
-                    <div class="category-caption">
-                        <h2>Owmen`s</h2>
-                        <span class="best"><a href="#">Best New Deals</a></span>
-                        <span class="collection">New Collection</span>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-        {{-- <div class="col-xl-4 col-lg-6">
-            <div class="single-category mb-30">
-                <div class="category-img text-center">
-                    <img src="{{url('Frontend/assets/img/categori/xcat2.jpg.pagespeed.ic.C7_93LfgY4.jpg')}}" alt="">
-                    <div class="category-caption">
-                        <span class="collection">Discount!</span>
-                        <h2>Winter Cloth</h2>
-                        <p>New Collection</p>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-        {{-- <div class="col-xl-4 col-lg-6">
-            <div class="single-category mb-30">
-                <div class="category-img">
-                    <img src="{{url('Frontend/assets/img/categori/xcat3.jpg.pagespeed.ic.kefuyYjmzI.jpg')}}" alt="">
-                    <div class="category-caption">
-                        <h2>Man`s Cloth</h2>
-                        <span class="best"><a href="#">Best New Deals</a></span>
-                        <span class="collection">New Collection</span>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
-        {{-- </div>
-        </div> --}}
     </section>
 
 
@@ -405,44 +307,11 @@
                 </div>
                 <div class="col-xl-8 col-lg-7 col-md-7">
                     <div class="properties__button f-right">
-
-                        {{-- <nav>
-                            <div class="nav nav-tabs" id="nav-tab" role="tablist">
-                                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home"
-                                    role="tab" aria-controls="nav-home" aria-selected="true">All</a>
-                                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile"
-                                    role="tab" aria-controls="nav-profile" aria-selected="false">New</a>
-                                <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact"
-                                    role="tab" aria-controls="nav-contact" aria-selected="false">Featured</a>
-                                <a class="nav-item nav-link" id="nav-last-tab" data-toggle="tab" href="#nav-last"
-                                    role="tab" aria-controls="nav-contact" aria-selected="false">Offer</a>
-                            </div>
-                        </nav> --}}
-
                     </div>
                 </div>
             </div>
 
-            {{-- text carousel --}}
-            {{-- <div class="col-lg-3 col-md-6 special-grid top-featured">
-                <div class="products-single fix">
-                    @foreach ($product as $product)
-                    <a href="{{route('crisis.view', $product->id)}}">
-                        <img class="product-image" style="width: 150px; height: 150px"
-                            src="{{url('/uploads/uploads/product/'.$product->image)}}" alt="Item 1">
-                        <div class="box-img-hover">
-                            <div class="mask-icon">
-
-                                <a class="cart" href="#" type="btn btn-success">Add to Cart</a>
-                            </div>
-                        </div>
-                        <div class="why-text">
-                            <h4>{{$product->name}}</h4>
-                            <h5>BDT: {{$product->price}}</h5>
-                        </div>
-                        @endforeach
-                </div>
-            </div> --}}
+           
             {{-- ------------------------product style --}}
             <style>
                 .best-seller {
@@ -591,40 +460,6 @@
         </div>
 
 
-
-
-
-
-
-
-        {{-- <div class="gallery-wrapper lf-padding">
-            <div class="gallery-area">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="gallery-items">
-                            <img src="{{ url('Frontend/assets/img/gallery/xgallery1.jpg.pagespeed.ic.vLqzDjhJUZ.jpg') }}"
-                                alt="">
-                        </div>
-                        <div class="gallery-items">
-                            <img src="{{ url('Frontend/assets/img/gallery/xgallery2.jpg.pagespeed.ic.L2xM7uh2Xk.jpg') }}"
-                                alt="">
-                        </div>
-                        <div class="gallery-items">
-                            <img src="{{ url('Frontend/assets/img/gallery/xgallery3.jpg.pagespeed.ic.mB-kgLdr08.jpg') }}"
-                                alt="">
-                        </div>
-                        <div class="gallery-items">
-                            <img src="{{ url('Frontend/assets/img/gallery/xgallery4.jpg.pagespeed.ic.QOWWARNbVe.jpg') }}"
-                                alt="">
-                        </div>
-                        <div class="gallery-items">
-                            <img src="{{ url('Frontend/assets/img/gallery/xgallery5.jpg.pagespeed.ic.i5qoUrRGe1.jpg') }}"
-                                alt="">
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> --}}
 </main>
 <script>
     $('.product-carousel').slick({
