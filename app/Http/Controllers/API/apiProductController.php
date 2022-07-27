@@ -78,7 +78,6 @@ class apiProductController extends Controller
  }
  public function viewCategory(){
     $category=Category::all();
-    
     return $this->responseWithSuccess($category,'category list loaded');
  }
  

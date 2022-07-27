@@ -100,7 +100,7 @@
     </div> --}}
 
 
-
+    {{-- latest product start --}}
 
     <div class="py-5">
         <div class="container">
@@ -120,9 +120,11 @@
                             @if ($latest->qty > 0)
                             <label class="badge bg-success text-center" style="width: 80px">In Stock</label>
                             <div class="latest ">
-                                <a href="{{ route('add.to.cart', $latest->id) }}"
-                                    class="btn btn-info col-md-6 text-center">add
-                                    cart</a>
+                                <div>
+                                    <a href="{{ route('add.to.cart', $latest->id) }}"
+                                        class="btn btn-info col-md-12 text-center">add
+                                        cart</a>
+                                </div>
                                 <div>
                                     <a href="{{ route('add.to.wishlist', $latest->id) }}" type="button"><i
                                             class="far fa-heart"></i>
@@ -131,11 +133,13 @@
                                 </div>
                             </div>
                             @else
-                            <label class="badge bg-danger">Stock Out</label>
-                            <a href="{{ route('add.to.wishlist', $latest->id) }}" type="button"><i
-                                    class="far fa-heart"></i>
+                            <div>
+                                <label class="badge bg-danger">Stock Out</label>
+                                <a href="{{ route('add.to.wishlist', $latest->id) }}" type="button"><i
+                                        class="far fa-heart"></i>
 
-                            </a>
+                                </a>
+                            </div>
                             @endif
                         </div>
                     </div>
@@ -167,6 +171,8 @@
 
         .latest {
             margin-top: 20px;
+            display: flex;
+            justify-content: space-evenly;
         }
     </style>
 
@@ -194,7 +200,6 @@
                                         cart</a>
                                     <a href="{{ route('add.to.wishlist', $item->id) }}" type="button"><i
                                             class="far fa-heart"></i>
-
                                     </a>
                                 </div>
                                 @else
