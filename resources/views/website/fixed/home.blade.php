@@ -74,10 +74,10 @@
     {{-- latest product start --}}
 
     <div class="py-5">
-        <div class="container">
+        <div class="container ">
             <div class="row">
                 <h2 class="text-center py-5">Latest Product</h2>
-                <div class="owl-carousel featured-carousel owl-theme">
+                <div id="product-carousel" class="owl-carousel  featured-carousel owl-theme">
                     @foreach ($latestProduct as $latest)
                     {{-- @dd($data) --}}
                     <div class="item ">
@@ -108,7 +108,6 @@
                                 <label class="badge bg-danger">Stock Out</label>
                                 <a href="{{ route('add.to.wishlist', $latest->id) }}" type="button"><i
                                         class="far fa-heart"></i>
-
                                 </a>
                             </div>
                             @endif
@@ -154,9 +153,9 @@
         <div class="container">
             <div class="row">
                 <h2 class="text-center py-5"><strong>Featured Product</strong></h2>
-                <div class="owl-carousel featured-carousel owl-theme">
+                <div id="product-carousel" class="owl-carousel featured-carousel owl-theme">
                     @foreach ($featuredProduct as $item)
-                    {{-- @dd($data) --}}
+                
                     <div class="item ">
                         <div class="card  py-2">
                             <img style="height: 219px; width: 215px;"
@@ -189,10 +188,6 @@
             </div>
         </div>
     </div>
-
-
-
-
 
 
 
@@ -281,15 +276,6 @@
         </div>
 
         
-
-    
-
-
-
-
-
-
-
 
 
 
@@ -462,7 +448,7 @@
 
 </main>
 <script>
-    $('.product-carousel').slick({
+    $('#product-carousel').slick({
             lazyLoad: 'ondemand',
             slidesToShow: 4,
             slidesToScroll: 1,
@@ -491,9 +477,6 @@
                         slidesToScroll: 1
                     }
                 }
-                // You can unslick at a given breakpoint now by adding:
-                // settings: "unslick"
-                // instead of a settings object
             ]
         });
 </script>

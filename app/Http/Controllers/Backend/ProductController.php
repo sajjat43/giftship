@@ -449,6 +449,7 @@ class ProductController extends Controller
                 session()->put('cart', $carts);
                 return redirect()->back()->with('message', 'Quantity update');
             }
+            
             return redirect()->back()->with('message', 'Negative Quantity Not possible');
         }
         return redirect()->back()->with('message', 'Sorry Quantity is not abliable');
