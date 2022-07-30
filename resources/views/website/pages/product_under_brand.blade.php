@@ -112,13 +112,17 @@
                     </div>
                 </div>
                 <div class="why-text detailscart">
+                    @if ($product->qty > 0)
+                    <label class="badge bg-success text-center" style="width: 80px">In Stock</label>
+                    @else
+                    <label class="badge bg-danger text-center" style="width: 80px">Stock
+                        Out</label>
+                    @endif
                     <h4>{{ $product->name }}</h4>
                     <h5>BDT: {{ $product->price }}</h5>
                     <h5> {{ $product->description }}</h5>
                     @if ($product->qty > 0)
                     <div class="container">
-                        <label class="badge bg-success text-center" style="width: 80px">In
-                            Stock</label>
                         <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn-primary">add
                             cart</a>
                         <a class="addwish" href="{{ route('add.to.wishlist', $product->id) }}"
@@ -128,8 +132,7 @@
 
                     </div>
                     @else
-                    <label class="badge bg-danger text-center" style="width: 80px">Stock
-                        Out</label>
+                   
                     <a class="addwish" href="{{ route('add.to.wishlist', $product->id) }}" type="button"><i
                             class="far fa-heart"></i>
                         <h5 class="wish">Add to wishlist</h5>

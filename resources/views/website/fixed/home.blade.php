@@ -68,7 +68,7 @@
             </div>
         </div>
     </div>
-    
+
 
 
     {{-- latest product start --}}
@@ -85,11 +85,17 @@
                             <img style="height: 219px; width: 215px;"
                                 src="{{ url('/uploads/uploads/product/', $latest->image) }}" alt="product image">
                             <div class="card-body">
+                                @if ($latest->qty > 0)
+                                <label class="badge bg-success text-center" style="width: 80px">In Stock</label>
+                                @else
+                                <label class="badge bg-danger text-center" style="width: 80px">Stock
+                                    Out</label>
+                                @endif
                                 <h5>Name: {{ $latest->name }}</h5>
                                 <span class="float-start">Price: {{ $latest->price }} .BDT</span>
                             </div>
                             @if ($latest->qty > 0)
-                            <label class="badge bg-success text-center" style="width: 80px">In Stock</label>
+
                             <div class="latest ">
                                 <div>
                                     <a href="{{ route('add.to.cart', $latest->id) }}"
@@ -105,7 +111,7 @@
                             </div>
                             @else
                             <div>
-                                <label class="badge bg-danger">Stock Out</label>
+
                                 <a href="{{ route('add.to.wishlist', $latest->id) }}" type="button"><i
                                         class="far fa-heart"></i>
                                 </a>
@@ -155,16 +161,22 @@
                 <h2 class="text-center py-5"><strong>Featured Product</strong></h2>
                 <div id="product-carousel" class="owl-carousel featured-carousel owl-theme">
                     @foreach ($featuredProduct as $item)
-                
+
                     <div class="item ">
                         <div class="card  py-2">
                             <img style="height: 219px; width: 215px;"
-                                src="{{ url('/uploads/uploads/product/', $item->image) }}" alt="product image">
+                                src="{{ url('/uploads/uploads/product/'. $item->image) }}" alt="product image">
                             <div class="card-body">
+                                @if ($item->qty > 0)
+                                <label class="badge bg-success text-center" style="width: 80px">In Stock</label>
+                                @else
+                                <label class="badge bg-danger text-center" style="width: 80px">Stock
+                                    Out</label>
+                                @endif
                                 <h5>Name: {{ $item->name }}</h5>
                                 <span class="float-start">Price: {{ $item->price }} .BDT</span>
                                 @if ($item->qty > 0)
-                                <label class="badge bg-success text-center" style="width: 80px">In Stock</label>
+
                                 <div class="container "> <a href="{{ route('add.to.cart', $item->id) }}"
                                         class="btn btn-info col-md-6 text-center">add
                                         cart</a>
@@ -173,8 +185,7 @@
                                     </a>
                                 </div>
                                 @else
-                                <label class="badge bg-danger text-center" style="width: 80px">Stock
-                                    Out</label>
+
                                 <a href="{{ route('add.to.wishlist', $item->id) }}" type="button"><i
                                         class="far fa-heart"></i>
 
@@ -207,7 +218,7 @@
             <div class="row">
 
 
-{{-- =============================== shop by category ================================== --}}
+                {{-- =============================== shop by category ================================== --}}
 
                 {{-- cateogry --}}
                 <style>
@@ -275,7 +286,7 @@
             </div>
         </div>
 
-        
+
 
 
 
@@ -297,7 +308,7 @@
                 </div>
             </div>
 
-           
+
             {{-- ------------------------product style --}}
             <style>
                 .best-seller {
@@ -410,14 +421,21 @@
                                     <a href="{{ route('product.single.view', $product->id) }}">view detials</a>
                                 </div>
                             </div>
+                            <div>
+                                @if ($product->qty > 0)
+                                <label class="badge bg-success text-center" style="width: 80px">In Stock</label>
+                                @else
+                                <label class="badge bg-danger text-center" style="width: 80px">Stock
+                                    Out</label>
+                                @endif
+                            </div>
                             <div class="why-text detailscart">
                                 <h4>{{ $product->name }}</h4>
                                 <h5>BDT: {{ $product->price }}</h5>
                                 <h5> {{ $product->description }}</h5>
                                 @if ($product->qty > 0)
                                 <div class="container">
-                                    <label class="badge bg-success text-center" style="width: 80px">In
-                                        Stock</label>
+
                                     <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn-primary">add
                                         cart</a>
                                     <a class="addwish" href="{{ route('add.to.wishlist', $product->id) }}"
@@ -427,8 +445,7 @@
 
                                 </div>
                                 @else
-                                <label class="badge bg-danger text-center" style="width: 80px">Stock
-                                    Out</label>
+
                                 <a class="addwish" href="{{ route('add.to.wishlist', $product->id) }}" type="button"><i
                                         class="far fa-heart"></i>
                                     <h5 class="wish">Add to wishlist</h5>
