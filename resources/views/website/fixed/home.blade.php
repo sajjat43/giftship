@@ -263,11 +263,7 @@
                                                 <li><a href="{{ route('shop.catagory', $data->Cid) }}"
                                                         data-toggle="tooltip" data-placement="right" title="View"><i
                                                             class="fas fa-eye"></i></a></li>
-                                                {{-- <li><a href="#" data-toggle="tooltip" data-placement="right"
-                                                        title="Compare"><i class="fas fa-sync-alt"></i></a></li>
-                                                <li><a href="#" data-toggle="tooltip" data-placement="right"
-                                                        title="Add to Wishlist"><i class="far fa-heart"></i></a></li>
-                                                --}}
+            
                                             </ul>
                                         </div>
                                     </div>
@@ -442,10 +438,8 @@
                                         type="button"><i class="far fa-heart"></i>
                                         <h5 class="wish">Add to wishlist</h5>
                                     </a>
-
                                 </div>
                                 @else
-
                                 <a class="addwish" href="{{ route('add.to.wishlist', $product->id) }}" type="button"><i
                                         class="far fa-heart"></i>
                                     <h5 class="wish">Add to wishlist</h5>
