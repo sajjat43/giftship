@@ -362,9 +362,6 @@ class ProductController extends Controller
     }
 
 
-
-
-
     public function cartview()
     {
         $carts = session()->get('cart');
@@ -496,7 +493,8 @@ class ProductController extends Controller
 
     public function checkOut_form()
     {
-        return view('website.pages.checkOut');
+        $carts = session()->get('cart');
+        return view('website.pages.checkOut',compact('carts'));
     }
     public function checkOut_store(Request $request)
     {

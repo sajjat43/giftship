@@ -94,8 +94,6 @@
                 </tr>
                 @endforeach
 
-
-
                 @endif
             </div>
 
@@ -122,12 +120,5 @@
 
 {{-- <a href="{{ route('check.out') }}" class="btn btn-success ">Buy Now</a> --}}
 
-
-
-
-
 </div>
-
-
-
 @endsection
