@@ -42,6 +42,12 @@
     .btn-danger {
         background-color: red;
     }
+
+    .up {}
+
+    .s {
+        float: right;
+    }
 </style>
 <div class='cart'>
     {{-- ------------------------------------- --}}
@@ -62,42 +68,62 @@
             </tr>
         </thead>
         <tbody>
-            {{-- @dd($carts) --}}
-            @if ($carts)
+            <div>
+                @if ($carts)
 
-            @foreach ($carts as $key => $data)
-            <tr>
-                <th scope="row">{{ $key }}</th>
-                <td>{{ $data['product_name'] }}</td>
+                @foreach ($carts as $key => $data)
+                <tr>
+                    <th scope="row">{{ $key }}</th>
+                    <td>{{ $data['product_name'] }}</td>
 
-                <td>{{ $data['product_price'] }}</td>
-                <td>
-                    <div class="col-md-4">
-                        <form action="{{ route('cart.qty.update', $key) }}" method="get">
-                            @csrf
-                            <input type="number" class="form-control" value="{{ $data['product_qty'] }}" name="quantity"
-                                required>
-                            <button class="btn btn-primary" type="submit">
-                                <i class="fa fa-refresh"></i></button>
-                        </form>
-                    </div>
-                </td>
-                <td class="cart__total">{{ $data['subtotal'] }}
-            </tr>
-            @endforeach
-            <td>Total Price: <span>{{ array_sum(array_column($carts, 'subtotal')) + 50 }}
-            </td>
-            @endif
+                    <td>{{ $data['product_price'] }}</td>
+                    <td>
+                        <div class="col-md-4">
+                            <form action="{{ route('cart.qty.update', $key) }}" method="get">
+                                @csrf
+                                <div class="up">
+                                    <input type="number" class="form-control" value="{{ $data['product_qty'] }}"
+                                        name="quantity" required>
+                                    <button class="btn btn-primary" type="submit">
+                                        <i class="fa fa-refresh"></i></button>
+                                </div>
+                            </form>
+                        </div>
+                    </td>
+                    <td class="cart__total">{{ $data['subtotal'] }}
+                </tr>
+                @endforeach
+
+
+
+                @endif
+            </div>
 
         </tbody>
 
     </table>
-    <div class="card-footer">
-
+    @if($carts)
+    <div class="row mt-2 pb-5">
+        <div class="col-md-8"></div>
+        <div class="col-md-2"></div>
+        <div class="col-md-2">
+            <td>Total Price: <span>{{ array_sum(array_column($carts, 'subtotal')) }}
+            </td>
+        </div>
     </div>
+    @endif
+</div>
+<div class="card-footer">
+    @if(session()->has('cart'))
     <a href="{{ route('cart.clear') }}" class="btn btn-danger">Clear Cart</a>
-    {{-- <a href="{{ route('check.out') }}" class="btn btn-success ">Buy Now</a> --}}
     <a href="{{ route('check.out.form') }}" class="btn btn-success ">Buy Now</a>
+    @endif
+</div>
+
+{{-- <a href="{{ route('check.out') }}" class="btn btn-success ">Buy Now</a> --}}
+
+
+
 
 
 </div>

@@ -263,7 +263,7 @@
                                                 <li><a href="{{ route('shop.catagory', $data->Cid) }}"
                                                         data-toggle="tooltip" data-placement="right" title="View"><i
                                                             class="fas fa-eye"></i></a></li>
-            
+
                                             </ul>
                                         </div>
                                     </div>
@@ -389,7 +389,7 @@
             <div class="row special-list">
 
 
-                @foreach ($product as $product)
+                @foreach ($products as $product)
                 <div class="col-lg-4 col-md-6 special-grid best-seller shedo gx-5 ">
                     <a href="{{ route('product.single.view', $product->id) }}">
                         <div class="products-single fix">
@@ -450,9 +450,17 @@
                     </a>
                 </div>
                 @endforeach
-
+              
 
             </div>
+                
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="col-md-6">
+                            {{ $products->links() }}
+                        </div>
+                    </div>
+                </div>
         </div>
         </div>
 

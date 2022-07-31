@@ -13,14 +13,13 @@ class HomeController extends Controller
 {
     public function Home()
     {
-        $product = Product::all();
-
+        $products = Product::paginate(6);
         $latestProduct = Product::orderBy('created_at', 'desc')->get()->take(5);
         $featuredProduct = Product::where('featured', '1')->take(10)->get();
 
 
         // dd($latestProduct);
-        return view('website.fixed.home', compact('product', 'latestProduct', 'featuredProduct'));
+        return view('website.fixed.home', compact('products', 'latestProduct', 'featuredProduct'));
     }
     public function userLogin()
     {
