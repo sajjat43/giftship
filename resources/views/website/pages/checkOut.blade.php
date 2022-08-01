@@ -100,7 +100,7 @@
                                             <input type="text" class="form-control" id="exampleInputPassword1"
                                                 name="Address" placeholder="Enter your Current Address">
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Pay Now</button>
+                                        <button type="submit" class="btn btn-primary my-2">Pay Now</button>
                                     </form>
                             </div>
                         </div>
@@ -124,16 +124,40 @@
                             <h6 class="font-weight-medium">Shipping</h6>
                             <h6 class="font-weight-medium">50 taka</h6>
                         </div>
+                        <div class="d-flex justify-content-between">
+                            @if(session()->has('coupon'))
+                            <h6 class="font-weight-medium">Discount ({{session()->get('coupon')['name']}}) :  </h6>
+                            
+                            <h6 class="font-weight-medium">- {{session()->get('coupon')['discount']}} taka</h6>
+                            @endif
+                        </div>
                     </div>
                     @endif
                     <div class="card-footer border-secondary bg-transparent">
-                        @if($carts)
+                        
                         <div class="d-flex justify-content-between mt-2">
+                            @if($carts && !session()->has('coupon'))
                             <h5 class="font-weight-bold">Total</h5>
                             <h5 class="font-weight-bold">{{ array_sum(array_column($carts, 'subtotal'))+ 50 }} taka</h5>
+                            @endif
+                            
+                            @if(session()->has('coupon'))
+                            <div class="d-flex justify-content-between mt-2">
+                            <h5 class="font-weight-bold">Total</h5>
+                            <h5 class="font-weight-bold">{{ array_sum(array_column($carts, 'subtotal'))+ 50 -session()->get('coupon')['discount']}} taka</h5>
+                            </div>
+                            @endif
                         </div>
-                        @endif
+                        
                     </div>
+                    
+                </div>
+                <div class="have-code-container">
+                    <form action="{{route('coupon.apply')}}" method="POST">
+                        @csrf
+                        <input type="text" name="coupon_code" id="coupon_code">
+                        <button type="submit" class="button button-plain">Apply</button>
+                    </form>
                 </div>
             </div>
         </div>

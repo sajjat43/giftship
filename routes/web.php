@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\Backend\UserController;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\pdfController;
 use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Fontend\HomeController;
@@ -119,6 +120,13 @@ Route::group(['prefix' => '/', 'middleware' => 'web_auth'], function () {
     Route::get('customer/update/info/{id}',[UserLoginController::class, 'customerUpdate'])->name('customer.profile.update');
     Route::post('customer/update/store/{id}',[UserLoginController::class, 'customerUpdateStore'])->name('customer.profile.update.store');
 
+
+    // coupon -------start 
+    Route::post('coupon/apply',[CouponController::class, 'couponApply'])->name('coupon.apply');
+    // Route::get('coupon/delete/{id}',[CouponController::class, 'deleteCoupon'])->name('coupon.delete');
+    route::get('delete/coupon',[CouponController::class,'deleteCoupon'])->name('coupon.delete');
+    // coupon -------end 
+
 });
 
 
@@ -193,7 +201,12 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     route::get('dashboard/view', [DashboardController::class, 'dashboardView'])->name('dashboard.view');
     // route::get('create/pdf', [pdfController::class, 'create_pdf'])->name('create.pdf');
 
-
+    // coupon ----------Start
+    route::get('coupon/from', [CouponController::class, 'couponFrom'])->name('coupon.from');
+    route::post('coupon/store', [CouponController::class, 'couponStore'])->name('coupon.store');
+    route::get('coupon/list', [CouponController::class, 'couponList'])->name('coupon.list');
+    route::get('coupon/delete/{id}', [CouponController::class, 'couponDelete'])->name('coupon.delete');
+     // coupon ----------end
 
 });
 

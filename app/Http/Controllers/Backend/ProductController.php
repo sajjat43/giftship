@@ -494,6 +494,7 @@ class ProductController extends Controller
     public function checkOut_form()
     {
         $carts = session()->get('cart');
+        
         return view('website.pages.checkOut',compact('carts'));
     }
     public function checkOut_store(Request $request)
