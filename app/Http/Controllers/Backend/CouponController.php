@@ -56,7 +56,7 @@ class CouponController extends Controller
   return redirect()->back()->with('message','Coupon has been applyed');
     }
 
-    public function deleteCoupon(){
+    public function deleteCoupon(){  
       session()->forget('coupon');
       return redirect()->back()->with('message','coupon remove successfully');
     }

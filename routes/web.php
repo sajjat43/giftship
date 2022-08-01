@@ -123,8 +123,7 @@ Route::group(['prefix' => '/', 'middleware' => 'web_auth'], function () {
 
     // coupon -------start 
     Route::post('coupon/apply',[CouponController::class, 'couponApply'])->name('coupon.apply');
-    // Route::get('coupon/delete/{id}',[CouponController::class, 'deleteCoupon'])->name('coupon.delete');
-    route::get('delete/coupon',[CouponController::class,'deleteCoupon'])->name('coupon.delete');
+    route::get('delete/coupon/u',[CouponController::class,'deleteCoupon'])->name('delete.coupon');
     // coupon -------end 
 
 });

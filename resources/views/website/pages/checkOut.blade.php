@@ -126,7 +126,9 @@
                         </div>
                         <div class="d-flex justify-content-between">
                             @if(session()->has('coupon'))
-                            <h6 class="font-weight-medium">Discount ({{session()->get('coupon')['name']}}) :  </h6>
+                            <h6 class="font-weight-medium">Discount ({{session()->get('coupon')['name']}}) :</h6>
+
+                            <a href="{{route('delete.coupon')}}">remove</a>  
                             
                             <h6 class="font-weight-medium">- {{session()->get('coupon')['discount']}} taka</h6>
                             @endif
@@ -142,10 +144,10 @@
                             @endif
                             
                             @if(session()->has('coupon'))
-                            <div class="d-flex justify-content-between mt-2">
-                            <h5 class="font-weight-bold">Total</h5>
-                            <h5 class="font-weight-bold">{{ array_sum(array_column($carts, 'subtotal'))+ 50 -session()->get('coupon')['discount']}} taka</h5>
-                            </div>
+                            
+                             <h5 class="font-weight-bold">Total</h5>
+                             <h5 class="font-weight-bold">{{ array_sum(array_column($carts, 'subtotal'))+ 50 -session()->get('coupon')['discount']}} taka</h5>
+                            
                             @endif
                         </div>
                         
