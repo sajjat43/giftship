@@ -126,33 +126,32 @@
                         </div>
                         <div class="d-flex justify-content-between">
                             @if(session()->has('coupon'))
-                            <h6 class="font-weight-medium">Discount ({{session()->get('coupon')['name']}}) :</h6>
-
-                            <a href="{{route('delete.coupon')}}">remove</a>  
-                            
+                            <h6 class="font-weight-medium">Discount ({{session()->get('coupon')['name']}}) : <a
+                                    href="{{route('delete.coupon')}}">Remove</a> </h6>
                             <h6 class="font-weight-medium">- {{session()->get('coupon')['discount']}} taka</h6>
                             @endif
                         </div>
                     </div>
                     @endif
                     <div class="card-footer border-secondary bg-transparent">
-                        
+
                         <div class="d-flex justify-content-between mt-2">
                             @if($carts && !session()->has('coupon'))
                             <h5 class="font-weight-bold">Total</h5>
                             <h5 class="font-weight-bold">{{ array_sum(array_column($carts, 'subtotal'))+ 50 }} taka</h5>
                             @endif
-                            
+
                             @if(session()->has('coupon'))
-                            
-                             <h5 class="font-weight-bold">Total</h5>
-                             <h5 class="font-weight-bold">{{ array_sum(array_column($carts, 'subtotal'))+ 50 -session()->get('coupon')['discount']}} taka</h5>
-                            
+
+                            <h5 class="font-weight-bold">Total</h5>
+                            <h5 class="font-weight-bold">{{ array_sum(array_column($carts, 'subtotal'))+ 50
+                                -session()->get('coupon')['discount']}} taka</h5>
+
                             @endif
                         </div>
-                        
+
                     </div>
-                    
+
                 </div>
                 <div class="have-code-container">
                     <form action="{{route('coupon.apply')}}" method="POST">
