@@ -1,5 +1,6 @@
 @extends('website.master')
 @section('content')
+
 <body>
     @if (session()->has('message'))
     <p class="alert alert-success">
@@ -24,6 +25,22 @@
 
         }
 
+        .count {
+            margin-left: 500px;
+        }
+
+        .wish {
+            padding: 15px;
+            background-color: black;
+            border-radius: 9px;
+        }
+        .clear{
+            padding: 15px;
+            background-color: rgb(43, 48, 47);
+            border-radius: 9px;
+        }
+
+
         .homeButton {
             padding: 20px;
             text-decoration: none;
@@ -33,10 +50,12 @@
         }
     </style>
     <div class='cart'>
-        <h1 style="padding-top: 100px;">You have ({{session()->has('wishlist') ? count(session()->get('wishlist')) : 0
-            }})
-            product
-        </h1>
+        <div class="count">
+            <h1>You have ({{session()->has('wishlist') ? count(session()->get('wishlist')) : 0
+                }})
+                product
+            </h1>
+        </div>
 
         <div class="container py-5">
 
@@ -59,26 +78,29 @@
                         {{-- <th scope="row">{{ $item['id'] }}</th> --}}
                         <td>{{ $item['product_name'] }}</td>
                         <td>{{ $item['product_price'] }}</td>
-                        
+                        <td>
+                            <a href="{{ route('add.to.cart', $key) }}" class="btn btn-primary wish">add
+                                cart</a>
+                        </td>
                     </tr>
+
                     @endforeach
-                    
-                    {{-- <td>
-                        <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn-primary">add
-                            cart</a>
-                    </td> --}}
+
+
                     @endif
 
                 </tbody>
 
             </table>
-            <a href="{{ route('clear.wishlist') }}" class="btn btn-danger">Clear Cart</a>
+            @if( session()->has('wishlist'))
+            <a href="{{ route('clear.wishlist') }}" class="btn btn-danger clear">Clear</a>
+            @endif
         </div>
 
         {{-- <a href="{{ route('check.out') }}" class="btn btn-success ">Buy Now</a> --}}
-
+       
     </div>
 
 </body>
 
-@endsection 
+@endsection

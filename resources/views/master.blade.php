@@ -20,6 +20,7 @@
         integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!-- End plugin css for this page -->
+    
     <!-- inject:css -->
     <link rel="stylesheet" href="{{ url('Backend/css/style.css') }}">
     <!-- endinject -->
