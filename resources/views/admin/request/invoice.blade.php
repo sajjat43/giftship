@@ -26,14 +26,16 @@
     <a class="nav-link btn btn-primary" style="width:90px" href="{{ route('request.list') }}"><i
             class="fa-solid fa-arrow-left"></i>
     </a>
+    <div class="col-xl-3  mt-3">
+        <button class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"
+            onclick="printDiv('printableArea')"><i class="fas fa-print text-primary"></i> Print</button>
+    </div>
+    
 </div>
 
 <body oncontextmenu='return false' class='snippet-body'>
 
-    <div class="col-xl-3 float-right mt-3">
-        <button class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"
-            onclick="printDiv('printableArea')"><i class="fas fa-print text-primary"></i> Print</button>
-    </div>
+    
     <div class="card mt-5" id="printableArea">
         <div class="container mt-5">
             <div class="d-flex justify-content-center row">

@@ -6,6 +6,10 @@
     {{ session()->get('success') }}
 </p>
 @endif
+<div class="col-xl-3  mt-3">
+    <button class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"
+        onclick="printDiv('printableArea')"><i class="fas fa-print text-primary"></i> Print</button>
+</div>
 <form action="{{ route('request.list') }}" method="GET">
     <div class="row">
         <div class="col-md-4"></div>
@@ -21,8 +25,10 @@
     th {
         text-align: left;
     }
+   
 </style>
-<div>
+<body  oncontextmenu='return false' class='snippet-body'>
+    <div id="printableArea">
     <table class="table">
         <thead>
             <tr>
@@ -59,4 +65,19 @@
         </tbody>
     </table>
 </div>
+
+</body>
+<script>
+    function printDiv(printableArea) {
+        var printContents = document.getElementById(printableArea).innerHTML;
+        var originalContents = document.body.innerHTML;
+
+        document.body.innerHTML = printContents;
+
+        window.print();
+
+        document.body.innerHTML = originalContents;
+    }
+</script>
+
 @endsection

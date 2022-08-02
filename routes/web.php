@@ -13,6 +13,7 @@ use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\DashboardController;
+use App\Http\Controllers\Backend\reportController;
 use App\Http\Controllers\Fontend\UserLoginController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -147,6 +148,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     // Route::match(['get','post'],"/form/login",[AdminController::class,'login']);
     //login route
 
+// frontend product search
+route::get('product/search/view', [ProductController::class, 'productSearchView'])->name('product.search.view');
 
     // customer list
     Route::get('/customer/view', [CustomerController::class, 'customerView'])->name('customer.view');
@@ -207,12 +210,15 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     route::get('coupon/delete/{id}', [CouponController::class, 'couponDelete'])->name('coupon.delete');
      // coupon ----------end
 
+    //  report generate start
+
+    route::get('product/report', [reportController::class, 'product_report'])->name('product.report');
+    //  report generate end
+
 });
 
 
-// product search
 
-route::get('product/search/view', [ProductController::class, 'productSearchView'])->name('product.search.view');
 
 
 

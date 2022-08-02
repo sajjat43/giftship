@@ -140,16 +140,31 @@
         </div>
     </li>
     <li class="nav-item">
-        <a class="nav-link" data-toggle="collapse" href="#ui-order" aria-expanded="false" aria-controls="ui-basic">
+        <a class="nav-link" data-toggle="collapse" href="#ui-order-coupons" aria-expanded="false"
+            aria-controls="ui-basic">
             <i class="icon-disc menu-icon"></i>
-            <span class="menu-title">Coupons</span>
+            <span class="menu-title">Discount Coupons</span>
             <i class="menu-arrow"></i>
         </a>
-        <div class="collapse" id="ui-order">
+        <div class="collapse" id="ui-order-coupons">
             <ul class="nav flex-column sub-menu">
                 <li class="nav-item"><a class="nav-link" href="{{ route('coupon.from',) }}">Create Coupon
                     </a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ route('coupon.list',) }}">view Coupon
+                    </a></li>
+            </ul>
+        </div>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#ui-order-report" aria-expanded="false"
+            aria-controls="ui-basic">
+            <i class="icon-disc menu-icon"></i>
+            <span class="menu-title">All Report</span>
+            <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="ui-order-report">
+            <ul class="nav flex-column sub-menu">
+                <li class="nav-item"><a class="nav-link" href="{{route('product.report')}}">product report
                     </a></li>
             </ul>
         </div>

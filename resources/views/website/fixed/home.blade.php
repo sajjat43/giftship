@@ -176,6 +176,7 @@
             background-color: red;
             color: rgb(255, 0, 0);
         }
+
     </style>
 
 
@@ -210,8 +211,8 @@
                                             cart</a>
                                     </div>
                                     <div class="wissh">
-                                        <a href="{{ route('add.to.wishlist', $item->id) }}" type="button"><i class="far fa-heart"></i>
-                                            
+                                        <a href="{{ route('add.to.wishlist', $item->id) }}" type="button"><i
+                                                class="far fa-heart"></i>
                                         </a>
                                         <h5>Add to wishlist</h5>
                                     </div>
@@ -275,6 +276,7 @@
                     .descc h4 h5 h6 {
                         font-family: initial !important;
                     }
+
                 </style>
                 <div class="container">
                     <div class="row special-list ca">
@@ -308,17 +310,10 @@
                             </a>
                         </div>
                         @endforeach
-
-
                     </div>
                 </div>
             </div>
         </div>
-
-
-
-
-
     </section>
 
 
@@ -420,6 +415,7 @@
                 .addwish {
                     font-size: 30px;
                 }
+
             </style>
             {{-- ----------------product------------ --}}
 
@@ -505,35 +501,36 @@
 </main>
 <script>
     $('#product-carousel').slick({
-            lazyLoad: 'ondemand',
-            slidesToShow: 4,
-            slidesToScroll: 1,
-            nextArrow: '<i class="arrow right">',
-            prevArrow: '<i class="arrow left">',
-            infinite: true,
-            responsive: [{
-                    breakpoint: 1024,
-                    settings: {
-                        slidesToShow: 3,
-                        slidesToScroll: 1,
-                        infinite: true,
-                    }
-                },
-                {
-                    breakpoint: 600,
-                    settings: {
-                        slidesToShow: 2,
-                        slidesToScroll: 1
-                    }
-                },
-                {
-                    breakpoint: 480,
-                    settings: {
-                        slidesToShow: 1,
-                        slidesToScroll: 1
-                    }
+        lazyLoad: 'ondemand',
+        slidesToShow: 4,
+        slidesToScroll: 1,
+        nextArrow: '<i class="arrow right">',
+        prevArrow: '<i class="arrow left">',
+        infinite: true,
+        responsive: [{
+                breakpoint: 1024,
+                settings: {
+                    slidesToShow: 3,
+                    slidesToScroll: 1,
+                    infinite: true,
                 }
-            ]
-        });
+            },
+            {
+                breakpoint: 600,
+                settings: {
+                    slidesToShow: 2,
+                    slidesToScroll: 1
+                }
+            },
+            {
+                breakpoint: 480,
+                settings: {
+                    slidesToShow: 1,
+                    slidesToScroll: 1
+                }
+            }
+        ]
+    });
+
 </script>
 @endsection

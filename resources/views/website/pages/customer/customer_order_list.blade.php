@@ -7,6 +7,10 @@
     body {
         background: #eee
     }
+    .float-right button{
+        padding: 10px;
+        border-radius: 10px;
+    }
 </style>
 
 
@@ -30,15 +34,18 @@
 
 <body oncontextmenu='return false' class='snippet-body'>
 
-    <div class="col-xl-3 float-right mt-3">
-        <button class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"
-            onclick="printDiv('printableArea')"><i class="fas fa-print text-primary"></i> Print</button>
-    </div>
-    <div class="card mt-5" id="printableArea">
+    
+    <div class="card mt-5" >
+        
         <div class="container mt-5">
+            
             <div class="d-flex justify-content-center row">
                 <div class="col-md-8">
-                    <div class="p-3 bg-white rounded">
+                    <div class="col-xl-3 float-right mt-3">
+                        <button class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"
+                            onclick="printDiv('printableArea')"><i class="fas fa-print text-primary"></i> Print</button>
+                    </div>
+                    <div class="p-3 bg-white rounded " id="printableArea">
                         <div class="row">
                             <div class="col-md-6">
                                 <h3 class="text-uppercase">name: {{ auth()->user()->name }}</h3>
@@ -77,6 +84,7 @@
                             </div>
                         </div>
                     </div>
+                    
                 </div>
             </div>
         </div>
