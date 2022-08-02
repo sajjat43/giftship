@@ -76,15 +76,15 @@
                 <h6>product/single/view </h6>
                 <h3 class="py-4">{{ $product->name }}</h3>
                 <h2>BDT: {{ $product->price }}</h2>
-                <select class="my-3 nice">
+                {{-- <select class="my-3 nice">
                     <option>select size</option>
                     <option>XXL</option>
                     <option>XL</option>
                     <option>L</option>
                     <option>M</option>
                     <option>S</option>
-                </select>
-                <input type="number" value="1">
+                </select> --}}
+                {{-- <input type="number" value="1"> --}}
                 <a class="buy-btn" type="button" href="{{ route('add.to.cart', $product->id) }}"> Add to
                     Cart</a>
                 <h4 class="mt-5 mb-5">product details</h4>

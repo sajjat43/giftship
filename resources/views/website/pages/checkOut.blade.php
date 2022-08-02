@@ -142,7 +142,7 @@
                             @endif
 
                             @if(session()->has('coupon'))
-
+                            
                             <h5 class="font-weight-bold">Total</h5>
                             <h5 class="font-weight-bold">{{ array_sum(array_column($carts, 'subtotal'))+ 50
                                 -session()->get('coupon')['discount']}} taka</h5>
@@ -156,6 +156,7 @@
                 <div class="have-code-container">
                     <form action="{{route('coupon.apply')}}" method="POST">
                         @csrf
+                        <h5>have coupon?</h5>
                         <input type="text" name="coupon_code" id="coupon_code">
                         <button type="submit" class="button button-plain">Apply</button>
                     </form>

@@ -68,9 +68,9 @@
             </div>
         </div>
     </div>
-{{-- ==========================slider------------- --}}
+    {{-- ==========================slider------------- --}}
 
-{{-- ==========================slider-------------end --}}
+    {{-- ==========================slider-------------end --}}
 
 
 
@@ -115,7 +115,7 @@
                             @else
                             <div>
 
-                                <a href="{{ route('add.to.wishlist', $latest->id) }}" type="button"><i
+                                <a class="wissh" href="{{ route('add.to.wishlist', $latest->id) }}" type="button"><i
                                         class="far fa-heart"></i>
                                 </a>
                             </div>
@@ -153,6 +153,29 @@
             display: flex;
             justify-content: space-evenly;
         }
+
+        .wissh {
+            margin-left: 29px;
+            font-size: 20px;
+        }
+
+        .fproduct {
+            padding-top: 40px;
+
+        }
+
+        .fproduct h5 {
+            opacity: 0;
+        }
+
+
+        .fproduct:hover h5 {
+            opacity: 1;
+            display: contents;
+            padding: 10px;
+            background-color: red;
+            color: rgb(255, 0, 0);
+        }
     </style>
 
 
@@ -180,19 +203,26 @@
                                 <span class="float-start">Price: {{ $item->price }} .BDT</span>
                                 @if ($item->qty > 0)
 
-                                <div class="container "> <a href="{{ route('add.to.cart', $item->id) }}"
-                                        class="btn btn-info col-md-6 text-center">add
-                                        cart</a>
-                                    <a href="{{ route('add.to.wishlist', $item->id) }}" type="button"><i
-                                            class="far fa-heart"></i>
-                                    </a>
+                                <div class="fproduct">
+                                    <div class="p-2">
+                                        <a href="{{ route('add.to.cart', $item->id) }}"
+                                            class="btn btn-info col-md-6 text-center">add
+                                            cart</a>
+                                    </div>
+                                    <div class="wissh">
+                                        <a href="{{ route('add.to.wishlist', $item->id) }}" type="button"><i class="far fa-heart"></i>
+                                            
+                                        </a>
+                                        <h5>Add to wishlist</h5>
+                                    </div>
                                 </div>
                                 @else
-
-                                <a href="{{ route('add.to.wishlist', $item->id) }}" type="button"><i
-                                        class="far fa-heart"></i>
-
-                                </a>
+                                <div class="fproduct">
+                                    <a class="wissh" href="{{ route('add.to.wishlist', $item->id) }}" type="button"><i
+                                            class="far fa-heart"></i>
+                                        <h5>Add to wishlist</h5>
+                                    </a>
+                                </div>
                                 @endif
                             </div>
                         </div>
@@ -386,6 +416,10 @@
                     background-color: red;
                     color: rgb(255, 0, 0);
                 }
+
+                .addwish {
+                    font-size: 30px;
+                }
             </style>
             {{-- ----------------product------------ --}}
 
@@ -431,7 +465,7 @@
                             <div class="why-text detailscart">
                                 <h4>{{ $product->name }}</h4>
                                 <h5>BDT: {{ $product->price }}</h5>
-                                <h5> {{ $product->description }}</h5>
+                                {{-- <h5> {{ $product->description }}</h5> --}}
                                 @if ($product->qty > 0)
                                 <div class="container">
 
@@ -453,17 +487,17 @@
                     </a>
                 </div>
                 @endforeach
-              
+
 
             </div>
-                
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="col-md-6">
-                            {{ $products->links() }}
-                        </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="col-md-6">
+                        {{ $products->links() }}
                     </div>
                 </div>
+            </div>
         </div>
         </div>
 
