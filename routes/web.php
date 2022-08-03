@@ -67,6 +67,8 @@ Route::get('/product/featured/slider', [ProductController::class, 'featured_prod
 
 // product single view
 Route::get('/product/single/view/{id}', [ProductController::class, 'product_single_view'])->name('product.single.view');
+// frontend product search
+route::get('product/search/view', [ProductController::class, 'productSearchView'])->name('product.search.view');
 
 // ================cart view=======================
 Route::get('/cart/view', [ProductController::class, 'cartview'])->name('cart.view');
@@ -148,8 +150,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     // Route::match(['get','post'],"/form/login",[AdminController::class,'login']);
     //login route
 
-// frontend product search
-route::get('product/search/view', [ProductController::class, 'productSearchView'])->name('product.search.view');
+
 
     // customer list
     Route::get('/customer/view', [CustomerController::class, 'customerView'])->name('customer.view');

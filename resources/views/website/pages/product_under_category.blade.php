@@ -66,18 +66,15 @@
             <div class="products-single fix">
                 <div class="box-img-hover">
                     <div class="type-lb">
+                        <a href="{{ route('product.single.view', $product->id) }}" data-toggle="tooltip"
+                            data-placement="right" title="View"><i class="fas fa-eye"></i></a>
+                        <img style="height: 200px" src="{{ url('/uploads/uploads/product/', $product->image) }}"
+                            class="img-fluid" alt="Image">
+                        <div class="mask-icon">
 
+                        </div>
                     </div>
-                    <img style="height: 200px" src="{{ url('/uploads/uploads/product/', $product->image) }}"
-                        class="img-fluid" alt="Image">
-                    <div class="mask-icon">
-                        <ul>
-                            <li><a href="{{ route('crisis.view', $product->id) }}" data-toggle="tooltip"
-                                    data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
 
-                        </ul>
-                        <a class="cart" href="">Add to Cart</a>
-                    </div>
                 </div>
                 <div class="why-text detailscart">
                     @if ($product->qty > 0)
