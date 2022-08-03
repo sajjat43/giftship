@@ -17,6 +17,7 @@
         border-radius: 7px;
         color: black;
     }
+
 </style>
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <div class="user-profile">
@@ -54,7 +55,7 @@
                 <li class="nav-item"> <a class="nav-link" href="{{ route('product.category') }}">Create
                         Category</a></li>
 
-                <li class="nav-item"> <a class="nav-link" href="{{ route('product.category.view') }}">Category view</a>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('product.category.view') }}">Category List</a>
                 </li>
             </ul>
         </div>
@@ -70,8 +71,8 @@
             <ul class="nav flex-column sub-menu">
                 <li class="nav-item"> <a class="nav-link" href="{{ route('product.subCategory.create') }}">Create
                         SubCategory</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('product.subCategory.view') }}">view
-                        SubCategory</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('product.subCategory.view') }}">
+                        SubCategory List</a></li>
 
 
             </ul>
@@ -89,7 +90,7 @@
                 <li class="nav-item"> <a class="nav-link" href="{{ route('brand.create') }}">Create
                         Brand</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('brand.view') }}">Brand
-                        view</a></li>
+                        List</a></li>
 
             </ul>
         </div>
@@ -150,7 +151,7 @@
             <ul class="nav flex-column sub-menu">
                 <li class="nav-item"><a class="nav-link" href="{{ route('coupon.from',) }}">Create Coupon
                     </a></li>
-                <li class="nav-item"><a class="nav-link" href="{{ route('coupon.list',) }}">view Coupon
+                <li class="nav-item"><a class="nav-link" href="{{ route('coupon.list',) }}"> Coupon list
                     </a></li>
             </ul>
         </div>

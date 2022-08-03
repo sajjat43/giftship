@@ -44,9 +44,9 @@
             <div class=""></div>
 
             <div class="resestation">
-                <h3>You need to regestation first.</h3>
+                <h3>You need to registration first.</h3>
                 <a type="button" class="btn btn-primary" href="{{ route('User.regestation') }}">
-                    Resestation</a>
+                    registration</a>
             </div>
             <div class="container text-center "><strong>OR,</strong></div>
             <div class="form-group row container p-3">
