@@ -34,7 +34,12 @@ class SslCommerzPaymentController extends Controller
         # In "orders" table, order unique identity is "transaction_id". "status" field contain status of the transaction, "amount" is the order amount to be paid and "currency" is for storing Site Currency which will be checked with paid currency.
 
         $post_data = array();
-        $post_data['total_amount'] = array_sum(array_column(session()->get('cart'),'subtotal'))+50-session()->get('coupon')['discount']; # You cant not pay less than 10
+        try {
+            $post_data['total_amount'] = array_sum(array_column(session()->get('cart'),'subtotal'))+50-(session()->get('coupon')['discount']);
+        } catch (\Throwable $th) {
+            $post_data['total_amount'] = array_sum(array_column(session()->get('cart'),'subtotal'))+50;
+        }
+         # You cant not pay less than 10
         $post_data['currency'] = "BDT";
         $post_data['tran_id'] = uniqid(); // tran_id must be unique
         // dd($post_data);
@@ -94,8 +99,8 @@ class SslCommerzPaymentController extends Controller
             'email' => $request->email,
             'mobile' => $request->mobile,
             'Address' => $request->Address,
-            'total' =>array_sum(array_column(session()->get('cart'),'subtotal')),
-
+            'total' =>array_sum(array_column(session()->get('cart'),'subtotal'))+50,
+            
         ]);
 
         $token = Str::random(64);
