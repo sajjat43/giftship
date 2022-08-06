@@ -102,7 +102,6 @@ class SslCommerzPaymentController extends Controller
             'total' =>array_sum(array_column(session()->get('cart'),'subtotal'))+50,
             
         ]);
-
         $token = Str::random(64);
         Mail::send('website.email.orderConfirm', ['token' => $token], function ($message) use ($request) {
             $message->to(auth()->user()->email);
