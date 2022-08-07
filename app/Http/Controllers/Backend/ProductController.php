@@ -366,6 +366,7 @@ class ProductController extends Controller
 
     public function cartview()
     {
+        
         $carts = session()->get('cart');
         return view('website.pages.cart', compact('carts'));
     }
@@ -374,6 +375,7 @@ class ProductController extends Controller
     public function addToCart($id)
     {
         $product = Product::find($id);
+        
         if (!$product) {
             return redirect()->back();
         }

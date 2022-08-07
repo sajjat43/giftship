@@ -79,8 +79,10 @@
                         <td>{{ $item['product_name'] }}</td>
                         <td>{{ $item['product_price'] }}</td>
                         <td>
+                            
                             <a href="{{ route('add.to.cart', $key) }}" class="btn btn-primary wish">add
                                 cart</a>
+                               
                         </td>
                     </tr>
 

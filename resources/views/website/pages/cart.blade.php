@@ -69,6 +69,7 @@
         </thead>
         <tbody>
             <div>
+                {{-- @dd($carts) --}}
                 @if ($carts)
 
                 @foreach ($carts as $key => $data)
@@ -82,7 +83,7 @@
                             <form action="{{ route('cart.qty.update', $key) }}" method="get">
                                 @csrf
                                 <div class="up">
-                                    <input type="number" class="form-control" value="{{ $data['product_qty'] }}"
+                                    <input type="number" class="form-control" value="{{ $data['product_qty'] }}" placeholder=""
                                         name="quantity" required>
                                     <button class="btn btn-primary" type="submit">
                                         <i class="fa fa-refresh"></i></button>

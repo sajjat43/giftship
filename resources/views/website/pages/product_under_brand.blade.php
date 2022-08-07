@@ -131,12 +131,12 @@
                         </a>
 
                     </div>
-                    @else
+                    {{-- @else
                    
                     <a class="addwish" href="{{ route('add.to.wishlist', $product->id) }}" type="button"><i
                             class="far fa-heart"></i>
                         <h5 class="wish">Add to wishlist</h5>
-                    </a>
+                    </a> --}}
                     @endif
                 </div>
             </div>

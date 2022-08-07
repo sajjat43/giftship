@@ -95,9 +95,9 @@
                         <a href="{{ route('add.to.wishlist', $product->id) }}" type="button"><i
                                 class="far fa-heart"></i></a>
                     </div>
-                    @else
+                    {{-- @else
                     <a href="{{ route('add.to.wishlist', $product->id) }}" type="button"><i
-                            class="far fa-heart"></i></a>
+                            class="far fa-heart"></i></a> --}}
                     @endif
                 </div>
             </div>
