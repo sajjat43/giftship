@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\Backend\UserController;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\category\CategoryController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\pdfController;
 use App\Http\Controllers\Backend\UserController;
@@ -167,14 +168,14 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('/product/edit/{product_id}', [ProductController::class, 'product_edit'])->name('product.edit');
 
 
-    // product category and sub category
-    Route::get('/product/category/create', [ProductController::class, 'Category'])->name('product.category');
-    Route::post('/product/category/store', [ProductController::class, 'Category_store'])->name('product.category.store');
-    Route::get('/product/category/view', [ProductController::class, 'Category_view'])->name('product.category.view');
-    route::post('/product/category/update/{id}', [ProductController::class, 'category_update'])->name('product.category.update');
-    route::get('/product/category/update/view/{id}', [ProductController::class, 'category_update_view'])->name('product.category.update.view');
-    Route::get('Delete/category/{id}', [ProductController::class, 'DeleteCategory'])->name('category.delete');
-
+    // product category Start
+    Route::get('/product/category/create', [CategoryController::class, 'Category'])->name('product.category');
+    Route::post('/product/category/store', [CategoryController::class, 'Category_store'])->name('product.category.store');
+    Route::get('/product/category/view', [CategoryController::class, 'Category_view'])->name('product.category.view');
+    route::post('/product/category/update/{id}', [CategoryController::class, 'category_update'])->name('product.category.update');
+    route::get('/product/category/update/view/{id}', [CategoryController::class, 'category_update_view'])->name('product.category.update.view');
+    Route::get('Delete/category/{id}', [CategoryController::class, 'DeleteCategory'])->name('category.delete');
+// product category end
 
     //  subCategory
     Route::get('/product/subCategory/create', [ProductController::class, 'subCategoryCreate'])->name('product.subCategory.create');
