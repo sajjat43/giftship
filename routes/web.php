@@ -15,6 +15,7 @@ use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\DashboardController;
 use App\Http\Controllers\Backend\reportController;
+use App\Http\Controllers\Backend\subCategory\subCategoryController;
 use App\Http\Controllers\Fontend\UserLoginController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
@@ -178,11 +179,11 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
 // product category end
 
     //  subCategory
-    Route::get('/product/subCategory/create', [ProductController::class, 'subCategoryCreate'])->name('product.subCategory.create');
-    Route::post('/product/subCategory/store', [ProductController::class, 'subCategoryStore'])->name('product.subCategory.store');
-    Route::get('/product/subCategory/view', [ProductController::class, 'subCategoryView'])->name('product.subCategory.view');
-    Route::get('subcategory/update/form/{id}',[ProductController::class,'updateForm'])->name('update.subCategory');
-    Route::post('subcategory/update/store/{id}',[ProductController::class,'subCategoryUpdate'])->name('update.store.subCategory');
+    Route::get('/product/subCategory/create', [subCategoryController::class, 'subCategoryCreate'])->name('product.subCategory.create');
+    Route::post('/product/subCategory/store', [subCategoryController::class, 'subCategoryStore'])->name('product.subCategory.store');
+    Route::get('/product/subCategory/view', [subCategoryController::class, 'subCategoryView'])->name('product.subCategory.view');
+    Route::get('subcategory/update/form/{id}',[subCategoryController::class,'updateForm'])->name('update.subCategory');
+    Route::post('subcategory/update/store/{id}',[subCategoryController::class,'subCategoryUpdate'])->name('update.store.subCategory');
 
 
     // All brand
