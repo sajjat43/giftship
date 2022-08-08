@@ -21,6 +21,7 @@ use App\Http\Controllers\Fontend\UserLoginController;
 use App\Http\Controllers\SslCommerzPaymentController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 use App\Http\Controllers\Backend\wishList\wishListController;
+use App\Http\Controllers\Fontend\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -74,16 +75,17 @@ Route::get('/product/single/view/{id}', [ProductController::class, 'product_sing
 route::get('product/search/view', [ProductController::class, 'productSearchView'])->name('product.search.view');
 
 // ================cart view=======================
-Route::get('/cart/view', [ProductController::class, 'cartview'])->name('cart.view');
-route::get('/add-to-cart/{id}', [ProductController::class, 'addToCart'])->name('add.to.cart');
-Route::get('/clear-cart', [ProductController::class, 'clearCart'])->name('cart.clear');
+Route::get('/cart/view', [CartController::class, 'cartview'])->name('cart.view');
+route::get('/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add.to.cart');
+Route::get('/clear-cart', [CartController::class, 'clearCart'])->name('cart.clear');
+// card qty update
+Route::get('/cart/qty/update/{id}', [CartController::class, 'cartQty_update'])->name('cart.qty.update');
 // =====================wish List==================
 route::get('/wishlist/view', [wishListController::class, 'wishListView'])->name('wishlist.view');
 route::get('/Add_to_wishlist/{id}', [wishListController::class, 'add_to_wishlist'])->name('add.to.wishlist');
 route::get('/clear_wishlist', [wishListController::class, 'wishlistclear'])->name('clear.wishlist');
 
-// card qty update
-Route::get('/cart/qty/update/{id}', [ProductController::class, 'cartQty_update'])->name('cart.qty.update');
+
 // Route::get('/remove-cart', [ProductController::class, 'removeCart'])->name('remove.cart');
 
 // password forget ======
