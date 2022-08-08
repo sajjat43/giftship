@@ -235,7 +235,6 @@ class ProductController extends Controller
                 $product = Product::find($key);
                 $product->decrement('qty', $cart['product_qty']);
             }
-
             session()->forget('cart');
             return redirect(route('manage.home'))->with('message', 'request placed Successfully');
         }
@@ -258,7 +257,6 @@ class ProductController extends Controller
             'Address' => $request->Address,
 
         ]);
-
 
         return redirect()->back()->with('success', 'request placed Successfully');
     }

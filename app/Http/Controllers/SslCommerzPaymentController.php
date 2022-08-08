@@ -11,6 +11,7 @@ use App\Models\RequestProduct;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Library\SslCommerz\SslCommerzNotification;
+use PhpParser\Node\Stmt\TryCatch;
 
 class SslCommerzPaymentController extends Controller
 {
@@ -91,7 +92,7 @@ class SslCommerzPaymentController extends Controller
         //     ]);
 
 
-
+try{
         order::create([
             'user_id' => auth()->user()->id,
             'tran_id' => $post_data['tran_id'],
@@ -99,9 +100,22 @@ class SslCommerzPaymentController extends Controller
             'email' => $request->email,
             'mobile' => $request->mobile,
             'Address' => $request->Address,
-            'total' =>array_sum(array_column(session()->get('cart'),'subtotal'))+50,
+            'total' =>array_sum(array_column(session()->get('cart'),'subtotal'))+50-(session()->get('coupon')['discount']),
             
         ]);
+    
+}catch (\Throwable $th){
+    order::create([
+        'user_id' => auth()->user()->id,
+        'tran_id' => $post_data['tran_id'],
+        'name' => $request->name,
+        'email' => $request->email,
+        'mobile' => $request->mobile,
+        'Address' => $request->Address,
+        'total' =>array_sum(array_column(session()->get('cart'),'subtotal'))+50,
+        
+    ]);
+}
         $token = Str::random(64);
         Mail::send('website.email.orderConfirm', ['token' => $token], function ($message) use ($request) {
             $message->to(auth()->user()->email);
@@ -113,7 +127,6 @@ class SslCommerzPaymentController extends Controller
             $total = 0;
             $request = RequestProduct::create([
                 'user_id' => auth()->user()->id,
-
 
             ]);
             foreach ($carts as $key => $cart) {
