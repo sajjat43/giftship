@@ -95,8 +95,6 @@
                                                         $category->Cname }}</a>
                                                 </li>
                                                 @endforeach
-
-
                                             </ul>
                                         </li>
                                         <li><a href="">Brand</a>

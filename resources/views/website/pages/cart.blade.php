@@ -83,7 +83,7 @@
                             <form action="{{ route('cart.qty.update', $key) }}" method="get">
                                 @csrf
                                 <div class="up">
-                                    <input type="number" class="form-control" value="{{ $data['product_qty'] }}" placeholder=""
+                                    <input type="number" class="form-control" value="{{ $data['product_qty'] }}" 
                                         name="quantity" required>
                                     <button class="btn btn-primary" type="submit">
                                         <i class="fa fa-refresh"></i></button>

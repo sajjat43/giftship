@@ -47,16 +47,18 @@
                 <h3>You need to registration first.</h3>
                 <a type="button" class="btn btn-primary" href="{{ route('User.regestation') }}">
                     registration</a>
+                    <a href="{{route('admin.login')}}" class="btn btn-primary btn-block">For admin login</a>
             </div>
             <div class="container text-center "><strong>OR,</strong></div>
             <div class="form-group row container p-3">
                 <div class="col-md-6offset-md-3 text-center">
                     <a href="{{ route('Login.google') }}" class="btn btn-primary btn-block"><i
                             class="fa-brands fa-google"></i></a>
-                    <a href="{{ route('Login.facebook') }}" class="btn btn-primary btn-block"><i
-                            class="fa-brands fa-facebook-square"></i></a>
+                    {{-- <a href="{{ route('Login.facebook') }}" class="btn btn-primary btn-block"><i
+                            class="fa-brands fa-facebook-square"></i></a> --}}
                     <a href="{{ route('Login.github') }}" class="btn btn-primary btn-block"> <i
                             class="fa-brands fa-github"></i></a>
+                            
                 </div>
             </div>
 

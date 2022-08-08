@@ -207,6 +207,7 @@ class ProductController extends Controller
         $product = product::where('category_id', $category_id)->delete();
         return redirect()->back()->with('success', 'Product has beeen Deleted Successfully');
     }
+    
     //subCategory
 
     public function subCategoryCreate()
@@ -366,9 +367,9 @@ class ProductController extends Controller
 
     public function cartview()
     {
-        
+        $product=Product::all();
         $carts = session()->get('cart');
-        return view('website.pages.cart', compact('carts'));
+        return view('website.pages.cart', compact('carts','product'));
     }
     // -----------add to cart--------------------
 
@@ -439,7 +440,7 @@ class ProductController extends Controller
         // dd($request);
         $carts = session()->get('cart');
         $product = Product::find($product_id);
-        // dd($product);
+        
 
         if ($product->qty >= $request->quantity) {
 
