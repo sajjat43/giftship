@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\Backend\UserController;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\Backend\Brand\BrandController;
 use App\Http\Controllers\Backend\category\CategoryController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\pdfController;
@@ -178,18 +179,20 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('Delete/category/{id}', [CategoryController::class, 'DeleteCategory'])->name('category.delete');
 // product category end
 
-    //  subCategory
+    //  subCategory start
     Route::get('/product/subCategory/create', [subCategoryController::class, 'subCategoryCreate'])->name('product.subCategory.create');
     Route::post('/product/subCategory/store', [subCategoryController::class, 'subCategoryStore'])->name('product.subCategory.store');
     Route::get('/product/subCategory/view', [subCategoryController::class, 'subCategoryView'])->name('product.subCategory.view');
     Route::get('subcategory/update/form/{id}',[subCategoryController::class,'updateForm'])->name('update.subCategory');
     Route::post('subcategory/update/store/{id}',[subCategoryController::class,'subCategoryUpdate'])->name('update.store.subCategory');
+    //  subCategory End
 
 
-    // All brand
-    Route::get('brand/create', [ProductController::class, 'BrandCreate'])->name('brand.create');
-    Route::post('brand/store', [ProductController::class, 'BrandStore'])->name('brand.store');
-    Route::get('brand/view', [ProductController::class, 'BrandView'])->name('brand.view');
+    //  brand Start
+    Route::get('brand/create', [BrandController::class, 'BrandCreate'])->name('brand.create');
+    Route::post('brand/store', [BrandController::class, 'BrandStore'])->name('brand.store');
+    Route::get('brand/view', [BrandController::class, 'BrandView'])->name('brand.view');
+//  brand end
 
 
     //cart request view
