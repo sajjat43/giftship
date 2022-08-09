@@ -93,7 +93,7 @@ class SslCommerzPaymentController extends Controller
 
 
 try{
-        order::create([
+        $order = order::create([
             'user_id' => auth()->user()->id,
             'tran_id' => $post_data['tran_id'],
             'name' => $request->name,
@@ -105,7 +105,7 @@ try{
         ]);
     
 }catch (\Throwable $th){
-    order::create([
+    $order = order::create([
         'user_id' => auth()->user()->id,
         'tran_id' => $post_data['tran_id'],
         'name' => $request->name,
@@ -133,6 +133,7 @@ try{
                 RequestDetails::create([
 
                     'user_id' => auth()->user()->id,
+                    'order_id'=>$order->id,
                     'request_id' => $request->id,
                     'tran_id' => $post_data['tran_id'],
                     'product_id' => $cart['product_id'],

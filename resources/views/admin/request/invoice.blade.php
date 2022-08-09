@@ -43,7 +43,7 @@
                     <div class="p-3 bg-white rounded">
                         <div class="row">
                             <div class="col-md-6">
-                                <h3 class="text-uppercase">{{ $request->user->name }}</h3>
+                                {{-- <h3 class="text-uppercase">{{ $request->user->name }}</h3> --}}
 
                             </div>
                         </div>
@@ -63,7 +63,7 @@
                                     </thead>
                                     <tbody>
                                         {{-- @dd($request) --}}
-                                        @foreach ($request->details as $key => $request)
+                                        @foreach ($request as $key => $request)
                                         <tr>
                                             <td>{{ $request->product->name }}</td>
                                             <td>{{ $request->quantity }}</td>

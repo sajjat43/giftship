@@ -153,7 +153,9 @@ class ProductController extends Controller
     }
     public function requestInvoice($id)
     {
-        $request = RequestProduct::with('user', 'details')->where('user_id', $id)->first();
+        $request = RequestDetails::where('order_id', $id)->get();
+        // dd($request);
+        
         return view('admin.request.invoice', compact('request'));
     }
     //  product approve and calcel

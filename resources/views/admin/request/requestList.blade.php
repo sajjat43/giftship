@@ -57,7 +57,7 @@
 
                 <td>
 
-                    <a href="{{ route('request.invoice', $request->user->id) }}" class="btn btn-success"><i
+                    <a href="{{ route('request.invoice', $request->id) }}" class="btn btn-success"><i
                             class="fa-solid fa-eye"></i></a>
                 </td>
             </tr>
