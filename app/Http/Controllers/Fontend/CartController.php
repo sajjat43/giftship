@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Fontend;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Brian2694\Toastr\Facades\Toastr;
 
 class CartController extends Controller
 {
@@ -26,7 +27,8 @@ class CartController extends Controller
 
         $cartExist = session()->get('cart');
 
-        if (!$cartExist) {
+        if (!$cartExist)
+        {
             //case 01: cart is empty.
             //  action: add product to cart
 
@@ -39,6 +41,7 @@ class CartController extends Controller
                     'subtotal' => $product->price,
                 ]
             ];
+            
             session()->put('cart', $cartData);
         }
 
@@ -55,6 +58,7 @@ class CartController extends Controller
             ];
 
             session()->put('cart', $cartExist);
+            Toastr::success('product added to cart', 'success');
             return redirect()->back();
         }
 
@@ -75,7 +79,8 @@ class CartController extends Controller
     public function clearCart()
     {
         session()->forget('cart');
-        return redirect()->back()->with('success', 'cart cleared successfully');
+        Toastr::success('Cart clear successfully', 'success');
+        return redirect()->back();
     }
 
 
@@ -94,11 +99,13 @@ class CartController extends Controller
                  $carts[$product_id]['subtotal'] = $request->quantity * $carts[$product_id]['product_price'];
  
                  session()->put('cart', $carts);
-                 return redirect()->back()->with('message', 'Quantity update');
+                 Toastr::success('Quantity update', 'Success');
+                 return redirect()->back();
              }
-             
-             return redirect()->back()->with('message', 'Negative Quantity Not possible');
+             Toastr::success('Negative Quantity Not possible', 'failed');
+             return redirect()->back();
          }
-         return redirect()->back()->with('message', 'Sorry Quantity is not abliable');
+         Toastr::success('Sorry Quantity is not abliable', 'failed');
+         return redirect()->back();
      }
 }

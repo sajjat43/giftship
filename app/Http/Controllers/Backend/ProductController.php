@@ -240,6 +240,7 @@ class ProductController extends Controller
             session()->forget('cart');
             return redirect(route('manage.home'))->with('message', 'request placed Successfully');
         }
+        
         return redirect()->back()->with('message', 'No data found in cart');
     }
     // check out form
