@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 
+use Carbon\Carbon;
 use App\Models\Cart;
 use App\Models\Coupon;
 use Illuminate\Http\Request;
@@ -19,7 +20,7 @@ class CouponController extends Controller
         Coupon::create([
 
             'code' => $request->code,
-            'type' => $request->type,
+            'expiry_date' => $request->expiry_date,
             'value' => $request->value,
         ]);
         return redirect()->back()->with('success','coupun create successfully');
@@ -40,7 +41,7 @@ class CouponController extends Controller
 
 
     public function couponApply(Request $request){
-  $coupon=Coupon::where('code',$request->coupon_code)->first();
+  $coupon=Coupon::where('code',$request->coupon_code)->where('expiry_date','>=',Carbon::today())->first();
   $carts = session()->get('cart');
   
 //   dd($coupon);
