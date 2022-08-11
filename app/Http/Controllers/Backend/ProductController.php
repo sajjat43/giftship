@@ -195,16 +195,13 @@ class ProductController extends Controller
             $product = Product::where('name', 'LIKE', '%' . $key . '%')
                 ->orWhere('price', 'LIKE', '%' . $key . '%')
                 ->get();
-            return view('website.pages.search_product', compact('product', 'key'));
+            return view('website.pages.product.search_product', compact('product', 'key'));
         }
 
         $product = Product::all();
-        return view('website.pages.search_product', compact('product'));
+        return view('website.pages.product.search_product', compact('product'));
     }
 
-
-   
-   
 
     public function checkOut(request $request)
     {
@@ -272,7 +269,7 @@ class ProductController extends Controller
     {
         $product = Product::find($id);
         // dd($product);
-        return view('website.pages.singleView', compact('product'));
+        return view('website.pages.product.singleView', compact('product'));
     }
 
     // featured product slider

@@ -1,8 +1,7 @@
 @extends('website.master')
 @section('content')
 
-@extends('website.master')
-@section('content')
+
 @if (session()->has('message'))
 <p class="alert alert-success">
     {{ session()->get('message') }}
@@ -21,6 +20,7 @@
 </div>
 @endif
 <style>
+    
     .small-img-group {
         display: flex;
         flex-direction: row;
@@ -57,6 +57,14 @@
         opacity: 1;
         transform: 0.3s all;
     }
+    .wish-btn {
+        background: #129544;
+        border-radius: 3px;
+        padding: 9px;
+        margin-bottom: 28px;
+        opacity: 1;
+        transform: 0.3s all;
+    }
 
     .nice {
         margin-right: 7px;
@@ -66,6 +74,9 @@
     h3,
     span {
         font-family: 'Font Awesome 5 Free';
+    }
+    h1{
+        color: red;
     }
 </style>
 
@@ -95,7 +106,7 @@
             <div class="col-lg-6 col-md-12 col-12">
                 <h6>product/single/view </h6>
                 <h5 class="py-4"> Available Quantity: <strong>{{$product->qty}}</strong></h5>
-                <h3 class="py-4">{{ $product->name }}</h3>
+                <h3 class="py-4">name: {{ $product->name }}</h3>
                 <h2>BDT: {{ $product->price }}</h2>
                 {{-- <select class="my-3 nice">
                     <option>select size</option>
@@ -106,8 +117,16 @@
                     <option>S</option>
                 </select> --}}
                 {{-- <input type="number" value="1"> --}}
+                @if ($product->qty > 0)
                 <a class="buy-btn" type="button" href="{{ route('add.to.cart', $product->id) }}"> Add to
                     Cart</a>
+                    
+                        <a class="wish-btn" href="{{ route('add.to.wishlist', $product->id) }}" type="button">add to wishlist
+                        </a>
+                        @else
+                            <h1 >Sorry Quantity not Abaliable</h1>
+                        
+                  @endif
                 <h4 class="mt-5 mb-5">product details</h4>
                 <span> {{ $product->description }}</span>
 
