@@ -55,8 +55,6 @@
                         <td>
                             <a href="{{ route('customer.single.details', $data->id) }}" class="btn btn-info"><i
                                     class="fa-solid fa-eye"></i></a>
-                            <a href="" class="btn btn-success">Update</a>
-                            <a href="" class="btn btn-danger">Delete</a>
                         </td>
                     </tr>
                     @endforeach
