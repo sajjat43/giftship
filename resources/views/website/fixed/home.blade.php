@@ -85,8 +85,10 @@
                     {{-- @dd($data) --}}
                     <div class="item ">
                         <div class="card  py-2">
+                            <a href="{{ route('product.single.view', $latest->id) }}">
                             <img style="height: 219px; width: 215px;"
                                 src="{{ url('/uploads/uploads/product/', $latest->image) }}" alt="product image">
+                            </a>
                             <div class="card-body">
                                 @if ($latest->qty > 0)
                                 <label class="badge bg-success text-center" style="width: 80px">In Stock</label>
@@ -191,8 +193,10 @@
 
                     <div class="item ">
                         <div class="card  py-2">
+                            <a href="{{ route('product.single.view', $item->id) }}">
                             <img style="height: 219px; width: 215px;"
                                 src="{{ url('/uploads/uploads/product/'. $item->image) }}" alt="product image">
+                            </a>
                             <div class="card-body">
                                 @if ($item->qty > 0)
                                 <label class="badge bg-success text-center" style="width: 80px">In Stock</label>

@@ -13,6 +13,7 @@ class CartController extends Controller
     {
         $product=Product::all();
         $carts = session()->get('cart');
+        // dd($carts);
         return view('website.pages.cart', compact('carts','product'));
     }
     // -----------add to cart--------------------
@@ -38,6 +39,7 @@ class CartController extends Controller
                     'product_name' => $product->name,
                     'product_price' => $product->price,
                     'product_qty' => 1,
+                    'max_qty'=>$product->qty,
                     'subtotal' => $product->price,
                 ]
             ];
@@ -54,6 +56,7 @@ class CartController extends Controller
                 'product_name' => $product->name,
                 'product_price' => $product->price,
                 'product_qty' => 1,
+                'max_qty'=>$product->qty,
                 'subtotal' => $product->price,
             ];
 
@@ -65,11 +68,11 @@ class CartController extends Controller
 
         //case 03: product exist into cart
         //action: increase product quantity (quantity+1)
-
+         
         $cartExist[$id]['product_qty'] = $cartExist[$id]['product_qty'] + 1;
         # for updating the subtotal
         $cartExist[$id]['subtotal'] = $cartExist[$id]['product_price'] * $cartExist[$id]['product_qty'];
-
+       
         session()->put('cart', $cartExist);
         return redirect()->back();
     }

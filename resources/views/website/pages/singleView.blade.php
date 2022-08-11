@@ -94,6 +94,7 @@
             </div>
             <div class="col-lg-6 col-md-12 col-12">
                 <h6>product/single/view </h6>
+                <h5 class="py-4"> Available Quantity: <strong>{{$product->qty}}</strong></h5>
                 <h3 class="py-4">{{ $product->name }}</h3>
                 <h2>BDT: {{ $product->price }}</h2>
                 {{-- <select class="my-3 nice">
@@ -128,5 +129,5 @@
                 mainImg.src = smallimg[2].src;
             }
     </script>
-
+</body>
     @endsection
