@@ -24,7 +24,7 @@
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Coupons Code</th>
-            <th scope="col">Type</th>
+            <th scope="col">Expairy Date</th>
             <th scope="col">Taka</th>
             <th scope="col">Action</th>
         </tr>
@@ -34,7 +34,7 @@
         <tr>
             <th scope="row">{{ $key + 1 }}</th>
             <td>{{ $data->code }} </td>
-            <td>{{ $data->type }} </td>
+            <td>{{ $data->expiry_date }} </td>
             <td>{{ $data->value }} </td>
             <td>
                 <a href="{{route('coupon.delete',$data->id)}}" class="btn btn-info"><i class="fa-solid fa-trash-can"></i></a>

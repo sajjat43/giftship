@@ -9,6 +9,7 @@ use App\Models\Coupon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Http\Controllers\Controller;
+use Brian2694\Toastr\Facades\Toastr;
 
 class CouponController extends Controller
 { 
@@ -23,7 +24,8 @@ class CouponController extends Controller
             'expiry_date' => $request->expiry_date,
             'value' => $request->value,
         ]);
-        return redirect()->back()->with('success','coupun create successfully');
+        Toastr::success('coupun create successfully', 'success');
+        return redirect()->back();
     }
     public function couponList(){
         $coupon=Coupon::all();
@@ -41,25 +43,36 @@ class CouponController extends Controller
 
 
     public function couponApply(Request $request){
-  $coupon=Coupon::where('code',$request->coupon_code)->where('expiry_date','>=',Carbon::today())->first();
+  $coupon=Coupon::where('code',$request->coupon_code)->first();
+  $coupons=Coupon::where('code',$request->coupon_code)->where('expiry_date','>=',Carbon::today())->first();
   $carts = session()->get('cart');
   
 //   dd($coupon);
   if(!$coupon){
-    return redirect()->back()->with('message','please Enter valid code');
+    Toastr::error('please Enter valid code', 'failed');
+    return redirect()->back();
   }
+  if(!$coupons){
+    // Toastr::success('Coupon Expaired', 'failed');
+    Toastr::error('Coupon Date Expaired', 'failed');
+    return redirect()->back();
+}
+else{
   session()->put('coupon',[
     'name'=>$coupon->code,
     'discount'=>$coupon->value,
   ]);
+  Toastr::success('Coupon has been applyed', 'success');
+  return redirect()->back();
+}
   
   
-  return redirect()->back()->with('message','Coupon has been applyed');
     }
 
     public function deleteCoupon(){  
       session()->forget('coupon');
-      return redirect()->back()->with('message','coupon remove successfully');
+      Toastr::warning('You removed discount Coupon', 'success');
+      return redirect()->back();
     }
     // frontend====================end
 }
