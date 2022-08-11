@@ -32,7 +32,7 @@
                                     <li><a href="{{ route('customer.profile') }}">My
                                             Account </a>
                                     </li>
-
+                                   
                                     @if (!auth()->user())
 
                                     @else
@@ -43,6 +43,9 @@
                                     @if (!auth()->user())
                                     <li><a href="{{ route('website.user.login') }}">Sign in</a></li>
                                     @else
+                                    @if(Auth()->user()->role == 'admin')
+                                    <li><a href="{{route('home')}}">Dashbord</a></li>
+                                    @endif
                                     <li><a href="{{ route('user.logout') }}">({{ auth()->user()->name }})/Sign
                                             out</a></li>
                                     @endif

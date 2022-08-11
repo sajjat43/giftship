@@ -17,4 +17,8 @@ class order extends Model
     {
         return $this->belongsTo(RequestDetails::class);
     }
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'product_id', 'id');
+    }
 }

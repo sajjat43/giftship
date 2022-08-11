@@ -197,11 +197,15 @@ class ProductController extends Controller
                 ->get();
             return view('website.pages.product.search_product', compact('product', 'key'));
         }
+        else{
+            Toastr::success('search by product name', 'failed');
+            return redirect()->back();
+        }
 
         $product = Product::all();
         return view('website.pages.product.search_product', compact('product'));
     }
-
+    
 
     public function checkOut(request $request)
     {

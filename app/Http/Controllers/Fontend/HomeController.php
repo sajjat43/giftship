@@ -51,7 +51,7 @@ class HomeController extends Controller
 
         // dd($product);
 
-        return view('website.pages.product_under_category', compact('product'));
+        return view('website.pages.product.product_under_category', compact('product'));
     }
     // brand filter
     public function productUnderBrand($Bid)
@@ -59,6 +59,6 @@ class HomeController extends Controller
         $product = Product::where('brand_id', $Bid)->get();
 
         // dd($product);
-        return view('website.pages.product_under_brand', compact('product'));
+        return view('website.pages.product.product_under_brand', compact('product'));
     }
 }
