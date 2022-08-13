@@ -51,9 +51,10 @@
     </style>
     <div class='cart'>
         <div class="count">
+
             <h1>You have ({{session()->has('wishlist') ? count(session()->get('wishlist')) : 0
                 }})
-                product
+                product on wishlist
             </h1>
         </div>
 

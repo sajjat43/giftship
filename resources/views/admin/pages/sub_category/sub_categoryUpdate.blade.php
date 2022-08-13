@@ -17,6 +17,7 @@
     </ul>
 </div>
 @endif
+<h1>SubCategory Update</h1>
 <form action="{{ route('update.store.subCategory', $subcategory->id) }}" method="POST" enctype="multipart/form-data">
     {{-- <input type="text"> --}}
     @csrf

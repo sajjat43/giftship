@@ -18,7 +18,7 @@
         </div>
     @endif
     <div class="container">
-
+<h1 class="text-center">Registration Form</h1>
         <form action="{{ route('User.regestation.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
             <div class="form-group">

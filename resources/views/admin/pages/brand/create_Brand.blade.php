@@ -20,10 +20,10 @@
     
     <form action="{{ route('brand.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
-
+<h1>Brand Create</h1>
         <div class="form-group">
             <label for="">Brand Name</label>
-            <input type="text" class="form-control" id="Bname" name="Bname" placeholder="Enter your product name">
+            <input type="text" class="form-control" id="Bname" name="Bname" placeholder="Enter your Brand name">
 
         </div>
         <div class="form-group">

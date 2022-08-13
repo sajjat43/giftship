@@ -17,8 +17,10 @@
             </ul>
         </div>
     @endif
+    <h1>SubCategory Create</h1>
     <form action="{{ route('product.subCategory.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
+       
         <div class="form-group">
             <label for="">SubCategory Name</label>
             <input type="text" class="form-control" id="subname" name="subname" placeholder="Enter your product name">

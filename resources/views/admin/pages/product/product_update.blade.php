@@ -17,6 +17,7 @@
     </ul>
 </div>
 @endif
+<h1>Product Update</h1>
 <form action="{{ route('product.update', $product->id) }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="form-group">
