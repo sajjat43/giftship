@@ -198,7 +198,7 @@ class ProductController extends Controller
             return view('website.pages.product.search_product', compact('product', 'key'));
         }
         else{
-            Toastr::success('search by product name', 'failed');
+            Toastr::error('search by product name', 'failed');
             return redirect()->back();
         }
 

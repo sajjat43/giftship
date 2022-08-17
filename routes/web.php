@@ -216,6 +216,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     route::post('coupon/store', [CouponController::class, 'couponStore'])->name('coupon.store');
     route::get('coupon/list', [CouponController::class, 'couponList'])->name('coupon.list');
     route::get('coupon/delete/{id}', [CouponController::class, 'couponDelete'])->name('coupon.delete');
+    route::get('coupon/update/form/{id}', [CouponController::class, 'couponUpdateForm'])->name('coupon.update.form');
+    route::Post('coupon/update/{id}', [CouponController::class, 'couponUpdate'])->name('coupon.update');
      // coupon ----------end
 
     //  report generate start

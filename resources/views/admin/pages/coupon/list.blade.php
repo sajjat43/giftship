@@ -38,6 +38,8 @@
             <td>{{ $data->value }} </td>
             <td>
                 <a href="{{route('coupon.delete',$data->id)}}" class="btn btn-info"><i class="fa-solid fa-trash-can"></i></a>
+                <a href="{{ route('coupon.update.form', $data->id) }}" class="btn btn-info"><i
+                    class="fa-solid fa-pen-to-square"></i></a>
             </td>
         </tr>
         @endforeach

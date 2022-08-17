@@ -29,6 +29,7 @@ class CouponController extends Controller
     }
     public function couponList(){
         $coupon=Coupon::all();
+        
         return view('admin.pages.coupon.list',compact('coupon'));
     }
     public function couponDelete($id){
@@ -37,6 +38,23 @@ class CouponController extends Controller
         return redirect()->back()->with('success','coupun delete successfully');
 
     }  
+
+    public function couponUpdateForm($id){
+
+      $coupon=Coupon::find($id);
+      return view('admin.pages.coupon.update',compact('coupon'));
+    }
+    public function couponUpdate(Request $request ,$id){
+
+      
+      Coupon::find($id)->update([
+        'code' => $request->code,
+        'expiry_date' => $request->expiry_date,
+        'value' => $request->value,
+    ]);
+    Toastr::success('Coupon update successfully', 'success');
+    return redirect()->route('coupon.list');
+    }
     // backend====================end
 
     // frontend====================Start
