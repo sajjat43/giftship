@@ -3,7 +3,7 @@
 @section('content')
 <div class="container">
     <div class="row special-list">
-
+@if($product->count()>0)
         @foreach ($product as $product)
         <div class="col-lg-4 col-md-6 special-grid best-seller shedo gx-5 ">
             <a href="{{ route('product.single.view', $product->id) }}">
@@ -50,7 +50,9 @@
             </a>
         </div>
         @endforeach
-
+@else
+<h1 class="text-center pt-5"> product Not found</h1>
+@endif
 
     </div>
 </div>

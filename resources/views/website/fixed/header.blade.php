@@ -96,7 +96,9 @@
                                                 <li>
                                                     <a href="{{ route('product.under.catagory', $category->id) }}">{{
                                                         $category->Cname }}</a>
+                        
                                                 </li>
+                                                
                                                 @endforeach
                                             </ul>
                                         </li>
