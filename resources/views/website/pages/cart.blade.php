@@ -1,6 +1,9 @@
 @extends('website.master')
 @section('content')
 
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 @if (session()->has('message'))
 <p class="alert alert-success">
@@ -48,6 +51,13 @@
     .s {
         float: right;
     }
+    .fa-solid {
+        
+    color: red;
+    margin-left: 25px;
+    font-size: 26px;
+
+    }
 </style>
 <div class='cart'>
     {{-- ------------------------------------- --}}
@@ -64,7 +74,7 @@
                 <th scope="col">Price</th>
                 <th scope="col">Quantity</th>
                 <th scope="col">Sub Total</th>
-                {{-- <th scope="col">remove</th> --}}
+                <th scope="col">remove</th>
             </tr>
         </thead>
         <tbody>
@@ -75,9 +85,9 @@
                 @foreach ($carts as $key => $data)
                 <tr>
                     <th scope="row">{{ $key }}</th>
-                    <td>{{ $data['product_name'] }}</td>
+                    <td>{{ $data['product_name'] }} </td>
 
-                    <td>{{ $data['product_price'] }}</td>
+                    <td>{{ $data['product_price'] }} .BDT</td>
                     <td>
                         <div class="col-md-4">
                             <form action="{{ route('cart.qty.update', $key) }}" method="get">
@@ -91,10 +101,12 @@
                             </form>
                         </div>
                     </td>
-                    <td class="cart__total">{{ $data['subtotal'] }}
+                    <td class="cart__total">{{ $data['subtotal'] }} .BDT</td>
+                        <td><a href="{{route('cart.item.delete',$key)}}"><i class="fa-solid fa-xmark"></i></a></td>
                 </tr>
                 @endforeach
-
+             @else
+           {{-- <tr><h1 class="text-center">Cart Is Empty</h1></tr> --}}
                 @endif
             </div>
 
@@ -106,7 +118,7 @@
         <div class="col-md-8"></div>
         <div class="col-md-2"></div>
         <div class="col-md-2">
-            <td>Total Price: <span>{{ array_sum(array_column($carts, 'subtotal')) }}
+            <td><strong>Total Price: </strong><span>{{ array_sum(array_column($carts, 'subtotal')) }} .BDT
             </td>
         </div>
     </div>

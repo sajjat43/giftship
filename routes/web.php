@@ -80,6 +80,9 @@ route::get('/add-to-cart/{id}', [CartController::class, 'addToCart'])->name('add
 Route::get('/clear-cart', [CartController::class, 'clearCart'])->name('cart.clear');
 // card qty update
 Route::get('/cart/qty/update/{id}', [CartController::class, 'cartQty_update'])->name('cart.qty.update');
+//cart item delete
+Route::get('/cart/item/delete/{id}', [CartController::class, 'deleteItem'])->name('cart.item.delete');
+
 // =====================wish List==================
 route::get('/wishlist/view', [wishListController::class, 'wishListView'])->name('wishlist.view');
 route::get('/Add_to_wishlist/{id}', [wishListController::class, 'add_to_wishlist'])->name('add.to.wishlist');

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Fontend;
 
+
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -82,7 +83,7 @@ class CartController extends Controller
     public function clearCart()
     {
         session()->forget('cart');
-        Toastr::success('Cart clear successfully', 'success');
+        Toastr::error('Cart clear successfully', 'warning');
         return redirect()->back();
     }
 
@@ -105,10 +106,19 @@ class CartController extends Controller
                  Toastr::success('Quantity update', 'Success');
                  return redirect()->back();
              }
-             Toastr::success('Negative Quantity Not possible', 'failed');
+             Toastr::warning('Negative Quantity Not possible', 'failed');
              return redirect()->back();
          }
          Toastr::success('Sorry Quantity is not abliable', 'failed');
          return redirect()->back();
      }
+
+     public function deleteItem($id){
+        $DeleteItem=session()->get('cart');
+        unset($DeleteItem[$id]);
+        session()->put('cart',$DeleteItem);
+        Toastr::error('Your item remove from the Cart','Warning');
+        return redirect()->back();
+     }
+
 }
