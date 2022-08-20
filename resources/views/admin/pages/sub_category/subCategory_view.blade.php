@@ -26,6 +26,7 @@
             <th scope="col">ID</th>
             <th scope="col">subCatagory name</th>
             <th scope="col">subCategory description</th>
+            <th scope="col">category name</th>
             <th scope="col">image</th>
             <th scope="col">Action</th>
         </tr>
@@ -36,6 +37,7 @@
             <th scope="row">{{ $key + 1 }}</th>
             <td>{{ $data->subname }} </td>
             <td>{{ $data->subdescription }} </td>
+            <td>{{ $data->category->Cname }} </td>
             <td><img src="{{ url('uploads/uploads/subcategory/' . $data->subimage) }}" style="border-radius:4px"
                     width="100px" alt="Category image"></td>
             <td>

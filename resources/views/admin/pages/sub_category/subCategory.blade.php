@@ -32,6 +32,15 @@
                 placeholder="Short description">
         </div>
         <div class="form-group">
+            <label for="exampleFormControlSelect1">product Category</label>
+            <select name="category_id" class="form-control" id="exampleFormControlSelect1">
+                @foreach ($categories as $category)
+              
+                <option value="{{ $category->id }}">{{ $category->Cname }}</option>
+                @endforeach
+            </select>
+        </div>
+        <div class="form-group">
             <label for="">image</label>
             <input type="file" class="form-control" , name="subimage" placeholder="insert image">
         </div>

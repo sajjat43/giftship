@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Backend\subCategory;
 
+use App\Models\Category;
 use App\Models\subCategory;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
@@ -10,7 +11,9 @@ class subCategoryController extends Controller
 {
     public function subCategoryCreate()
     {
-        return view('admin.pages.sub_category.subCategory');
+        
+        $categories = Category::all();
+        return view('admin.pages.sub_category.subCategory',compact('categories'));
     }
     public function subCategoryStore(Request $request)
     {
@@ -32,6 +35,7 @@ class subCategoryController extends Controller
         subCategory::create([
 
             'subname' => $request->subname,
+            'category_id'=>$request->category_id,
             'subdescription' => $request->subdescription,
             'subimage' => $image_subname,
         ]);
@@ -41,7 +45,7 @@ class subCategoryController extends Controller
     // subcategory view
     public function subCategoryView()
     {
-        $subcategory = subCategory::all();
+        $subcategory = subCategory::with('category')->get();
         return view('admin.pages.sub_category.subCategory_view', compact('subcategory'));
     }
     public function updateForm($id){

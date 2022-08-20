@@ -229,7 +229,7 @@ class ProductController extends Controller
             foreach ($carts as $key => $cart) {
                 RequestDetails::create([
                     'user_id' => auth()->user()->id,
-                    'request_id' => $request->id,
+                    // 'request_id' => $request->id,
                     'product_id' => $cart['product_id'],
                     'quantity' => $cart['product_qty'],
                     'product_price' => $cart['product_price'] * $cart['product_qty'],
