@@ -34,7 +34,7 @@ class AppServiceProvider extends ServiceProvider
     {
         Paginator::useBootstrap();
         $categories = Category::all();
-        $subcategory = subCategory::all();
+        $subcategorys = subCategory::all();
         $brand = Brand::all();
         $product = Product::where('featured', '1')->get();
         $latestProduct = Product::where('created_at', 'DESC')->get()->take(7);
@@ -42,7 +42,7 @@ class AppServiceProvider extends ServiceProvider
         view::share('brand',  $brand);
         view::share('product', $product);
         view::share('latestProduct', $latestProduct);
-        view::share('subcategory', $subcategory);
+        view::share('subcategorys', $subcategorys);
 
         $order = RequestProduct::all()->count();
         view::share('order', $order);

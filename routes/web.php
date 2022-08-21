@@ -37,8 +37,10 @@ use App\Http\Controllers\Backend\subCategory\subCategoryController;
 //
 Route::get('/shop/category/', [HomeController::class, 'shop_category'])->name('shop.catagory');
 // Route::get('/shop/Brand/', [HomeController::class, 'shop_Brand'])->name('shop.brand');
+//  category,subcategory,brand under product
 Route::get('/product/under/category/{category_id}', [HomeController::class, 'productUnderCategory'])->name('product.under.catagory');
 Route::get('/product/under/brand/{brand_id}', [HomeController::class, 'productUnderBrand'])->name('product.under.brand');
+Route::get('/product/under/subcategory/{id}', [HomeController::class, 'productUnderSubcategory'])->name('product.under.subcategory');
 
 // ------------website login-------
 Route::get('/user/login/website', [HomeController::class, 'userLogin'])->name('website.user.login');

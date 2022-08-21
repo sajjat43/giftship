@@ -7,6 +7,7 @@ use App\Models\Product;
 use App\Models\Category;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Models\subCategory;
 use Illuminate\Foundation\Auth\User;
 
 class HomeController extends Controller
@@ -60,5 +61,9 @@ class HomeController extends Controller
 
         // dd($product);
         return view('website.pages.product.product_under_brand', compact('product'));
+    }
+    public function productUnderSubcategory($id){
+        $product = Product::where('subcategory_id', $id)->get();
+        return view('website.pages.product.product_under_subcategory',compact('product'));
     }
 }

@@ -75,17 +75,6 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a href="{{ route('manage.home') }}">Home</a></li>
-
-                                        <li class="hot"><a href="#">Latest</a>
-                                            <ul class="submenu">
-                                                {{-- <li><a href="{{route('product.font.view')}}"> Product list</a>
-                                                </li> --}}
-                                                {{-- <li><a href="single-product.html"> Product Details</a></li> --}}
-                                            </ul>
-                                        </li>
-
-
-
                                         {{-- ====================category===================== --}}
 
 
@@ -102,6 +91,18 @@
                                                 @endforeach
                                             </ul>
                                         </li>
+                                        {{-- subcategory --}}
+                                        <li class=""><a href="#">SubCategory</a>
+                                            <ul class="submenu">
+                                                @foreach ( $subcategorys as $subcategory)
+                                                <li><a href="{{route('product.under.subcategory',$subcategory->id)}}"> {{$subcategory->subname}}</a>
+                                                </li>
+                                                @endforeach
+                                                
+                                                
+                                            </ul>
+                                        </li>
+                                        {{-- brand --}}
                                         <li><a href="">Brand</a>
                                             <ul class="submenu">
 
