@@ -5,23 +5,24 @@ use Illuminate\Support\Facades\Route;
 // use App\Http\Controllers\Backend\UserController;
 use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\AdminController;
-use App\Http\Controllers\Backend\Brand\BrandController;
-use App\Http\Controllers\Backend\category\CategoryController;
-use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\pdfController;
 use App\Http\Controllers\Backend\UserController;
+use App\Http\Controllers\Fontend\CartController;
 use App\Http\Controllers\Fontend\HomeController;
+use App\Http\Controllers\Fontend\orderController;
+use App\Http\Controllers\Backend\CouponController;
+use App\Http\Controllers\Backend\reportController;
 use App\Http\Controllers\ForgotPasswordController;
 use App\Http\Controllers\Backend\ProductController;
 use App\Http\Controllers\Backend\CustomerController;
 use App\Http\Controllers\Backend\DashboardController;
-use App\Http\Controllers\Backend\reportController;
-use App\Http\Controllers\Backend\subCategory\subCategoryController;
 use App\Http\Controllers\Fontend\UserLoginController;
 use App\Http\Controllers\SslCommerzPaymentController;
+use App\Http\Controllers\Backend\Brand\BrandController;
 use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
+use App\Http\Controllers\Backend\category\CategoryController;
 use App\Http\Controllers\Backend\wishList\wishListController;
-use App\Http\Controllers\Fontend\CartController;
+use App\Http\Controllers\Backend\subCategory\subCategoryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -130,6 +131,10 @@ Route::group(['prefix' => '/', 'middleware' => 'web_auth'], function () {
 
     Route::get('customer/update/info/{id}',[UserLoginController::class, 'customerUpdate'])->name('customer.profile.update');
     Route::post('customer/update/store/{id}',[UserLoginController::class, 'customerUpdateStore'])->name('customer.profile.update.store');
+
+    // order 
+    route::get('order/customer',[orderController::class,'requestList'])->name('order.customer');
+    route::get('order/customer/details/{id}',[orderController::class,'requestInvoice'])->name('order.customer.details');
 
 
     // coupon -------start 

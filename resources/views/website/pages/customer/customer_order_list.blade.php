@@ -56,29 +56,40 @@
                                 <table class="table">
                                     <thead>
                                         <tr>
-                                            <th>Product Name</th>
-                                            <th>Quantity</th>
-                                            <th>Price</th>
-                                            <th>sub total</th>
-                                            <th>Date and time</th>
-                                            <th>Status</th>
-
+                                            <th scope="col">ID</th>
+                                            <th scope="col">User Name</th>
+                                            <th scope="col">Total price</th>
+                                            <th scope="col">Date</th>
+                                            <th scope="col">Payment Status</th>
+                                            <th scope="col">Action</th>
+                            
+                            
                                         </tr>
                                     </thead>
                                     <tbody>
                                         @foreach ($request as $key => $request)
+                                        {{-- @dd($request); --}}
                                         <tr>
-                                            <td>{{ $request->product->name }}</td>
-                                            <td>{{ $request->quantity }}</td>
-                                            <td>{{ $request->price }}</td>
-                                            <td>{{ $request->sub_total }}</td>
-                                            <td>{{$request->created_at}}</td>
+                                            <th scope="row">{{ $key + 1 }}</th>
+                                            <td>{{ $request->user->name }}</td>
+                            
+                                                <td>
+                                                    TK {{ $request->total }}
+                                                </td>
+                                                <td>
+                                                    {{$request->created_at}}
+                                                </td>
+                                                <td>
+                                                    {{ $request->payment_status }}
+                                                </td>
+                            
+                            
                                             <td>
-                                                {{ $request->status }}
+                            
+                                                <a href="{{ route('order.customer.details', $request->id) }}" class="btn btn-success">View</a>
                                             </td>
                                         </tr>
                                         @endforeach
-
                                     </tbody>
                                 </table>
                             </div>

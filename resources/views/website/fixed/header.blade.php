@@ -36,7 +36,7 @@
                                     @if (!auth()->user())
 
                                     @else
-                                    <li><a href="{{route('customer.order.list.view',auth()->user()->id)}}">order
+                                    <li><a href="{{route('order.customer')}}">order
                                             list</a></li>
 
                                     @endif
