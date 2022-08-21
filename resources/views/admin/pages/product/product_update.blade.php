@@ -39,7 +39,7 @@
         <label for="exampleFormControlSelect1">product subCategory</label>
         <select name="subcategory" class="form-control" id="exampleFormControlSelect1">
             <option value="{{ $product->subcategory->id }}">{{ $product->subcategory->subname }}</option>
-            @foreach ($subcategory as $subcategory)
+            @foreach ($subcategorys as $subcategory)
             <option value="{{ $subcategory->id }}">{{ $subcategory->subname }}</option>
             @endforeach
         </select>

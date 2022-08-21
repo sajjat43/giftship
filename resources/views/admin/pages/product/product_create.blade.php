@@ -21,7 +21,7 @@
     @csrf
     <h1 class="text-center py-3">Create Product</h1>
     <div class="form-group">
-        <label for="">Name:</label>
+        <label for="">Product Name:</label>
         <input type="text" class="form-control" id="p_name" name="name" placeholder="Enter your product name">
 
     </div>
@@ -37,7 +37,7 @@
     <div class="form-group">
         <label for="exampleFormControlSelect1">subCategory Name</label>
         <select name="subcategory" class="form-control" id="exampleFormControlSelect1">
-            @foreach ($subcategory as $subcategory)
+            @foreach ($subcategorys as $subcategory)
           
             <option value="{{ $subcategory->id }}">{{ $subcategory->subname }}</option>
             @endforeach
