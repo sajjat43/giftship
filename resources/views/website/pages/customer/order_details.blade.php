@@ -7,6 +7,18 @@
     body {
         background: #eee
     }
+    .nav-link{
+        padding: 20px;
+        border-radius: 10px;
+        background-color: black;
+
+    }
+    .text-right button{
+        padding: 10px;
+        border-radius: 10px;
+        background-color: black;
+    }
+
 </style>
 
 
@@ -23,23 +35,29 @@
 @endif
 {{-- <a href="{{ route('create.pdf') }}" class="btn btn-success">PDF</a> --}}
 <div class="container">
-    <a class="nav-link " style="width:90px" href="{{ route('order.customer') }}">Back
+    <a class="nav-link btn btn-success" href="{{ route('order.customer') }}">Back
     </a>
-    <div class="col-xl-3  mt-3">
-        <button class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"
-            onclick="printDiv('printableArea')"><i class="fas fa-print text-primary"></i> Print</button>
-    </div>
+    
     
 </div>
 
 <body oncontextmenu='return false' class='snippet-body'>
 
-    
-    <div class="card mt-5" id="printableArea">
+   
+    <div class="card mt-5" >
         <div class="container mt-5">
-            <div class="d-flex justify-content-center row">
+            <div class="col-xl-3  text-right float-right ">
+                <button class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"
+                    onclick="printDiv('printableArea')"><i class="fas fa-print text-primary"></i> Print</button>
+            </div>
+            <div class="d-flex justify-content-center row"id="printableArea">
+                <div class="row">
+                    <div class="col-md-6">
+                            <h3 class="text-uppercase">name: {{ auth()->user()->name }}</h3>
+                        </div>
+                    </div>  
                 <div class="col-md-8">
-                    <div class="p-3 bg-white rounded">
+                    <div class="p-3 bg-white rounded"">
                         <div class="row">
                             <div class="col-md-6">
                                 {{-- <h3 class="text-uppercase">{{ $request->user->name }}</h3> --}}

@@ -11,6 +11,11 @@
         padding: 10px;
         border-radius: 10px;
     }
+    .a{
+        padding: 20px;
+        border-radius: 10px;
+        background-color: black;
+    }
 </style>
 
 
@@ -47,10 +52,10 @@
                     </div>
                     <div class="p-3 bg-white rounded " id="printableArea">
                         <div class="row">
-                            <div class="col-md-6">
+                        <div class="col-md-6">
                                 <h3 class="text-uppercase">name: {{ auth()->user()->name }}</h3>
                             </div>
-                        </div>
+                        </div>    
                         <div class="mt-3">
                             <div class="table-responsive">
                                 <table class="table">
@@ -86,7 +91,7 @@
                             
                                             <td>
                             
-                                                <a href="{{ route('order.customer.details', $request->id) }}" class="btn btn-success">View</a>
+                                                <a href="{{ route('order.customer.details', $request->id) }}" class="btn btn-success a">View</a>
                                             </td>
                                         </tr>
                                         @endforeach
