@@ -211,13 +211,30 @@ class ProductController extends Controller
     {
         // dd($request);
 
-        order::create([
+        try{
+            $order = order::create([
+                'user_id' => auth()->user()->id,
+                
+                'name' => $request->name,
+                'email' => $request->email,
+                'mobile' => $request->mobile,
+                'Address' => $request->Address,
+                'total' =>array_sum(array_column(session()->get('cart'),'subtotal'))+50-(session()->get('coupon')['discount']),
+                
+            ]);
+        
+    }catch (\Throwable $th){
+        $order = order::create([
+            'user_id' => auth()->user()->id,
+            
             'name' => $request->name,
             'email' => $request->email,
             'mobile' => $request->mobile,
             'Address' => $request->Address,
-
+            'total' =>array_sum(array_column(session()->get('cart'),'subtotal'))+50,
+            
         ]);
+    }
 
         $carts = session()->get('cart');
         if ($carts) {
@@ -228,17 +245,21 @@ class ProductController extends Controller
             ]);
             foreach ($carts as $key => $cart) {
                 RequestDetails::create([
+
                     'user_id' => auth()->user()->id,
-                    // 'request_id' => $request->id,
+                    'order_id'=>$order->id,
+                    'request_id' => $request->id,
                     'product_id' => $cart['product_id'],
                     'quantity' => $cart['product_qty'],
-                    'product_price' => $cart['product_price'] * $cart['product_qty'],
-                    'total_price' => $total += $cart['product_price'] * $cart['product_qty'],
+                    'price' =>$cart['product_price'],
+                    'sub_total' => $cart['product_price'] * $cart['product_qty'],
+                    // 'total_price' => $total += $cart['product_price'] * $cart['product_qty'],
                 ]);
                 $product = Product::find($key);
                 $product->decrement('qty', $cart['product_qty']);
             }
             session()->forget('cart');
+            session()->forget('coupon');
             return redirect(route('manage.home'))->with('message', 'request placed Successfully');
         }
         
@@ -252,6 +273,11 @@ class ProductController extends Controller
         
         return view('website.pages.checkOut',compact('carts'));
     }
+public function cash_checkOut_form(){
+    $carts = session()->get('cart');
+        
+    return view('website.pages.cash_checkout',compact('carts'));
+}
     public function checkOut_store(Request $request)
     {
         order::create([

@@ -128,10 +128,11 @@
     @if(session()->has('cart'))
     <a href="{{ route('cart.clear') }}" class="btn btn-danger">Clear Cart</a>
     <a href="{{ route('check.out.form') }}" class="btn btn-success ">Buy Now</a>
+    <a href="{{ route('cash.check.out.form') }}" class="btn btn-success ">Cash on dalivery</a>
     @endif
 </div>
 
-{{-- <a href="{{ route('check.out') }}" class="btn btn-success ">Buy Now</a> --}}
+
 
 </div>
 @endsection

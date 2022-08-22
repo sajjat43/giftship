@@ -124,6 +124,7 @@ Route::group(['prefix' => '/', 'middleware' => 'web_auth'], function () {
     route::post('/check-out', [ProductController::class, 'checkOut'])->name('check.out');
     route::get('/check-out/form', [ProductController::class, 'checkOut_form'])->name('check.out.form');
     route::post('/check-out/form/store', [ProductController::class, 'checkOut_store'])->name('check.out.store');
+    route::get('/cash/check-out/form', [ProductController::class, 'cash_checkOut_form'])->name('cash.check.out.form');
 
 
     // ---------- customer profile--------

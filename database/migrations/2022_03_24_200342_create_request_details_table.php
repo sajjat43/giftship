@@ -18,7 +18,7 @@ class CreateRequestDetailsTable extends Migration
             $table->integer('request_id');
             $table->integer('order_id');
             $table->integer('product_id');
-            $table->string('tran_id');
+            $table->string('tran_id')->nullable();
             $table->integer('user_id');
             $table->integer('quantity');
             $table->integer('price');
