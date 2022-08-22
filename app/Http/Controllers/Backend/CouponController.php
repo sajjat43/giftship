@@ -89,7 +89,7 @@ else{
 
     public function deleteCoupon(){  
       session()->forget('coupon');
-      Toastr::warning('You removed discount Coupon', 'success');
+      Toastr::warning('You removed discount Coupon', 'warning');
       return redirect()->back();
     }
     // frontend====================end
