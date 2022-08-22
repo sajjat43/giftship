@@ -127,8 +127,8 @@
 <div class="card-footer">
     @if(session()->has('cart'))
     <a href="{{ route('cart.clear') }}" class="btn btn-danger">Clear Cart</a>
-    <a href="{{ route('check.out.form') }}" class="btn btn-success ">Buy Now</a>
-    <a href="{{ route('cash.check.out.form') }}" class="btn btn-success ">Cash on dalivery</a>
+    <a href="{{ route('check.out.form') }}" class="btn btn-success ">Online Payment</a>
+    <a href="{{ route('cash.check.out.form') }}" class="btn btn-success ">Cash on Delivery</a>
     @endif
 </div>
 
