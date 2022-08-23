@@ -113,7 +113,7 @@
         </tbody>
 
     </table>
-    @if($carts)
+    @if($carts )
     <div class="row mt-2 pb-5">
         <div class="col-md-8"></div>
         <div class="col-md-2"></div>
@@ -125,10 +125,12 @@
     @endif
 </div>
 <div class="card-footer">
-    @if(session()->has('cart'))
+    @if(session()->has('cart') && count(session()->get('cart'))>0 )
     <a href="{{ route('cart.clear') }}" class="btn btn-danger">Clear Cart</a>
+  
     <a href="{{ route('check.out.form') }}" class="btn btn-success ">Online Payment</a>
     <a href="{{ route('cash.check.out.form') }}" class="btn btn-success ">Cash on Delivery</a>
+    
     @endif
 </div>
 

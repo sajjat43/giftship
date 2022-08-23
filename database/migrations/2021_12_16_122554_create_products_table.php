@@ -23,7 +23,7 @@ class CreateProductsTable extends Migration
             $table->double('qty');
             $table->string('description')->nullable();
             $table->string('image')->nullable();
-            $table->string('featured')->default(0);
+            $table->string('featured')->nullable()->default(0);
             $table->timestamps();
         });
     }
