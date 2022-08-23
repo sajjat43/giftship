@@ -205,6 +205,8 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     Route::get('brand/create', [BrandController::class, 'BrandCreate'])->name('brand.create');
     Route::post('brand/store', [BrandController::class, 'BrandStore'])->name('brand.store');
     Route::get('brand/view', [BrandController::class, 'BrandView'])->name('brand.view');
+    Route::get('brand/edit/{id}', [BrandController::class, 'BrandEditForm'])->name('brand.edit');
+    Route::post('brand/edit/store/{id}', [BrandController::class, 'BrandEditStore'])->name('brand.edit.store');
 //  brand end
 
 

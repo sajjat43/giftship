@@ -45,7 +45,7 @@ class subCategoryController extends Controller
     // subcategory view
     public function subCategoryView()
     {
-        $subcategory = subCategory::with('category')->get();
+        $subcategory = subCategory::with('category')->orderBy('id','DESC')->get();
         return view('admin.pages.sub_category.subCategory_view', compact('subcategory'));
     }
     public function updateForm($id){

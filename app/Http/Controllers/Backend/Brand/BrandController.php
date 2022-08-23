@@ -41,7 +41,26 @@ class BrandController extends Controller
      }
      public function BrandView()
      {
-         $brand = Brand::all();
+         $brand = Brand::orderBy('id','DESC')->get();
          return view('admin.pages.brand.Brand_view', compact('brand'));
+     }
+     public function BrandEditForm($id){
+        $brand=Brand::find($id);
+        return view('admin.pages.brand.update',compact('brand'));
+     }
+     public function BrandEditStore(Request $request,$id){
+        $brand=Brand::find($id);
+
+        $image_Bname = $brand->Bimage;
+        if ($request->hasfile('Bimage')) {
+            $image_Bname = date('Ymdhis') . '.' . $request->file('Bimage')->getClientOriginalExtension();
+            $request->file('Bimage')->storeAs('/uploads/Brand', $image_Bname);
+        }
+        Brand::find($id)->update([
+            'Bname' => $request->Bname,
+            'Bdescription' => $request->Bdescription,
+            'Bimage' => $image_Bname,
+        ]);
+        return redirect()->route('brand.view')->with('success', 'Brand has been update Successfully');
      }
 }

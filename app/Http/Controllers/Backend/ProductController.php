@@ -30,7 +30,7 @@ class ProductController extends Controller
                 
             return view('admin.pages.product.product', compact('product', 'key'));
         }
-        $product = Product::with('Category')->get();
+        $product = Product::with('Category')->orderBy('id','DESC')->get();
         // ddd($product);
         return view('admin.pages.product.product', compact('product'));
     }
