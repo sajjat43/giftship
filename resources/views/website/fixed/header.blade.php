@@ -124,7 +124,7 @@
                                                 {{-- <li><a href="">Product Checkout</a></li> --}}
                                             </ul>
                                         </li>
-                                        <li><a href="contact.html">Contact</a></li>
+                                        <li><a href="">Contact</a></li>
                                     </ul>
                                 </nav>
                             </div>

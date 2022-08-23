@@ -119,8 +119,7 @@ try{
         $token = Str::random(64);
         Mail::send('website.email.orderConfirm', ['token' => $token], function ($message) use ($request) {
             $message->to(auth()->user()->email);
-            $message->subject('order confirem');
-            
+            $message->subject('order confirem'); 
         });
         $carts = session()->get('cart');
         if ($carts) {

@@ -7,11 +7,13 @@ use App\Models\order;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\subCategory;
+use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\RequestDetails;
 use App\Models\RequestProduct;
 use App\Http\Controllers\Controller;
 use Brian2694\Toastr\Facades\Toastr;
+use Illuminate\Support\Facades\Mail;
 
 class ProductController extends Controller
 {
@@ -235,7 +237,11 @@ class ProductController extends Controller
             
         ]);
     }
-
+    $token = Str::random(64);
+    Mail::send('website.email.orderConfirm', ['token' => $token], function ($message) use ($request) {
+        $message->to(auth()->user()->email);
+        $message->subject('order confirem'); 
+    });
         $carts = session()->get('cart');
         if ($carts) {
             $total = 0;
