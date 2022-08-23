@@ -52,6 +52,12 @@ class AppServiceProvider extends ServiceProvider
 
         $category = Category::all()->count();
         view::share('category', $category);
+        
+        $subcategory = subCategory::all()->count();
+        view::share('subcategory', $subcategory);
+
+        $brandcount = Brand::all()->count();
+        view::share('brandcount', $brandcount);
 
         $allProduct = Product::all()->count();
         view::share('allProduct', $allProduct);
