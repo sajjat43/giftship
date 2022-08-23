@@ -172,24 +172,24 @@
     </li>
 
     <li class="nav-item">
-        <a class="nav-link" href="">
+        <a class="nav-link" href="{{route('manage.home')}}">
             <i class="icon-pie-graph menu-icon"></i>
-            <span class="menu-title">Charts</span>
+            <span class="menu-title">Website</span>
         </a>
     </li>
-    <li class="nav-item">
+    {{-- <li class="nav-item">
         <a class="nav-link" href="pages/tables/basic-table.html">
             <i class="icon-command menu-icon"></i>
             <span class="menu-title">Tables</span>
         </a>
-    </li>
-    <li class="nav-item">
+    </li> --}}
+    {{-- <li class="nav-item">
         <a class="nav-link" href="pages/icons/feather-icons.html">
             <i class="icon-help menu-icon"></i>
             <span class="menu-title">Icons</span>
         </a>
-    </li>
-    <li class="nav-item">
+    </li> --}}
+    {{-- <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#auth" aria-expanded="false" aria-controls="auth">
             <i class="icon-head menu-icon"></i>
             <span class="menu-title">User list</span>
@@ -209,9 +209,9 @@
                         Lockscreen </a></li>
             </ul>
         </div>
-    </li>
+    </li> --}}
     <li class="nav-item">
-        <a class="nav-link" href="docs/documentation.html">
+        <a class="nav-link" href="">
             <i class="icon-book menu-icon"></i>
             <span class="menu-title">Documentation</span>
         </a>
