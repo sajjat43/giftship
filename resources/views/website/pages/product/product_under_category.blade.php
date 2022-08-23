@@ -1,7 +1,7 @@
 @extends('website.master')
 @section('content')
 <style>
-    */ .best-seller {
+    .best-seller {
         box-shadow: 43px !important;
     }
 
@@ -17,15 +17,14 @@
 
     .shedo {
 
-        /* border: 2px solid seashell; */
-        margin: 40px;
-        box-shadow: 5px 5px 5px rgb(192, 183, 183);
+        border-radius: 11px;
+        margin: 37px;
+        box-shadow: 11px 11px 20px 9px rgb(192 183 183);
         width: 100%;
         display: flex;
-        /* justify-content: space-between; */
-        max-width: 300px !important;
-        margin-bottom: 30px;
-        padding: 10px;
+        max-width: 306px !important;
+        margin-bottom: 33px;
+        padding: 11px;
 
     }
 
@@ -36,6 +35,12 @@
 
     .image:hover {
         transform: scale(1.5)
+    }
+
+    .image img {
+        height: 200px;
+        margin-left: 27px;
+        border-radius
     }
 
     .detailscart h4,
@@ -56,25 +61,55 @@
     .container {
         margin-top: 25px !important;
     }
+
+    .addwish h5 {
+        opacity: 0;
+        padding: 0;
+        margin: 0;
+        background-color: red;
+
+    }
+
+    .addwish:hover h5 {
+        opacity: 1;
+        display: contents;
+        padding: 10px;
+        background-color: red;
+        color: rgb(255, 0, 0);
+    }
 </style>
-<div class="puc">
-    <div class="row special-list">
+{{-- ----------------product------------ --}}
+
+<div class="row special-list">
 
 
-        @foreach ($product as $product)
-        <div class="col-lg-4 col-md-6 special-grid best-seller shedo gx-5 ">
+    @foreach ($product as $product)
+    <div class="col-lg-4 col-md-6 special-grid best-seller shedo gx-5 ">
+        <a href="{{ route('product.single.view', $product->id) }}">
             <div class="products-single fix">
+
                 <div class="box-img-hover">
                     <div class="type-lb">
-                        <a href="{{ route('product.single.view', $product->id) }}" data-toggle="tooltip"
-                            data-placement="right" title="View"><i class="fas fa-eye"></i></a>
-                        <img style="height: 200px" src="{{ url('/uploads/uploads/product/', $product->image) }}"
-                            class="img-fluid" alt="Image">
-                        <div class="mask-icon">
-
-                        </div>
+                        {{-- <p class="sale"></p> --}}
                     </div>
+                    <div class="image">
 
+
+                        <img style="height: 200px"
+                            src="{{ url('/uploads/uploads/product/', $product->image) }}" class="img-fluid"
+                            alt="Image">
+                    </div>
+                    <div class="mask">
+                        <ul>
+                            <li>
+                                <a href="{{ route('product.single.view', $product->id) }}"
+                                    data-toggle="tooltip" data-placement="right" title="View"><i
+                                        class="fas fa-eye"></i>
+                                </a>
+                            </li>
+                        </ul>
+                        <a href="{{ route('product.single.view', $product->id) }}">view detials</a>
+                    </div>
                 </div>
                 <div class="why-text detailscart">
                     @if ($product->qty > 0)
@@ -86,27 +121,29 @@
                     <h4>{{ $product->name }}</h4>
                     <h5>BDT: {{ $product->price }}</h5>
                     <h5> {{ $product->description }}</h5>
-                    {{-- <a href="{{route('add.to.cart',$product->id)}}" class="btn btn-primary">add cart</a> --}}
                     @if ($product->qty > 0)
                     <div class="container">
-
                         <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn-primary">add
                             cart</a>
-                        <a href="{{ route('add.to.wishlist', $product->id) }}" type="button"><i
-                                class="far fa-heart"></i></a>
+                        <a class="addwish" href="{{ route('add.to.wishlist', $product->id) }}"
+                            type="button"><i class="far fa-heart"></i>
+                            <h5 class="wish">Add to wishlist</h5>
+                        </a>
+
                     </div>
                     {{-- @else
-                    <a href="{{ route('add.to.wishlist', $product->id) }}" type="button"><i
-                            class="far fa-heart"></i></a> --}}
+                   
+                    <a class="addwish" href="{{ route('add.to.wishlist', $product->id) }}" type="button"><i
+                            class="far fa-heart"></i>
+                        <h5 class="wish">Add to wishlist</h5>
+                    </a> --}}
                     @endif
                 </div>
             </div>
-        </div>
-        @endforeach
-
-
+        </a>
     </div>
-</div>
-</div>
+    @endforeach
+
+
 </div>
 @endsection

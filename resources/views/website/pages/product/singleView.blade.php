@@ -109,7 +109,7 @@
                 <h3 class="py-4">name: {{ $product->name }}</h3>
                 <h3 class="py-4">Subcategory: {{ $product->subcategory->subname }}</h3>
                 <h3 class="py-4">Brand: {{ $product->brand->Bname }}</h3>
-                <h2>BDT: {{ $product->price }}</h2>
+                <h2>Price: {{ $product->price }} BDT</h2>
                 {{-- <select class="my-3 nice">
                     <option>select size</option>
                     <option>XXL</option>
