@@ -11,6 +11,7 @@ use App\Models\RequestProduct;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Library\SslCommerz\SslCommerzNotification;
+use App\Models\Coupon;
 use PhpParser\Node\Stmt\TryCatch;
 
 class SslCommerzPaymentController extends Controller
@@ -144,8 +145,15 @@ try{
                 $product = Product::find($key);
                 $product->decrement('qty', $cart['product_qty']);
             }
+            $session=session()->get('coupon')['name'];
+            // dd($session);
+            $coupon=Coupon::where('code',$session)->first();
+            $coupon->update([
+                'expiry_date'=>'2022-08-23',
+            ]);
             session()->forget('cart');
             session()->forget('coupon');
+            // $coupon=Coupon::find($id);
             // return redirect(route('manage.home'))->with('message', 'request placed Successfully');
         }
         $sslc = new SslCommerzNotification();

@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers\Backend;
 
+use Carbon\Carbon;
 use App\Models\Brand;
 use App\Models\order;
+use App\Models\Coupon;
 use App\Models\Product;
 use App\Models\Category;
 use App\Models\subCategory;
@@ -209,14 +211,13 @@ class ProductController extends Controller
     }
     
 
-    public function checkOut(request $request)
+    public function checkOut(request $request )
     {
         // dd($request);
 
         try{
             $order = order::create([
                 'user_id' => auth()->user()->id,
-                
                 'name' => $request->name,
                 'email' => $request->email,
                 'mobile' => $request->mobile,
@@ -228,7 +229,6 @@ class ProductController extends Controller
     }catch (\Throwable $th){
         $order = order::create([
             'user_id' => auth()->user()->id,
-            
             'name' => $request->name,
             'email' => $request->email,
             'mobile' => $request->mobile,
@@ -237,11 +237,11 @@ class ProductController extends Controller
             
         ]);
     }
-    $token = Str::random(64);
-    Mail::send('website.email.orderConfirm', ['token' => $token], function ($message) use ($request) {
-        $message->to(auth()->user()->email);
-        $message->subject('order confirem'); 
-    });
+    // $token = Str::random(64);
+    // Mail::send('website.email.orderConfirm', ['token' => $token], function ($message) use ($request) {
+    //     $message->to(auth()->user()->email);
+    //     $message->subject('order confirem'); 
+    // });
         $carts = session()->get('cart');
         if ($carts) {
             $total = 0;
@@ -264,8 +264,15 @@ class ProductController extends Controller
                 $product = Product::find($key);
                 $product->decrement('qty', $cart['product_qty']);
             }
+            $session=session()->get('coupon')['name'];
+            // dd($session);
+            $coupon=Coupon::where('code',$session)->first();
+            $coupon->update([
+                'expiry_date'=>'2022-08-23',
+            ]);
             session()->forget('cart');
             session()->forget('coupon');
+           
             return redirect(route('manage.home'))->with('message', 'request placed Successfully');
         }
         
@@ -276,10 +283,13 @@ class ProductController extends Controller
     public function checkOut_form()
     {
         $carts = session()->get('cart');
+      
         
         return view('website.pages.checkOut',compact('carts'));
     }
 public function cash_checkOut_form(){
+    // $coupon=Coupon::find('code');
+    // dd($coupon);
     $carts = session()->get('cart');
         
     return view('website.pages.cash_checkout',compact('carts'));

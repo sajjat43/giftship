@@ -61,9 +61,10 @@ class CouponController extends Controller
 
 
     public function couponApply(Request $request){
-  $coupon=Coupon::where('code',$request->coupon_code)->first();
-  $coupons=Coupon::where('code',$request->coupon_code)->where('expiry_date','>=',Carbon::today())->first();
-  $carts = session()->get('cart');
+    $coupon=Coupon::where('code',$request->coupon_code)->first();
+    // $couponId=$coupon->id;
+    $coupons=Coupon::where('code',$request->coupon_code)->where('expiry_date','>=',Carbon::today())->first();
+    $carts = session()->get('cart');
   
 //   dd($coupon);
   if(!$coupon){
@@ -72,7 +73,7 @@ class CouponController extends Controller
   }
   if(!$coupons){
     // Toastr::success('Coupon Expaired', 'failed');
-    Toastr::error('Coupon Date Expaired', 'failed');
+    Toastr::error('Coupon Expaired', 'failed');
     return redirect()->back();
 }
 else{
