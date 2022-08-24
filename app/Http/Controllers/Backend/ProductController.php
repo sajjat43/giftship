@@ -112,7 +112,6 @@ class ProductController extends Controller
          'qty' => 'required|numeric|gt:0',
          'description' => 'required',
          
-
      ]);
      // dd($request->all());
 
@@ -215,7 +214,14 @@ class ProductController extends Controller
     public function checkOut(request $request )
     {
         // dd($request);
+        $request->validate([
 
+            'name' => 'required',
+            'email' => 'required',
+            'mobile' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:11|max:15',
+            'Address' => 'required',
+            
+        ]);
         try{
             $order = order::create([
                 'user_id' => auth()->user()->id,

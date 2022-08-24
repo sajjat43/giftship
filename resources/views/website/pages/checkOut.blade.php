@@ -79,28 +79,26 @@
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Full Name</label>
                                             <input type="text" class="form-control" id="exampleInputPassword1"
-                                                name="name" placeholder="Enter your Full Name">
+                                                name="name" placeholder="Enter your Full Name" required>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputEmail1">Email address</label>
                                             <input type="email" name="email" class="form-control"
                                                 id="exampleInputEmail1" aria-describedby="emailHelp"
-                                                placeholder="Enter email">
-                                            <small id="emailHelp" class="form-text text-muted">We'll never share your
-                                                email with anyone
-                                                else.</small>
+                                                placeholder="Enter email" required>
+                                           
                                         </div>
 
 
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Mobile</label>
                                             <input type="number" class="form-control" id="exampleInputPassword1"
-                                                name="mobile" placeholder="Enter your mobile number">
+                                                name="mobile" placeholder="Enter your mobile number"  required>
                                         </div>
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Address</label>
                                             <input type="text" class="form-control" id="exampleInputPassword1"
-                                                name="Address" placeholder="Enter your Current Address">
+                                                name="Address" placeholder="Enter your Current Address" required>
                                         </div>
                                         <button type="submit" class="btn btn-primary my-2">Pay Now</button>
                                     </form>
