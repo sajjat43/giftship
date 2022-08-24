@@ -1,18 +1,15 @@
-<h1>Your oder confirm</h1>
+<h2>Your oder confirm</h2>
 
-<h2>Your order List</h2>
+<h4>Hi {{ auth()->user()->name }} Your order List</h4>
 <div class="d-flex justify-content-center row"id="printableArea">
     <div class="row">
         <div class="col-md-6">
-                <h3 class="text-uppercase">name: {{ auth()->user()->name }}</h3>
+            <p class="text-uppercase">Moblie:{{$newOrder->mobile}} </p>
+                <p class="text-uppercase">Shiping Address: {{$newOrder->Address}} </p>
             </div>
         </div>  
-        <div class="d-flex justify-content-center row"id="printableArea">
-            <div class="row">
-                <div class="col-md-6">
-                        <h3 class="text-uppercase">name: {{ auth()->user()->name }}</h3>
-                    </div>
-                </div>  
+        <div class="d-flex justify-content-center row">
+            
             <div class="col-md-8">
                 <div class="p-3 bg-white rounded">
                     <div class="row">
@@ -23,7 +20,7 @@
                     </div>
                     <div class="mt-3">
                         <div class="table-responsive">
-                            <table class="table">
+                            <table style="width: 600px; text-align:right" class="table">
         
                                 <thead>
                                     <tr>
@@ -31,8 +28,6 @@
                                         <th>Quantity</th>
                                         <th>Price</th>
                                         <th>sub total</th>
-                                        <th>Status</th>
-        
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -41,25 +36,27 @@
                                     <tr>
                                         <td>{{ $request->product->name }}</td>
                                         <td>{{ $request->quantity }}</td>
-                                        <td>{{ $request->price }}</td>
-                                        <td>{{ $request->sub_total }}</td>
-        
-                                        <td>
-        
-                                            {{ $request->status }}
-        
-                                        </td>
+                                        <td>{{ $request->price }} </td>
+                                        <td>{{ $request->sub_total }} TK</td>
                                         
                                     </tr>
                                     @endforeach
-                                  
+                                    @if($session=session()->has('coupon'))
                                     <tr>
                                         <td colspan="3"></td>
-                                        <td style="font-size:15px;font-weight:bold;border-top:1px solid #ccc;">shipping: 50</td>
+                                      
+                                        <td style="font-size:15px;font-weight:bold;border-top:1px solid #ccc;">Discount:  -{{$session=session()->get('coupon')['discount']}} TK</td>
+                                            
+                                    </tr>
+                                    @endif
+                                    <tr>
+                                        <td colspan="3"></td>
+                                        <td style="font-size:15px;font-weight:bold;border-top:1px solid #ccc;">shipping: 50 TK</td>
+                                       
                                     </tr>
                                     <tr>
                                         <td colspan="3"></td>
-                                        <td style="font-size:15px;font-weight:bold;border-top:1px solid #ccc;">total:{{$newOrder->total}}.BDT</td>
+                                        <td style="font-size:15px;font-weight:bold;border-top:1px solid #ccc;">total:  {{$newOrder->total}} TK</td>
                                     </tr>
                                     
                                 </tbody>

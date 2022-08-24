@@ -31,6 +31,7 @@
             <input type="text" value="" placeholder="search....." name="search" class="form-control">
         </div>
         <button type="submit" class="btn btn-success">Search</button>
+        
 </form>
 
 </div>
@@ -81,6 +82,13 @@
 
                 </tbody>
             </table>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-6">
+                    {{ $product->links() }}
+                </div>
+            </div>
         </div>
     </div>
 </div>

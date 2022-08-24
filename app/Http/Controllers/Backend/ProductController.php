@@ -30,11 +30,11 @@ class ProductController extends Controller
 
             $product = Product::where('name', 'LIKE', '%' . $key . '%')
                 ->orWhere('price', 'LIKE', '%' . $key . '%')
-                ->get();
+                ->paginate(10);
                 
             return view('admin.pages.product.product', compact('product', 'key'));
         }
-        $product = Product::with('Category')->orderBy('id','DESC')->get();
+        $product = Product::with('Category')->orderBy('id','DESC')->paginate(10);
         // ddd($product);
         return view('admin.pages.product.product', compact('product'));
     }

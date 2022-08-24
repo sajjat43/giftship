@@ -117,11 +117,7 @@ try{
         
     ]);
 }
-        $token = Str::random(64);
-        Mail::send('website.email.orderConfirm',compact('order'), ['token' => $token], function ($message) use ($request) {
-            $message->to(auth()->user()->email);
-            $message->subject('order confirem'); 
-        });
+        
         $carts = session()->get('cart');
         if ($carts) {
             $total = 0;
@@ -145,6 +141,14 @@ try{
                 $product = Product::find($key);
                 $product->decrement('qty', $cart['product_qty']);
             }
+
+            $token = Str::random(64);
+            $newOrder=Order::where('id',$order->id)->with('RequestDetails','RequestDetails.product')->first();
+            Mail::send('website.email.orderConfirm',compact('newOrder'), function ($message) use ($request) {
+                $message->to(auth()->user()->email);
+                $message->subject('order confirem'); 
+            });
+
             if($session=session()->has('coupon')){
                 $session=session()->get('coupon')['name'];
             // dd($session);
