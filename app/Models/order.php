@@ -15,10 +15,10 @@ class order extends Model
     }
     public function  RequestDetails()
     {
-        return $this->belongsTo(RequestDetails::class);
+        return $this->hasMany(RequestDetails::class);
     }
     public function product()
     {
-        return $this->belongsTo(Product::class, 'product_id', 'id');
+        return $this->hasMany(Product::class, 'product_id', 'id');
     }
 }

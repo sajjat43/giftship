@@ -122,6 +122,7 @@ class ProductController extends Controller
          'subcategory_id' => $request->subcategory,
          'brand_id' => $request->brand,
          'price' => $request->price,
+         'qty' =>$request->qty,
          'description' => $request->description,
          'image' => $image_name,
          'featured' => $request->featured,
@@ -237,11 +238,7 @@ class ProductController extends Controller
             
         ]);
     }
-    // $token = Str::random(64);
-    // Mail::send('website.email.orderConfirm', ['token' => $token], function ($message) use ($request) {
-    //     $message->to(auth()->user()->email);
-    //     $message->subject('order confirem'); 
-    // });
+    
         $carts = session()->get('cart');
         if ($carts) {
             $total = 0;
@@ -250,7 +247,7 @@ class ProductController extends Controller
 
             ]);
             foreach ($carts as $key => $cart) {
-                RequestDetails::create([
+                $detalis=RequestDetails::create([
 
                     'user_id' => auth()->user()->id,
                     'order_id'=>$order->id,
@@ -264,12 +261,24 @@ class ProductController extends Controller
                 $product = Product::find($key);
                 $product->decrement('qty', $cart['product_qty']);
             }
-            $session=session()->get('coupon')['name'];
+
+
+            $token = Str::random(64);
+            $newOrder=Order::where('id',$order->id)->with('RequestDetails','RequestDetails.product')->first();
+            Mail::send('website.email.orderConfirm',compact('newOrder'), function ($message) use ($request) {
+                $message->to(auth()->user()->email);
+                $message->subject('order confirem'); 
+            });
+
+
+            if($session=session()->has('coupon')){
+                $session=session()->get('coupon')['name'];
             // dd($session);
             $coupon=Coupon::where('code',$session)->first();
             $coupon->update([
                 'expiry_date'=>'2022-08-23',
             ]);
+            }
             session()->forget('cart');
             session()->forget('coupon');
            

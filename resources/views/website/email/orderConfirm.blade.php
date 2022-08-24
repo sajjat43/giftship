@@ -7,53 +7,70 @@
                 <h3 class="text-uppercase">name: {{ auth()->user()->name }}</h3>
             </div>
         </div>  
-    {{-- <div class="col-md-8">
-        <div class="p-3 bg-white rounded">
+        <div class="d-flex justify-content-center row"id="printableArea">
             <div class="row">
                 <div class="col-md-6">
+                        <h3 class="text-uppercase">name: {{ auth()->user()->name }}</h3>
+                    </div>
+                </div>  
+            <div class="col-md-8">
+                <div class="p-3 bg-white rounded">
+                    <div class="row">
+                        <div class="col-md-6">
+                            {{-- <h3 class="text-uppercase">{{ $request->user->name }}</h3> --}}
+        
+                        </div>
+                    </div>
+                    <div class="mt-3">
+                        <div class="table-responsive">
+                            <table class="table">
+        
+                                <thead>
+                                    <tr>
+                                        <th>Product Name</th>
+                                        <th>Quantity</th>
+                                        <th>Price</th>
+                                        <th>sub total</th>
+                                        <th>Status</th>
+        
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {{-- @dd($request) --}}
+                                    @foreach ($newOrder->RequestDetails as  $request)
+                                    <tr>
+                                        <td>{{ $request->product->name }}</td>
+                                        <td>{{ $request->quantity }}</td>
+                                        <td>{{ $request->price }}</td>
+                                        <td>{{ $request->sub_total }}</td>
+        
+                                        <td>
+        
+                                            {{ $request->status }}
+        
+                                        </td>
+                                        
+                                    </tr>
+                                    @endforeach
+                                  
+                                    <tr>
+                                        <td colspan="3"></td>
+                                        <td style="font-size:15px;font-weight:bold;border-top:1px solid #ccc;">shipping: 50</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="3"></td>
+                                        <td style="font-size:15px;font-weight:bold;border-top:1px solid #ccc;">total:{{$newOrder->total}}.BDT</td>
+                                    </tr>
+                                    
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                    {{-- <div class="text-right mb-3"><button class="btn btn-danger btn-sm mr-5"
+                            type="button"></button>
+                    </div> --}}
                 </div>
             </div>
-            <div class="mt-3">
-                <div class="table-responsive">
-                    <table class="table">
-                        <thead>
-                            <tr>
-                                <th scope="col">ID</th>
-                                <th scope="col">User Name</th>
-                                <th scope="col">Total price</th>
-                                <th scope="col">Date</th>
-                                <th scope="col">Payment Status</th>
-                                <th scope="col">Action</th>
-                
-                
-                            </tr>
-                        </thead>
-                        <tbody>
-                            @foreach ($request as $key => $request)
-
-                            <tr>
-                                <th scope="row">{{ $key + 1 }}</th>
-                                <td>{{ $request->user->name }}</td>
-                
-                                    <td>
-                                        TK {{ $request->total }}
-                                    </td>
-                                    <td>
-                                        {{$request->created_at}}
-                                    </td>
-                                    <td>
-                                        {{ $request->payment_status }}
-                                    </td>
-                
-                
-                                
-                            </tr>
-                            @endforeach
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-            
         </div>
-    </div> --}}
 </div>
+
