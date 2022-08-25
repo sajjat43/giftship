@@ -74,6 +74,10 @@ Route::get('/product/featured/slider', [ProductController::class, 'featured_prod
 
 // product single view
 Route::get('/product/single/view/{id}', [ProductController::class, 'product_single_view'])->name('product.single.view');
+// all product 
+
+Route::get('/all/product/view', [ProductController::class, 'allProduct'])->name('all.product');
+
 // frontend product search
 route::get('product/search/view', [ProductController::class, 'productSearchView'])->name('product.search.view');
 

@@ -32,12 +32,12 @@
                         </div>
                         <div class="col-xl-5 col-lg-5 col-md-5 col-sm-8">
                             <div class="hero__caption">
-                                <span data-animation="fadeInRight" data-delay=".4s">60% Discount</span>
-                                <h1 data-animation="fadeInRight" data-delay=".6s">Winter <br> Collection</h1>
-                                <p data-animation="fadeInRight" data-delay=".8s">Best Cloth Collection By 2020!</p>
+                                {{-- <span data-animation="fadeInRight" data-delay=".4s">60% Discount</span> --}}
+                                <h1 data-animation="fadeInRight" data-delay=".6s">Summer <br> Collection</h1>
+                                <p data-animation="fadeInRight" data-delay=".8s">Best Cloth Collection By 2022!</p>
 
                                 <div class="hero__btn" data-animation="fadeInRight" data-delay="1s">
-                                    <a href="industries.html" class="btn hero-btn">Shop Now</a>
+                                    <a href="{{route('all.product')}}" class="btn hero-btn">Shop Now</a>
                                 </div>
                             </div>
                         </div>
@@ -54,9 +54,9 @@
                         </div>
                         <div class="col-xl-5 col-lg-5 col-md-5 col-sm-8">
                             <div class="hero__caption">
-                                <span data-animation="fadeInRight" data-delay=".4s">60% Discount</span>
-                                <h1 data-animation="fadeInRight" data-delay=".6s">Winter <br> Collection</h1>
-                                <p data-animation="fadeInRight" data-delay=".8s">Best Cloth Collection By 2020!</p>
+                                {{-- <span data-animation="fadeInRight" data-delay=".4s">60% Discount</span> --}}
+                                <h1 data-animation="fadeInRight" data-delay=".6s">Summer <br> Collection</h1>
+                                <p data-animation="fadeInRight" data-delay=".8s">Best Cloth Collection By 2022!</p>
 
                                 <div class="hero__btn" data-animation="fadeInRight" data-delay="1s">
                                     <a href="industries.html" class="btn hero-btn">Shop Now</a>

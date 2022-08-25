@@ -343,4 +343,13 @@ public function cash_checkOut_form(){
     // public function dashboardView(){
     //     return view('admin.Dashboard.Dashboard');
     // }
+
+
+
+    // all product 
+
+    public function allProduct(){
+        $products=Product::all();
+        return view('website.pages.product.all',compact('products'));
+    }
 }
