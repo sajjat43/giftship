@@ -116,8 +116,6 @@ Route::group(['prefix' => '/', 'middleware' => 'web_auth'], function () {
 
 
     Route::post('/pay', [SslCommerzPaymentController::class, 'index'])->name('pay.now');
-
-
     Route::post('/success', [SslCommerzPaymentController::class, 'success']);
     Route::post('/fail', [SslCommerzPaymentController::class, 'fail']);
     Route::post('/cancel', [SslCommerzPaymentController::class, 'cancel']);

@@ -27,7 +27,7 @@
                     <div class="row d-flex align-items-center justify-content-between">
                         <div class="col-xl-6 col-lg-6 col-md-6 col-sm-6 d-none d-md-block">
                             <div class="hero__img" data-animation="bounceIn" data-delay=".4s">
-                                <img src="{{ url('Frontend/assets/img/hero/hero_man.png') }}" alt="">
+                                <img style="width:600px;" src="{{ url('Frontend/assets/img/hero/fan.png') }}" alt="">
                             </div>
                         </div>
                         <div class="col-xl-5 col-lg-5 col-md-5 col-sm-8">
