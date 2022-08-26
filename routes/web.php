@@ -240,6 +240,9 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     route::get('product/report', [reportController::class, 'product_report'])->name('product.report');
     //  report generate end
 
+    // ADMIN profile 
+    route::get('/profile', [AdminController::class, 'profile'])->name('admin.profile');
+
 });
 
 

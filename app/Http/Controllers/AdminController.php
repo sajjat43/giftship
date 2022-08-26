@@ -29,4 +29,8 @@ public function logout()
   Auth::logout();
   return redirect()->route('admin.login')->with('message','logout successfully');
 }
+
+public function profile(){
+    return view('admin.pages.admin_profile');
+}
 }

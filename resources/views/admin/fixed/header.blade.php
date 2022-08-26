@@ -85,7 +85,7 @@
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list"
                     aria-labelledby="notificationDropdown">
                     <p class="mb-0 font-weight-normal float-left dropdown-header">Settings</p>
-                    <a class="dropdown-item preview-item">
+                    <a class="dropdown-item preview-item" href="{{route('admin.profile')}}">
                         <i class="icon-head"></i> Profile
                     </a>
                     <a href="{{ route('admin.logout') }}" class="dropdown-item preview-item">
