@@ -4,7 +4,6 @@
     .best-seller {
         box-shadow: 43px !important;
     }
-
     .detailscart h4 {
         font-size: 25px !important;
         font-family: Arial, Helvetica, sans-serif;

@@ -18,9 +18,7 @@
 </div>
 @endif
 <main>
-
     <div class="slider-area ">
-
         <div class="slider-active">
             <div class="single-slider slider-height" data-background="assets/img/hero/h1_hero.jpg">
                 <div class="container">
