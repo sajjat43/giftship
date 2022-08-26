@@ -7,6 +7,7 @@ use App\Models\Brand;
 
 use App\Models\Product;
 use App\Models\Category;
+use App\Models\order;
 use App\Models\RequestDetails;
 use App\Models\subCategory;
 use App\Models\RequestProduct;
@@ -45,7 +46,7 @@ class AppServiceProvider extends ServiceProvider
         view::share('latestProduct', $latestProduct);
         view::share('subcategorys', $subcategorys);
 
-        $order = RequestDetails::all()->count();
+        $order = order::all()->count();
         view::share('order', $order);
 
         $customer = User::where('role', 'user')->count();

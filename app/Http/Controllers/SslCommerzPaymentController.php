@@ -97,6 +97,7 @@ try{
         $order = order::create([
             'user_id' => auth()->user()->id,
             'tran_id' => $post_data['tran_id'],
+            'discount' =>(session()->get('coupon')['discount']),
             'name' => $request->name,
             'email' => $request->email,
             'mobile' => $request->mobile,

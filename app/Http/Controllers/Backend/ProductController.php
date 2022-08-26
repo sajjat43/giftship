@@ -159,8 +159,10 @@ class ProductController extends Controller
     {
         $request = RequestDetails::where('order_id', $id)->get();
         // dd($request);
+        $order=Order::with('RequestDetails','RequestDetails.product')->find($id);
+        // dd($order);
         
-        return view('admin.request.invoice', compact('request'));
+        return view('admin.request.invoice', compact('request','order'));
     }
     //  product approve and calcel
     public function productApprove($id)
@@ -225,6 +227,7 @@ class ProductController extends Controller
         try{
             $order = order::create([
                 'user_id' => auth()->user()->id,
+                'discount' =>(session()->get('coupon')['discount']),
                 'name' => $request->name,
                 'email' => $request->email,
                 'mobile' => $request->mobile,

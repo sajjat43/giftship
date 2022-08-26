@@ -10,7 +10,7 @@
     <button class="btn btn-light text-capitalize border-0" data-mdb-ripple-color="dark"
         onclick="printDiv('printableArea')"><i class="fas fa-print text-primary"></i> Print</button>
 </div>
-<form action="{{ route('request.list') }}" method="GET">
+{{-- <form action="{{ route('request.list') }}" method="GET">
     <div class="row">
         <div class="col-md-4"></div>
         <div class="col-md-4">
@@ -20,7 +20,7 @@
             <button type="submit" class="btn btn-success">Search</button>
         </div>
     </div>
-</form>
+</form> --}}
 <style>
     th {
         text-align: left;

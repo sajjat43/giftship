@@ -1,6 +1,6 @@
 <h2>Your oder confirm</h2>
 
-<h4>Hi {{ auth()->user()->name }} Your order List</h4>
+<p>Hi <strong>{{ auth()->user()->name }}</strong> Your order List</p>
 <div class="d-flex justify-content-center row"id="printableArea">
     <div class="row">
         <div class="col-md-6">
@@ -63,9 +63,12 @@
                             </table>
                         </div>
                     </div>
-                    {{-- <div class="text-right mb-3"><button class="btn btn-danger btn-sm mr-5"
-                            type="button"></button>
-                    </div> --}}
+                    <div class="text-right mb-3">
+                        <h5>You want more shoping 
+                        <a href="{{route('manage.home')}}" style="pading:10px; border:1px solid black; border-radius: 4px;background-color: yellow;
+                        text-decoration: none;" type="button">Click here </a></h5>
+                            
+                    </div>
                 </div>
             </div>
         </div>
