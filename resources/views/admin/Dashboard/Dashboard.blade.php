@@ -65,6 +65,9 @@
             background: linear-gradient(to right, #f9900e, #ffba56) !important;
             color: #fff;
         }
+        .a{
+            color: #fff;
+        }
 
         .l-bg-cyan {
             background: linear-gradient(135deg, #289cf5, #84c0ec) !important;
@@ -78,8 +81,8 @@
                 <div class="card l-bg-green-dark">
                     <div class="card-statistic-3 p-4">
                         <div class="card-icon card-icon-large"><i class=""></i></div>
-                        <div class="mb-4">
-                            <h5 class="card-title mb-0">All Product</h5>
+                        <div class="mb-4 ">
+                            <h5 class="card-title mb-0 " style="color:white;">All Product</h5>
                         </div>
                         <div class="row align-items-center mb-2 d-flex">
                             <div class="col-8">
@@ -88,7 +91,8 @@
                                 </h2>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('product.view') }}">view</a>
+                                <a style="color:white;" href="{{ route('product.view') }}"><i
+                                    class="fa-solid fa-eye"></i></a>
                             </div>
                         </div>
                         <div class="progress mt-1 " data-height="8" style="height: 8px;">
@@ -104,7 +108,7 @@
                         <div class="card-icon card-icon-large"><i class=""></i>
                         </div>
                         <div class="mb-4">
-                            <h5 class="card-title mb-0">Request Orders</h5>
+                            <h5 class="card-title mb-0" style="color:white;">Request Orders</h5>
                         </div>
                         <div class="row align-items-center mb-2 d-flex">
                             <div class="col-8">
@@ -113,7 +117,8 @@
                                 </h2>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('request.list') }}">view</a>
+                                <a style="color:white;" href="{{ route('request.list') }}"><i
+                                    class="fa-solid fa-eye"></i></a>
                             </div>
                         </div>
                         <div class="progress mt-1 " data-height="8" style="height: 8px;">
@@ -128,7 +133,7 @@
                     <div class="card-statistic-3 p-4">
                         <div class="card-icon card-icon-large"><i class=""></i></div>
                         <div class="mb-4">
-                            <h5 class="card-title mb-0">Customers</h5>
+                            <h5 style="color:white;" class="card-title mb-0">Customers</h5>
                         </div>
                         <div class="row align-items-center mb-2 d-flex">
                             <div class="col-8">
@@ -137,7 +142,8 @@
                                 </h2>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('customer.view') }}">view</a>
+                                <a style="color:white;" href="{{ route('customer.view') }}"><i
+                                    class="fa-solid fa-eye"></i></a>
                             </div>
                         </div>
                         <div class="progress mt-1 " data-height="8" style="height: 8px;">
@@ -153,7 +159,7 @@
                     <div class="card-statistic-3 p-4">
                         <div class="card-icon card-icon-large"><i class=""></i></div>
                         <div class="mb-4">
-                            <h5 class="card-title mb-0">Stock Out Product</h5>
+                            <h5 style="color:white;" class="card-title mb-0">Stock Out Product</h5>
                         </div>
                         <div class="row align-items-center mb-2 d-flex">
                             <div class="col-8">
@@ -162,7 +168,7 @@
                                 </h2>
                             </div>
                             <div class="col-4 text-right">
-                                <span>2.5% <i class="fa fa-arrow-up"></i></span>
+                                {{-- <span>2.5% <i class="fa fa-arrow-up"></i></span> --}}
                             </div>
                         </div>
                         <div class="progress mt-1 " data-height="8" style="height: 8px;">
@@ -177,7 +183,7 @@
                     <div class="card-statistic-3 p-4">
                         <div class="card-icon card-icon-large"><i class=""></i></div>
                         <div class="mb-4">
-                            <h5 class="card-title mb-0">Category</h5>
+                            <h5 style="color:white;" class="card-title mb-0" >Category</h5>
                         </div>
                         <div class="row align-items-center mb-2 d-flex">
                             <div class="col-8">
@@ -186,7 +192,8 @@
                                 </h2>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('product.category.view') }}">view</a>
+                                <a style="color:white;" href="{{ route('product.category.view') }}"><i
+                                    class="fa-solid fa-eye"></i></a>
                             </div>
                         </div>
                         <div class="progress mt-1 " data-height="8" style="height: 8px;">
@@ -201,7 +208,7 @@
                     <div class="card-statistic-3 p-4">
                         <div class="card-icon card-icon-large"><i class=""></i></div>
                         <div class="mb-4">
-                            <h5 class="card-title mb-0">SubCategory</h5>
+                            <h5 style="color:white;" class="card-title mb-0">SubCategory</h5>
                         </div>
                         <div class="row align-items-center mb-2 d-flex">
                             <div class="col-8">
@@ -210,7 +217,8 @@
                                 </h2>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('product.subCategory.view') }}">view</a>
+                                <a style="color:white;" href="{{ route('product.subCategory.view') }}"><i
+                                    class="fa-solid fa-eye"></i></a>
                             </div>
                         </div>
                         <div class="progress mt-1 " data-height="8" style="height: 8px;">
@@ -226,7 +234,7 @@
                         <div class="card-icon card-icon-large"><i class=""></i>
                         </div>
                         <div class="mb-4">
-                            <h5 class="card-title mb-0">Brand</h5>
+                            <h5 style="color:white;" class="card-title mb-0">Brand</h5>
                         </div>
                         <div class="row align-items-center mb-2 d-flex">
                             <div class="col-8">
@@ -235,7 +243,8 @@
                                 </h2>
                             </div>
                             <div class="col-4 text-right">
-                                <a href="{{ route('brand.view') }}">view</a>
+                                <a style="color:white;" href="{{ route('brand.view') }}"><i
+                                    class="fa-solid fa-eye"></i></a>
                             </div>
                         </div>
                         <div class="progress mt-1 " data-height="8" style="height: 8px;">

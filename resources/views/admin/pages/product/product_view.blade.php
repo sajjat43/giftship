@@ -41,6 +41,7 @@
                     <h5 class="item"><strong>Product Name:</strong> {{ $product->name }}</h5>
                     <h5 class="item"><strong>Product Catagory Name: </strong>{{ $product->category->Cname }}</h5>
                     <h5 class="item"><strong>Product subCatagory: </strong>{{ $product->subcategory->subname }}</h5>
+                    <h5 class="item"><strong>Brand: </strong>{{ $product->brand->Bname }}</h5>
                     <h5 class="item"><strong>Product Price: </strong>{{ $product->price }}</h5>
                     <h5 class="item"><strong>Product Quantity: </strong>{{ $product->qty }}</h5>
                     <h5 class="item"><strong>Product Description: </strong>{{ $product->description }}</h5>
