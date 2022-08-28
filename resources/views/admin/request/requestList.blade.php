@@ -36,6 +36,8 @@
                 <th scope="col">User Name</th>
                 <th scope="col">Total price</th>
                 <th scope="col">Payment Status</th>
+                <th scope="col">Order Status</th>
+                <th scope="col">Action</th>
 
 
             </tr>
@@ -52,6 +54,9 @@
                     </td>
                     <td>
                         {{ $request->payment_status }}
+                    </td>
+                    <td>
+                        {{ $request->status }}
                     </td>
 
 

@@ -66,6 +66,7 @@
                                             <th scope="col">Total price</th>
                                             <th scope="col">Date</th>
                                             <th scope="col">Payment Status</th>
+                                            <th scope="col">order Status</th>
                                             <th scope="col">Action</th>
                             
                             
@@ -84,10 +85,15 @@
                                                 <td>
                                                     {{$request->created_at}}
                                                 </td>
+                                              
                                                 <td>
                                                     {{ $request->payment_status }}
                                                 </td>
-                            
+                                                @if($request->status == 'pending')
+                                                <td><a style=" background-color:rgb(247, 12, 12); padding: 20px; border-radius:8px;" class="btn btn-danger" href="{{route('order.cancle',$request->id)}}">Cancel</a></td>
+                                                @else
+                                                <td>{{$request->status}}</td>
+                                                @endif
                             
                                             <td>
                             

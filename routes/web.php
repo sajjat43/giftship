@@ -140,6 +140,8 @@ Route::group(['prefix' => '/', 'middleware' => 'web_auth'], function () {
     // order 
     route::get('order/customer',[orderController::class,'requestList'])->name('order.customer');
     route::get('order/customer/details/{id}',[orderController::class,'requestInvoice'])->name('order.customer.details');
+    // order cancle
+    route::get('customer/order/cancle/{id}',[orderController::class,'order_cancle'])->name('order.cancle');
 
 
     // coupon -------start 

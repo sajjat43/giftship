@@ -11418,11 +11418,11 @@ fieldset:disabled .ajax-upload-dragdrop a.ajax-file-upload,
 
 .btn-info:not(:disabled):not(.disabled):active,
 .btn-info:not(:disabled):not(.disabled).active,
-.show>.btn-info.dropdown-toggle {
+/* .show>.btn-info.dropdown-toggle {
     color: #fff;
     background-color: #0579fb;
     border-color: #0473f0;
-}
+} */
 
 .btn-info:not(:disabled):not(.disabled):active:focus,
 .btn-info:not(:disabled):not(.disabled).active:focus,
