@@ -144,9 +144,10 @@
                                             class="me-1 fw-bold">Payment Status:</span><span
                                             class="badge bg-warning text-black fw-bold">
                                             {{$order->payment_status}}</span></li>
-                                    {{-- <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i><span>Payment
-                                            Status: </span><span class="badge bg-info">{{$request->payment_status}}</span></li>
-                                    </br>
+                                   <li class="text-muted"><i class="fa-solid fa-clipboard-check"></i><span>Payment
+                                            Method: </span><span style="color:white" class="badge bg-info">{{$order->payment_method}}</span></li>
+                                    
+                                    {{--
                                     <li class="text-muted"><i class="fas fa-circle" style="color:#84B0CA ;"></i><span>Payment
                                             Method: </span><span class="badge bg-info">{{$order->payment_method}}</span></li> --}}
                                 </ul>

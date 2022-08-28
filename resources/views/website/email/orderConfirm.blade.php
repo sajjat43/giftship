@@ -6,6 +6,7 @@
         <div class="col-md-6">
             <p class="text-uppercase">Moblie:{{$newOrder->mobile}} </p>
                 <p class="text-uppercase">Shiping Address: {{$newOrder->Address}} </p>
+                <p class="text-uppercase">Payment method: {{$newOrder->payment_method}} </p>
             </div>
         </div>  
         <div class="d-flex justify-content-center row">

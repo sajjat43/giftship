@@ -149,7 +149,7 @@ try{
             $newOrder=Order::where('id',$order->id)->with('RequestDetails','RequestDetails.product')->first();
             Mail::send('website.email.orderConfirm',compact('newOrder'), function ($message) use ($request) {
                 $message->to(auth()->user()->email);
-                $message->subject('order confirem'); 
+                $message->subject('order confirm'); 
             });
 
             if($session=session()->has('coupon')){
