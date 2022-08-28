@@ -228,6 +228,7 @@ class ProductController extends Controller
             $order = order::create([
                 'user_id' => auth()->user()->id,
                 'discount' =>(session()->get('coupon')['discount']),
+                'payment_method'=>'COD',
                 'name' => $request->name,
                 'email' => $request->email,
                 'mobile' => $request->mobile,
@@ -239,6 +240,7 @@ class ProductController extends Controller
     }catch (\Throwable $th){
         $order = order::create([
             'user_id' => auth()->user()->id,
+            'payment_method'=>'COD',
             'name' => $request->name,
             'email' => $request->email,
             'mobile' => $request->mobile,

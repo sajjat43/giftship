@@ -98,6 +98,7 @@ try{
             'user_id' => auth()->user()->id,
             'tran_id' => $post_data['tran_id'],
             'discount' =>(session()->get('coupon')['discount']),
+            'payment_method'=>'SSL',
             'name' => $request->name,
             'email' => $request->email,
             'mobile' => $request->mobile,
@@ -110,6 +111,7 @@ try{
     $order = order::create([
         'user_id' => auth()->user()->id,
         'tran_id' => $post_data['tran_id'],
+        'payment_method'=>'SSL',
         'name' => $request->name,
         'email' => $request->email,
         'mobile' => $request->mobile,

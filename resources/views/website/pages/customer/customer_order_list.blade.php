@@ -42,7 +42,7 @@
     
     <div class="card mt-5" >
         
-        <div class="container mt-5">
+        <div class=" mt-5">
             
             <div class="d-flex justify-content-center row">
                 <div class="col-md-8">
@@ -65,6 +65,7 @@
                                             <th scope="col">User Name</th>
                                             <th scope="col">Total price</th>
                                             <th scope="col">Date</th>
+                                            <th scope="col">Payment Method</th>
                                             <th scope="col">Payment Status</th>
                                             <th scope="col">order Status</th>
                                             <th scope="col">Action</th>
@@ -85,7 +86,9 @@
                                                 <td>
                                                     {{$request->created_at}}
                                                 </td>
-                                              
+                                            </td>
+                                            <td>{{$request->payment_method}}</td>
+                                            
                                                 <td>
                                                     {{ $request->payment_status }}
                                                 </td>
@@ -95,8 +98,8 @@
                                                 <td>{{$request->status}}</td>
                                                 @endif
                             
-                                            <td>
-                            
+                                            
+                                                  <td>
                                                 <a href="{{ route('order.customer.details', $request->id) }}" class="btn btn-success a">View</a>
                                             </td>
                                         </tr>
