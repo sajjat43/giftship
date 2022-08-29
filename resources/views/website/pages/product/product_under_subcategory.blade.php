@@ -77,10 +77,15 @@
         background-color: red;
         color: rgb(255, 0, 0);
     }
+    .ax{
+
+margin-left: 120px;
+
+}
 </style>
 {{-- ----------------product------------ --}}
 
-<div class="row special-list">
+<div class="row ax special-list">
 
 
     @foreach ($product as $product)
@@ -120,7 +125,7 @@
                     @endif
                     <h4>{{ $product->name }}</h4>
                     <h5>BDT: {{ $product->price }}</h5>
-                    <h5> {{ $product->description }}</h5>
+                    {{-- <h5> {{ $product->description }}</h5> --}}
                     @if ($product->qty > 0)
                     <div class="container">
                         <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn-primary">add

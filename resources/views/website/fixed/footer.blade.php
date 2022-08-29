@@ -2,7 +2,7 @@
     <div class="footer-area footer-padding">
         <div class="container">
             <div class="row d-flex justify-content-between">
-                <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
+                {{-- <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
                     <div class="single-footer-caption mb-50">
                         <div class="single-footer-caption mb-30">
 
@@ -56,7 +56,7 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> --}}
             </div>
 
              <div class="row">

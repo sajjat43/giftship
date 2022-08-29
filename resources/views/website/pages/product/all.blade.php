@@ -119,7 +119,7 @@
                     @endif
                     <h4>{{ $product->name }}</h4>
                     <h5>BDT: {{ $product->price }}</h5>
-                    <h5> {{ $product->description }}</h5>
+                    {{-- <h5> {{ $product->description }}</h5> --}}
                     @if ($product->qty > 0)
                     <div class="container">
                         <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn-primary">add
