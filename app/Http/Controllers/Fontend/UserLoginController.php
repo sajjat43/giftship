@@ -134,7 +134,7 @@ public function customerUpdateStore(Request $request,$id){
 
             'name' => 'required',
             'email' => 'required',
-            'mobile' => 'required',
+            'mobile' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:11|max:15',
             'address' => 'required',
             
             

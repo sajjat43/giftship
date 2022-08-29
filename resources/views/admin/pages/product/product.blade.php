@@ -48,7 +48,7 @@
                         <th scope="col">Name</th>
                         <th scope="col">Catacory</th>
                         <th scope="col">subCatacory</th>
-                        <th scope="col">Description</th>
+                        {{-- <th scope="col">Description</th> --}}
                         <th scope="col">Price</th>
                         <th scope="col">Quantity</th>
                         <th scope="col">Featured Product</th>
@@ -63,7 +63,7 @@
                         <td>{{ $data->name }} </td>
                         <td>{{ $data->category->Cname }} </td>
                         <td>{{ $data->subcategory->subname }} </td>
-                        <td>{{ $data->description }} </td>
+                        {{-- <td>{{ $data->description }} </td> --}}
                         <td>{{ $data->price }} </td>
                         <td>{{ $data->qty }} </td>
                         <td>{{ $data->featured }} </td>

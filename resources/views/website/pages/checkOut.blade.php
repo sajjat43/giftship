@@ -96,7 +96,7 @@
                                                 name="mobile" placeholder="Enter your mobile number"  required>
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputPassword1">Address</label>
+                                            <label for="exampleInputPassword1"> Current Address</label>
                                             <input type="text" class="form-control" id="exampleInputPassword1"
                                                 name="Address" placeholder="Enter your Current Address" required>
                                         </div>

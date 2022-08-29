@@ -86,9 +86,9 @@
                                             <input type="email" name="email" class="form-control"
                                                 id="exampleInputEmail1" aria-describedby="emailHelp"
                                                 placeholder="Enter email">
-                                            <small id="emailHelp" class="form-text text-muted">We'll never share your
+                                            {{-- <small id="emailHelp" class="form-text text-muted">We'll never share your
                                                 email with anyone
-                                                else.</small>
+                                                else.</small> --}}
                                         </div>
 
 
@@ -98,7 +98,7 @@
                                                 name="mobile" placeholder="Enter your mobile number">
                                         </div>
                                         <div class="form-group">
-                                            <label for="exampleInputPassword1">Address</label>
+                                            <label for="exampleInputPassword1">Current Address</label>
                                             <input type="text" class="form-control" id="exampleInputPassword1"
                                                 name="Address" placeholder="Enter your Current Address">
                                         </div>
