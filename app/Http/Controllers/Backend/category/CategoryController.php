@@ -66,8 +66,6 @@ class CategoryController extends Controller
            $image_Cname = date('Ymdhis') . '.' . $request->file('Cimage')->getClientOriginalExtension();
            $request->file('Cimage')->storeAs('/uploads/category', $image_Cname);
        }
-       // dd($request->all());
-
        Category::find($category_id)->update([
            'Cname' => $request->Cname,
            'Cdescription' => $request->Cdescription,

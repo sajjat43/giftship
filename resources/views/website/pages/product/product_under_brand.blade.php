@@ -98,8 +98,6 @@ margin-left: 120px;
                         {{-- <p class="sale"></p> --}}
                     </div>
                     <div class="image">
-
-
                         <img style="height: 200px"
                             src="{{ url('/uploads/uploads/product/', $product->image) }}" class="img-fluid"
                             alt="Image">
@@ -125,7 +123,6 @@ margin-left: 120px;
                     @endif
                     <h4>{{ $product->name }}</h4>
                     <h5>BDT: {{ $product->price }}</h5>
-                    {{-- <h5> {{ $product->description }}</h5> --}}
                     @if ($product->qty > 0)
                     <div class="container">
                         <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn-primary">add
@@ -134,14 +131,8 @@ margin-left: 120px;
                             type="button"><i class="far fa-heart"></i>
                             <h5 class="wish">Add to wishlist</h5>
                         </a>
-
                     </div>
-                    {{-- @else
-                   
-                    <a class="addwish" href="{{ route('add.to.wishlist', $product->id) }}" type="button"><i
-                            class="far fa-heart"></i>
-                        <h5 class="wish">Add to wishlist</h5>
-                    </a> --}}
+
                     @endif
                 </div>
             </div>
