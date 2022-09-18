@@ -110,15 +110,7 @@
                 <h3 class="py-4">Subcategory: {{ $product->subcategory->subname }}</h3>
                 <h3 class="py-4">Brand: {{ $product->brand->Bname }}</h3>
                 <h2>Price: {{ $product->price }} BDT</h2>
-                {{-- <select class="my-3 nice">
-                    <option>select size</option>
-                    <option>XXL</option>
-                    <option>XL</option>
-                    <option>L</option>
-                    <option>M</option>
-                    <option>S</option>
-                </select> --}}
-                {{-- <input type="number" value="1"> --}}
+                
                 @if ($product->qty > 0)
                 <a class="buy-btn" type="button" href="{{ route('add.to.cart', $product->id) }}"> Add to
                     Cart</a>
