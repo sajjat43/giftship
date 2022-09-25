@@ -23,6 +23,7 @@ use App\Http\Controllers\API\apiUserController;
 
 // ---------for user data
 
+
 Route::post('user/create', [apiUserController::class, 'userCreate']);
 Route::get('user/view', [apiUserController::class, 'userView']);
 
@@ -37,6 +38,7 @@ Route::get('category/view',[apiProductController::class,'viewCategory']);
 
 Route::post('sub/category/create',[apiProductController::class,'subcreateSubCategory']);
 Route::get('sub/category/view',[apiProductController::class,'viewSubCategory']);
+Route::put('sub/category/update/{id}',[apiProductController::class,'updateSubCategory']);
 
 // All brand
 Route::post('brand/create', [apiProductController::class, 'BrandCreate'])->name('brand.create');

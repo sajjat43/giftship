@@ -118,6 +118,24 @@ public function subcreateSubCategory(Request $request){
     return $this->responseWithSuccess($subcategory,'subCategory list loaded');
  }
 
+//  update subcategory
+public function updateSubCategory(Request $request ,$id){
+    // dd($request->all());
+    $subcategory = subCategory::find($id);
+    $image_subname = $subcategory->subimage;
+    if ($request->hasfile('subimage')) {
+        $image_subname = date('Ymdhis') . '.' . $request->file('subimage')->getClientOriginalExtension();
+        $request->file('subimage')->storeAs('/uploads/subcategory/', $image_subname);
+    }
+    // dd($request->all());
+
+    $subcategory=subCategory::find($id)->update([
+        'subname' => $request->subname,
+        'subdescription' => $request->subdescription,
+        'subimage' => $image_subname,
+    ]);
+    return $this->responseWithSuccess($subcategory, 'SubCategory update successfully');
+}
 // brand 
 public function BrandCreate(Request $request){
     $validate = Validator::make($request->all(), [
