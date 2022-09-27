@@ -101,6 +101,7 @@
                                                 name="Address" placeholder="Enter your Current Address" required>
                                         </div>
                                         <button type="submit" class="btn btn-primary my-2">Pay Now</button>
+                                        <a type="submit" href="{{route('strip')}}" class="btn btn-primary my-2">strip</a>
                                     </form>
                             </div>
                         </div>

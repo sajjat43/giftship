@@ -10,6 +10,7 @@ use App\Http\Controllers\Backend\UserController;
 use App\Http\Controllers\Fontend\CartController;
 use App\Http\Controllers\Fontend\HomeController;
 use App\Http\Controllers\Fontend\orderController;
+use App\Http\Controllers\StripePaymentController;
 use App\Http\Controllers\Backend\CouponController;
 use App\Http\Controllers\Backend\reportController;
 use App\Http\Controllers\ForgotPasswordController;
@@ -122,6 +123,14 @@ Route::group(['prefix' => '/', 'middleware' => 'web_auth'], function () {
 
 
     //SSLCOMMERZ END
+
+// strip 
+
+Route::get('stripe', [StripePaymentController::class, 'stripe'])->name('strip');
+Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('stripe.post');
+
+
+
     // ------- cart request-----
     route::post('/check-out', [ProductController::class, 'checkOut'])->name('check.out');
     route::get('/check-out/form', [ProductController::class, 'checkOut_form'])->name('check.out.form');
