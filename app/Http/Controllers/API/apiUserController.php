@@ -6,6 +6,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\userResource;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
 
@@ -45,5 +46,25 @@ class apiUserController extends Controller
         $user = User::all();
         $data = userResource::collection($user);
         return $this->responseWithSuccess($data, 'user list loaded');
+    }
+
+    public function loginView(Request $req){
+        if (Auth::attempt(['email' => $req->email, 'password' => $req->password])) {
+            // dd(Auth::user()->id);
+            if (Auth::user()->role == 'user') {
+                return $this->responseWithSuccess($req,'Logged In');
+                // return redirect()->route('manage.home')->with('message', 'Logged In');
+            }
+            return $this->responseWithSuccess($req,'Logged In');
+            // return redirect()->route('manage.home')->with('message', 'Logged In');
+        } else {
+            return $this->responseWithError('invalid user name and password');
+            // return redirect()->back()->with('success', 'invalid user name and password');
+        }
+    }
+    public function logOut(){
+        $user = Auth::user();
+        Auth::logout($user);
+        return $this->responseWithSuccess($user,'Logged out successfully');
     }
 }

@@ -22,13 +22,17 @@ use App\Http\Controllers\API\apiUserController;
 // });
 
 // ---------for user data
-
+Route::post('/User/login', [apiUserController::class, 'loginView']);
 
 Route::post('user/create', [apiUserController::class, 'userCreate']);
 Route::get('user/view', [apiUserController::class, 'userView']);
 
 // -----------for product
 
+Route::group(['middleware' => ['jwt.verify']], function() {
+
+    Route::get('/User/logout', [apiUserController::class, 'logOut']);
+   
 Route::post('/product/create', [apiProductController::class, 'productCreate']);
 Route::get('product/view',[apiProductController::class,'viewProduct']);
 // ----category 
@@ -43,3 +47,5 @@ Route::put('sub/category/update/{id}',[apiProductController::class,'updateSubCat
 // All brand
 Route::post('brand/create', [apiProductController::class, 'BrandCreate'])->name('brand.create');
 Route::get('brand/view', [apiProductController::class, 'BrandView'])->name('brand.store');
+
+});
