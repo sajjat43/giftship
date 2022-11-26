@@ -113,7 +113,7 @@ class ProductController extends Controller
          'description' => 'required',
          
      ]);
-     // dd($request->all());
+    
 
      Product::find($product_id)->update([
          'name' => $request->name,
@@ -141,9 +141,6 @@ class ProductController extends Controller
  }
     
 
-    //subCategory
-
-   
 
    
 

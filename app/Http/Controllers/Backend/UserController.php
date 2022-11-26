@@ -31,7 +31,7 @@ class UserController extends Controller
             $image_name = date('Ymdhis') . '.' . $request->file('image')->getClientOriginalExtension();
             $request->file('image')->storeAs('/uploads/users/', $image_name);
         }
-        // dd($request->all());
+        
         $request->validate([
 
             'name' => 'required',
