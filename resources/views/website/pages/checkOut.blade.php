@@ -73,8 +73,7 @@
                             <div class="container">
 
                                 <form action="{{ route('pay.now') }}" method="POST" enctype="multipart/form-data">
-                                    {{-- <form action="{{ route('check.out') }}" method="POST"
-                                        enctype="multipart/form-data"> --}}
+                                    
                                         @csrf
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Full Name</label>
