@@ -70,6 +70,7 @@
         <thead>
             <tr>
                 <th scope="col">#</th>
+                <th>Image</th>
                 <th scope="col">Product Name</th>
                 <th scope="col">Price</th>
                 <th scope="col">Quantity</th>
@@ -85,6 +86,9 @@
                 @foreach ($carts as $key => $data)
                 <tr>
                     <th scope="row">{{ $key }}</th>
+                    <td><img style="width: 65px !important;
+                        height: 58px;" class="img-fluid w-100 pb-1" id="mainImg"
+                        src="{{ url('/uploads/uploads/product/', $data['product_image']) }}" alt=""></td>
                     <td>{{ $data['product_name'] }} </td>
 
                     <td>{{ $data['product_price'] }} .BDT</td>
