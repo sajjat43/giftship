@@ -66,7 +66,6 @@ class CouponController extends Controller
     $coupons=Coupon::where('code',$request->coupon_code)->where('expiry_date','>=',Carbon::today())->first();
     $carts = session()->get('cart');
   
-//   dd($coupon);
   if(!$coupon){
     Toastr::error('please Enter valid code', 'failed');
     return redirect()->back();

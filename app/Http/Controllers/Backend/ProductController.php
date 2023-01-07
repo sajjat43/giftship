@@ -35,7 +35,7 @@ class ProductController extends Controller
             return view('admin.pages.product.product', compact('product', 'key'));
         }
         $product = Product::with('Category')->orderBy('id','DESC')->paginate(10);
-        // ddd($product);
+        
         return view('admin.pages.product.product', compact('product'));
     }
 
@@ -155,9 +155,9 @@ class ProductController extends Controller
     public function requestInvoice($id)
     {
         $request = RequestDetails::where('order_id', $id)->get();
-        // dd($request);
+       
         $order=Order::with('RequestDetails','RequestDetails.product')->find($id);
-        // dd($order);
+     
         
         return view('admin.request.invoice', compact('request','order'));
     }
@@ -212,7 +212,7 @@ class ProductController extends Controller
 
     public function checkOut(request $request )
     {
-        // dd($request);
+        
         $request->validate([
 
             'name' => 'required',
@@ -281,7 +281,7 @@ class ProductController extends Controller
 
             if($session=session()->has('coupon')){
                 $session=session()->get('coupon')['name'];
-            // dd($session);
+           
             $coupon=Coupon::where('code',$session)->first();
             $coupon->update([
                 'expiry_date'=>'2022-08-23',
@@ -305,8 +305,7 @@ class ProductController extends Controller
         return view('website.pages.checkOut',compact('carts'));
     }
 public function cash_checkOut_form(){
-    // $coupon=Coupon::find('code');
-    // dd($coupon);
+   
     $carts = session()->get('cart');
         
     return view('website.pages.cash_checkout',compact('carts'));
@@ -342,11 +341,7 @@ public function cash_checkOut_form(){
         $product = Product::where('featured', '1')->take(5)->get();
         return view('website.pages.featured.featuredProduct', compact('product'));
     }
-    // public function dashboardView(){
-    //     return view('admin.Dashboard.Dashboard');
-    // }
-
-
+   
 
     // all product 
 
