@@ -19,7 +19,7 @@ class HomeController extends Controller
         $featuredProduct = Product::where('featured', '1')->take(10)->get();
 
 
-        // dd($latestProduct);
+     
         return view('website.fixed.home', compact('products', 'latestProduct', 'featuredProduct'));
     }
     public function userLogin()

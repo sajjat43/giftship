@@ -14,7 +14,6 @@ class CartController extends Controller
     {
         $product=Product::all();
         $carts = session()->get('cart');
-        // dd($carts);
         return view('website.pages.cart', compact('carts','product'));
     }
     // -----------add to cart--------------------
@@ -93,7 +92,7 @@ class CartController extends Controller
      // card qty update
      public function cartQty_update(Request $request, $product_id)
      {
-         // dd($request);
+        
          $carts = session()->get('cart');
          $product = Product::find($product_id);
          
