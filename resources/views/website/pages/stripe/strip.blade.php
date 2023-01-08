@@ -100,7 +100,10 @@
   
                         <div class="row">
                             <div class="col-xs-12">
-                                <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now ($100)</button>
+                                <button class="btn btn-primary btn-lg btn-block" type="submit">Pay Now @if ($carts)
+                                    ({{ array_sum(array_column($carts, 'subtotal'))/100 }} $)
+                                @endif
+                            </button>
                             </div>
                         </div>
                           

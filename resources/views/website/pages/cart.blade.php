@@ -134,7 +134,7 @@
   
     <a href="{{ route('check.out.form') }}" class="btn btn-success ">Online Payment</a>
     <a href="{{ route('cash.check.out.form') }}" class="btn btn-success ">Cash on Delivery</a>
-    
+    <a href="{{route('strip')}}"  class="btn btn success">Strip</a>
     @endif
 </div>
 

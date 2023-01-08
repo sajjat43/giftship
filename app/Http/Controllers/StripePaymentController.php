@@ -11,7 +11,8 @@ class StripePaymentController extends Controller
 {
     public function stripe()
     {
-        return view('website.pages.stripe.strip');
+        $carts = session()->get('cart');
+        return view('website.pages.stripe.strip',compact('carts'));
     }
   
     /**
