@@ -105,7 +105,7 @@ class StripePaymentController extends Controller
                 session()->forget('cart');
                 session()->forget('coupon');
                 // $coupon=Coupon::find($id);
-                // return redirect(route('manage.home'))->with('message', 'request placed Successfully');
+                return redirect(route('manage.home'))->with('message', 'request placed Successfully');
             }
         Session::flash('success', 'Payment successful!');
           
