@@ -93,15 +93,7 @@ class StripePaymentController extends Controller
                     $message->to(auth()->user()->email);
                     $message->subject('order confirm'); 
                 });
-    
-                // if($session=session()->has('coupon')){
-                //     $session=session()->get('coupon')['name'];
-                // dd($session);
-                // $coupon=Coupon::where('code',$session)->first();
-                // $coupon->update([
-                //     'expiry_date'=>'2022-08-23',
-                // ]);
-                // }
+                
                 session()->forget('cart');
                 session()->forget('coupon');
                

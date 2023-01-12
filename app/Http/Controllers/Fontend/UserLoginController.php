@@ -118,7 +118,6 @@ public function CustomerOrderList($id){
 
 
 public function customerUpdate($id){
-        
     $user=auth()->user()->id;
     return view('website.pages.customer.customerUpdate',compact('user'));
 }
