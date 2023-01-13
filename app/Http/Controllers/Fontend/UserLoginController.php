@@ -139,7 +139,7 @@ public function customerUpdateStore(Request $request,$id){
             
 
         ]);
-        // dd($request->all());
+     
 
         User::find($id)->update([
             'name' => $request->name,
