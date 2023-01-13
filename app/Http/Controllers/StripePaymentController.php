@@ -28,9 +28,10 @@ class StripePaymentController extends Controller
      */
     public function stripePost(Request $request)
     {
+        $carts = session()->get('cart');
         Stripe::setApiKey(env('STRIPE_SECRET'));
         Charge::create([
-                "amount" => 100 * 100,
+                "amount" => array_sum(array_column(session()->get('cart'),'subtotal'))+50,
                 "currency" => "usd",
                 "source" => $request->stripeToken,
                 "description" => "Test payment from ofdem.com." 
@@ -40,11 +41,11 @@ class StripePaymentController extends Controller
                 'user_id' => auth()->user()->id,
                 
                 'discount' =>(session()->get('coupon')['discount']),
-                'payment_method'=>'SSL',
-                'name' => $request->name,
-                'email' => $request->email,
-                'mobile' => $request->mobile,
-                'Address' => $request->Address,
+                'payment_method'=>'strip',
+                'name' => auth()->user()->name,
+                'email' =>auth()->user()->email,
+                'mobile' =>auth()->user()->mobile,
+                'Address' => auth()->user()->address,
                 'total' =>array_sum(array_column(session()->get('cart'),'subtotal'))+50-(session()->get('coupon')['discount']),
                 
             ]);
@@ -53,11 +54,11 @@ class StripePaymentController extends Controller
         $order = order::create([
             'user_id' => auth()->user()->id,
            
-            'payment_method'=>'SSL',
-            'name' => $request->name,
-            'email' => $request->email,
-            'mobile' => $request->mobile,
-            'Address' => $request->Address,
+            'payment_method'=>'Strip',
+            'name' => auth()->user()->name,
+                'email' =>auth()->user()->email,
+                'mobile' =>auth()->user()->mobile,
+                'Address' => auth()->user()->address,
             'total' =>array_sum(array_column(session()->get('cart'),'subtotal'))+50,
             
         ]);

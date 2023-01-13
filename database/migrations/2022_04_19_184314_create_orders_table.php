@@ -19,8 +19,8 @@ class CreateOrdersTable extends Migration
             $table->string('tran_id')->nullable();
             $table->string('name');
             $table->string('email');
-            $table->string('mobile');
-            $table->string('Address');
+            $table->string('mobile')->nullable();
+            $table->string('Address')->nullable();
             $table->string('total');
             $table->string('payment_method');
             $table->string('status')->default('pending');
