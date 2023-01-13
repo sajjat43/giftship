@@ -82,7 +82,7 @@ class StripePaymentController extends Controller
                         'quantity' => $cart['product_qty'],
                         'price' =>$cart['product_price'],
                         'sub_total' => $cart['product_price'] * $cart['product_qty'],
-                        // 'total_price' => $total += $cart['product_price'] * $cart['product_qty'],
+                       
                     ]);
                     $product = Product::find($key);
                     $product->decrement('qty', $cart['product_qty']);
