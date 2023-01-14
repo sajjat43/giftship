@@ -354,11 +354,11 @@
                 .shedo {
 
                     border-radius: 11px;
-                    margin: 37px;
+                    /* margin: 37px; */
                     box-shadow: 11px 11px 20px 9px rgb(192 183 183);
                     width: 100%;
                     display: flex;
-                    max-width: 306px !important;
+                    max-width: 264px !important;
                     margin-bottom: 33px;
                     padding: 11px;
 
@@ -419,6 +419,37 @@
                 }
 
             </style>
+
+
+<style>
+    .add-to-cart{
+        padding: 20px;
+        background-color: black;
+        border: 1px transparent;
+    }
+    .wishlist{
+        padding: 20px 40px;
+        background-color: black;
+        border: 1px transparent;
+    }
+    .wishlist:hover i{
+        color: white;
+    }
+    .image img {
+  
+    margin-left: 45px;
+    
+}
+.why-text.detailscart {
+    text-align: center;
+}
+.shedo {
+    
+    box-shadow: 5px 0px 20px -1px rgb(192 183 183);
+    margin-right: 25px;
+    
+}
+</style>
             {{-- ----------------product------------ --}}
 
             <div class="row special-list">
@@ -452,7 +483,7 @@
                                     <a href="{{ route('product.single.view', $product->id) }}">view detials</a>
                                 </div>
                             </div>
-                            <div>
+                            <div class="text-center">
                                 @if ($product->qty > 0)
                                 <label class="badge bg-success text-center" style="width: 80px">In Stock</label>
                                 @else
@@ -461,12 +492,11 @@
                                 @endif
                             </div>
                             <div class="why-text detailscart">
-                                <h4>{{ $product->name }}</h4>
+                                <h4>Name: {{ $product->name }}</h4>
                                 <h5>BDT: {{ $product->price }}</h5>
                                 {{-- <h5> {{ $product->description }}</h5> --}}
-                                @if ($product->qty > 0)
+                                {{-- @if ($product->qty > 0)
                                 <div class="container">
-
                                     <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn-primary">add
                                         cart</a>
                                     <a class="addwish" href="{{ route('add.to.wishlist', $product->id) }}"
@@ -474,11 +504,17 @@
                                         <h5 class="wish">Add to wishlist</h5>
                                     </a>
                                 </div>
-                                {{-- @else
-                                <a class="addwish" href="{{ route('add.to.wishlist', $product->id) }}" type="button"><i
-                                        class="far fa-heart"></i>
-                                    <h5 class="wish">Add to wishlist</h5>
-                                </a> --}}
+                                
+                                @endif --}}
+                                @if ($product->qty > 0)
+                                <div class="container">
+                                    <button href="{{ route('add.to.cart', $product->id) }}" class="add-to-cart">add
+                                        cart</button>
+                                    <button class="wishlist" href="{{ route('add.to.wishlist', $product->id) }}"
+                                        type="button"><i class="far fa-heart"></i>
+                                        {{-- <h5 class="wish">Add to wishlist</h5> --}}
+                                    </button>
+                                </div>
                                 @endif
                             </div>
                         </div>
