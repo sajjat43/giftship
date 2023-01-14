@@ -62,7 +62,7 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">ID</th>
-                                            <th scope="col">User Name</th>
+                                            {{-- <th scope="col">User Name</th> --}}
                                             <th scope="col">Total price</th>
                                             <th scope="col">Date</th>
                                             <th scope="col">Payment Method</th>
@@ -75,13 +75,13 @@
                                     </thead>
                                     <tbody>
                                         @foreach ($request as $key => $request)
-                                        {{-- @dd($request); --}}
+                                        
                                         <tr>
                                             <th scope="row">{{ $key + 1 }}</th>
-                                            <td>{{ $request->user->name }}</td>
+                                            {{-- <td>{{ $request->user->name }}</td> --}}
                             
                                                 <td>
-                                                    TK {{ $request->total }}
+                                                    {{ $request->total }} TK
                                                 </td>
                                                 <td>
                                                     {{$request->created_at}}
