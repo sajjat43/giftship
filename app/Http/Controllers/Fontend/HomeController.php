@@ -14,7 +14,7 @@ class HomeController extends Controller
 {
     public function Home()
     {
-        $products = Product::paginate(6);
+        $products = Product::paginate(8);
         $latestProduct = Product::orderBy('created_at', 'desc')->get()->take(5);
         $featuredProduct = Product::where('featured', '1')->take(10)->get();
 

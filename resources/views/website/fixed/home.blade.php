@@ -423,14 +423,16 @@
 
 <style>
     .add-to-cart{
-        padding: 20px;
-        background-color: black;
-        border: 1px transparent;
+        padding: 17px;
+    margin-top: 66px;
+   
+        background-color: transparent;
+        border: 1px solid black;
     }
     .wishlist{
         padding: 20px 40px;
-        background-color: black;
-        border: 1px transparent;
+        background-color: transparent;
+        border: 1px solid black;
     }
     .wishlist:hover i{
         color: white;
@@ -449,14 +451,64 @@
     margin-right: 25px;
     
 }
+.main-product{
+    opacity: 0;
+}
+.main-product-section:hover .main-product{
+    opacity: 1;
+    /* transition-delay:2s; */
+}
+
+
+
+.main-product-section {
+  position: relative;
+  width: 50%;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.main-product {
+  position: absolute;
+  top:10;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-color: #9ea0a16b;
+  /* opacity: 0.1; */
+  overflow: hidden;
+  width: 100%;
+  height: 0;
+  transition: .5s ease;
+}
+
+.main-product-section:hover .main-product {
+  height: 100%;
+}
+
+.text {
+  color: white;
+  font-size: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
 </style>
             {{-- ----------------product------------ --}}
 
-            <div class="row special-list">
+            <div class="row special-list ">
 
 
                 @foreach ($products as $product)
-                <div class="col-lg-4 col-md-6 special-grid best-seller shedo gx-5 ">
+                <div class="col-lg-4 col-md-6 special-grid best-seller shedo gx-5 main-product-section ">
                     <a href="{{ route('product.single.view', $product->id) }}">
                         <div class="products-single fix">
 
@@ -507,10 +559,11 @@
                                 
                                 @endif --}}
                                 @if ($product->qty > 0)
-                                <div class="container">
-                                    <button href="{{ route('add.to.cart', $product->id) }}" class="add-to-cart">add
+                                <div class="container main-product">
+                                    
+                                    <button href="{{ route('add.to.cart', $product->id) }}" class="add-to-cart ">add
                                         cart</button>
-                                    <button class="wishlist" href="{{ route('add.to.wishlist', $product->id) }}"
+                                    <button class="wishlist text" href="{{ route('add.to.wishlist', $product->id) }}"
                                         type="button"><i class="far fa-heart"></i>
                                         {{-- <h5 class="wish">Add to wishlist</h5> --}}
                                     </button>
