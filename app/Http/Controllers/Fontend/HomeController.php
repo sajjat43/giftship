@@ -47,12 +47,12 @@ class HomeController extends Controller
 
     public function productUnderCategory($Cid)
     {
-        $product = Product::where('category_id', $Cid)->get();
+        $products = Product::where('category_id', $Cid)->get();
 
 
         // dd($product);
 
-        return view('website.pages.product.product_under_category', compact('product'));
+        return view('website.pages.product.product_under_category', compact('products'));
     }
     // brand filter
     public function productUnderBrand($Bid)

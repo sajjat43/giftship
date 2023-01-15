@@ -82,7 +82,8 @@
         padding: 17px;
     margin-top: 66px;
    border-radius: 5px;
-   color:rgb(246, 251, 246);
+   color:rgb(0, 0, 0);
+   font-weight: 600;
         background-color: transparent;
         border: 1px solid rgb(34, 34, 34);
     }
@@ -164,6 +165,18 @@
   transform: translate(-50%, -50%);
   text-align: center;
 }
+.add_link{
+    margin: 135px 45px 30px -75px;
+}
+.detailscart a {
+    padding: 13px 20px;
+    border-radius: 5px;
+}
+.detailscart a.wishlist {
+    padding: 10px 44px;
+    margin: -37px 15px 40px 60px;
+    border-radius: 5px;
+}
 </style>
 {{-- ----------------product------------ --}}
 
@@ -224,12 +237,16 @@
                     @if ($product->qty > 0)
                     <div class="container main-product">
                         
-                        <button href="{{ route('add.to.cart', $product->id) }}" class="add-to-cart ">add
-                            cart</button>
-                        <button class="wishlist text" href="{{ route('add.to.wishlist', $product->id) }}"
+                      <div class="add_link">
+                        <a href="{{ route('add.to.cart', $product->id) }}" class="add-to-cart ">add
+                            cart</a>
+                      </div>
+                       <div class="wish_link">
+                        <a class="wishlist text" href="{{ route('add.to.wishlist', $product->id) }}"
                             type="button"><i class="far fa-heart"></i>
                             {{-- <h5 class="wish">Add to wishlist</h5> --}}
-                        </button>
+                        </a>    
+                       </div>
                     </div>
                     @endif
                 </div>
@@ -240,4 +257,5 @@
 
 
 </div>
+
 @endsection
