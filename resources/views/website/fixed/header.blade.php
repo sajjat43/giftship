@@ -75,6 +75,7 @@
                                 <nav>
                                     <ul id="navigation">
                                         <li><a href="{{ route('manage.home') }}">Home</a></li>
+                                        <li><a href="{{ route('all.product') }}">All Product</a></li>
                                         {{-- ====================category===================== --}}
 
 
