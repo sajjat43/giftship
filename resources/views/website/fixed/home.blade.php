@@ -425,17 +425,23 @@
     .add-to-cart{
         padding: 17px;
     margin-top: 66px;
-   
+   border-radius: 5px;
+   color:rgb(246, 251, 246);
         background-color: transparent;
-        border: 1px solid black;
+        border: 1px solid rgb(34, 34, 34);
     }
     .wishlist{
+        border-radius: 5px;
+        
         padding: 20px 40px;
         background-color: transparent;
-        border: 1px solid black;
+        border: 1px solid rgb(34, 34, 34);
+    }
+    .add-to-cart:hover{
+        color: green;
     }
     .wishlist:hover i{
-        color: white;
+        color: green;
     }
     .image img {
   
@@ -475,6 +481,7 @@
 .main-product {
   position: absolute;
   top:10;
+  border-radius: 10px;
   bottom: 0;
   left: 0;
   right: 0;
