@@ -143,7 +143,7 @@
   left: 0;
   right: 0;
   background-color: #9ea0a16b;
-  /* opacity: 0.1; */
+  
   overflow: hidden;
   width: 100%;
   height: 0;

@@ -54,8 +54,7 @@
                 <div class="col-md-6offset-md-3 text-center">
                     <a href="{{ route('Login.google') }}" class="btn btn-primary btn-block"><i
                             class="fa-brands fa-google"></i></a>
-                    {{-- <a href="{{ route('Login.facebook') }}" class="btn btn-primary btn-block"><i
-                            class="fa-brands fa-facebook-square"></i></a> --}}
+                   
                     <a href="{{ route('Login.github') }}" class="btn btn-primary btn-block"> <i
                             class="fa-brands fa-github"></i></a>
                             
@@ -67,7 +66,7 @@
     <style>
         .btn-primary {
             padding: 18px !important;
-            /* background: gray; */
+         
             border-radius: 8px !important;
             margin-right: 30px;
         }
