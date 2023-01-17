@@ -425,7 +425,8 @@
     .add-to-cart{
         padding: 17px;
     margin-top: 66px;
-   border-radius: 5px;
+    margin-left: -36px;
+       border-radius: 5px;
    color:rgb(0, 0, 0);
    font-weight: 600;
         background-color: transparent;
@@ -433,7 +434,7 @@
     }
     .wishlist{
         border-radius: 5px;
-        
+       
         padding: 20px 40px;
         background-color: transparent;
         border: 1px solid rgb(34, 34, 34);
@@ -517,9 +518,22 @@
     border-radius: 5px;
 }
 .detailscart a.wishlist {
-    padding: 10px 10px;
-    margin: -37px 15px 40px 60px;
+    padding: 9px 19px;
+    margin: -37px 13px 30px 75px;
     border-radius: 5px;
+}
+.view_link {
+    margin-top: -55px;
+}
+a.single_view {
+   
+    margin-top: 66px;
+    padding: 13px 19px;
+    border-radius: 5px;
+    color: rgb(0, 0, 0);
+    font-weight: 600;
+    background-color: transparent;
+    border: 1px solid rgb(34, 34, 34);
 }
 </style>
             {{-- ----------------product------------ --}}
@@ -586,7 +600,7 @@
                                     </i></a>
                                   </div>
                                   <div class="view_link">
-                                    <a href="{{ route('add.to.cart', $product->id) }}" class="add-to-cart ">View</a>
+                                    <a href="{{ route('product.single.view', $product->id) }}" class="single_view ">View</a>
                                   </div>
                                    <div class="wish_link">
                                     <a class="wishlist text" href="{{ route('add.to.wishlist', $product->id) }}"
