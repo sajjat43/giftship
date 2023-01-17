@@ -238,8 +238,8 @@
                     <div class="container main-product">
                         
                       <div class="add_link">
-                        <a href="{{ route('add.to.cart', $product->id) }}" class="add-to-cart ">add
-                            cart</a>
+                        <a href="{{ route('add.to.cart', $product->id) }}" class="add-to-cart "><i class="fas fa-shopping-cart ">
+                        </i></a>
                       </div>
                        <div class="wish_link">
                         <a class="wishlist text" href="{{ route('add.to.wishlist', $product->id) }}"

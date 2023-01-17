@@ -517,7 +517,7 @@
     border-radius: 5px;
 }
 .detailscart a.wishlist {
-    padding: 10px 44px;
+    padding: 10px 10px;
     margin: -37px 15px 40px 60px;
     border-radius: 5px;
 }
@@ -582,8 +582,11 @@
                                 <div class="container main-product">
                                     
                                   <div class="add_link">
-                                    <a href="{{ route('add.to.cart', $product->id) }}" class="add-to-cart ">add
-                                        cart</a>
+                                    <a href="{{ route('add.to.cart', $product->id) }}" class="add-to-cart "><i class="fas fa-shopping-cart ">
+                                    </i></a>
+                                  </div>
+                                  <div class="view_link">
+                                    <a href="{{ route('add.to.cart', $product->id) }}" class="add-to-cart ">View</a>
                                   </div>
                                    <div class="wish_link">
                                     <a class="wishlist text" href="{{ route('add.to.wishlist', $product->id) }}"
