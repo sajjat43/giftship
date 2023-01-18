@@ -82,7 +82,7 @@
 
 
 <body>
-    <section class="container sproduct my-5 pt-5">
+    <section class="container sproduct my-5 ">
         <div class="row mt-5">
             <div class="col-lg-5 col-md-12 col-12">
                 <img class="img-fluid w-100 pb-1" id="mainImg"

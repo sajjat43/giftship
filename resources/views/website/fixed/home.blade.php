@@ -74,10 +74,10 @@
 
     {{-- latest product start --}}
 
-    <div class="py-5">
+    <div class="">
         <div class="container ">
             <div class="row">
-                <h2 class="text-center py-5">Latest Product</h2>
+                <h2 class="text-center pb-3">Latest Product</h2>
                 <div id="product-carousel" class="owl-carousel  featured-carousel owl-theme">
                     @foreach ($latestProduct as $latest)
                     {{-- @dd($data) --}}
@@ -182,10 +182,10 @@
 
     {{-- ------------------------------------- feature product ----------------------- --}}
 
-    <div class="py-5">
+    <div class="">
         <div class="container">
             <div class="row">
-                <h2 class="text-center py-5"><strong>Featured Product</strong></h2>
+                <h2 class="text-center py-3"><strong>Featured Product</strong></h2>
                 <div id="product-carousel" class="owl-carousel featured-carousel owl-theme">
                     @foreach ($featuredProduct as $item)
 
@@ -241,12 +241,12 @@
     {{-- category css --}}
 
 
-    <section class="category-area section-padding30">
+    <section class="category-area pt-5">
         <div class="container-fluid">
 
             <div class="row">
                 <div class="col-lg-12">
-                    <div class="section-tittle text-center mb-85">
+                    <div class="section-tittle text-center mb-5">
                         <h2>Shop by Category</h2>
                     </div>
                 </div>
@@ -319,7 +319,7 @@
     </section>
 
 
-    <section class="latest-product-area padding-bottom">
+    <section class="latest-product-area pt-5">
         <div class="container">
             <div class="row product-btn d-flex justify-content-end align-items-end">
 
@@ -421,7 +421,7 @@
             </style>
 
 
-<style>
+ <style>
     .add-to-cart{
         padding: 17px;
     margin-top: 66px;
@@ -449,7 +449,7 @@
   
     margin-left: 45px;
     
-}
+ }
 .why-text.detailscart {
     text-align: center;
 }
@@ -627,7 +627,7 @@ a.single_view {
                 </div>
             </div>
         </div>
-        </div>
+  </div>
 
 
 </main>
