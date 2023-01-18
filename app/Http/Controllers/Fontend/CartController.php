@@ -76,6 +76,7 @@ class CartController extends Controller
         $cartExist[$id]['subtotal'] = $cartExist[$id]['product_price'] * $cartExist[$id]['product_qty'];
        
         session()->put('cart', $cartExist);
+         Toastr::success('product added to cart', 'success');
         return redirect()->back();
     }
 
