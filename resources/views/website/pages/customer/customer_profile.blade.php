@@ -39,7 +39,7 @@
                                         <h6 class="text f-w-400">{{ Auth()->user()->mobile }} </h6>
                                     </div>
                                 </div>
-                                {{-- <h6 class="m-b-20 m-t-40 p-b-5 b-b-default f-w-600">Projects</h6> --}}
+                               
                                 <div class="row mt-5">
                                     <div class="col-sm-6">
                                         <p class="m-b-10 f-w-600">Address</p>

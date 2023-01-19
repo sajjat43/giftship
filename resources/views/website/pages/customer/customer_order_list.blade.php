@@ -30,11 +30,9 @@
     {!! session('error') !!}
 </div>
 @endif
-{{-- <a href="{{ route('create.pdf') }}" class="btn btn-success">PDF</a> --}}
+
 <div class="container">
-    {{-- <a class="nav-link btn btn-primary" style="width:90px" href="{{ route('request.list') }}"><i
-            class="fa-solid fa-arrow-left"></i>
-    </a> --}}
+    
 </div>
 
 <body oncontextmenu='return false' class='snippet-body'>
@@ -62,7 +60,7 @@
                                     <thead>
                                         <tr>
                                             <th scope="col">ID</th>
-                                            {{-- <th scope="col">User Name</th> --}}
+                                           
                                             <th scope="col">Total price</th>
                                             <th scope="col">Date</th>
                                             <th scope="col">Payment Method</th>
@@ -78,7 +76,7 @@
                                         
                                         <tr>
                                             <th scope="row">{{ $key + 1 }}</th>
-                                            {{-- <td>{{ $request->user->name }}</td> --}}
+                                          
                             
                                                 <td>
                                                     {{ $request->total }} TK
