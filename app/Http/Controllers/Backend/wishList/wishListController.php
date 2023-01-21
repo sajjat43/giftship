@@ -62,7 +62,7 @@ class wishListController extends Controller
             $updatedWish = session()->get('wishlist');
             unset($updatedWish[$id]);
             session()->put('wishlist', $updatedWish);
-            Toastr::warning('successfullay remove Item');
+            Toastr::warning('successfully remove Item');
             return redirect()->back();
         }
 
@@ -72,7 +72,7 @@ class wishListController extends Controller
     public function wishlistclear()
     {
         session()->forget('wishlist');
-        Toastr::warning('clear successfull');
+        Toastr::warning('clear successfully');
         return redirect()->back();
     }
 }

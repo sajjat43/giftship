@@ -93,7 +93,7 @@ class ProductController extends Controller
     public function DeleteProduct($product_id)
     {
         Product::find($product_id)->delete();
-        return redirect()->back()->with('success', 'Product has beeen Deleted Successfully');
+        return redirect()->back()->with('success', 'Product has been Deleted Successfully');
     }
  // -------------------update product-------------------------------
 
@@ -161,7 +161,7 @@ class ProductController extends Controller
         
         return view('admin.request.invoice', compact('request','order'));
     }
-    //  product approve and calcel
+    //  product approve and cancel
     public function productApprove($id)
     {
         $request = RequestDetails::find($id);
@@ -183,7 +183,7 @@ class ProductController extends Controller
 
 
 
-    //   =========================forentend start=======================
+    //   =========================frontend start=======================
 
 
 
@@ -255,7 +255,7 @@ class ProductController extends Controller
 
             ]);
             foreach ($carts as $key => $cart) {
-                $detalis=RequestDetails::create([
+                $details=RequestDetails::create([
 
                     'user_id' => auth()->user()->id,
                     'order_id'=>$order->id,
@@ -325,7 +325,7 @@ public function cash_checkOut_form(){
 
 
 
-    // forentend product single view
+    // frontend product single view
 
     public function product_single_view($id)
     {

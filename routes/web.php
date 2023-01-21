@@ -45,8 +45,8 @@ Route::get('/product/under/subcategory/{id}', [HomeController::class, 'productUn
 
 // ------------website login-------
 Route::get('/user/login/website', [HomeController::class, 'userLogin'])->name('website.user.login');
-Route::get('/User/regestation', [UserController::class, 'UserRegestation'])->name('User.regestation');
-Route::post('/User/regestation/store', [UserController::class, 'UserRegestationstore'])->name('User.regestation.store');
+Route::get('/User/registration', [UserController::class, 'UserRegestation'])->name('User.regestation');
+Route::post('/User/registration/store', [UserController::class, 'UserRegestationstore'])->name('User.regestation.store');
 
 
 // ------ user login + logout view--
@@ -66,7 +66,7 @@ Route::get('Login/github', [UserLoginController::class, 'redirectTOProvider'])->
 Route::get('Login/github/callback', [UserLoginController::class, 'handleProviderCallback']);
 
 
-//cerisol
+//carousel
 Route::get('/product/crisis/{product_id}', [ProductController::class, 'crisis'])->name('crisis.view');
 
 // featured product
@@ -149,8 +149,8 @@ Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('str
     // order 
     route::get('order/customer',[orderController::class,'requestList'])->name('order.customer');
     route::get('order/customer/details/{id}',[orderController::class,'requestInvoice'])->name('order.customer.details');
-    // order cancle
-    route::get('customer/order/cancle/{id}',[orderController::class,'order_cancle'])->name('order.cancle');
+    // order cancel
+    route::get('customer/order/cancel/{id}',[orderController::class,'order_cancle'])->name('order.cancle');
 
 
     // coupon -------start 
@@ -175,7 +175,7 @@ Route::group(['prefix' => 'admin', 'middleware' => ['auth', 'admin']], function 
     })->name('home');
 
     Route::get('/logout', [AdminController::class, 'logout'])->name('admin.logout');
-    // Route::match(['get','post'],"/login",[AdminContrwisholler::class,'login'])->name('login.view');
+    
     // Route::match(['get','post'],"/form/login",[AdminController::class,'login']);
     //login route
 

@@ -111,7 +111,7 @@ class CartController extends Controller
              Toastr::error('Negative Quantity Not possible', 'failed');
              return redirect()->back();
          }
-         Toastr::success('Sorry Quantity is not abliable', 'failed');
+         Toastr::success('Sorry Quantity is not available', 'failed');
          return redirect()->back();
      }
 
