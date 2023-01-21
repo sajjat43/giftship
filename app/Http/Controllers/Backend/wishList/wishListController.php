@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Backend\wishList;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Brian2694\Toastr\Facades\Toastr;
 
 class wishListController extends Controller
 {
@@ -43,7 +44,8 @@ class wishListController extends Controller
                 ]
             ];
             session()->put('wishlist', $wishData);
-            return redirect()->back()->with('message', 'Wished successfully');
+            Toastr::success('Wished successfully', 'success');
+            return redirect()->back();
         }
         if (!isset($wishExist[$id])) {
             $wishExist[$id] = [
@@ -54,12 +56,14 @@ class wishListController extends Controller
             ];
 
             session()->put('wishlist', $wishExist);
-            return redirect()->back()->with('message', 'Wished successfully');
+            Toastr::success('Wished successfully', 'success');
+            return redirect()->back();
         } else {
             $updatedWish = session()->get('wishlist');
             unset($updatedWish[$id]);
             session()->put('wishlist', $updatedWish);
-            return redirect()->back()->with('message', 'successfullay remove Item');
+            Toastr::warning('successfullay remove Item');
+            return redirect()->back();
         }
 
         return redirect()->back();
@@ -68,6 +72,7 @@ class wishListController extends Controller
     public function wishlistclear()
     {
         session()->forget('wishlist');
-        return redirect()->back()->with('message', 'clear successfully');
+        Toastr::warning('clear successfull');
+        return redirect()->back();
     }
 }
