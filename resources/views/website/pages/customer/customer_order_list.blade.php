@@ -1,8 +1,5 @@
 @extends('website.master')
 @section('content')
-
-
-
 <style>
     body {
         background: #eee

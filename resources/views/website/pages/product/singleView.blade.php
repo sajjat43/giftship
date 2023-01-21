@@ -81,54 +81,50 @@
 </style>
 
 
-<body>
-    <section class="container sproduct my-5 ">
-        <div class="row mt-5">
-            <div class="col-lg-5 col-md-12 col-12">
-                <img class="img-fluid w-100 pb-1" id="mainImg"
-                    src="{{ url('/uploads/uploads/product/', $product->image) }}" alt="">
 
-                <div class="small-img-group">
-                    <div class="small-img-col">
-                        <img src="{{ url('/uploads/uploads/product/', $product->image) }}" width="100%"
-                            class="small-img" alt="">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="{{ url('/uploads/uploads/product/', $product->image) }}" width="100%"
-                            class="small-img" alt="">
-                    </div>
-                    <div class="small-img-col">
-                        <img src="{{ url('/uploads/uploads/product/', $product->image) }}" width="100%"
-                            class="small-img" alt="">
-                    </div>
+<section class="container sproduct ">
+    <div class="row">
+        <div class="col-lg-5 col-md-12 col-12">
+            <img class="img-fluid w-100 pb-1" id="mainImg"
+                src="{{ url('/uploads/uploads/product/', $product->image) }}" alt="">
+
+            <div class="small-img-group">
+                <div class="small-img-col">
+                    <img src="{{ url('/uploads/uploads/product/', $product->image) }}" width="100%"
+                        class="small-img" alt="">
+                </div>
+                <div class="small-img-col">
+                    <img src="{{ url('/uploads/uploads/product/', $product->image) }}" width="100%"
+                        class="small-img" alt="">
+                </div>
+                <div class="small-img-col">
+                    <img src="{{ url('/uploads/uploads/product/', $product->image) }}" width="100%"
+                        class="small-img" alt="">
                 </div>
             </div>
-            <div class="col-lg-6 col-md-12 col-12">
-                <h6>product/single/view </h6>
-                <h5 class="py-4"> Available Quantity: <strong>{{$product->qty}}</strong></h5>
-                <h3 class="py-4">name: {{ $product->name }}</h3>
-                <h3 class="py-4">Subcategory: {{ $product->subcategory->subname }}</h3>
-                <h3 class="py-4">Brand: {{ $product->brand->Bname }}</h3>
-                <h2>Price: {{ $product->price }} BDT</h2>
-                
-                @if ($product->qty > 0)
-                <a class="buy-btn" type="button" href="{{ route('add.to.cart', $product->id) }}"> Add to
-                    Cart</a>
-                    
-                        <a class="wish-btn" href="{{ route('add.to.wishlist', $product->id) }}" type="button">add to wishlist
-                        </a>
-                        @else
-                            <h1 >Sorry Quantity not Abaliable</h1>
-                        
-                  @endif
-                <h4 class="mt-5 mb-5">product details</h4>
-                <span> {{ $product->description }}</span>
-
-
-            </div>
         </div>
+        <div class="col-lg-6 col-md-12 col-12">
+            <h6>product/single/view </h6>
+            <h5 class="py-4"> Available Quantity: <strong>{{$product->qty}}</strong></h5>
+            <h3 class="py-4">name: {{ $product->name }}</h3>
+            <h3 class="py-4">Subcategory: {{ $product->subcategory->subname }}</h3>
+            <h3 class="py-4">Brand: {{ $product->brand->Bname }}</h3>
+            <h2>Price: {{ $product->price }} BDT</h2>
+            
+            @if ($product->qty > 0)
+            <a class="buy-btn" type="button" href="{{ route('add.to.cart', $product->id) }}"> Add to
+                Cart</a>
+                    <a class="wish-btn" href="{{ route('add.to.wishlist', $product->id) }}" type="button">add to wishlist
+                    </a>
+                    @else
+                        <h1 >Sorry Quantity not Abaliable</h1>
+              @endif
+            <h4 class="mt-5 mb-5">product details</h4>
+            <span> {{ $product->description }}</span>
+        </div>
+    </div>
 
-    </section>
+</section>
     <script>
         var mainImg = document.getElementById('mainImg');
             var smallimg = document.getElementsByClassName('small-img');
@@ -142,5 +138,5 @@
                 mainImg.src = smallimg[2].src;
             }
     </script>
-</body>
+
     @endsection

@@ -33,7 +33,7 @@
     {!! session('error') !!}
 </div>
 @endif
-{{-- <a href="{{ route('create.pdf') }}" class="btn btn-success">PDF</a> --}}
+
 <div class="container">
     <a class="nav-link btn btn-success" href="{{ route('order.customer') }}">Back
     </a>
