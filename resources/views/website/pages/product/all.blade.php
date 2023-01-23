@@ -191,6 +191,9 @@ a.single_view {
     background-color: transparent;
     border: 1px solid rgb(34, 34, 34);
 }
+.row.special-list {
+    margin-left: 20px;
+}
 </style>
 {{-- ----------------product------------ --}}
 
