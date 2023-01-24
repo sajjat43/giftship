@@ -15,7 +15,7 @@
                 <div class="p-3 bg-white rounded">
                     <div class="row">
                         <div class="col-md-6">
-                            {{-- <h3 class="text-uppercase">{{ $request->user->name }}</h3> --}}
+                            
         
                         </div>
                     </div>
@@ -32,7 +32,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    {{-- @dd($request) --}}
+                                 
                                     @foreach ($newOrder->RequestDetails as  $request)
                                     <tr>
                                         <td>{{ $request->product->name }}</td>
@@ -66,7 +66,7 @@
                     </div>
                     <div class="text-right mb-3">
                         <h5>You want more shoping 
-                        <a href="{{route('manage.home')}}" style="pading:10px; border:1px solid black; border-radius: 4px;background-color: yellow;
+                        <a href="{{route('manage.home')}}" style="pading:10px; border:1px solid black; border-radius: 4px;background-color: rgb(4, 255, 0);
                         text-decoration: none;" type="button">Click here </a></h5>
                             
                     </div>
