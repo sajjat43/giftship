@@ -63,7 +63,7 @@
             <table class="table">
                 <thead>
                     <tr>
-                        {{-- <th scope="col">#</th> --}}
+                    
                         <th scope="col">Product Name</th>
                         <th scope="col">Price</th>
                         <th scope="col">Action</th>
@@ -76,7 +76,7 @@
 
                     @foreach ($wishList as $key => $item)
                     <tr>
-                        {{-- <th scope="row">{{ $item['id'] }}</th> --}}
+                      
                         <td>{{ $item['product_name'] }}</td>
                         <td>{{ $item['product_price'] }}</td>
                         <td>
@@ -100,7 +100,7 @@
             @endif
         </div>
 
-        {{-- <a href="{{ route('check.out') }}" class="btn btn-success ">Buy Now</a> --}}
+   
        
     </div>
 

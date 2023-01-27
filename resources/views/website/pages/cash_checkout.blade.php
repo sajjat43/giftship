@@ -71,7 +71,6 @@
                     <div class="row">
                         <div class="col-md-6 form-group">
                             <div class="container">
-
                                 
                                     <form action="{{ route('check.out') }}" method="POST"
                                         enctype="multipart/form-data">
@@ -88,8 +87,6 @@
                                                 placeholder="Enter email">
                                            
                                         </div>
-
-
                                         <div class="form-group">
                                             <label for="exampleInputPassword1">Mobile</label>
                                             <input type="number" class="form-control" id="exampleInputPassword1"
