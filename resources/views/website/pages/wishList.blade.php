@@ -99,8 +99,6 @@
             <a href="{{ route('clear.wishlist') }}" class="btn btn-danger clear">Clear</a>
             @endif
         </div>
-
-   
        
     </div>
 

@@ -12,10 +12,10 @@ class wishListController extends Controller
 
     public function wishListView()
     {
-        // $product = Product::find($id);
+     
         $wishList = session()->get('wishlist');
         
-        // dd($carts);
+       
        
         return view('website.pages.wishList', compact('wishList'));
     }
