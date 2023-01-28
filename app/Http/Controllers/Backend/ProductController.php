@@ -55,7 +55,7 @@ class ProductController extends Controller
             $image_name = date('Ymdhis') . '.' . $request->file('image')->getClientOriginalExtension();
             $request->file('image')->storeAs('/uploads/product', $image_name);
         }
-        // dd($request->all());
+       
         $request->validate([
 
             'name' => 'required',
@@ -192,7 +192,7 @@ class ProductController extends Controller
     public function productSearchView()
     {
         $key = null;
-        // dd(request()->search);
+     
         if (request()->search) {
             $key = request()->search;
             $product = Product::where('name', 'LIKE', '%' . $key . '%')
@@ -264,7 +264,7 @@ class ProductController extends Controller
                     'quantity' => $cart['product_qty'],
                     'price' =>$cart['product_price'],
                     'sub_total' => $cart['product_price'] * $cart['product_qty'],
-                    // 'total_price' => $total += $cart['product_price'] * $cart['product_qty'],
+                 
                 ]);
                 $product = Product::find($key);
                 $product->decrement('qty', $cart['product_qty']);
@@ -330,7 +330,7 @@ public function cash_checkOut_form(){
     public function product_single_view($id)
     {
         $product = Product::find($id);
-        // dd($product);
+      
         return view('website.pages.product.singleView', compact('product'));
     }
 
