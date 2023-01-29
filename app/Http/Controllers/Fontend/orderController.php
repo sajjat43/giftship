@@ -23,6 +23,7 @@ class orderController extends Controller
         
         return view('website.pages.customer.order_details', compact('request'));
     }
+    // order cancel 
     public function order_cancle($id){
         $orderCancle=Order::find($id);
         $orderCancle->update([
