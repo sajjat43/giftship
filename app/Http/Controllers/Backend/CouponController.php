@@ -26,7 +26,7 @@ class CouponController extends Controller
             'value' => $request->value,
         ]);
         Toastr::success('coupun create successfully', 'success');
-        return redirect()->back();
+        return redirect()->route('coupon.list');
     }
     public function couponList(){
         $coupon=Coupon::all();
