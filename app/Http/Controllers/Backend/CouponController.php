@@ -51,6 +51,7 @@ class CouponController extends Controller
       Coupon::find($id)->update([
         'code' => $request->code,
         'expiry_date' => $request->expiry_date,
+        'coupon_limit'=>$request->coupon_limit,
         'value' => $request->value,
     ]);
     Toastr::success('Coupon update successfully', 'success');

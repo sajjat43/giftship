@@ -34,6 +34,10 @@
         <label for="">Expiry Date</label>
         <input type="date" class="form-control" id="expiry_date" name="expiry_date" value="{{$coupon->expiry_date}}" >
     </div>
+    <div class="form-group">
+        <label for="">Coupon Limit</label>
+        <input type="number" class="form-control" id="coupon_limit" name="coupon_limit" value="{{$coupon->coupon_limit}}" >
+    </div>
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

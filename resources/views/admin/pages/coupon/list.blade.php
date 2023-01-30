@@ -27,6 +27,7 @@
             <th scope="col">Coupons Code</th>
             <th scope="col">Expairy Date</th>
             <th scope="col">Taka</th>
+            <th scope="col">Coupon Limit</th>
             <th scope="col">Action</th>
         </tr>
     </thead>
@@ -37,6 +38,7 @@
             <td>{{ $data->code }} </td>
             <td>{{ $data->expiry_date }} </td>
             <td>{{ $data->value }} </td>
+            <td>{{$data->coupon_limit}}</td>
             <td>
                 <a href="{{route('coupon.delete',$data->id)}}" class="btn btn-info"><i class="fa-solid fa-trash-can"></i></a>
                 <a href="{{ route('coupon.update.form', $data->id) }}" class="btn btn-info"><i
