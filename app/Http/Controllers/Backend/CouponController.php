@@ -96,8 +96,8 @@ else{
     }
 
     public function deleteCoupon(){  
-  //     $limit=$coupon->coupon_limit-1;
-  // coupon::find($coupon->id)->update([
+  //     $limit=coupon::where('coupon_id',$id)->get;
+  // coupon::find($id)->update([
   //   'coupon_limit'=>$limit,
   // ]);
       session()->forget('coupon');

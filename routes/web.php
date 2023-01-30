@@ -155,7 +155,7 @@ Route::post('stripe', [StripePaymentController::class, 'stripePost'])->name('str
 
     // coupon -------start 
     Route::post('coupon/apply',[CouponController::class, 'couponApply'])->name('coupon.apply');
-    route::get('delete/coupon/{id}',[CouponController::class,'deleteCoupon'])->name('delete.coupon');
+    route::get('delete/coupon',[CouponController::class,'deleteCoupon'])->name('delete.coupon');
     // coupon -------end 
 
 });
