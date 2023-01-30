@@ -34,6 +34,11 @@
         <label for="">Expiry Date</label>
         <input type="date" class="form-control" id="expiry_date" name="expiry_date" >
     </div>
+    <div class="form-group">
+        <label for="">User Limit </label>
+        <input type="number" class="form-control" id="coupon_limit" name="coupon_limit" placeholder="Give the number of usages Limit">
+    </div>
+
 
     <button type="submit" class="btn btn-primary">Submit</button>
 </form>

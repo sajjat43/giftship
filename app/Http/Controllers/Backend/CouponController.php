@@ -22,6 +22,7 @@ class CouponController extends Controller
 
             'code' => $request->code,
             'expiry_date' => $request->expiry_date,
+            'coupon_limit'=>$request->coupon_limit,
             'value' => $request->value,
         ]);
         Toastr::success('coupun create successfully', 'success');
