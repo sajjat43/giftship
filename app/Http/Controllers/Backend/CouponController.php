@@ -63,8 +63,10 @@ class CouponController extends Controller
 
 
     public function couponApply(Request $request){
+      
     $coupon=Coupon::where('code',$request->coupon_code)->first();
-    
+// dd($coupon->id);
+
     $coupons=Coupon::where('code',$request->coupon_code)->where('expiry_date','>=',Carbon::today())->first();
     $carts = session()->get('cart');
   
@@ -78,6 +80,10 @@ class CouponController extends Controller
     return redirect()->back();
 }
 else{
+  $limit=$coupon->coupon_limit-1;
+  coupon::find($coupon->id)->update([
+    'coupon_limit'=>$limit,
+  ]);
   session()->put('coupon',[
     'name'=>$coupon->code,
     'discount'=>$coupon->value,
@@ -90,6 +96,10 @@ else{
     }
 
     public function deleteCoupon(){  
+  //     $limit=$coupon->coupon_limit-1;
+  // coupon::find($coupon->id)->update([
+  //   'coupon_limit'=>$limit,
+  // ]);
       session()->forget('coupon');
       Toastr::warning('You removed discount Coupon', 'warning');
       return redirect()->back();
