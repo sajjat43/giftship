@@ -22,6 +22,7 @@
     <a class="btn btn-success" href="{{route('coupon.from')}}">Create coupon</a>
     <h1 class="text-center py-3">All Discount Coupons</h1>
     <thead>
+        
         <tr>
             <th scope="col">ID</th>
             <th scope="col">Coupons Code</th>
