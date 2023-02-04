@@ -7,7 +7,6 @@
         flex-direction: row;
         justify-content: space-between;
     }
-
     .small-img-col {
         flex-basis: 24%;
         cursor: pointer;

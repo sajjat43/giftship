@@ -39,7 +39,7 @@ class StripePaymentController extends Controller
         try{
             $order = order::create([
                 'user_id' => auth()->user()->id,
-                
+                'tran_id'=>$request->stripeToken,
                 'discount' =>(session()->get('coupon')['discount']),
                 'payment_method'=>'strip',
                 'name' => auth()->user()->name,
@@ -53,7 +53,7 @@ class StripePaymentController extends Controller
     }catch (\Throwable $th){
         $order = order::create([
             'user_id' => auth()->user()->id,
-           
+            'tran_id'=>$request->stripeToken,
             'payment_method'=>'Strip',
             'name' => auth()->user()->name,
                 'email' =>auth()->user()->email,
@@ -77,7 +77,7 @@ class StripePaymentController extends Controller
                         'user_id' => auth()->user()->id,
                         'order_id'=>$order->id,
                         'request_id' => $request->id,
-                       
+                        'tran_id'=>$request->stripeToken,
                         'product_id' => $cart['product_id'],
                         'quantity' => $cart['product_qty'],
                         'price' =>$cart['product_price'],
