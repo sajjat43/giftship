@@ -44,7 +44,7 @@ class SslCommerzPaymentController extends Controller
          # You cant not pay less than 10
         $post_data['currency'] = "BDT";
         $post_data['tran_id'] = uniqid(); // tran_id must be unique
-        // dd($post_data);
+       
         # CUSTOMER INFORMATION
         $post_data['cus_name'] = $request->name;
         $post_data['cus_email'] = $request->email;
