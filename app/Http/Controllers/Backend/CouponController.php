@@ -65,7 +65,7 @@ class CouponController extends Controller
     public function couponApply(Request $request){
       
     $coupon=Coupon::where('code',$request->coupon_code)->first();
-// dd($coupon->id);
+
 
     $coupons=Coupon::where('code',$request->coupon_code)->where('expiry_date','>=',Carbon::today())->first();
     $carts = session()->get('cart');
