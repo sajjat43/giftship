@@ -7,19 +7,7 @@
         <button class="navbar-toggler navbar-toggler align-self-center" type="button" data-toggle="minimize">
             <span class="icon-menu"></span>
         </button>
-        {{-- <ul class="navbar-nav mr-lg-2">
-            <li class="nav-item nav-search d-none d-lg-block">
-                <div class="input-group">
-                    <div class="input-group-prepend">
-                        <span class="input-group-text" id="search">
-                            <i class="icon-search"></i>
-                        </span>
-                    </div>
-                    <input type="text" class="form-control" placeholder="Search Projects.." aria-label="search"
-                        aria-describedby="search">
-                </div>
-            </li>
-        </ul> --}}
+        
         <ul class="navbar-nav navbar-nav-right">
             {{-- <li class="nav-item dropdown d-lg-flex d-none">
                 <a href=""><button type="button" class="btn btn-info font-weight-bold">pending Oder</button></a>
