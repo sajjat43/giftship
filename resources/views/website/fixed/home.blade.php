@@ -466,7 +466,7 @@
 }
 .main-product-section:hover .main-product{
     opacity: 1;
-    /* transition-delay:2s; */
+  
 }
 
 
@@ -582,18 +582,7 @@ a.single_view {
                             <div class="why-text detailscart">
                                 <h4>Name: {{ $product->name }}</h4>
                                 <h5>BDT: {{ $product->price }}</h5>
-                                {{-- <h5> {{ $product->description }}</h5> --}}
-                                {{-- @if ($product->qty > 0)
-                                <div class="container">
-                                    <a href="{{ route('add.to.cart', $product->id) }}" class="btn btn-primary">add
-                                        cart</a>
-                                    <a class="addwish" href="{{ route('add.to.wishlist', $product->id) }}"
-                                        type="button"><i class="far fa-heart"></i>
-                                        <h5 class="wish">Add to wishlist</h5>
-                                    </a>
-                                </div>
                                 
-                                @endif --}}
                                 @if ($product->qty > 0)
                                 <div class="container main-product">
                                     
@@ -607,7 +596,7 @@ a.single_view {
                                    <div class="wish_link">
                                     <a class="wishlist text" href="{{ route('add.to.wishlist', $product->id) }}"
                                         type="button"><i class="far fa-heart"></i>
-                                        {{-- <h5 class="wish">Add to wishlist</h5> --}}
+
                                     </a>    
                                    </div>
                                 </div>
