@@ -117,12 +117,12 @@
                                         <li><a href="#">Pages</a>
                                             <ul class="submenu">
                                                 <li><a href="{{ route('website.user.login') }}">Login</a></li>
-                                                {{-- <li><a href="">Card</a></li> --}}
+                                              
                                                 <li><a href="{{ route('featured.product') }}">Featured</a></li>
                                                 <li><a href="">About</a></li>
-                                                {{-- <li><a href="confirmation.html">Confirmation</a></li> --}}
+                                                
                                                 <li><a href="{{ route('cart.view') }}">Shopping Cart</a></li>
-                                                {{-- <li><a href="">Product Checkout</a></li> --}}
+                                               
                                             </ul>
                                         </li>
                                         <li><a href="">Contact</a></li>
@@ -168,8 +168,6 @@
                                     </div>
 
                                 </li>
-
-                             
 
                         <div class="col-12">
                             <div class="mobile_menu d-block d-lg-none"></div>
