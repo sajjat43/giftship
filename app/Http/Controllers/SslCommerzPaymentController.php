@@ -3,16 +3,17 @@
 namespace App\Http\Controllers;
 
 use App\Models\order;
+use App\Models\Coupon;
 use App\Models\Product;
+use Twilio\Rest\Client;
 use Illuminate\Support\Str;
 use Illuminate\Http\Request;
 use App\Models\RequestDetails;
 use App\Models\RequestProduct;
+use PhpParser\Node\Stmt\TryCatch;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Mail;
 use App\Library\SslCommerz\SslCommerzNotification;
-use App\Models\Coupon;
-use PhpParser\Node\Stmt\TryCatch;
 
 class SslCommerzPaymentController extends Controller
 {
@@ -151,7 +152,22 @@ try{
                 $message->to(auth()->user()->email);
                 $message->subject('order confirm'); 
             });
-
+            // whats app 
+            $order = Order::where('id',$order->id)->with('RequestDetails','RequestDetails.product')->first(); // retrieve order details from database
+            $whatsapp_number = 'whatsapp:' . env('TWILIO_WHATSAPP_NUMBER');
+            $twilio_client = new \Twilio\Rest\Client(env('TWILIO_ACCOUNT_SID'), env('TWILIO_AUTH_TOKEN'));
+            
+            $message = "Order #" . $order->id . " details:\n";
+           
+            $message .= "Total: " . $order->total . "\n";
+            
+            $message = $twilio_client->messages
+                            ->create($whatsapp_number,
+                                    array(
+                                        "from" => 'whatsapp:' . env('TWILIO_WHATSAPP_FROM'),
+                                        "body" => $message
+                                    )
+                            );
             if($session=session()->has('coupon')){
                 $session=session()->get('coupon')['name'];
             // dd($session);
